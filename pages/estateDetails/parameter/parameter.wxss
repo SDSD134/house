@@ -1,0 +1,99 @@
+.information-first{
+  background-color: white;
+  height:230px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.basic{
+  height:230px;
+  width:90%;
+}
+.basic-title{
+  font-size:35rpx;
+  font-weight: 700;
+  display:flex;
+  align-items:center;
+  height:60px;
+  color:black;
+}
+
+.information-second{
+  background-color: white;
+  height:190px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.show{
+  height:190px;
+  width:90%;
+}
+.show-title{
+  font-size:35rpx;
+  display:flex;
+  align-items:center;
+  height:60px;
+  color:black;
+}
+
+.information-third{
+  background-color: white;
+  height:300px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.plan{
+  height:300px;
+  width:90%;
+}
+.plan-title{
+  font-size:35rpx;
+  display:flex;
+  align-items:center;
+  height:60px;
+  color:black;
+}
+
+.information-fourth{
+  background-color: white;
+  height:100px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.around{
+  height:100px;
+  width:90%;
+}
+.around-title{
+  font-size:35rpx;
+  display:flex;
+  align-items:center;
+  height:60px;
+  color:black;
+}
+.information-fifth{
+  background-color: white;
+  height:380px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.item{
+  height:380px;
+  width:90%;
+}
+.item-title{
+  font-size:35rpx;
+  display:flex;
+  align-items:center;
+  height:60px;
+  color:black;
+}

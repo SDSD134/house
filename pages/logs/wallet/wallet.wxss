@@ -1,0 +1,34 @@
+/* pages/logs/wallet/wallet.wxss */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.wallet{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wallet-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.wallet-nickname {
+  color:black;
+  font-size:40px;
+}
+
+.prompt {
+  margin-top: 250px;
+}
+.detail{
+  color:blue;
+}

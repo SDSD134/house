@@ -1,0 +1,79 @@
+/* 选择 */
+#tabs{
+  font-size: 24rpx;
+   position:relative;    
+   top:10px;
+}
+.tabs-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center
+}
+.tabs-item.selected {
+    color:#FB7D07;
+    border-bottom:2rpx solid #F44F15;
+}
+.tabs-item {
+    width: 33.3%;
+    color:#666;
+    border-bottom:1rpx solid #e9e9e9;
+}
+/* 没有记录 */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.container image{
+  height:150px;
+  width:150px;
+}
+.container text{
+  font-size:15px;
+  color:#979797;
+}
+/* 返回首页 */
+.circle-float{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 200rpx;
+  right: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+  background: white;
+  
+}
+.circle-float image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+/* 邀请好友 */
+.oblong-float{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: #FD8E02;
+  z-index: 9999;
+}
+.invite{
+  font-size:20px;
+}

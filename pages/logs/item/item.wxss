@@ -1,0 +1,32 @@
+/* 没有记录 */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.container image{
+  height:150px;
+  width:150px;
+}
+.container-no{
+  position:relative;    
+  top:15px;
+  font-size:15px;
+  color:black;
+}
+.container-prompt{
+  position:relative;    
+  top:20px;
+  font-size:10px;
+  color:#979797;
+}
+/* 加入公司 */
+.join{
+  position:relative;    
+  top:25px;
+  color:blue;
+}

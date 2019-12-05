@@ -1,0 +1,15 @@
+<cu-custom bgColor="bg-gradual-orange" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">佣金方案</view>
+</cu-custom>
+<view class="plan margin-top">
+  <view class="plan-in">
+    <view class="plan-top">
+      <view class="plan-title">佣金方案</view>
+    </view>
+    <view class="plan-bottom">
+      <text class="plan-all">综合佣金:</text>
+      <text class="plan-money">6万/套-6.5万/套</text>
+    </view>
+  </view>
+</view>

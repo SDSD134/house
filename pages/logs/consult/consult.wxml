@@ -1,0 +1,21 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">咨询列表</view>
+</cu-custom>
+<!-- 搜索  -->
+    <view class="search">
+      <view class="search-in">
+         <image src="../../../image/search.png"></image>
+         <input class="input" placeholder="请输入姓名或电话号码"/>
+      </view>
+   </view>
+<!-- 判断--无数据 -->
+<view wx:if="{{diarylength==0}}">
+  <view class="container">
+      <image src="../../../image/00.jpg"> </image>
+      <text>还没有记录哦！</text>
+   </view>
+</view>
+<!-- 判断--有数据 -->
+<view wx:else>
+</view>

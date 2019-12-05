@@ -1,0 +1,94 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">代理公司</view>
+</cu-custom>
+
+ <view class="list-all">
+    <view class="list">
+        <image src="../../image/28.jpg"/>
+        <view class="list-right">
+          <view class="title">嘉兴双薪法国地产有限公司（嘉兴天下）</view>
+          <view class="list-right-in">
+              <view class="mark" bindtap='mark'>去评分</view>
+              <view class="attestation" bindtap='attestation'>我要认证</view>
+              <view class="list-img">
+                <image src="../../image/share.png"></image>
+              </view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class="mark-all">
+    <view class="mark-in">
+      <view class="mark-title">总体评分</view>
+      <view class="garde-all">
+        <view class="garde-left">
+          <view class="garde"></view>
+          <view class="star"></view>
+        </view>
+        <view class="garde-right">
+          <view class="star-right"></view>
+          <view class="comment"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="impress-all">
+    <view  class="impress-in">
+      <text>企业印象：</text>
+      <view class="cu-tag round bg-orange light">非常靠谱</view>
+      <view class="cu-tag round bg-orange light">说到做到</view>
+    </view>
+  </view>
+<!-- 在售楼盘 -->
+<view class="cu-list margin-top menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">在售楼盘</text>
+      </view>
+  </view>
+</view>
+<!-- 滚动 -->
+   <scroll-view scroll-x class="scroll-header">
+      <view class="scroll-header-in" wx:for="{{brand}}" wx:key="{{index}}">
+        <view class="scroll-header-all">
+            <view class="scroll-header-image">
+              <image src="{{item.img}}"></image>
+            </view>
+            <view class="scroll-header-title">{{item.title}}</view>
+            <view class="scroll-header-price">{{item.price}}</view>
+            <view class="scroll-header-place">{{item.place}}</view>
+        </view>
+      </view>
+  </scroll-view>
+  <!-- 网友点评 -->
+  <view class="cu-list margin-top menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">网友点评</text>
+      </view>
+  </view>
+  <!-- 点评 -->
+  <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
+  <view class="trends" bindtap='comments'>
+    <view class="trends-left">
+      <image src="../../image/26.jpg"/>
+    </view>
+    <view class="trends-right">
+      <view class="trends-right-name">
+         <text>{{item.name}}</text>
+         <image src="../../image/shou.png" class="action-image"/>
+      </view>
+      <view class="trends-right-content">
+        {{item.content}}    
+      </view>
+      <view class="trends-right-time">
+        {{item.time}}
+        <view class="cu-tag round bg-olive light">回复</view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>

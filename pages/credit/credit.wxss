@@ -1,0 +1,178 @@
+/* 我要举报 */
+.oblong-float{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+  z-index: 9999;
+  border-radius:10px;
+}
+.oblong-float-in{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:90%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background-color: #DD4F43;
+   border-radius:10px;
+}
+.invite{
+  font-size:20px;
+}
+/* 开头背景 */
+.container {
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90rpx 0 0rpx 0;
+  box-sizing: border-box;
+  background-color: #2F74FB;
+} 
+.container image{
+  height:120px;
+  width:200px;
+}
+.container text{
+  font-size:15px;
+  color:white;
+  position:relative;    
+  top:5px;
+}
+/* 搜索 */
+.search{
+  width: 100%;
+ 
+}
+
+  /* 最近查询 */
+  .near{
+    height:50px;
+    width:100%;
+    background-color:white;
+    display: flex;
+    align-items: center; 
+    justify-content:space-between;
+  }
+  .near-left{
+    color:#0489F4;
+    font-size:30rpx;
+    position:relative;    
+    left:15px;
+  }
+   .near-left image{
+    height:15px;
+    width:15px;
+  }
+  .near-right .look{
+    color:black;
+  }
+  .near-right{
+    position:relative;    
+   right:20px;
+
+  }
+  .near-right text{
+    color:#0489F4;
+    font-size:30rpx;
+  }
+  /* 最新举报 */
+  .report{
+    height:50px;
+    width:100%;
+    display: flex;
+    align-items: center; 
+    justify-content:space-between;
+    background-color:white;
+  }
+ .report-left{
+    color:black;
+    font-size:35rpx;
+    position:relative;    
+    left:15px;
+ }
+ .report-right{
+   position:relative;    
+   right:15px;
+   color:#0489F4;
+  }
+  .report-right image{
+    height:15px;
+    width:15px;
+  }
+  /* 分割线 */
+
+.divLine{
+ position:relative;
+ top:1px;    
+ background: #979797;
+ width: 100%;
+ height: 1rpx;
+}
+.list-all{
+  display:flex;
+  align-items: center; 
+  justify-content:center;
+  height:120px;
+  width:100%;
+  background-color:white;
+}
+.list{
+  height:120px;
+  width:90%;
+  
+}
+.list-first{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items: center; 
+  justify-content:space-between;
+}
+.list-first-left{
+  font-size:35rpx;
+  color:black;
+}
+.list-first-right{
+  font-size:25rpx;
+  color:red;
+}
+.list-second{
+  height:20px;
+  width:100%;
+  display:flex;
+  align-items: center; 
+  color:#979797;
+}
+.list-second image{
+  width:15px;
+  height:15px;
+}
+.list-third{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items: center; 
+}
+.list-fourth{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items: center; 
+  justify-content:space-between;
+  color:#979797;
+}
+.kong{
+  width:100%;
+  height:100px;
+  background-color:white;
+}

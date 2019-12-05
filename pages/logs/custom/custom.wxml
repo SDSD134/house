@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+</cu-custom>
+ <!-- 搜索  -->
+    <view class="search">
+      <view class="search-in">
+         <image src="../../../image/search.png"></image>
+         <input class="input" placeholder="请输入项目名称或公司名"/>
+      </view>
+   </view>
+<!-- 选择 -->
+<view id='tabs'>
+  <view class='tabs-box'>
+    <block wx:for="{{['全部','今日','昨日','本周','本月']}}" wx:key="index">
+      <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+        {{item}}      
+      </view>
+    </block>
+  </view>
+<!-- 滚动选择 -->
+ <scroll-view scroll-x class="scroll-header">
+    <block wx:for="{{typelist}}" wx:for-item="item" >
+      <view bindtap='change' data-type="{{item.type}}">  
+        <view id="name">
+          <text>{{item.type}}({{item.number}})</text>
+        </view> 
+      </view>
+    </block>
+ </scroll-view>
+
+<!-- 选择对应页面 -->
+  <view class='ordert-detail'>
+    <view hidden='{{currentTabIndex != 0}}'>页面1</view>
+    <view hidden='{{currentTabIndex != 1}}'>页面2</view>
+    <view hidden='{{currentTabIndex != 2}}'>页面3</view>
+    <view hidden='{{currentTabIndex != 3}}'>页面4</view>
+    <view hidden='{{currentTabIndex != 4}}'>页面5</view>
+  </view>
+</view>
+<!-- 返回首页 -->
+<navigator url="../../index/index">
+    <view class="circle-float">
+      <image src="../../../image/write.png"/>
+    </view>
+</navigator>

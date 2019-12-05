@@ -1,0 +1,243 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">发布</view>
+</cu-custom>
+
+<form>
+	<view class="cu-form-group">
+		<view class="title">新房名称</view>
+		<input placeholder="请填写新房名称/必填"></input>
+	</view>
+
+  <view class="cu-form-group margin-top">
+		<view class="title">分销类型</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'分销项目'}}
+			</view>
+		</picker>
+	</view>
+
+  <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			新房展示图（1张）
+		</view>
+		<!-- <view class="action">
+			{{imgList.length}}/4
+		</view> -->
+	</view>
+  <view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+  <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			房间详情图（最多9张）
+		</view>
+		<view class="action">
+			{{imgListMore.length}}/9
+		</view>
+	</view>
+  <view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgListMore}}" wx:key="{{index}}" bindtap="ViewImageMore" data-url="{{imgListMore[index]}}">
+				<image src='{{imgListMore[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImgMore" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImageMore" wx:if="{{imgListMore.length<9}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+
+  <view class="cu-form-group">
+		<view class="title">所在区域</view>
+		<picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+			<view class="picker">
+				{{region[0]}}，{{region[1]}}，{{region[2]}}
+			</view>
+		</picker>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">新房地址</view>
+		<input placeholder="请填写新房地址/必填"></input>
+	</view>
+  
+  <view class="cu-form-group margin-top">
+		<view class="title">开发商</view>
+		<picker bindchange="PickerChangeOne" value="{{indexOne}}" range="{{pickerOne}}">
+			<view class="picker">
+				{{indexOne?pickerOne[indexOne]:'分销项目'}}
+			</view>
+		</picker>
+	</view>
+   
+  <view class="cu-form-group margin-top">
+		<view class="title">总代公司</view>
+		<picker bindchange="PickerChangeTwo" value="{{indexTwo}}" range="{{pickerTwo}}">
+			<view class="picker">
+				{{indexTwo?pickerTwo[indexTwo]:'分销项目'}}
+			</view>
+		</picker>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">开始时间</view>
+		<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+  
+  <view class="cu-form-group">
+		<view class="title">结束时间</view>
+		<picker mode="date" value="{{dateOne}}" start="2015-09-01" end="2020-09-01" bindchange="DateChangeOne">
+			<view class="picker">
+				{{dateOne}}
+			</view>
+		</picker>
+	</view>
+ 
+ <view class="cu-form-group">
+		<view class="title">均价</view>
+		<input placeholder="请填写均价"></input>元/m^2
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">总价</view>
+		<input placeholder="请填写总价"></input>万元
+	</view>
+  
+  <view class="cu-form-group">
+		<view class="title">交房时间</view>
+		<picker mode="date" value="{{dateTwo}}" start="2015-09-01" end="2020-09-01" bindchange="DateChangeTwo">
+			<view class="picker">
+				{{dateTwo}}
+			</view>
+		</picker>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">产权年限</view>
+		<input placeholder="请填写产权年限"></input>
+	</view>
+
+  <view class="cu-form-group margin-top">
+		<view class="title">物业类型</view>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">别墅</view>
+		<checkbox></checkbox>
+    <view class="title">商业别墅</view>
+		<checkbox></checkbox>
+    <view class="title">住宅</view>
+		<checkbox></checkbox>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">酒店式公寓</view>
+		<checkbox></checkbox>
+    <view class="title">办公楼</view>
+		<checkbox></checkbox>
+    <view class="title">商场</view>
+		<checkbox></checkbox>
+	</view>
+
+  <view class="cu-form-group margin-top">
+		<view class="title">楼盘标签</view>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">普通住宅</view>
+		<checkbox></checkbox>
+    <view class="title">公寓</view>
+		<checkbox></checkbox>
+    <view class="title">别墅</view>
+		<checkbox></checkbox>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">花园洋房</view>
+		<checkbox></checkbox>
+    <view class="title">品牌地产</view>
+		<checkbox></checkbox>
+    <view class="title">联排</view>
+		<checkbox></checkbox>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">叠拼</view>
+		<checkbox></checkbox>
+    <view class="title">期房</view>
+		<checkbox></checkbox>
+    <view class="title">电梯房</view>
+		<checkbox></checkbox>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">刚需婚房</view>
+		<checkbox></checkbox>
+    <view class="title">南北通透</view>
+		<checkbox></checkbox>
+    <view class="title">改善置换</view>
+		<checkbox></checkbox>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">低密度</view>
+		<checkbox></checkbox>
+    <view class="title">小户型</view>
+		<checkbox></checkbox>
+    <view class="title">大户型</view>
+		<checkbox></checkbox>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">内环以内</view>
+		<checkbox></checkbox>
+    <view class="title">中内环间</view>
+		<checkbox></checkbox>
+    <view class="title">外中环间</view>
+		<checkbox></checkbox>
+	</view>
+  
+  <view class="cu-form-group align-start">
+		<view class="title">户型面积说明</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写户型面积说名"></textarea>
+	</view>
+
+  <view class="cu-form-group align-start">
+		<view class="title">项目特色</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请填写项目特色/必填"></textarea>
+	</view>
+
+ <view class="cu-form-group margin-top">
+		<view class="title">项目状态</view>
+		<picker bindchange="PickerChangeThree" value="{{indexThree}}" range="{{pickerThree}}">
+			<view class="picker">
+				{{indexThree?pickerThree[indexThree]:'在售'}}
+			</view>
+		</picker>
+	</view>
+
+  <view class="cu-form-group margin-top">
+		<view class="title">是否对外展示</view>
+		<switch></switch>
+	</view>
+
+  <view>
+  <button type="primary" form-type="submit" class='btn'>
+  <image class='btnImg' src='../../image/00.gif'></image>
+  <view>发布</view>
+  </button>
+  </view>
+  
+</form>

@@ -1,0 +1,56 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">公司列表</view>
+</cu-custom>
+<!-- 选择 -->
+<view id='tabs'>
+  <view class='tabs-box'>
+    <picker id="tabs-all" mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <text >{{region[2]}}</text>
+      <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
+    </picker>
+    <block wx:for="{{['代理公司','分销公司','开发商','经纪人']}}" wx:key="index">
+      <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+        {{item}}      
+      </view>
+    </block>
+  </view>
+ <!-- 搜索  -->
+    <view class="search">
+      <view class="search-in">
+         <image src="../../image/search.png"></image>
+         <input class="input" placeholder="请输入项目名称或公司名"/>
+      </view>
+   </view>
+
+<!-- 选择对应页面 -->
+  <view class='ordert-detail'>
+    <view hidden='{{currentTabIndex != 0}}'>
+      <view wx:for="{{list}}" wx:key="{{index}}">
+        <view class="list-all" catchtap='factoryDetails'>
+          <view class="list">
+            <image src="{{item.imgArr}}"/>
+            <view class="list-right">
+                <view class="title">{{item.title}}</view>
+                <text class="list-right-text">在售楼盘{{item.number}}个</text>
+                <view class="list-right-in">
+                  <view>
+                    <image src="../../image/shou1.png"></image>
+                    {{item.score}}
+                  </view>
+                  <view> 
+                    <image src="../../image/watch.png"></image>
+                    {{item.person}}
+                  </view>
+                </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden='{{currentTabIndex != 1}}'>页面2</view>
+    <view hidden='{{currentTabIndex != 2}}'>页面3</view>
+    <view hidden='{{currentTabIndex != 3}}'>页面4</view>
+  </view>
+</view>
+<!-- 弹框 -->
+<include src="../../wxPopView/wxPopview.wxml" />

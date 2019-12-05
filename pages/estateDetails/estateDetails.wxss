@@ -1,0 +1,297 @@
+.page {
+  height: 100Vh;
+  width: 100vw;
+}
+
+.page.show {
+  overflow: hidden;
+}
+
+.switch-sex::after {
+  content: "\e716";
+}
+
+.switch-sex::before {
+  content: "\e7a9";
+}
+
+.switch-music::after {
+  content: "\e66a";
+}
+
+.switch-music::before {
+  content: "\e6db";
+}
+/* 收藏图片 */
+.action-image{
+  height:20px;
+  width:20px;
+}
+.action-in{
+  width:32px;
+}
+.call-image{
+height:30px;
+  width:30px;
+}
+/* 选择 */
+#tabs{
+   font-size: 28rpx;
+   /* position:relative;    
+   top:30px; */
+   background-color: #FFFFFF;
+}
+.tabs-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center
+}
+.tabs-item.selected {
+    color:#0388F5;
+    border-bottom:2rpx solid #0388F5;
+}
+.tabs-item {
+    width: 33.3%;
+    color:#666;
+    border-bottom:1rpx solid #e9e9e9;
+}
+  /* 选择对应页面 */
+  .ordert-detail{
+   position:relative;    
+   top:10px;
+   height:120px;
+   width:100%;
+  }
+  /* 楼房列表 */
+.list-all{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:120px;
+  width:100%;
+  background-color:white;
+
+}
+.list-second{
+  height:100px;
+  width:90%;
+  display:flex;
+  
+}
+.list-second image{
+  height:100px;
+  width:35%;
+  
+}
+.list-right{
+  height:100px;
+  width:65%;
+}
+
+.title-all{
+  display:flex;
+  justify-content:space-between;
+
+}
+.title-logn{
+  position:relative;
+  top:2px;    
+  font-size:30rpx;
+  height:30px;
+  width:40px;
+  color:white;
+  background-color: #00C777;
+
+}
+.title{
+  position:relative;  
+  left:10px;
+  font-size:30rpx;
+  font-weight:600;
+}
+/* 收藏 */
+.collect image{
+  height:20px;
+  width:20px;
+
+}
+.list-right-text{
+  font-size:20rpx;
+  position:relative;
+  top:7px;    
+  left:10px;
+  justify-content:space-between;
+
+}
+.list-right-in{
+  position:relative;
+  top:14px;    
+  left:10px;
+  width:95%;
+  height: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#FF0000;
+
+}
+.list-right-last{
+  position:relative;
+  top:26px;    
+  left:10px;
+  height:20px;
+  width:32px;
+  border:1px;
+  border-style: solid;
+}
+
+/* 代理 */
+.agent-all{
+  height:20px;
+  width: 90%;
+  display:flex;
+  position:relative;
+  left:20px;   
+
+}
+.agent{
+  height:20px;
+  width: 90%;
+  background-color: #FFF7F1;
+  border-radius: 20rpx;
+  display:flex;
+  align-items:center;
+
+}
+.agent image{
+  position:relative;
+  left:8px; 
+}
+.agent text{
+  position:relative;
+  left:10px; 
+}
+/* 规则 */
+.rule{
+  background-color: white;
+  height:150px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.rule-in{
+  height:115px;
+  width:90%;
+}
+.rule-top{
+  height:60px;
+  width:100%;
+}
+.prompt{
+  font-size:20rpx;
+  display:flex;
+  align-items:center;
+  height:50px;
+  color:#F4BD00;
+  width:100%
+}
+/* 楼房买点 */
+.information-fifth{
+  background-color: white;
+  height:380px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.item{
+  height:380px;
+  width:90%;
+}
+.item-title{
+  font-size:30rpx;
+  display:flex;
+  align-items:center;
+  height:60px;
+  color:black;
+}
+/* 点评 */
+.trends-all{
+  background-color: white;
+  height:125px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.trends{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ height:125px;
+ width:90%;
+}
+.trends-left{
+  width:20%;
+  height:125px;
+  position:relative;    
+  top:10px;
+}
+
+.trends-left image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.trends-right{
+  width:80%;
+  height:125px;
+}
+.trends-right-name{
+  height:40px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  font-size:30rpx;
+  color:#979797;
+  justify-content:space-between;
+}
+.trends-right-content{
+  height:50px;
+  width:100%;
+  display:flex;
+  font-size:25rpx;
+  color:black;
+}
+.trends-right-time{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  font-size:20rpx;
+  color:#979797;
+}
+/* 提问 */
+.ask-all{
+  height:40px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:#FFFFFF;
+  color:#96A5AE;
+}
+.ask-go{
+  height:40px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#0388F5;
+  background-color:#FFFFFF;
+}

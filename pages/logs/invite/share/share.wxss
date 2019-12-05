@@ -1,0 +1,58 @@
+/* 分享轮播 */
+.cardSwiper {
+  height: 1100rpx !important;
+}
+
+swiper-item {
+  width: 610rpx !important;
+  left: 70rpx;
+  box-sizing: border-box;
+  padding: 40rpx 0rpx 70rpx;
+}
+
+.swiper-view {
+  width: 100%;
+  display: block;
+  height: 100%;
+  border-radius: 10rpx;
+  transform: scale(0.9);
+  transition: all 0.2s ease-in 0s;
+  overflow: hidden;
+  border: 1rpx solid #eee;
+}
+
+swiper-item.cur .swiper-view {
+  transform: none;
+  transition: all 0.2s ease-in 0s;
+}
+
+.swiper-view image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 10rpx;
+  pointer-events: none;
+}
+/* 分享按钮 */
+.oblong-float{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+}
+.oblong-float-in{
+  width:50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.oblong-float-in image{
+  height:20px;
+  width:20px;
+}

@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-gradual-orange" isBack="{{true}}">
+   <view slot="backText">返回</view>
+</cu-custom>
+<!-- 分享轮播 -->
+<swiper bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="white" indicator-active-color="#0081ff" class="cardSwiper">
+  <block wx:for="{{swiperList}}" wx:key="*this">
+    <swiper-item class="{{cardCur==index?'cur':''}}">
+      <view class="swiper-view">
+        <image src="{{item.url}}"></image>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 分享按钮 -->
+<navigator url="../invite/share/share">
+  <view class="oblong-float">
+      <view class="oblong-float-in">
+      <image src="../../../../image/write.png"/>
+      <text class="invite">分享给好友</text>
+      </view>
+      <view class="oblong-float-in">
+       <image src="../../../../image/write.png"/>
+      <text class="invite">生成海报</text>
+      </view>
+      
+  </view>
+ </navigator>

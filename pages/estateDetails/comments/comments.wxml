@@ -1,0 +1,40 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">网友点评</view>
+</cu-custom>
+<!-- 点评 -->
+  <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
+  <view class="trends">
+    <view class="trends-left">
+      <image src="../../../image/26.jpg"/>
+    </view>
+    <view class="trends-right">
+      <view class="trends-right-name">
+         <text>{{item.name}}</text>
+         <image src="../../../image/shou.png" class="action-image"/>
+      </view>
+      <view class="trends-right-content">
+        {{item.content}}    
+      </view>
+      <view class="trends-right-image">
+      <view wx:for="{{imageList}}" wx:key="{{key}}"class="img" >
+        <image src="{{item.img}}" class="img"/>
+      </view>
+      </view>
+      <view class="trends-right-time">
+        {{item.time}}
+        <view class="cu-tag round bg-olive light">回复</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="kong"></view>
+
+<!-- 去点评 -->
+<navigator url="../goComments/goComments">
+  <view class="oblong-float">
+    <view class="oblong-float-in">
+        <text class="invite">去点评</text>
+    </view>
+  </view>
+ </navigator>

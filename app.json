@@ -1,0 +1,80 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/logs/logs",
+    "pages/factory/factory",
+    "pages/search/search",
+    "pages/logs/collect/collect",
+    "pages/logs/wallet/wallet",
+    "pages/logs/wallet/detail/detail",
+    "pages/logs/invite/invite",
+    "pages/logs/invite/share/share",
+    "pages/logs/custom/custom",
+    "pages/logs/item/item",
+    "pages/logs/consult/consult",
+    "pages/logs/service/service",
+    "pages/credit/credit",
+    "pages/release/release",
+    "wxPopView/wxPopview",
+    "pages/phoneLogin/phoneLogin",
+    "pages/estateDetails/estateDetails",
+    "pages/estateDetails/calculator/calculator",
+    "pages/estateDetails/error/error",
+    "pages/estateDetails/plan/plan",
+    "pages/estateDetails/parameter/parameter",
+    "pages/estateDetails/trends/trends",
+    "pages/estateDetails/comments/comments",
+    "pages/estateDetails/goComments/goComments",
+    "pages/estateDetails/ask/ask",
+    "pages/estateDetails/goAsk/goAsk",
+    "pages/lead/lead",
+    "pages/lead/leadDetails/leadDetails",
+    "pages/factoryDetails/factoryDetails",
+    "pages/factoryDetails/mark/mark",
+    "pages/factoryDetails/attestation/attestation",
+    "pages/logs/vip/vip",
+    "pages/logs/status/status",
+    "pages/logs/set/set",
+    "pages/logs/set/phone/phone"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ColorUI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/shouye.png",
+        "selectedIconPath": "image/shouye.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "新房",
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home.png"
+      },
+      {
+        "pagePath": "pages/factory/factory",
+        "text": "公司",
+        "iconPath": "image/factory.png",
+        "selectedIconPath": "image/factory.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的",
+        "iconPath": "image/me.png",
+        "selectedIconPath": "image/me.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

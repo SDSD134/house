@@ -1,0 +1,20 @@
+<!-- 弹框 -->
+<cover-view class='mask' wx:if='{{!hide}}'>
+  <cover-view class='modal'>
+  <cover-view class="title-on">
+    <cover-view class='title-left' wx:if='{{title}}'>{{title}}</cover-view>
+    <cover-view class='cancel' bindtap='Cancel' wx:if='{{showCancel}}'>X</cover-view>
+  </cover-view>
+  <cover-view class="divLine"></cover-view>
+    <cover-view class='content-next'>{{content}}</cover-view>
+    <cover-view class='btns'>
+      <button  class='phone-number'open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if='{{showCancel}}'>
+      微信
+      </button>
+      <button wx:if="{{open_type == 'contact'}}" class='success' bindcontact='Success' open-type='{{open_type}}'>{{confirmText}}</button>
+      <button wx:elif="{{open_type == 'getUserInfo'}}" class='success' bindgetuserinfo='Success' open-type='{{open_type}}'>{{confirmText}}</button>
+      <button wx:elif="{{open_type == 'getPhoneNumber'}}" class='success' getPhoneNumber='Success' open-type='{{open_type}}'>{{confirmText}}</button>
+      <button wx:else class='success' bindtap='Success' open-type='{{open_type}}'>{{confirmText}}</button>
+    </cover-view>
+  </cover-view>
+</cover-view>

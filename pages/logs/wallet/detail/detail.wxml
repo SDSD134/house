@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+</cu-custom>
+<view class="container">
+  <view class="detail">
+      <image  class="detail-avatar" src="../../../../image/01.jpg" mode="cover"></image>
+      <text>钱包空空如也</text>
+      <text>邀请好友坐等返利</text>
+      <navigator url="">
+         <button class="detail-button">立即申请</button>
+      </navigator>
+  </view>
+</view>

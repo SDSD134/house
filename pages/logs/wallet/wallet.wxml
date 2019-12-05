@@ -1,0 +1,17 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">钱包</view></cu-custom>
+
+<view class="container">
+  <view class="wallet">
+      <image  class="wallet-avatar" src="../../../image/search.png" mode="cover"></image>
+      <text class="wallet-nickname">{{money}}</text>
+      <navigator url="../wallet/detail/detail">
+         <text class="detail">钱包明细</text> > 
+      </navigator>
+  </view>
+  <view class="prompt">
+    <view>提示说明：</view>
+    <view>1.满10.00元可提现</view>
+    <view>2.提现申请提交后，工作人员将在24小时内与您联系</view>
+  </view>
+</view>
+

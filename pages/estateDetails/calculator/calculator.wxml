@@ -1,0 +1,75 @@
+<cu-custom bgColor="bg-gradual-orange" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">房贷计算器</view>
+</cu-custom>
+<view class="calcuator bg-gradual-orange">
+<view class="calcuator-left">
+  <view class="calcuator-title">
+      <view class="calcuator-title-in">等额本息</view>
+  </view>
+  <view class="payment-more">
+      <view class="payment">参考月供(元)</view>
+  </view>
+  <view class="payment-more">
+      <view class="payment-money">0.00</view>
+  </view>
+  <view class="payment-more">
+      <view class="payment-all">还款总金额(元)0.00万</view>
+  </view>
+</view>
+
+<view class="calcuator-right">
+<view class="calcuator-title">
+      <view class="calcuator-title-in">等额本金</view>
+  </view>
+  <view class="payment-more">
+      <view class="payment">每月递减(元)</view>
+  </view>
+  <view class="payment-more">
+      <view class="payment-money">0.00</view>
+  </view>
+  <view class="payment-more">
+      <view class="payment-all">支付利息(元)0.00万</view>
+  </view>
+</view>
+</view>
+<view class="cu-form-group margin-top">
+		<view class="title">贷款类型</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'商业贷款'}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">贷款金额</view>
+		<input placeholder="请输入金额"></input>
+    <view>万</view>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">贷款年限</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'商业贷款'}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">贷款年限</view>
+		<picker bindchange="PickerChangeOne" value="{{indexOne}}" range="{{pickerOne}}">
+			<view class="picker">
+				{{indexOne?pickerOne[indexOne]:'20年'}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">商货利率</view>
+		<picker bindchange="PickerChangeTwo" value="{{indexTwo}}" range="{{pickerTwo}}">
+			<view class="picker">
+				{{indexTwo?pickerTwo[indexTwo]:'基准利率'}}
+			</view>
+		</picker>
+	</view>
+  <view class="prompt">
+    <view class="prompt-in">以上为央行公布的贷款基准利率，结果仅供参考</view>
+  </view>

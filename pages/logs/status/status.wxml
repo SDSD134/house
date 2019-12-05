@@ -1,0 +1,19 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+</cu-custom>
+<form>
+  <view class="cu-form-group">
+		<view class="title">身份证号：</view>
+		<input placeholder="请输入法人身份证号码"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">真实姓名：</view>
+		<input placeholder="请填输入法人真实姓名"></input>
+	</view>
+  <view>
+    <button type="primary" form-type="submit" class='btn'>
+      <image class='btnImg' src='../../../image/00.gif'></image>
+      <view>继续认证</view>
+    </button>
+  </view>
+</form>

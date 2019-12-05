@@ -1,0 +1,19 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">加入公司</view>
+</cu-custom>
+<view class="container">
+  <view class="detail">
+    <view class="input-one">
+      <input placeholder="请输入公司名"/>
+    </view>
+    <view  class="input-two">
+      <input placeholder="请选择门店"/>
+    </view>
+    <text class="join-text">加入公司后，即可以公司的身份进行报备，带着见客户，并享受便捷的订单跟进功能。</text>
+      <text class="join-text">如果贵公司还没有入住新房通平台，可点击去认证进行认证，或联系客服咨询合作事宜</text>
+      <navigator url="">
+         <button class="detail-button">立即加入</button>
+      </navigator>
+  </view>
+</view>

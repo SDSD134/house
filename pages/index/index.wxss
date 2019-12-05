@@ -1,0 +1,361 @@
+page{
+ background-color:white;
+}
+
+/* 轮播图 */
+.tower-swiper .tower-item {
+		transform: scale(calc(0.5 + var(--index) / 10));
+		margin-left: calc(var(--left) * 100rpx - 150rpx);
+		z-index: var(--index);
+	}
+
+/* 图标 */
+.icon{
+  height: 100%;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content:space-around;
+  
+}
+
+.icon-image {
+  width: 110rpx;
+  height: 110rpx;
+  margin: 10rpx;
+  border-radius: 5%;
+}
+
+.icon-text{
+  margin: 10rpx;
+  color: rgb(22, 18, 18);
+  font-size: 30rpx;
+}
+/* 新房区头条 */
+.leader{
+  width: 100%;
+  height:70px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:relative;    
+  top:10px;
+}
+.lead{
+  width:90%;
+  height:70px;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.lead-left{
+  width:22%;
+  height:70px;
+}
+.lead-left-image{
+  width:100%;
+  height:100%;
+  border:15rpx solid white;
+}
+.lead-right{
+  width:77%;
+  height:70px;
+}
+
+.browse{
+  display:flex;
+  position:relative;    
+  top:15px;
+  -webkit-flex-direction:column;
+  -moz-flex-direction:column;
+  -ms-flex-direction:column;
+  -o--flex-direction:column; 
+  flex-direction: column;
+
+}
+.browse-item{
+  display:flex;
+  flex:1;
+  cursor:pointer;
+  padding:20rpx;
+}
+.browse-item text{
+  flex:1;
+  font-size:35rpx;
+  font-weight: 700;
+  width: 40rpx;
+  height: 30rpx;
+}
+.browse-item image{
+  width: 40rpx;
+  height: 30rpx;
+}
+
+.scroll-header{
+display: flex;
+white-space: nowrap;
+position:relative;    
+top:15px;
+}
+
+.scroll-header navigator{
+height:150rpx;
+width:540rpx;
+display: inline-block;
+justify-content: center;
+align-items: center;
+}
+.scroll-header-img {
+  height:100%;
+  width:100%;
+  border:15rpx solid white;
+  background-size:100% 100%;
+  -moz-background-size:100% 100%;
+}
+.data{
+  height:150rpx;
+  width:100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content:space-around;
+  position:relative;    
+  top:15px;
+}
+.scroll-second{
+display: flex;
+white-space: nowrap;
+position:relative;    
+  top:25px;
+}
+.scroll-header-second{
+height:420rpx;
+width:300rpx;
+display: inline-block;
+justify-content: center;
+align-items: center;
+border:15rpx solid white;
+background-size:150% 100%;
+-moz-background-size:150% 100%;
+}
+.scroll-second-title{
+  position:relative;    
+  top:15px;
+  left:15px;
+  color:white;
+  font-size:35rpx;
+  font-weight: 700;
+   z-index:9999;
+}
+.scroll-second-number{
+  position:relative;    
+  top:15px;
+  left:15px;
+  color:white;
+  font-size:25rpx;
+  font-weight: 700;
+  z-index:9999;
+}
+.scroll-third{
+display: flex;
+white-space: nowrap;
+position:relative;    
+top:25px;
+}
+.scroll-third view{
+height:230rpx;
+width:540rpx;
+display: inline-block;
+justify-content: center;
+align-items: center;
+}
+/* 选择 */
+#tabs{
+   font-size: 28rpx;
+   position:relative;    
+   top:30px;
+}
+.tabs-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center
+}
+.tabs-item.selected {
+    color:white;
+    background-color: #0388F5;
+    border-bottom:2rpx solid #0388F5;
+}
+.tabs-item {
+    width: 33.3%;
+    color:#666;
+    border-bottom:1rpx solid #e9e9e9;
+}
+  /* 选择对应页面 */
+  .ordert-detail{
+   position:relative;    
+   top:10px;
+
+  }
+/* 楼房列表 */
+.list-all{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:120px;
+  width:100%;
+
+}
+.list{
+  height:100px;
+  width:90%;
+  display:flex;
+  
+}
+.list image{
+  height:100px;
+  width:35%;
+  
+}
+.list-right{
+  height:100px;
+  width:65%;
+}
+.title{
+  position:relative;
+  top:2px;    
+  left:10px;
+  font-size:30rpx;
+  font-weight:600;
+}
+.list-right-text{
+  font-size:20rpx;
+  position:relative;
+  top:7px;    
+  left:10px;
+
+}
+.list-right-in{
+  position:relative;
+  top:14px;    
+  left:10px;
+  width:95%;
+  height: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#FF0000;
+
+}
+.list-right-last{
+  position:relative;
+  top:26px;    
+  left:10px;
+  height:20px;
+  width:32px;
+  border:1px;
+  border-style: solid;
+}
+
+/* 最近浏览列表 */
+/* 滑动 */
+.scroll-header{
+display: flex;
+white-space: nowrap;
+}
+.scroll-header-in{
+height:230px;
+width:250px;
+display: inline-block;
+justify-content: center;
+align-items: center;
+}
+.scroll-header-all{
+  height:230px;
+  width:240px;
+  position:relative;
+  left:15px; 
+}
+.scroll-header-image{
+  height:140px;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-header-image image{
+  height:140px;
+  width:220px;
+  border-radius: 10px;
+}
+.scroll-header-title{
+  height:30px;
+  width:100%;
+  font-size:35rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-header-price{
+  height:30px;
+  width:100%;
+  font-size:35rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:orange;
+}
+.scroll-header-place{
+  height:20px;
+  width:100%;
+  font-size:25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+/* 代理 */
+.browse-agent-all{
+  height:20px;
+  width: 90%;
+  display:flex;
+  position:relative;
+  left:20px;   
+
+}
+.browse-agent{
+  height:20px;
+  width: 70%;
+  background-color: #FCE697;
+  border-radius: 5%;
+  display:flex;
+  align-items:center;
+
+}
+.browse-agent image{
+  position:relative;
+  left:4px; 
+}
+.browse-agent text{
+  position:relative;
+  left:5px; 
+}
+/* 弹框 */
+@import "../../wxPopView/wxPopview.wxss";
+/* 滚动轮播 */
+.swiper_container {
+height: 120rpx;
+width: 100%;
+}
+
+.swiper_item {
+font-size: 26rpx;
+color: #666;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+letter-spacing: 2px;
+padding-top: 20rpx;
+}

@@ -1,0 +1,24 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">我要提问</view>
+</cu-custom>
+<form>
+<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">项目：临水家园</text>
+      </view>
+  </view>
+</view>
+<view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入您的问题"></textarea>
+</view>
+<!-- 提交按钮 -->
+   <view>
+    <button type="primary" form-type="submit" class='btn'>
+      <image class='btnImg' src='../../../image/00.gif'></image>
+      <view>我要提问</view>
+    </button>
+    </view>
+  </form>

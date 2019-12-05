@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">提问</view>
+</cu-custom>
+<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">楼盘:临水家园</text>
+      </view>
+  </view>
+</view>
+
+<view class="container">
+  <view class="detail">
+      <image  class="detail-avatar" src="../../../image/01.jpg" mode="cover"></image>
+      <text>暂时没有提问~,点击立即提问</text>
+  </view>
+</view>
+<!-- 我要提问 -->
+<navigator url="../goAsk/goAsk">
+  <view class="oblong-float">
+    <view class="oblong-float-in">
+        <text class="invite">我要提问</text>
+    </view>
+  </view>
+ </navigator>

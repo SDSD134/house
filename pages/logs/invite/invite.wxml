@@ -1,0 +1,40 @@
+<cu-custom bgColor="bg-gradual-orange" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">我的邀请</view></cu-custom>
+<!-- 选择 -->
+<view id='tabs'>
+  <view class='tabs-box'>
+    <block wx:for="{{['我的充值','我的邀请']}}" wx:key="index">
+      <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+        {{item}}      
+      </view>
+    </block>
+  </view>
+<!-- 选择对应页面 -->
+  <view class='ordert-detail'>
+    <view hidden='{{currentTabIndex != 0}}'>
+       <view class="container">
+        <image src="../../../image/00.jpg"> </image>
+        <text>还没有记录哦！</text>
+       </view>
+    </view>
+    <view hidden='{{currentTabIndex != 1}}'>
+       <view class="container">
+          <image src="../../../image/00.jpg"> </image>
+          <text>还没有记录哦！</text>
+       </view>
+    </view>
+  </view>
+</view>
+<!-- 返回首页 -->
+<navigator url="../../index/index">
+    <view class="circle-float">
+      <image src="../../../image/write.png"/>
+    </view>
+</navigator>
+<!-- 邀请好友 -->
+<navigator url="../invite/share/share">
+  <view class="oblong-float">
+      <text class="invite">立即邀请</text>
+  </view>
+ </navigator>
+
+

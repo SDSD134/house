@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content"></view>
+</cu-custom>
+<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">项目：临水家园</text>
+      </view>
+  </view>
+</view>
+<view class="trends-all margin-top"wx:for="{{trends}}" wx:key="{{key}}">
+  <view class="trends">
+    <view class="trends-left">
+    <image src="../../../image/26.jpg"/>
+    </view>
+    <view class="trends-right">
+      <view class="trends-right-name">{{item.name}}</view>
+      <view class="trends-right-content">
+        {{item.content}}    
+      </view>
+      <view class="trends-right-time">
+        {{item.time}}
+      </view>
+    </view>
+  </view>
+</view>

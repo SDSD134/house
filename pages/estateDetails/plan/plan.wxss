@@ -1,0 +1,52 @@
+.plan{
+  background-color: white;
+  height:100px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.plan-in{
+  height:100px;
+  width:90%;
+}
+.plan-top{
+  display:flex;
+  align-items:center;
+  height:50px;
+  width:100%
+}
+.plan-bottom{
+  display:flex;
+  align-items:center;
+  height:35px;
+  width:100%
+}
+.plan-title{
+   font-size:30rpx;
+   font-weight: 700;
+   color:black;
+}
+.plan-money{
+  color:#FF0000;
+}
+
+.rule{
+  background-color: white;
+  height:150px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.rule-in{
+  height:150px;
+  width:90%;
+}
+.item-title{
+  font-size:35rpx;
+  display:flex;
+  align-items:center;
+  height:60px;
+  color:black;
+}

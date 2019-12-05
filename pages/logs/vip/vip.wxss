@@ -1,0 +1,143 @@
+/* 选择 */
+.tab{
+  width: 96%; 
+  margin:30rpx auto;
+  }
+.btns{ 
+  width: 100%;
+  height: 190rpx; 
+  background:#ffffff;
+  display: flex;
+  border-radius: 20px;
+  }
+
+.tab .btns view{
+  flex: 1;
+  text-align: center;
+  line-height:190rpx;
+  }
+.tab .btns .buts-title{
+  height: 70rpx; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:40rpx;
+  color:#A8762B;
+}
+.tab .btns .buts-time{
+  height: 60rpx; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#B87706;
+}
+.tab .btns .buts-privilege{
+  height: 60rpx; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#DAB87D;
+}
+
+.tabs-item.selected {
+    color:white;
+    border-radius: 20px;
+    background-color: #F1DBAD;
+}
+
+  /* 选择对应页面 */
+  .meal-in{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  border:2rpx solid #FE6420;
+  background-color:white;
+  border-radius: 20px;
+  position:relative;    
+   top:25px;
+   z-index:99;
+  }
+  .meal-on{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  border:2rpx solid #FE6420;
+  background-color:#FDE7E0;
+  border-radius: 20px;
+  position:relative;    
+   top:25px;
+   z-index:99;
+  }
+  .meal{
+    width:90%;
+    height:100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .meal-left{
+    width:80%;
+    height:100px;
+  }
+  .meal-left-top{
+    font-size:30rpx;
+    color:#12213E;
+    height:60px;
+    display: flex;
+    align-items: center;
+  }
+   .meal-left-bottom{
+    font-size:25rpx;
+    color:#9198A4;
+    height:40px;
+  }
+  .meal-right{
+    width:20%;
+    height:100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#FF601C;
+    font-size:40rpx;
+  }
+  /* 分割线 */
+  .divLine{
+    position:relative;
+    top:4px;    
+    background:white;
+    width: 100%;
+    height: 20rpx;
+}
+/* 充值 */
+.oblong-float{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+  z-index: 9999;
+  border-radius:10px;
+}
+.oblong-float-in{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:90%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background-color: #DD4F43;
+   border-radius:10px;
+}
+.invite{
+  font-size:20px;
+}
+.kong{
+  width:100%;
+  height:100px;
+}

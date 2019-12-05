@@ -1,0 +1,360 @@
+<scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
+  <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">{{title}}</view>
+  </cu-custom>
+  <!-- 轮播 -->
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}"></image>
+  </swiper-item>
+</swiper>
+<!-- 1 -->
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>临水家园
+    </view>
+    <view class="action">
+      <image src="../../image/shou.png" class="action-image" catchtap='handleCollection' wx:if="{{!isCollected}}"  data-target="menuModal"/>
+      <image catchtap='handleCollection' wx:if="{{isCollected}}" class="action-image"src="../../image/shou1.png"/>
+    </view>
+  </view>
+<!-- 2 -->
+  <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <!-- 2.1 -->
+   <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='calculator'>
+        <view class="content">
+          <text class="cuIcon-warn text-green"></text>
+          <text class="text-grey">均价11200元/m^2</text>
+        </view>
+        <view class="action">
+            <text class="text-grey text-sm">房贷计算器</text>
+        </view>
+    </view>
+    <!-- 2.2 -->
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-tagfill text-red"></text>
+        <text class="text-grey">在售</text>
+      </view>
+      <view class="action">
+        <view class="cu-tag round bg-orange light">开发商渠道</view>
+        <view class="cu-tag round bg-olive light">住宅</view>
+        <view class="cu-tag round bg-blue light">毛坯</view>
+      </view>
+    </view>
+    <!-- 2.3 -->
+    <view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">嘉兴南湖邮轮东侧</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">100.11km</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content">
+         <text class="cuIcon-discoverfill text-orange"></text>
+        <text class="text-grey">浙江可达实验有限公司</text>
+      </view>
+    </view>
+    <!-- 2.4 -->
+<view class="padding-xl">
+  <button class="cu-btn block line-orange lg" bindtap='parameter'>
+    <text class="cuIcon-upload"></text> 楼房参数</button>
+</view>
+<!-- 2.5 -->
+<view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-circlefill text-grey"></text>
+        <text class="text-grey">入驻楼盘</text>
+      </view>
+      <view class="content" bindtap='error'>
+        <text class="cuIcon-circlefill text-grey"></text>
+        <text class="text-grey">楼盘纠错</text>
+      </view>
+    </view>
+<!-- 2.6 -->
+<view class="solid-bottom margin-top cu-item {{menuArrow?'':'arrow'}}"  bindtap='plan'>
+      <view class="content">
+        <text class="cuIcon-emojiflashfill text-pink"></text>
+        <text class="text-grey">6万/套-6.5万套</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">共1个方案</text>
+      </view>
+  </view>
+  <!-- 2.7 -->
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">详询市场对接</text>
+      </view>
+  </view>
+  <!-- 2.8 -->
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 分销规则
+    </view>
+  </view>
+  <!-- 2.9 -->
+<view id='tabs'>
+  <view class='tabs-box'>
+       <block wx:for="{{['热门楼盘','人气项目','超低价格','最新上线']}}" wx:key="index">
+      <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+        {{item}}      
+      </view>
+    </block>
+  </view>
+  <!-- 选择对应页面 -->
+  <view class='ordert-detail'>
+    <view hidden='{{currentTabIndex != 0}}'>
+      <view class="rule">
+        <view class="rule-in">
+          <view class="rule-top">
+            <view>报备有效期：24小时</view>
+            <view>规则详情：提前一小时报备</view>
+          </view>
+          <view class="prompt">
+              注：第三方代理公司可能会对项目佣金及带看规则进行调整，请在报备客户时进行确认。
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden='{{currentTabIndex != 1}}'>
+      <view class="rule">
+          <view class="rule-in">
+            <view class="rule-top">
+              <view>带看保护期：7天</view>
+              <view>规则详情：详询市场对接</view>
+            </view>
+            <view class="prompt">
+                注：第三方代理公司可能会对项目佣金及带看规则进行调整，请在报备客户时进行确认。
+            </view>
+          </view>
+        </view>
+    </view>
+    <view hidden='{{currentTabIndex != 2}}'>
+      <view class="rule">
+        <view class="rule-in">
+          <view class="rule-top">
+            <view>规则：详询市场对接</view>
+          </view>
+          <view class="prompt">
+              注：第三方代理公司可能会对项目佣金及带看规则进行调整，请在报备客户时进行确认。
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden='{{currentTabIndex != 3}}'>
+     <view class="rule">
+        <view class="rule-in">
+          <view class="rule-top">
+            <view>合作期限：详询市场对接</view>
+          </view>
+          <view class="prompt">
+              注：第三方代理公司可能会对项目佣金及带看规则进行调整，请在报备客户时进行确认。
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 3.0 -->
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>市场专员
+    </view>
+  </view>
+ <view class="cu-item "wx:for="{{market}}" wx:key="{{key}}">
+      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Taric.png);">
+      </view>
+      <view class="content">
+        <view class="text-grey">
+          <text class="text-cut">{{item.name}}</text>
+          <view class="cu-tag round bg-orange sm">会员</view>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">{{item.phone}}</text>
+        </view>
+      </view>
+      <view class="action">
+        <view class="action-in"> 
+          <image src="../../image/call.png" class="call-image"/>
+        </view>
+      </view>
+    </view>
+ <!-- 3.1 -->
+ <view class="solid-bottom margin-top cu-item {{menuArrow?'':'arrow'}}" bindtap='trendsDetail'>
+      <view class="content">
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">最新动态</text>
+      </view>
+  </view>
+<!-- 3.2 -->
+<view class="cu-timeline" wx:for="{{trends}}" wx:key="{{key}}" >
+  <view class="cu-item text-blue" bindtap='trendsDetail'>
+    <view class="bg-blue shadow-blur content">
+      <view class="cu-list menu-avatar radius">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+          <view class="content">
+            <view class="text-grey">{{item.name}}</view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-infofill text-green"></text> {{item.build}}{{item.day}}动态</view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">{{item.time}}</view>
+            <view class="cu-tag round bg-red sm"> </view>
+          </view>
+        </view> 
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 3.3 -->
+<view class="padding">
+    <button class="cu-btn block bg-blue margin-tb-sm lg" catchtap='subscribeTo'>
+    订阅楼盘动态
+    </button>
+</view>
+<!-- 3.4 -->
+<view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">楼房买点</text>
+      </view>
+      <view class="action">
+        <button class="cu-btn round bg-green shadow">
+          <text class="cuIcon-upload"></text> 复制</button>
+      </view>
+  </view>
+  <view class="information-fifth">
+  <view class="item">
+    <view class="item-title"> 项目介绍</view>
+    <view>千套小面积住宅即将闪亮登场，诚邀合作伙伴</view>
+    <view>项目地址：暂无消息</view>
+    <view>占地面积：暂无消息</view>
+    <view>建筑面积：暂无消息</view>
+    <view>体量：暂无消息</view>
+    <view>面积段：暂无消息</view>
+    <view>均价：暂无消息</view>
+    <view>周边配套</view>
+    <view>【教育】 尽享周边的优质教育资源</view>
+    <view>【商业】 项目自建配套农贸市场（隔离对望）</view>
+    <view>【交通】 高速：啵啵啵啵啵啵</view>
+    <view>地铁：啵啵啵啵啵啵</view>
+    <view>铁路：啵啵啵啵啵啵</view>
+    <view>方便死</view>
+  </view>
+</view>
+  <!-- 3.5 -->
+ <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>主力户型
+    </view>
+  </view>
+  <!-- 3.6 -->
+  <view class="margin-top cu-item {{menuArrow?'':'arrow'}}" bindtap='comments'>
+      <view class="content">
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">网友点评</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">查看更多</text>
+      </view>
+  </view>
+  <!-- 点评 -->
+  <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
+  <view class="trends" bindtap='comments'>
+    <view class="trends-left">
+      <image src="../../image/26.jpg"/>
+    </view>
+    <view class="trends-right">
+      <view class="trends-right-name">
+         <text>{{item.name}}</text>
+         <image src="../../image/shou.png" class="action-image"/>
+      </view>
+      <view class="trends-right-content">
+        {{item.content}}    
+      </view>
+      <view class="trends-right-time">
+        {{item.time}}
+        <view class="cu-tag round bg-olive light">回复</view>
+      </view>
+    </view>
+  </view>
+</view>
+    <!-- 3.7 -->
+  <view class="padding-xl" bindtap='goComments'>
+      <button class="cu-btn block line-orange lg">
+      <text class="cuIcon-upload"></text>我要点评</button>
+  </view>
+<!-- 3.8 -->
+  <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='ask'>
+      <view class="content">
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">大家都在问</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">查看更多</text>
+      </view>
+  </view>
+  <!-- 3.9 -->
+  <view class="ask-all">同行好友,专家将为您答疑解惑</view>
+  <view class="ask-go" bindtap='goAsk'>发布提问</view>
+  <!-- 4.0 -->
+<view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content">
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">周边配套</text>
+      </view>
+  </view>
+<!-- 4.1 -->
+<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+<view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content">
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">附近房子</text>
+      </view>
+  </view>
+  <view wx:for="{{list}}" wx:key="{{index}}">
+        <view class="list-all" bindtap='estateDetails'>
+          <view class="list-second">
+            <image src="{{item.imgArr}}"/>
+            <view class="list-right">
+                <view class="title-all">
+                  
+                  <view class="title"><text class="title-logn">在售</text> {{item.title}}</view>
+                  <view class="collect">
+                      <image  catchtap='handleCollection' wx:if="{{!isCollected}}" src="../../image/shou.png"></image>
+                      <image catchtap='handleCollection' wx:if="{{isCollected}}" src="../../image/shou1.png"></image>
+                  </view>
+                </view>
+                <text class="list-right-text">{{item.show}} | {{item.city}}</text>
+                <view class="list-right-in">
+                  <view>{{item.money1}}万/套</view>
+                  <view>{{item.money2}}万元/m^2</view>
+                </view>
+                <view class="list-right-last cu-tag round bg-olive light">住宅</view>
+            </view>
+          </view>
+        </view>
+        <!-- 代理 -->
+        <view class="agent-all">
+          <view class="agent">
+          <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
+          <text>代理公司 | {{item.factory}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+</scroll-view>
+

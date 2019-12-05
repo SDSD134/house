@@ -1,0 +1,69 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">信用中心</view>
+</cu-custom>
+<!-- 我要举报 -->
+<navigator url="../invite/share/share">
+  <view class="oblong-float">
+    <view class="oblong-float-in">
+        <text class="invite">我要举报</text>
+    </view>
+  </view>
+ </navigator>
+  <!-- 开头背景  -->
+  <view class="container">
+    <image src="../../image/credit.jpg" />
+    <text>今日新增名单{{item.num1}}人  |  今日成功匹配{{item.num2}}人</text>
+    <!-- 搜索  -->
+    <view class="cu-bar search bg-white">
+      <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="请输入内容" confirm-type="search"></input>
+      </view>
+      <view class="action">
+        <button class="cu-btn bg-blue shadow-blur round">查询</button>
+      </view>
+    </view>
+  </view>
+  <!-- 最近查询 -->
+  <view class="near margin-top">
+    <view class="near-left">
+      <image src="../../image/watch.png"/>
+      <text>最近查询</text>
+    </view>
+    <view class="near-right ">
+        <text>{{name1}}</text>
+        <text class="look"> 查询了 </text>
+        <text>{{name2}} （{{phone}} ）</text>
+    </view>
+   </view>
+   <!-- 最新要举报 -->
+   <view class="report margin-top">
+     <view class="report-left">
+        <text>最新举报</text>
+     </view>
+     <view class="report-right">
+        <image src="../../image/watch.png"/>
+        <text>我的举报</text>
+     </view>
+   </view>
+<!-- 举报列表 -->
+<view wx:for="{{list}}" wx:key="{{index}}" class="list-all">
+  <view class="list">
+    <view class="list-first">
+        <view class="list-first-left">{{item.name}}  {{item.factory}}</view>
+        <view class="list-first-right">昆油补</view>
+    </view>
+    <view class="list-second">
+      <image src="../../image/watch.png"/>
+      <text>{{item.plate}}</text>
+    </view>
+    <view class="list-third">{{item.content}}</view>
+    <view class="list-fourth">
+        <view class="list-fourth-left">{{item.time}}</view>
+        <view class="list-fourth-right">{{item.place}}</view>
+    </view>
+    <view class="divLine"></view>
+  </view>
+</view>
+<view class="kong"></view>

@@ -1,0 +1,37 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">纠错</view>
+</cu-custom>
+<form>
+<view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请描述需要修改的内容。如果发现有未收录楼盘，也可帮忙提供信息"></textarea>
+</view>
+<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			请上传出错页面的截图（非必须）
+		</view>
+		<view class="action">
+			{{imgListMore.length}}/4
+		</view>
+	</view>
+  <view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgListMore}}" wx:key="{{index}}" bindtap="ViewImageMore" data-url="{{imgListMore[index]}}">
+				<image src='{{imgListMore[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImgMore" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImageMore" wx:if="{{imgListMore.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+<!-- 提交按钮 -->
+   <view>
+    <button type="primary" form-type="submit" class='btn'>
+      <image class='btnImg' src='../../../image/00.gif'></image>
+      <view>发布</view>
+    </button>
+    </view>
+  </form>

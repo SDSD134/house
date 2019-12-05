@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">新房区头条</view>
+</cu-custom>
+<view class="lead" >
+    <view class="lead-top">
+      <view class="lead-title">新房通<text>头条</text></view>
+    </view>
+    <view class="lead-bottom">楼盘动态|站点通知|实时掌握</view>
+</view>
+<view class="lead-list margin-top"wx:for="{{leadList}}" wx:key="{{index}}" catchtap='leadDetails'>
+    <view class="lead-list-top" >
+      <view class="lead-list-title">{{item.title}}</view>
+    </view>
+     <view class="lead-list-middle">
+      <view class="lead-list-middle-in">
+        <text>{{item.content}}</text>
+        <image src="{{item.img}}"></image>
+      </view>
+     </view>
+     <view class="lead-list-bottom">
+      <view class="lead-list-bottom-in">
+          <view class="cu-tag round bg-blue light">{{item.type}}</view>
+          <text>{{item.time}}</text>
+      </view>
+     </view>
+</view>

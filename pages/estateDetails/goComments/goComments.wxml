@@ -1,0 +1,46 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">纠错</view>
+</cu-custom>
+<form>
+<radio-group class="block">
+   <view class="cu-form-group">
+			<view class="title">是否已经带客户看过房:</view>
+			<radio class="radio"></radio>
+      <view class="title">是</view>
+			<radio class=" red radio"></radio>
+      <view class="title">否</view>
+	 </view>
+</radio-group>
+<view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="说说对该楼盘环境,位置,配套设施,案场置业顾问专业度,市场对接的看法..."></textarea>
+</view>
+<view class="cu-bar bg-white margin-top">
+		<view class="action">
+		发布图片（最多三张）
+		</view>
+		<view class="action">
+			{{imgListMore.length}}/3
+		</view>
+	</view>
+  <view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgListMore}}" wx:key="{{index}}" bindtap="ViewImageMore" data-url="{{imgListMore[index]}}">
+				<image src='{{imgListMore[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImgMore" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImageMore" wx:if="{{imgListMore.length<3}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+<!-- 提交按钮 -->
+   <view>
+    <button type="primary" form-type="submit" class='btn'>
+      <image class='btnImg' src='../../../image/00.gif'></image>
+      <view>发布</view>
+    </button>
+    </view>
+  </form>

@@ -1,0 +1,53 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">vip会员</view>
+</cu-custom>
+ <!--分类选择 -->
+<view class="tab">
+ <view class="btns">
+   <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'wx:for="{{btns}}" wx:key="index">
+    <view class="buts-title">{{item.title}}</view>
+    <view class="buts-time">有效期：{{item.time}}</view>
+    <view class="buts-privilege">会员特权</view>
+   </view>
+ </view>
+  <!-- 选择对应页面 -->
+  <view class='ordert-detail'>
+    <view hidden='{{currentTabIndex != 0}}'>
+      <view wx:for="{{listOne}}" wx:key="{{key}}">
+        <view class="{{idIndex == index?'meal-on':'meal-in'}}"data-index="{{index}}" bindtap='getIndex' >
+          <view class="meal">
+              <view  class="meal-left">
+                <view class="meal-left-top">{{item.top}}</view>
+                <view class="meal-left-bottom">{{item.bottom}}</view>
+              </view>
+              <view class="meal-right">{{item.money}} 元</view>
+          </view>  
+        </view>
+        <view class="divLine"></view>
+      </view>
+      <view class="kong"></view>
+    </view>
+    <view hidden='{{currentTabIndex != 1}}'>
+        <view wx:for="{{listTwo}}" wx:key="key">
+        <view class="{{idx == index?'meal-on':'meal-in'}}"data-index="{{index}}" bindtap='goIndex'>
+          <view class="meal">
+              <view  class="meal-left">
+                <view class="meal-left-top">{{item.top}}</view>
+                <view class="meal-left-bottom">{{item.bottom}}</view>
+              </view>
+              <view class="meal-right">{{item.money}} 元</view>
+          </view>  
+        </view>
+        <view class="divLine"></view>
+      </view>
+      <view class="kong"></view>
+    </view>
+  </view>
+</view>
+<!-- 充值 -->
+ <view class="oblong-float" bindtap='payFor'>
+    <view class="oblong-float-in">
+        <text class="invite">充值</text>
+    </view>
+  </view>
