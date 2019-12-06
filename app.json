@@ -38,6 +38,11 @@
     "pages/logs/set/set",
     "pages/logs/set/phone/phone"
   ],
+    "permission": {
+      "scope.userLocation": {
+        "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      }
+    },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -45,6 +50,7 @@
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
+  
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },
@@ -77,4 +83,5 @@
     ]
   },
   "sitemapLocation": "sitemap.json"
+
 }

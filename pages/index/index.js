@@ -1,3 +1,5 @@
+var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
+var qqmapsdk;
 Component({
   /**
    * 组件的属性列表
@@ -295,6 +297,10 @@ Component({
   onLoad() {
     this.towerSwiper('swiperList');
     // 初始化towerSwiper 传已有的数组名即可
+
+    qqmapsdk = new QQMapWX({
+      key: '自己的key'
+    });
   },
   DotStyle(e) {
     this.setData({
@@ -368,10 +374,130 @@ Component({
       currentTabIndex: index
     })
   },
+
  
   onShow() {
    this._getUserLocation();
   },
+
+    // _getUserLocation() {
+    //   wx.getSetting({
+    //     success: (res) => {
+    //       console.log(JSON.stringify(res))
+    //       console.log(res.authSetting['scope.userLocation']);
+    //       // res.authSetting['scope.userLocation'] == undefined    表示 初始化进入该页面
+    //       // res.authSetting['scope.userLocation'] == false    表示 非初始化进入该页面,且未授权
+    //       // res.authSetting['scope.userLocation'] == true    表示 地理位置授权
+    //       if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
+    //         console.log(1)
+    //         wx.showModal({
+    //           title: '请求授权当前位置',
+    //           content: '需要获取您的地理位置，请确认授权',
+    //           success: function (res) {
+    //             if (res.cancel) {
+    //               wx.showToast({
+    //                 title: '拒绝授权',
+    //                 icon: 'none',
+    //                 duration: 1000
+    //               })
+    //             } else if (res.confirm) {
+    //               console.log(2)
+    //               wx.openSetting({
+    //                 success: function (dataAu) {
+    //                   if (dataAu.authSetting["scope.userLocation"] == true) {
+    //                     wx.showToast({
+    //                       title: '授权成功',
+    //                       icon: 'success',
+    //                       duration: 1000
+    //                     })
+    //                     //再次授权，调用wx.getLocation的API
+    //                   } else {
+    //                     wx.showToast({
+    //                       title: '授权失败',
+    //                       icon: 'none',
+    //                       duration: 1000
+    //                     })
+    //                   }
+    //                 }
+    //               })
+    //             }
+    //           }
+    //         })
+    //       } else if (res.authSetting['scope.userLocation'] == undefined) {
+    //         //调用wx.getLocation的API
+    //         wx.getLocation({
+    //           type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+    //           success: function (res) {
+    //             console.log("陈功undefined")
+    //             const  latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+    //             const  longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+    //             const  speed = res.speed; // 速度，以米/每秒计
+    //             const  accuracy = res.accuracy; // 位置精度
+    //             qqmapsdk.reverseGeocoder({
+    //               location: { latitude: res.latitude, longitude: res.longitude }, 
+    //               success: function (addressRes) {
+    //                 console.log(addressRes);
+    //                 var self = this;
+    //                 self.address = addressRes.result.formatted_addresses.recommend;
+    //                 self.address = addressRes.result.address_component.province + addressRes.result.address_component.city + addressRes.result.address_component.district
+    //                 //app.globalData.address = address; 
+    //                 },
+    //               fail: function (addressRes) {
+    //                 wx.showModal({
+    //                   title: '信息提示',
+    //                   content: '请求失败',
+    //                   showCancel: false,
+    //                   confirmColor: '#f37938'
+    //                 });
+    //               }
+    //             })
+    //           },
+    //           fail:function(res) {
+    //             console.log(res)
+    //             console.log(" wx.getLocation失败");
+    //           }
+    //         });
+    //       }else {
+    //         console.log(3)
+    //         //调用wx.getLocation的API
+    //         wx.getLocation({
+    //           type: 'wgx84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+    //           success: function (res) {
+    //             console.log("陈功true")
+    //             const latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+    //             const longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+    //             const speed = res.speed; // 速度，以米/每秒计
+    //             const accuracy = res.accuracy; // 位置精度
+    //             qqmapsdk.reverseGeocoder({
+    //               location: { latitude: res.latitude, longitude: res.longitude },
+    //               success: function (addressRes) {
+    //                 console.log(addressRes);
+    //                 var self = this;
+    //                 self.address = addressRes.result.formatted_addresses.recommend;
+    //                 self.address = addressRes.result.address_component.province + addressRes.result.address_component.city + addressRes.result.address_component.district
+    //                 //app.globalData.address = address; 
+    //               },
+    //               fail: function (addressRes) {
+    //                 wx.showModal({
+    //                   title: '信息提示',
+    //                   content: '请求失败',
+    //                   showCancel: false,
+    //                   confirmColor: '#f37938'
+    //                 });
+    //               }
+    //             })
+    //           },
+    //           fail: function (res) {
+    //             console.log(res)
+    //             console.log(" wx.getLocation失败");
+    //           }
+    //         });
+    //       }
+    //     }
+    //   })
+    // },
+  
+
    //获取地理位置
   _getUserLocation() {
     var self = this
@@ -418,31 +544,40 @@ Component({
           self._getCityLocation()
           console.log('这个为undefined')
         } else {
+          
+          if(self.address=="") {
+            wx.showModal({
+              title: '',
+              content: '请在系统设置中打开定位服务',
+              confirmText: '确定',
+            });
+          }
           console.log('授权成功')
           self._getCityLocation()
+          console.log('授权pk')
         }
       }
     })
   },
+
   _getCityLocation() {
     let self = this
     wx.getLocation({
-      type: 'wgx84',
+      type: 'wgs84',
       success: (res) => {
         let latitude = res.latitude
         let longitude = res.longitude
         let speed = res.speed
-        wx.request({
-          url: '' + res.latitude + ',' + res.longitude + '&output=json',
-          //后台接口
-          data: {},
-          header: { 'Content-type': 'application/json' },
-          success: function (ops) {
-            console.log(ops)
-            self.address = ops.data.result.addressComponent.city +
-              ops.data.result.addressComponent.district
-          },
-          fail: function (resq) {
+        console.log(res.latitude);
+        qqmapsdk.reverseGeocoder({ 
+          location: { latitude: res.latitude, longitude: res.longitude }, 
+          success: function (addressRes) { 
+            console.log(addressRes);
+           // self.address = addressRes.result.formatted_addresses.recommend;
+            self.address = addressRes.result.address_component.province + addressRes.result.address_component.city + addressRes.result.address_component.district
+            //app.globalData.address = address; 
+              },
+          fail: function (addressRes) {
             wx.showModal({
               title: '信息提示',
               content: '请求失败',
@@ -450,18 +585,25 @@ Component({
               confirmColor: '#f37938'
             });
           }
-        })
+         })
       },
-      fail: (res) => {
+      fail:(res) => {
+        console.log(res)
         wx.showModal({
-          title: '信息提示',
+          title: '信息提示6666',
           content: '请求失败',
           showCancel: false,
           comfirmColor: '#f37938'
         })
+        console.log("失败")
+        console.log(self.address)
+      },
+      complete: (res) => {
+        console.log(res)
+        console.log("完成")
       }
+      
     })
-  }
-  }
- 
+  },
+  },
 })
