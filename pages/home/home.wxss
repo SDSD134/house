@@ -193,4 +193,4 @@ page{
   left:10px; 
 }
 /* 弹框 */
-@import "../../wxPopView/wxPopview.wxss";
+@import "../../wxPop/wxPop.wxss";

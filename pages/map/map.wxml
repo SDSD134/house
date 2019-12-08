@@ -1,0 +1,17 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">地图定位</view>
+</cu-custom>
+<view class="page-body">
+<view class="page-section page-section-gap">
+    <map
+      id="myMap"
+      style="width: 100%; height: 450px;"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      covers="{{covers}}"
+      show-location
+    ></map>
+  </view>
+</view>

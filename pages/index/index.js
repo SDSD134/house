@@ -1,5 +1,6 @@
 var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
 var qqmapsdk;
+var common = require('../../wxPop/wxPop.js');
 Component({
   /**
    * 组件的属性列表
@@ -260,6 +261,9 @@ Component({
 
   },
   methods: {
+    getPhoneNumber: function (e) {
+      common.getPhoneNumber(e);
+    },
     // 跳转
     lead: function (e) {
       wx.navigateTo({

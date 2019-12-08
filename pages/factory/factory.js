@@ -1,3 +1,4 @@
+var common = require('../../wxPop/wxPop.js');
 Component({
   properties: {
     // 是否显示
@@ -68,6 +69,11 @@ Component({
 
   },
   methods: {
+    // 获取手机号
+
+    getPhoneNumber: function (e) {
+      common.getPhoneNumber(e);
+    },
     RegionChange: function (e) {
       this.setData({
         region: e.detail.value

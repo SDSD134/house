@@ -295,3 +295,12 @@ height:30px;
   color:#0388F5;
   background-color:#FFFFFF;
 }
+/* 地图 */
+.page-section-gap{
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.page-body {
+  padding: 20rpx 0;
+  background-color:white;
+}

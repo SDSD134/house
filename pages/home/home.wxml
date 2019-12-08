@@ -278,4 +278,4 @@
 </view>
 
 <!-- 弹框 -->
-<include src="../../wxPopView/wxPopview.wxml" />
+<include src="../../wxPop/wxPop.wxml" />

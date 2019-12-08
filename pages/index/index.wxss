@@ -343,7 +343,7 @@ align-items: center;
   left:5px; 
 }
 /* 弹框 */
-@import "../../wxPopView/wxPopview.wxss";
+@import "../../wxPop/wxPop.wxss";
 /* 滚动轮播 */
 .swiper_container {
 height: 120rpx;
