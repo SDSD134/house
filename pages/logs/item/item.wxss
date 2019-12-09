@@ -30,3 +30,102 @@
   top:25px;
   color:blue;
 }
+/* 楼房列表 */
+.list-all{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:120px;
+  width:100%;
+background-color:pink;
+}
+.list{
+  height:100px;
+  width:90%;
+  display:flex;
+  
+}
+.list image{
+  height:100px;
+  width:35%;
+  
+}
+.list-right{
+  height:100px;
+  width:65%;
+}
+.title{
+  position:relative;
+  top:2px;    
+  left:10px;
+  font-size:30rpx;
+  font-weight:600;
+}
+.list-right-text{
+  font-size:20rpx;
+  position:relative;
+  top:7px;    
+  left:10px;
+
+}
+.list-right-in{
+  position:relative;
+  top:14px;    
+  left:10px;
+  width:95%;
+  height: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#FF0000;
+
+}
+.list-right-last{
+  position:relative;
+  top:26px;    
+  left:10px;
+  height:20px;
+  width:32px;
+  border:1px;
+  border-style: solid;
+}
+.img{
+  width:100%;
+  height:100%;
+}
+.delItem{
+z-index:9999;
+}
+/* 发布项目 */
+.oblong-float{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+  z-index: 9999;
+  border-radius:10px;
+}
+.oblong-float-in{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:90%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background-color: #8DC63F;
+   border-radius:10px;
+}
+.invite{
+  font-size:20px;
+}
+.kong{
+  height:100px;
+  width:100%;
+}
