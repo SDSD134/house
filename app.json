@@ -37,7 +37,8 @@
     "pages/logs/set/set",
     "pages/logs/set/phone/phone",
     "pages/map/map",
-    "pages/estateDetails/reply/reply"
+    "pages/estateDetails/reply/reply",
+    "pages/logs/item/revise/revise"
   ],
   "permission": {
     "scope.userLocation": {

@@ -13,4 +13,33 @@
 </view>
 <!-- 判断--有权限 -->
 <view wx:else>
+<view class="cu-list menu-avatar">
+    <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{list}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-avatar radius lg" >
+          <image src="{{item.imgArr}}"class="img"></image>
+      </view>
+      <view class="content">
+        <view class="text-grey">{{item.title}}</view>
+        <view class="text-gray text-sm">
+           <text class="cuIcon-infofill text-red"></text> {{item.show}} | {{item.city}}
+        </view>
+      </view>
+       <view class="action">
+        <view class="cu-tag round bg-olive light">住宅</view>
+      </view>
+      <view class="move">
+        <view class="bg-blue" bindtap = "revise">修改</view>
+        <view class="bg-red" bindtap = "delItem">删除</view>
+      </view>
+    </view>
+  </view>
 </view>
+<view class="kong"></view>
+<!-- 发布项目 -->
+<navigator url="../../release/release">
+  <view class="oblong-float">
+    <view class="oblong-float-in">
+        <text class="invite">发布项目</text>
+    </view>
+  </view>
+ </navigator>

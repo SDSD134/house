@@ -206,7 +206,6 @@
                   <view>{{item.money2}}万元/m^2</view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
-                <!-- <view class="list-right-last">{{item.type}}</view> -->
             </view>
           </view>
         </view>
