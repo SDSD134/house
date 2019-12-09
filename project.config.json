@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
-	"appid": "wxe996be3e892e81bb",
+	"appid": "wx999e470ac4dfc5d4",
 	"projectname": "ColorUI-template",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -30,5 +30,36 @@
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/release/release",
+					"pathName": "pages/release/release",
+					"scene": null
+				}
+			]
+		}
+	}
 }

@@ -88,10 +88,10 @@ Page({
   },
   DelImg(e) {
     wx.showModal({
-      title: '亲爱的',
+      title: '删除',
       content: '确定要删除吗？',
-      cancelText: '再看看',
-      confirmText: '再见',
+      confirmText: '确定',
+      cancelText: '取消',
       success: res => {
         if (res.confirm) {
           this.data.imgList.splice(e.currentTarget.dataset.index, 1);
@@ -129,10 +129,10 @@ Page({
   },
   DelImgMore(e) {
     wx.showModal({
-      title: '亲爱的',
+      ttitle: '删除',
       content: '确定要删除吗？',
-      cancelText: '再看看',
-      confirmText: '再见',
+      confirmText: '确定',
+      cancelText: '取消',
       success: res => {
         if (res.confirm) {
           this.data.imgListMore.splice(e.currentTarget.dataset.index, 1);
@@ -153,5 +153,13 @@ Page({
     this.setData({
       textareaBValue: e.detail.value
     })
+  },
+  bindHideKeyboard: function (e) {
+    if (e.detail.value === '123') {
+      // 收起键盘
+      wx.hideKeyboard()
+    }
   }
+
+ 
 })
