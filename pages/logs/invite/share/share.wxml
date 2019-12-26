@@ -12,7 +12,7 @@
   </block>
 </swiper>
 <!-- 分享按钮 -->
-<navigator url="../invite/share/share">
+<!-- <navigator url="../invite/share/share">
   <view class="oblong-float">
       <view class="oblong-float-in">
       <image src="../../../../image/write.png"/>
@@ -24,4 +24,21 @@
       </view>
       
   </view>
- </navigator>
+ </navigator> -->
+
+ <view class="oblong-float">
+      <view class="oblong-float-in">
+      <image src="../../../../image/write.png"/>
+      <!-- <text class="invite" bindtap="saveImage">分享给好友</text> -->
+      <!-- <button class="invite" bindtap="saveImage">分享给好友</button> -->
+      <button class="invite"  open-type='share'>分享给好友</button>
+      </view>
+      <view class="oblong-float-in">
+       <image src="../../../../image/write.png"/>
+       <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+    <button class="invite" >点击生成海报</button>
+</poster>
+      <!-- <text class="invite">生成海报</text> -->
+      </view>
+      
+  </view>

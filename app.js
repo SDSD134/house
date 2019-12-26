@@ -1,5 +1,7 @@
 //app.js
+const util = require('./utils/utils.js')
 App({
+  util,
   onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -9,6 +11,7 @@ App({
     // 登录
     wx.login({
       success: response => {
+        
         // 获取用户信息
         wx.getSetting({
           success: res => {
@@ -23,15 +26,29 @@ App({
                   if (this.userInfoReadyCallback) {
                     this.userInfoReadyCallback(res)
                   }
+                  console.log(res.encryptedData)
                   // 发送 res.code 到后台换取 openId, sessionKey, unionId
                   wx.request({
-                    url: '',  //用户登录接口
+                    url: 'http://localhost:8080/user/login',  //用户登录接口
                     method: "post",
-                    data: {
-                      code: respone.code,
-                      rawData:res.userInfo
+                    header:{
+                      'content-type': 'application/x-www-form-urlencoded'
                     },
+                    data: {
+                      code: response.code,
+                      rawData:res.rawData,
+                      signature:res.signature,
+                      encryptedData:res.encryptedData,
+                      iv:res.iv,
+                    },
+                    success:function(res) {
+                      console.log(res.data)
+                    },
+                    fail:function(res){
+                      console.log(res.data)
+                    }
                   })
+
                 }
               })
             }

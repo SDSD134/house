@@ -6,7 +6,7 @@
 <form>
 	<view class="cu-form-group">
 		<view class="title">新房名称</view>
-		<input placeholder="请填写新房名称/必填"  confirm-type="done" type="text"></input>
+		<input placeholder="请填写新房名称/必填"  confirm-type="done" type="text" bindinput="titleInput"></input>
 	</view>
 
   <view class="cu-form-group margin-top">
@@ -74,7 +74,7 @@
 
   <view class="cu-form-group">
 		<view class="title">新房地址</view>
-		<input placeholder="请填写新房地址/必填"></input>
+		<input placeholder="请填写新房地址/必填" bindinput="addressInput"></input>
 	</view>
   
   <view class="cu-form-group margin-top">
@@ -115,12 +115,12 @@
  
  <view class="cu-form-group">
 		<view class="title">均价</view>
-		<input placeholder="请填写均价" type="digit" ></input>元/m^2
+		<input placeholder="请填写均价" type="digit" confirm-type="done" bindinput="avapriceInput"></input>元/m^2
 	</view>
 
   <view class="cu-form-group">
 		<view class="title">总价</view>
-		<input placeholder="请填写总价" type="digit"></input>万元
+		<input placeholder="请填写总价" type="digit" confirm-type="done" bindinput="totalpriceInput"></input>万元
 	</view>
   
   <view class="cu-form-group">
@@ -134,7 +134,7 @@
 
   <view class="cu-form-group">
 		<view class="title">产权年限</view>
-		<input placeholder="请填写产权年限"></input>
+		<input placeholder="请填写产权年限" bindinput="yearInput"></input>
 	</view>
 
   <view class="cu-form-group margin-top">
@@ -211,7 +211,7 @@
   
   <view class="cu-form-group align-start">
 		<view class="title">户型面积说明</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写户型面积说名"></textarea>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写户型面积说名" ></textarea>
 	</view>
 
   <view class="cu-form-group align-start">

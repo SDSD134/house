@@ -10,6 +10,7 @@ Page({
   },
   onTabsItemTap: function (event) {
     let index = event.currentTarget.dataset.index;
+    console.log(index)
     this.setData({
       currentTabIndex: index
     })

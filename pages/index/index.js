@@ -299,10 +299,10 @@ Component({
     },
  
   //轮播图
-  onLoad() {
+  onLoad(options) {
+    console.log(options);
     this.towerSwiper('swiperList');
     // 初始化towerSwiper 传已有的数组名即可
-
     qqmapsdk = new QQMapWX({
       key: 'JXSBZ-BNCCG-M44Q6-IOJAS-UODZF-B5BFJ'
     });

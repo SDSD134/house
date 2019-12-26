@@ -18,7 +18,14 @@ Page({
     imgList: [],
     imgListMore: [],
     textareaAValue: '',
-    textareaBValue: ''
+    textareaBValue: '',
+    title:"",   //题目
+    address:"", //地址
+    avaprice:"",//平均价格
+    totalprice:"",//总价格
+    year:"",      //产权年限
+    area:"",      //户型面积说明
+    character:"", //项目特色
   },
   PickerChange(e) {
     console.log(e);
@@ -144,22 +151,63 @@ Page({
     }) 
   },
 
-  textareaAInput(e) {
+  // textareaAInput(e) {
+  //   this.setData({
+  //     textareaAValue: e.detail.value
+  //   })
+  // },
+  // textareaBInput(e) {
+  //   this.setData({
+  //     textareaBValue: e.detail.value
+  //   })
+  // },
+  titleInput(e) {
     this.setData({
-      textareaAValue: e.detail.value
+      title: e.detail.value
     })
   },
-  textareaBInput(e) {
+  addressInput(e) {
     this.setData({
-      textareaBValue: e.detail.value
+      address: e.detail.value
     })
   },
+  avapriceInput(e) {
+    this.setData({
+      avaprice: e.detail.value
+    })
+  },
+  totalpriceInput(e) {
+    this.setData({
+      totalprice: e.detail.value
+    })
+  },
+  yearInput(e) {
+    this.setData({
+      year: e.detail.value
+    })
+  },
+  areaInput(e) {
+    this.setData({
+      area: e.detail.value
+    })
+  },
+ characterInput(e) {
+    this.setData({
+      character: e.detail.value
+    })
+  },
+
   bindHideKeyboard: function (e) {
     if (e.detail.value === '123') {
       // 收起键盘
       wx.hideKeyboard()
     }
+  },
+  RegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
   }
-
  
 })
