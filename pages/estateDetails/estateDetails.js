@@ -294,5 +294,46 @@ Page({
         longitude: 113.3345211,
       }]
     })
+  },
+  // 备案
+  record: function () {
+      wx.showModal({
+        title: '提示',
+        content: '请报备真实有效的客户信息，若多次报备虚假客户，你的客户可能会永久被禁用哦！',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../estateDetails/record/record'
+            })
+            console.log('继续报备')
+          } else {
+            console.log('取消')
+          }
+
+        }
+      })
+   },
+  onShow() {
+    this._getUserLocation();
+  },
+  _getUserLocation(){
+    var a=8;
+    if(a>5){
+    wx.showModal({
+      title: '提示',
+      content: '免费用户最多可浏览5个楼盘资料，如需浏览更多楼盘资料请点击>去开通<浏览VIP会员，即可限制浏览楼盘资料',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '../logs/vip/vip'
+          })  
+        } else {
+          wx.switchTab({
+            url: '../index/index'
+          })
+        }
+      }
+    })
+    }
   }
 })

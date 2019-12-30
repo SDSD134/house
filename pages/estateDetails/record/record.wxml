@@ -1,0 +1,78 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+</cu-custom>
+<form>
+<view class="cu-form-group">
+		<view class="title">报备项目</view>
+		<text class="dist">临水家园</text>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">报备给谁</view>
+		<text class="dist">孙娜 137****111</text>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">我的公司</view>
+		<input placeholder="请输入你所在的分销公司名称"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">真实姓名</view>
+		<input placeholder="请填输入真实姓名"></input>
+	</view>
+  <radio-group class="block">
+   <view class="cu-form-group margin-top">
+			<view class="title">性别:</view>
+			<radio class="blue radio" checked="checked"></radio>
+      <view class="title">男</view>
+			<radio class=" red radio"></radio>
+      <view class="title">女</view>
+	 </view>
+</radio-group>
+  <view class="cu-form-group">
+		<view class="title">客户号码</view>
+		<input placeholder="请输入客户号码（前3位后4位）"></input>
+	</view>
+  <radio-group class="block">
+   <view class="cu-form-group margin-top">
+			<view class="title">来访方式:</view>
+			<radio class="radio"checked="checked"></radio>
+      <view class="title">自驾</view>
+			<radio class=" radio" ></radio>
+      <view class="title">班车</view>
+	 </view>
+</radio-group>
+  <view class="cu-form-group">
+		<view class="title">车牌号码</view>
+		<input placeholder="请输入车牌号码"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">到访日期</view>
+		<picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">到访时间</view>
+		<picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="TimeChange">
+			<view class="picker">
+				{{time}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">来访人数</view>
+		<input placeholder="请输入来访人数"></input>
+	</view>
+  <view class="cu-form-group align-start">
+      <view class="title">客户备注</view>
+      <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入客户备注" ></textarea>
+    </view>
+  
+  <view>
+    <button type="primary" form-type="submit" class='btn'>
+      <image class='btnImg' src='../../../image/00.gif'></image>
+      <view>提交审核</view>
+    </button>
+  </view>
+</form>

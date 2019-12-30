@@ -38,7 +38,10 @@
     "pages/logs/set/phone/phone",
     "pages/map/map",
     "pages/estateDetails/reply/reply",
-    "pages/logs/item/revise/revise"
+    "pages/logs/item/revise/revise",
+    "pages/logs/join/joinAttestation/joinAttestation",
+    "pages/estateDetails/record/record",
+    "pages/logs/choose/choose"
   ],
   "permission": {
     "scope.userLocation": {

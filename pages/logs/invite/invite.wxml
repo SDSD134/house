@@ -11,16 +11,66 @@
 <!-- 选择对应页面 -->
   <view class='ordert-detail'>
     <view hidden='{{currentTabIndex != 0}}'>
-       <view class="container">
-        <image src="../../../image/00.jpg"> </image>
-        <text>还没有记录哦！</text>
-       </view>
-    </view>
-    <view hidden='{{currentTabIndex != 1}}'>
-       <view class="container">
+      <view wx:if="{{diarylength==0}}">
+        <view class="container">
           <image src="../../../image/00.jpg"> </image>
           <text>还没有记录哦！</text>
-       </view>
+        </view>
+      </view>
+      <!-- 判断--有权限 -->
+    <view wx:else>
+    <view class="cu-list menu-avatar">
+        <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{list}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+          <view class="cu-avatar radius lg" >
+              <image src="../../../image/vip.png"class="img"></image>
+          </view>
+          <view class="content">
+            <view class="text-grey">{{item.title}}</view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-infofill text-red"></text>有效期： {{item.time}}
+            </view>
+          </view>
+          <!-- <view class="action">
+            <view class="cu-tag round bg-olive light">住宅</view>
+          </view> -->
+          <view class="move">
+            <view class="bg-blue" bindtap = "revise">修改</view>
+            <view class="bg-red" bindtap = "delItem">删除</view>
+          </view>
+        </view>
+      </view>
+      </view>
+    </view>
+    <view hidden='{{currentTabIndex != 1}}'>
+       <view wx:if="{{diarylengths==0}}">
+        <view class="container">
+          <image src="../../../image/00.jpg"> </image>
+          <text>还没有记录哦！</text>
+        </view>
+      </view>
+      <!-- 判断--有权限 -->
+    <view wx:else>
+    <view class="cu-list menu-avatar">
+      <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{inviteList}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+          <view class="cu-avatar radius lg" >
+              <image src="{{item.img}}"class="img"></image>
+          </view>
+          <view class="content "id="">
+            <view class="text-grey">{{item.name}}</view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-infofill text-blue"></text>联系方式： {{item.phone}}
+            </view>
+          </view>
+          <!-- <view class="action">
+            <view class="cu-tag round bg-olive">{{item.time}}</view>
+          </view> -->
+          <view class="move">
+            <view class="bg-blue" bindtap = "revise">修改</view>
+            <view class="bg-red" bindtap = "delItem">删除</view>
+          </view>
+        </view>
+      </view>
+      </view>
     </view>
   </view>
 </view>

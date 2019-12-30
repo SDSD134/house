@@ -304,3 +304,48 @@ height:30px;
   padding: 20rpx 0;
   background-color:white;
 }
+.kong{
+  height:100px;
+  width:100%;
+  background-color:white;
+  }
+  /* 备案 */
+.oblong-float{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+  z-index: 9999;
+  border-radius:10px;
+}
+.share{
+  height:100rpx;
+  width:20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.share image{
+  height:80%;
+  width:60%;
+}
+.oblong-float-in{
+  color: #ffffff;
+  /* position: fixed; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:80%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background-color: #0993E7;
+   border-radius:10px;
+}
+.invite{
+  font-size:20px;
+}

@@ -370,5 +370,15 @@
         </view>
       </view>
     </view>
+    <view class="kong"></view>
 </scroll-view>
 
+<!-- 快速备案 -->
+ <view class="oblong-float" bindtap='payFor'>
+ <view class="share"> <!--分享 -->
+    <image src="../../image/share.png"></image>
+ </view>
+    <view class="oblong-float-in" bindtap="record">
+        <text class="invite">快速备案</text>
+    </view>
+  </view>

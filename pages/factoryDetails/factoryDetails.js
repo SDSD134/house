@@ -5,6 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
+    list:[
+      {
+        img:'../../image/shou1.png'
+      },
+      {
+        img: '../../image/shou1.png'
+      },
+      {
+        img: '../../image/shou1.png'
+      },
+      {
+        img: '../../image/shou1.png'
+      },
+      {
+        img: '../../image/shou1.png'
+      }
+    ],
     brand:[
       {
         img:'../../image/26.jpg',

@@ -1,0 +1,123 @@
+.choose-all{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+.choose{
+  width:90%;
+}
+ .choose-on{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  position:relative;    
+  top:30px;
+  z-index:99;
+  font-size:50rpx;
+  color:#172038;
+  }
+  .choose-in{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  position:relative;    
+  top:30px;
+  z-index:99;
+  font-size:30rpx;
+  color:#9198A4;
+  }
+/* 选择对应页面 */
+.meal-all{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  position:relative;    
+  top:50px;
+
+}
+  .meal-in{
+  width:90%;
+  display: flex;
+  justify-content: center;
+  border:4rpx solid #93ADE0;
+  background-color:white;
+  border-radius: 20px;
+  position:relative;    
+  top:45px;
+  z-index:99;
+  }
+  .meal-on{
+  width:95%;
+  display: flex;
+  justify-content: center;
+  border:5rpx solid #93ADE0;
+  background-color:#E6E7FC;
+  border-radius: 20px;
+  position:relative;    
+   top:45px;
+   z-index:99;
+  }
+  .meal{
+    width:90%;
+    height:70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .meal-left{
+    width:80%;
+    height:70px;
+  }
+  .meal-left-top{
+    font-size:40rpx;
+    color:#2A313F;
+    height:40px;
+    display: flex;
+    align-items: center;
+  }
+   .meal-left-bottom{
+    font-size:35rpx;
+    color:#9198A4;
+    height:30px;
+  }
+  /* 分割线 */
+  .divLine{
+    position:relative;
+    top:4px;    
+    background:#F1F1F1;
+    width: 100%;
+    height: 20rpx;
+}
+/* 认证 */
+.oblong-float{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+  z-index: 9999;
+  border-radius:10px;
+}
+.oblong-float-in{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:90%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background-color: #3C77F7;
+   border-radius:10px;
+}
+.invite{
+  font-size:20px;
+}
+.kong{
+  width:100%;
+  height:100px;
+}

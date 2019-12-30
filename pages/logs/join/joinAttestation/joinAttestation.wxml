@@ -1,0 +1,59 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+</cu-custom>
+<form>
+	<view class="cu-form-group">
+		<view class="title">公司名称</view>
+		<input placeholder="输入企业名称"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">信用代码</view>
+		<text class="dist">自动识别</text>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">法人姓名</view>
+		<input placeholder="请填输入法人真实姓名"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">公司地址</view>
+		<input placeholder="请输入公司地址"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">详细地址</view>
+		<input placeholder="请输入公司详细地址"></input>
+	</view>
+  <radio-group class="block">
+   <view class="cu-form-group margin-top">
+			<view class="title">主营业务:</view>
+			<radio class="radio"></radio>
+      <view class="title">新房</view>
+			<radio class=" red radio"></radio>
+      <view class="title">二手房</view>
+	 </view>
+</radio-group>
+  <view class="cu-form-group ">
+		<view class="title">主营类型</view>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">住宅</view>
+		<checkbox></checkbox>
+    <view class="title">别墅</view>
+		<checkbox></checkbox>
+    <view class="title">商户</view>
+		<checkbox></checkbox>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">商办</view>
+		<checkbox></checkbox>
+    <view class="title">写字楼</view>
+		<checkbox></checkbox>
+    <view class="title">商铺</view>
+		<checkbox></checkbox>
+	</view>
+  <view>
+    <button type="primary" form-type="submit" class='btn'>
+      <image class='btnImg' src='../../../../image/00.gif'></image>
+      <view>提交审核</view>
+    </button>
+  </view>
+</form>

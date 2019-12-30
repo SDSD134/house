@@ -6,7 +6,7 @@
        <text class="text-xl">{{userInfo.nickName}}</text>
        <image src="../../image/set.png" class="img" bindtap='set'></image>
     </block>
-    <view class="margin-top-sm" bindtap='status'>未进行身份验证</view>
+    <view class="margin-top-sm" bindtap='choose'>未进行身份验证</view>
     <view class="margin-top-sm" bindtap='join'>
       <text>未加入公司</text>
     </view>

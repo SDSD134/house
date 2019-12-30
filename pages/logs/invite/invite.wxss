@@ -77,3 +77,11 @@
 .invite{
   font-size:20px;
 }
+.img{
+  width:100%;
+  height:100%;
+}
+#mode{
+   position:relative;
+   left:1px;
+}

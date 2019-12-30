@@ -1,4 +1,5 @@
 var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
+//var getPhoneNumber = require('../../wxPopView/wxPopView.js');
 var qqmapsdk;
 var common = require('../../wxPop/wxPop.js');
 Component({
@@ -298,12 +299,12 @@ Component({
     },
  
   //轮播图
-  onLoad() {
+  onLoad(options) {
+    console.log(options);
     this.towerSwiper('swiperList');
     // 初始化towerSwiper 传已有的数组名即可
-
     qqmapsdk = new QQMapWX({
-      key: '自己的key'
+      key: 'JXSBZ-BNCCG-M44Q6-IOJAS-UODZF-B5BFJ'
     });
   },
   DotStyle(e) {
@@ -534,7 +535,7 @@ Component({
                       self._getCityLocation()
                     } else {
                       wx.showModal({
-                        title: '授权失败',
+                        title: '授权失败3',
                         icon: 'none',
                         duration: 1000
                       })
@@ -556,9 +557,8 @@ Component({
               confirmText: '确定',
             });
           }
-          console.log('授权成功')
           self._getCityLocation()
-          console.log('授权pk')
+        
         }
       }
     })
@@ -577,13 +577,14 @@ Component({
           location: { latitude: res.latitude, longitude: res.longitude }, 
           success: function (addressRes) { 
             console.log(addressRes);
-           // self.address = addressRes.result.formatted_addresses.recommend;
+            self.address = addressRes.result.formatted_addresses.recommend;
             self.address = addressRes.result.address_component.province + addressRes.result.address_component.city + addressRes.result.address_component.district
             //app.globalData.address = address; 
               },
           fail: function (addressRes) {
+            console.log(res)
             wx.showModal({
-              title: '信息提示',
+              title: '信息提示1',
               content: '请求失败',
               showCancel: false,
               confirmColor: '#f37938'
@@ -594,7 +595,7 @@ Component({
       fail:(res) => {
         console.log(res)
         wx.showModal({
-          title: '信息提示6666',
+          title: '信息提示2',
           content: '请求失败',
           showCancel: false,
           comfirmColor: '#f37938'
@@ -602,12 +603,14 @@ Component({
         console.log("失败")
         console.log(self.address)
       },
-      complete: (res) => {
-        console.log(res)
-        console.log("完成")
-      }
+      // complete: (res) => {
+      //   console.log(res)
+      //   console.log("完成")
+      // }
       
     })
   },
+   
   },
+  
 })

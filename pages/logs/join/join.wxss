@@ -17,9 +17,6 @@
   width: 200px;
   height: 200px;
 }
-.detail text{
-  color:#979797;
-}
 .detail-button{
   position:relative;    
   top:30px; 
@@ -31,6 +28,7 @@
   position:relative;    
   top:30px;
   font-size:10px; 
+  color:#979797;
 }
 .input-one{
   position:relative;    
@@ -59,4 +57,7 @@
 .input-two input{
   position:relative;    
   left:5px;
+}
+.join-attestation{
+  color:blue;
 }
