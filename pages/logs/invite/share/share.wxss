@@ -83,6 +83,7 @@ swiper-item.cur .swiper-view {
   width: 36rpx;
   height: 36rpx;
 }
+<<<<<<< HEAD
 
 button{
 background-color:white; 
@@ -100,3 +101,5 @@ button::after{
 border:none;
 }
 
+=======
+>>>>>>> 67b6c1421a92fd79ba6cc976cd8f4127220f8dc2
