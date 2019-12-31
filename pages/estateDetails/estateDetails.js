@@ -317,7 +317,7 @@ Page({
     this._getUserLocation();
   },
   _getUserLocation(){
-    var a=8;
+    var a=4;
     if(a>5){
     wx.showModal({
       title: '提示',

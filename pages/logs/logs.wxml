@@ -39,6 +39,12 @@
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
   <view class="cu-item arrow">
+      <navigator class="content" url="../logs/register/register" hover-class="none">
+        <text class="cuIcon-creativefill text-red"></text>
+        <text class="text-grey">注册公司</text>
+      </navigator>
+    </view>
+  <view class="cu-item arrow">
       <navigator class="content" url="../logs/vip/vip" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">vip会员</text>
@@ -80,7 +86,7 @@
     </view> -->
     <view class="cu-item arrow">
       <button class="getCodeView content"id="btn" open-type="contact" >
-        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="cuIcon-creativefill text-blue"></text>
         <text  class="text-grey" >联系客服</text>
       </button>
     </view>

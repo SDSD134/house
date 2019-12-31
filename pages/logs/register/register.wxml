@@ -1,0 +1,40 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">发布</view>
+</cu-custom>
+
+<form>
+	<view class="cu-form-group">
+		<view class="title">公司名称</view>
+		<input placeholder="请填写公司名称/必填"  confirm-type="done" type="text" bindinput="titleInput"></input>
+	</view>
+  <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			公司logo
+		</view>
+	</view>
+  <view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+  <view class="cu-form-group margin-top">
+      <view class="title">在售楼盘数量</view>
+      <input placeholder="请填写在售楼盘数量" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    </view>
+   <view>
+    <button type="primary" form-type="submit" class='btn'>
+      <image class='btnImg' src='../../../image/00.gif'></image>
+      <view>注册</view>
+    </button>
+  </view>
+  
+</form>
