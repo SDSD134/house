@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.2",
+	"libVersion": "2.9.4",
 	"appid": "wx999e470ac4dfc5d4",
 	"projectname": "ColorUI-template",
 	"debugOptions": {
@@ -71,6 +71,13 @@
 					"id": -1,
 					"name": "pages/logs/invite/invite",
 					"pathName": "pages/logs/invite/invite",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/estateDetails/goComments/goComments",
+					"pathName": "pages/estateDetails/goComments/goComments",
 					"scene": null
 				}
 			]

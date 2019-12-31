@@ -6,6 +6,8 @@ Page({
    */
   data: {
     imgListMore: [],
+    commentContext:'',
+    comment_id:''
   },
   ChooseImageMore() {
     wx.chooseImage({
@@ -45,6 +47,85 @@ Page({
           })
         }
       }
+    })
+  },
+
+  publish:function(e) {
+    let that = this;
+    var image = that.data.imgListMore;
+    if (that.data.commentContext == null || that.data.commentContext == '') {
+      wx.showModal({
+        title: '错误',
+        content: '内容不可以为空',
+        confirmText: '确定',
+      })
+      return;
+    }
+    if (image.length > 0){
+      for (let i = 0; i < image.length; i++) {
+        wx.uploadFile({
+          url: 'http://localhost:8080/comment/askQuestion',
+          filePath: image[i],
+          name: 'file',
+          formData: {
+            'commentContext': that.data.commentContext,
+            'comment_id': that.data.comment_id,
+            'commentType': 1,
+            'userId': 'f',
+            'commentBuildingId': 1
+          },
+          success(res) {
+           // const data = res.data
+            console.log(res)
+            if (this.dat.status == 200) {
+              this.setData({
+                comment_id: data.data.data
+              })
+            }
+          },
+          fail(res) {
+            console.log("失败");
+          }
+        })
+      }
+    } else {
+      console.log("进入");
+      wx.request({
+        url: 'http://localhost:8080/comment/askQuestion',
+        filePath: null,
+        name: 'file',
+        data: {
+          'commentContext': that.data.commentContext,
+          'comment_id': that.data.comment_id,
+          'commentType': 1,
+          'userId': 'f',
+          'commentBuildingId': 1
+        },
+        success(res) {
+          // const data = res.data
+          console.log(res)
+          // if (this.data.data.status = 200) {
+          //   this.setData({
+          //     comment_id: data.data.comment_id
+          //   })
+          // }
+        },
+        fail(res) {
+          console.log("失败");
+        }
+
+      })
+    }
+    
+    this.setData({
+      imgListMore: '',
+      comment_id:''
+    })
+  },
+
+  textareaAInput:function(e) {
+    this.setData({
+      commentContext: e.detail.value
     })
   },
 

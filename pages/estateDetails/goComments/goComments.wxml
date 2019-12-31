@@ -38,7 +38,7 @@
 	</view>
 <!-- 提交按钮 -->
    <view>
-    <button type="primary" form-type="submit" class='btn'>
+    <button type="primary" form-type="submit" class='btn' bindtap="publish">
       <image class='btnImg' src='../../../image/00.gif'></image>
       <view>发布</view>
     </button>

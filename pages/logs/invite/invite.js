@@ -10,9 +10,15 @@ Page({
   },
   onTabsItemTap: function (event) {
     let index = event.currentTarget.dataset.index;
-    console.log(index)
+    //0为充值，1为邀请
+
     this.setData({
       currentTabIndex: index
     })
+    if(index == 1) {
+      wx.request({
+        url: '',
+      })
+    }
   }
 })

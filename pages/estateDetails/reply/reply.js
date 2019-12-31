@@ -14,7 +14,8 @@ Page({
       },
       {
         img: '../../../image/26.jpg',
-      }
+      },
+     
     ],
     comment: [
       {
@@ -22,10 +23,19 @@ Page({
         content: '体量：8141套，面积段：68-88-110平，均价：18888元/平。',
         time: '201-11-11 15：33：33 '
       },
-    ]
+    ],
+    replyContext: ''
 
   },
   reply: function (e) {
+    let that = this
+    wx.request({
+      url: '',
+      method:'GET',
+      data:{
+        replyContext: that.data.replyContext
+      }
+    })
     wx.navigateTo({
       url: '../reply/reply'
     })
@@ -49,7 +59,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      wx.request({
+        url: '',
+      })
   },
 
   /**
