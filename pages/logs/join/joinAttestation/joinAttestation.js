@@ -1,4 +1,4 @@
-// pages/logs/item/join/join.js
+// pages/logs/join/joinAttestation/ joinAttestation.js
 Page({
 
   /**
@@ -7,11 +7,7 @@ Page({
   data: {
 
   },
-  joinAttestation: function (e) {
-    wx.navigateTo({
-      url: '../join/joinAttestation/joinAttestation'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

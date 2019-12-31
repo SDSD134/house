@@ -138,7 +138,7 @@
 	</view>
 
   <view class="cu-form-group margin-top">
-		<view class="title">物业类型</view>
+		<view class="title">户型</view>
 	</view>
   <view class="cu-form-group ">
 		<view class="title">别墅</view>
@@ -209,16 +209,83 @@
 		<checkbox></checkbox>
 	</view>
   
-  <view class="cu-form-group align-start">
+  <!-- <view class="cu-form-group align-start">
 		<view class="title">户型面积说明</view>
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写户型面积说名" ></textarea>
+<<<<<<< HEAD
+	</view> -->
+  <view class="cu-form-group margin-top">
+		<view class="title">基本信息（必填）</view>
 	</view>
-
+  <view class="cu-form-group">
+    <view class="title">占地面积</view>
+    <input placeholder="请填写占地面积" type="digit" confirm-type="done" bindinput="avapriceInput"></input>m^2
+  </view>
+   <view class="cu-form-group">
+  <view class="title">户型面积</view>
+    <input placeholder="请填写户型面积" type="digit" confirm-type="done" bindinput="avapriceInput"></input>m^2
+  </view>
+   <view class="cu-form-group">
+  <view class="title">总体量</view>
+    <input placeholder="请填写总体量" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+   <view class="title">绿化率</view>
+    <input placeholder="请填写绿化率" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+   <view class="title">规划产数</view>
+    <input placeholder="请填写规划产数" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">是否有车位</view>
+		<switch></switch>
+	</view>
+   <view class="cu-form-group">
+  <view class="title">所属物业公司</view>
+    <input placeholder="请填写物业公司名称" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+  <view class="title">物业费</view>
+    <input placeholder="请填写应缴物业费用" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+<view class="cu-form-group align-start">
+		<view class="title">楼层概况</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写楼层概况说明" ></textarea>
+=======
+>>>>>>> 67b6c1421a92fd79ba6cc976cd8f4127220f8dc2
+	</view>
   <view class="cu-form-group align-start">
-		<view class="title">项目特色</view>
+		<view class="title">项目特色（必填）</view>
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请填写项目特色/必填"></textarea>
 	</view>
-
+   <view class="cu-form-group margin-top">
+		<view class="title">周边设施（选填）</view>
+	</view>
+   <view class="cu-form-group ">
+		<view class="title">交通</view>
+		<checkbox></checkbox>
+    <view class="title">学校</view>
+		<checkbox></checkbox>
+    <view class="title">超市</view>
+		<checkbox></checkbox>
+	</view>
+  <view class="cu-form-group ">
+		<view class="title">银行</view>
+		<checkbox></checkbox>
+    <view class="title">邮局</view>
+		<checkbox></checkbox>
+    <view class="title">内部设施</view>
+		<checkbox></checkbox>
+	</view>
+   <view class="cu-form-group ">
+		<view class="title">其他</view>
+		<checkbox></checkbox>
+	</view>
+<view class="cu-form-group align-start margin-top">
+		<view class="title">其他（选填）</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="选择填写"></textarea>
+	</view>
  <view class="cu-form-group margin-top">
 		<view class="title">项目状态</view>
 		<picker bindchange="PickerChangeThree" value="{{indexThree}}" range="{{pickerThree}}">

@@ -96,6 +96,40 @@
   background-color:#5A5A65;
    
 }
+.mark-left{
+  height:140px;
+  width:40%;
+}
+.mark-right{
+  height:140px;
+  width:60%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.mark-right image{
+  height:30px;
+  width:30px;
+}
+.mark-title{
+  height:40px;
+  width:100%;
+  color:white;
+  font-size:30rpx;
+  position: relative;
+  top:20rpx;
+  left:30rpx;
+}
+.mark-garde{
+  height:100px;
+  width:100%;
+  color:white;
+  font-size:100rpx;
+  position: relative;
+  top:20rpx;
+  left:40rpx;
+
+}
 /* 企业形象 */
 .impress-all{
   height:50px;
@@ -225,3 +259,4 @@ align-items: center;
   height:20px;
   width:20px;
 }
+/* 评星 */

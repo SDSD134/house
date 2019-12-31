@@ -1,0 +1,30 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">身份选择</view>
+</cu-custom>
+<view class="choose-all">
+  <view class="choose">
+    <view class="choose-on">请选择用户身份</view>
+    <view class="choose-in">认证用户身份，不同的身份对应不同的功能</view>
+  </view>
+</view>
+<view wx:for="{{listOne}}" wx:key="{{key}}">
+  <view class="meal-all">
+    <view class="{{idIndex == index?'meal-on':'meal-in'}}"data-index="{{index}}" bindtap='getIndex' >
+        <view class="meal">
+            <view  class="meal-left">
+              <view class="meal-left-top">{{item.top}}</view>
+              <view class="meal-left-bottom">{{item.bottom}}</view>
+            </view>
+      </view>  
+    </view>
+  </view>
+  <view class="divLine"></view>
+</view>
+<view class="kong"></view>
+   <!-- 下一步 -->
+ <view class="oblong-float" bindtap='status'>
+    <view class="oblong-float-in">
+        <text class="invite">下一步</text>
+    </view>
+  </view>

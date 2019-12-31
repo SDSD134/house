@@ -83,3 +83,21 @@ swiper-item.cur .swiper-view {
   width: 36rpx;
   height: 36rpx;
 }
+/* <<<<<<< HEAD
+
+button{
+background-color:white; 
+border-radius: 0rpx;
+padding:0rpx;
+margin:0rpx;
+display: inline-block;
+line-height: 1;
+font-size: 28rpx;
+position:relative;    
+left:3px;
+}
+
+button::after{ 
+border:none;
+} */
+

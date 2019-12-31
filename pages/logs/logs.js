@@ -10,7 +10,7 @@ Component({
     visitTotal: 0,
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
   methods: {
@@ -19,9 +19,9 @@ Component({
         url: '../logs/join/join'
       })
     },
-    status: function (e) {
+    choose: function (e) {
       wx.navigateTo({
-        url: '../logs/status/status'
+        url: '../logs/choose/choose'
       })
     },
     set: function (e) {

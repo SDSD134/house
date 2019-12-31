@@ -1,17 +1,48 @@
-// pages/logs/item/join/join.js
+// pages/logs/choose/choose.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    listOne: [
+      {
+        top: '总代/开发商',
+        bottom: '我有项目，来找渠道分销',
+      },
+      {
+        top: '分销/渠道经纪人',
+        bottom: '我有客户，来找优质项目',
+      },
+      {
+        top: '独立经纪人',
+        bottom: '我先看看喽',
+      },
+    ],
 
   },
-  joinAttestation: function (e) {
+  status: function (e) {
     wx.navigateTo({
-      url: '../join/joinAttestation/joinAttestation'
+      url: '../status/status'
     })
   },
+  
+  // 点击变色
+  goIndex: function (e) {
+    let index = e.currentTarget.dataset.index;
+    //  console.log('每个index',list)
+    this.setData({
+      idx: index
+    })
+  },
+  getIndex: function (e) {
+    let index = e.currentTarget.dataset.index;
+    //  console.log('每个index',list)
+    this.setData({
+      idIndex: index
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

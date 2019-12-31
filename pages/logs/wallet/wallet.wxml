@@ -2,7 +2,7 @@
 
 <view class="container">
   <view class="wallet">
-      <image  class="wallet-avatar" src="../../../image/search.png" mode="cover"></image>
+      <image  class="wallet-avatar" src="../../../image/page.png" mode="cover"></image>
       <text class="wallet-nickname">{{money}}</text>
       <navigator url="../wallet/detail/detail">
          <text class="detail">钱包明细</text> > 

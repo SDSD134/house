@@ -20,16 +20,14 @@
   </view>
   <view class="mark-all">
     <view class="mark-in">
-      <view class="mark-title">总体评分</view>
-      <view class="garde-all">
-        <view class="garde-left">
-          <view class="garde"></view>
-          <view class="star"></view>
-        </view>
-        <view class="garde-right">
-          <view class="star-right"></view>
-          <view class="comment"></view>
-        </view>
+      <view class="mark-left">
+        <view class="mark-title">总体评分</view>
+        <view class="mark-garde">9.7</view>
+      </view>
+      <view class="mark-right">
+      <view wx:for="{{list}}" wx:key="{{index}}">
+         <image src="{{item.img}}"></image>
+      </view>
       </view>
     </view>
   </view>

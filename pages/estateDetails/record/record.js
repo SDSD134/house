@@ -1,15 +1,22 @@
-// pages/logs/item/join/join.js
+// pages/estateDetails/record/record.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    time: '未选择',
+    date: '未选择',
 
   },
-  joinAttestation: function (e) {
-    wx.navigateTo({
-      url: '../join/joinAttestation/joinAttestation'
+  TimeChange(e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+  DateChange(e) {
+    this.setData({
+      date: e.detail.value
     })
   },
   /**
