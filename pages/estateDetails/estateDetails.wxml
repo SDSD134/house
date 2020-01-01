@@ -374,11 +374,27 @@
 </scroll-view>
 
 <!-- 快速备案 -->
- <view class="oblong-float" bindtap='payFor'>
- <view class="share"> <!--分享 -->
-    <image src="../../image/share.png"></image>
- </view>
+ <view class="oblong-float">
+    <view class="share-all"bindtap="share"> <!--分享 -->
+        <view class="share">
+          <image src="../../image/share.png"></image>
+        </view>
+        <view class="share-text">
+          <text>分享</text>
+        </view>
+    </view>
     <view class="oblong-float-in" bindtap="record">
         <text class="invite">快速备案</text>
     </view>
   </view>
+<!-- 海报 -->
+  <view>
+    <view class='imagePathBox' hidden="{{maskHidden == false}}">
+          <image src="{{imagePath}}" class='shengcheng'></image>
+          <button class='baocun' bindtap='baocun'>保存相册，分享到朋友圈</button>
+        </view>
+      <view hidden="{{maskHidden == false}}" class="mask"></view> 
+      <view class="canvas-box">
+          <canvas  style="width: 375px;height: 667px;position:fixed;top:9999px" canvas-id="mycanvas"/>
+      </view>  
+</view>
