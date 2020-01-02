@@ -62,6 +62,38 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+   /* let that = this;
+    wx.request({
+      url: 'http://localhost:8080/collect/isCollect',
+      data:{
+        userId: 'f'
+      },
+      success(res){
+        console.log(res.data.data)
+       // console.log(res.data.data.equal("true"))
+        if(res.data.data== 1) {
+            that.setData({
+              diarylength:1
+            })
+          wx.request({
+            url: 'http://localhost:8080/collect/userController',
+            data: {
+              userId: 'f'
+            },
+            success(re) {
+              that.setData({
+                list: re.data.data
+              })
+            }
+          })
+        } else {
+          that.setData({
+            diarylength:0
+          })
+        }
+      }
+    })
+  */
 
   },
 

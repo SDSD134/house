@@ -22,9 +22,9 @@ Page({
       ],
       listTwo:[
         {
-          top:'2年VIP会员',
-          bottom:'最多可上线20个项目',
-          money:'3240'
+          chargeName:'2年VIP会员',
+          chargeNotice:'最多可上线20个项目',
+          chargeMoney:'3240'
         },
         {
           top: '1年VIP会员',
@@ -110,11 +110,24 @@ Page({
       }) 
 
   },
-  // 选择
+  // 选择 0为浏览，1为发布
   onTabsItemTap: function (event) {
     let index = event.currentTarget.dataset.index;
+    let that =  this;
     this.setData({
       currentTabIndex: index
+    })
+    wx.request({
+      url: 'http://localhost:8080/charge/listCharge',
+      data: {
+        chargeType:this.data.currentTabIndex,
+      },
+      success(res) {
+        console.log(res.data.data)
+        that.setData({
+          listOne: res.data.data
+        })
+      }
     })
   },
   // 点击变色
@@ -132,5 +145,23 @@ Page({
       idIndex: index
     })
   },
+  onShow() {
+    var list = [];
+    let that = this;
+    wx.request({
+      url: 'http://localhost:8080/charge/listCharge',
+      data: {
+        chargeType: 0,
+      },
+      success(res) {
+        list = res.data.data
+        that.setData({
+          listOne:list
+        })
+      }
+    })
+  }
 
+
+  
 })

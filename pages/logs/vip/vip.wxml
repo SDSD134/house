@@ -18,10 +18,10 @@
         <view class="{{idIndex == index?'meal-on':'meal-in'}}"data-index="{{index}}" bindtap='getIndex' >
           <view class="meal">
               <view  class="meal-left">
-                <view class="meal-left-top">{{item.top}}</view>
-                <view class="meal-left-bottom">{{item.bottom}}</view>
+                <view class="meal-left-top">{{item.chargeName}}</view>
+                <view class="meal-left-bottom">{{item.chargeNotice}}</view>
               </view>
-              <view class="meal-right">{{item.money}} 元</view>
+              <view class="meal-right">{{item.chargeMoney}} 元</view>
           </view>  
         </view>
         <view class="divLine"></view>
@@ -29,14 +29,14 @@
       <view class="kong"></view>
     </view>
     <view hidden='{{currentTabIndex != 1}}'>
-        <view wx:for="{{listTwo}}" wx:key="key">
+        <view wx:for="{{listOne}}" wx:key="key">
         <view class="{{idx == index?'meal-on':'meal-in'}}"data-index="{{index}}" bindtap='goIndex'>
           <view class="meal">
               <view  class="meal-left">
-                <view class="meal-left-top">{{item.top}}</view>
-                <view class="meal-left-bottom">{{item.bottom}}</view>
+                <view class="meal-left-top">{{item.chargeName}}</view>
+                <view class="meal-left-bottom">{{item.chargeNotice}}</view>
               </view>
-              <view class="meal-right">{{item.money}} 元</view>
+              <view class="meal-right">{{item.chargeMoney}} 元</view>
           </view>  
         </view>
         <view class="divLine"></view>
@@ -48,6 +48,7 @@
 <!-- 充值 -->
  <view class="oblong-float" bindtap='payFor'>
     <view class="oblong-float-in">
-        <text class="invite">充值</text>
+        <!-- <text class="invite">充值</text> -->
+        <button  class="invite" bindtap="payoff">充值</button>
     </view>
   </view>

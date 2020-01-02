@@ -252,8 +252,8 @@
 <view class="cu-form-group align-start">
 		<view class="title">楼层概况</view>
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写楼层概况说明" ></textarea>
-=======
->>>>>>> 67b6c1421a92fd79ba6cc976cd8f4127220f8dc2
+<!-- =======
+>>>>>>> 67b6c1421a92fd79ba6cc976cd8f4127220f8dc2 -->
 	</view>
   <view class="cu-form-group align-start">
 		<view class="title">项目特色（必填）</view>
