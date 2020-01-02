@@ -65,14 +65,7 @@ Page({
     this.setData({
       currentTabIndex: index
     })
-// <<<<<<< HEAD
-//     if(index == 1) {
-//       wx.request({
-//         url: '',
-//       })
-//     }
-//   }
-// =======
+
   },
   // 滑动删除
   // ListTouch触摸开始
@@ -158,5 +151,4 @@ Page({
     })
   },
 
-//>>>>>>> master
 })

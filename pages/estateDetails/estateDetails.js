@@ -1,6 +1,8 @@
 const app = getApp();
 Page({
   data: {
+    // 海报
+    maskHidden: false,
     // 地图
     latitude: 23.099994,
     longitude: 113.324520,
@@ -255,6 +257,158 @@ Page({
       url: '../estateDetails/reply/reply'
     })
   },
+//  分享
+ share:function(){
+   var that=this
+   wx.showActionSheet({
+     itemList: ['分享给微信好友', '生成海报'],
+     success: function (res) {
+       console.log(res.tapIndex)
+       if (res.tapIndex === 0){
+         that.onShareAppMessage()
+       } 
+       if (res.tapIndex === 1)
+       {
+         that.formSubmit()
+       }   
+     }
+   })
+ },
+  //点击生成
+  formSubmit: function() {
+    console.log("shibai");
+    var that = this;
+    this.setData({
+      maskHidden: false
+    });
+    wx.showToast({
+      title: '生成中',
+      icon: 'loading',
+      duration: 1000
+    });
+    setTimeout(function () {
+      wx.hideToast()
+      that.createNewImg();
+      that.setData({
+        maskHidden: true
+      });
+    }, 1000)
+  },
+  //将canvas转换为图片保存到本地，然后将图片路径传给image图片的src
+  createNewImg: function () {
+    var that = this;
+    var context = wx.createCanvasContext('mycanvas');
+    context.setFillStyle("#6899FF")
+    context.fillRect(0, 0, 375, 667)
+    var path = "/image/3.png";
+    context.drawImage(path, 10, 10, 355, 647);
+    context.setFontSize(24);
+    context.setFillStyle('#E0A859');
+    context.setTextAlign('center');
+    context.fillText("楼/盘/推/荐", 180, 50);
+    context.stroke();
+    context.setFontSize(14);
+    context.setFillStyle('#949494');
+    context.setTextAlign('center');
+    context.fillText("—— 向您推荐一个好楼盘 ——", 180, 80);
+    context.stroke();
+    var path1 = "/image/27.jpg";
+    context.drawImage(path1, 20, 100, 335, 217);
+    var path2 = "/image/111.jpg";
+    context.drawImage(path2, 146, 520, 80, 80);
+    context.setFontSize(20);
+    context.setFillStyle('#5A5472');
+    context.setTextAlign('left');
+    context.fillText("风清云都", 30, 347);
+    context.stroke();
+
+    context.setFontSize(20);
+    context.setFillStyle('#FD7B48');
+    context.setTextAlign('right');
+    context.fillText("1200m^2", 335, 347);
+    context.stroke();
+
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("地址：嘉兴市南湖区越秀北路洪兴交界处", 30, 377);
+    context.stroke();
+
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("面积：29-50m^2", 30, 407);
+    context.stroke();
+
+    context.setFontSize(20);
+    context.setFillStyle('#FD7B48');
+    context.setTextAlign('left');
+    context.fillText("地理位置好，环境优美，物超所值！", 30, 457);
+    context.stroke();
+    context.draw();
+
+    //将生成好的图片保存到本地，需要延迟一会，绘制期间耗时
+    setTimeout(function () {
+      wx.canvasToTempFilePath({
+        canvasId: 'mycanvas',
+        success: function (res) {
+          var tempFilePath = res.tempFilePath;
+          that.setData({
+            imagePath: tempFilePath,
+            canvasHidden: true
+          });
+        },
+        fail: function (res) {
+          console.log(res);
+        }
+      });
+    }, 200);
+  },
+  //点击保存到相册
+  baocun: function () {
+    var that = this
+    wx.saveImageToPhotosAlbum({
+      filePath: that.data.imagePath,
+      success(res) {
+        wx.showModal({
+          content: '图片已保存到相册，赶紧晒一下吧~',
+          showCancel: false,
+          confirmText: '好的',
+          confirmColor: '#333',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定');
+              /* 该隐藏的隐藏 */
+              that.setData({
+                maskHidden: false
+              })
+            }
+          }, fail: function (res) {
+            console.log(11111)
+          }
+        })
+      }
+    })
+  },
+  onShareAppMessage: function () {
+    console.log("dd")
+    var userid = ''
+    wx.getStorage({
+      key: 'userId',
+      success: function (res) {
+        userid = res.data
+      },
+    })
+    return {
+      title: '弹出分享时显示的分享标题',
+      desc: '分享页面的内容',
+      path: 'pages/index/index?parentid=' + userid // 路径，传递参数到指定页面。
+    }
+
+  },
+ 
+
+// map
   onReady: function (e) {
     this.mapCtx = wx.createMapContext('myMap')
   },
@@ -317,7 +471,7 @@ Page({
     this._getUserLocation();
   },
   _getUserLocation(){
-    var a=8;
+    var a=4;
     if(a>5){
     wx.showModal({
       title: '提示',

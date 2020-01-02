@@ -41,7 +41,8 @@
     "pages/logs/item/revise/revise",
     "pages/logs/join/joinAttestation/joinAttestation",
     "pages/estateDetails/record/record",
-    "pages/logs/choose/choose"
+    "pages/logs/choose/choose",
+    "pages/logs/register/register"
   ],
   "permission": {
     "scope.userLocation": {

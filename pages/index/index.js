@@ -271,6 +271,20 @@ Component({
         url: '../lead/lead'
       })
     },
+    jump: function (e) {
+      wx.switchTab({
+        if(id = 0) { 
+          url: '../home/home'
+          },
+        if(id=1){
+          url: '../factory/factory'
+        },
+        if(id = 2) {
+          url: '../logs/logs'
+        }
+        
+      })
+    },
     estateDetails: function (e) {
       wx.navigateTo({
         url: '../estateDetails/estateDetails'
