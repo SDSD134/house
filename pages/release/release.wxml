@@ -3,10 +3,10 @@
 	<view slot="content">发布</view>
 </cu-custom>
 
-<form>
+<form bindsubmit='formSubmit'>
 	<view class="cu-form-group">
-		<view class="title">新房名称</view>
-		<input placeholder="请填写新房名称/必填"  confirm-type="done" type="text" bindinput="titleInput"></input>
+		<view class="title">新房名称<text class="must">（必填）</text></view>
+		<input placeholder="请填写新房名称/必填"  confirm-type="done" type="text" name="name" bindinput="titleInput"></input>
 	</view>
 
   <view class="cu-form-group margin-top">
@@ -20,7 +20,7 @@
 
   <view class="cu-bar bg-white margin-top">
 		<view class="action">
-			新房展示图（1张）
+			新房展示图（3张）
 		</view>
 		<!-- <view class="action">
 			{{imgList.length}}/4
@@ -34,7 +34,7 @@
 					<text class="cuIcon-close"></text>
 				</view>
 			</view>
-			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<3}}">
 				<text class="cuIcon-cameraadd"></text>
 			</view>
 		</view>
@@ -73,8 +73,8 @@
 	</view>
 
   <view class="cu-form-group">
-		<view class="title">新房地址</view>
-		<input placeholder="请填写新房地址/必填" bindinput="addressInput"></input>
+		<view class="title">新房地址<text class="must">（必填）</text></view>
+		<input placeholder="请填写新房地址/必填" bindinput="addressInput" name="address"></input>
 	</view>
   
   <view class="cu-form-group margin-top">
@@ -114,13 +114,13 @@
 	</view>
  
  <view class="cu-form-group">
-		<view class="title">均价</view>
-		<input placeholder="请填写均价" type="digit" confirm-type="done" bindinput="avapriceInput"></input>元/m^2
+		<view class="title">均价<text class="must">（必填）</text></view>
+		<input placeholder="请填写均价/必填" type="digit" confirm-type="done" bindinput="avapriceInput"name="avaprice"></input>元/m^2
 	</view>
 
   <view class="cu-form-group">
-		<view class="title">总价</view>
-		<input placeholder="请填写总价" type="digit" confirm-type="done" bindinput="totalpriceInput"></input>万元
+		<view class="title">总价<text class="must">（必填）</text></view>
+		<input placeholder="请填写总价/必填" type="digit" confirm-type="done" bindinput="totalpriceInput" name="totalprice"></input>万元
 	</view>
   
   <view class="cu-form-group">
@@ -133,80 +133,29 @@
 	</view>
 
   <view class="cu-form-group">
-		<view class="title">产权年限</view>
-		<input placeholder="请填写产权年限" bindinput="yearInput"></input>
+		<view class="title">产权年限<text class="must">（必填）</text></view>
+		<input placeholder="请填写产权年限/必填" bindinput="yearInput"name="year"></input>
 	</view>
 
   <view class="cu-form-group margin-top">
 		<view class="title">户型</view>
 	</view>
-  <view class="cu-form-group ">
-		<view class="title">别墅</view>
-		<checkbox></checkbox>
-    <view class="title">商业别墅</view>
-		<checkbox></checkbox>
-    <view class="title">住宅</view>
-		<checkbox></checkbox>
+   <view class="cu-form-group">
+    <checkbox-group>
+      <label class="checkbox padding-sm fl"wx:for="{{listCheckbox}}"wx:key="key" wx:for-item="x" id="{{index}}" bindtap="{{!x.canCheck?'checkChange':''}}">
+        <checkbox checked="{{x.checked}}" disabled="{{x.canCheck}}" />{{x.value}}
+      </label>
+    </checkbox-group>
 	</view>
-  <view class="cu-form-group ">
-		<view class="title">酒店式公寓</view>
-		<checkbox></checkbox>
-    <view class="title">办公楼</view>
-		<checkbox></checkbox>
-    <view class="title">商场</view>
-		<checkbox></checkbox>
-	</view>
-
   <view class="cu-form-group margin-top">
 		<view class="title">楼盘标签</view>
 	</view>
-  <view class="cu-form-group ">
-		<view class="title">普通住宅</view>
-		<checkbox></checkbox>
-    <view class="title">公寓</view>
-		<checkbox></checkbox>
-    <view class="title">别墅</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">花园洋房</view>
-		<checkbox></checkbox>
-    <view class="title">品牌地产</view>
-		<checkbox></checkbox>
-    <view class="title">联排</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">叠拼</view>
-		<checkbox></checkbox>
-    <view class="title">期房</view>
-		<checkbox></checkbox>
-    <view class="title">电梯房</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">刚需婚房</view>
-		<checkbox></checkbox>
-    <view class="title">南北通透</view>
-		<checkbox></checkbox>
-    <view class="title">改善置换</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">低密度</view>
-		<checkbox></checkbox>
-    <view class="title">小户型</view>
-		<checkbox></checkbox>
-    <view class="title">大户型</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">内环以内</view>
-		<checkbox></checkbox>
-    <view class="title">中内环间</view>
-		<checkbox></checkbox>
-    <view class="title">外中环间</view>
-		<checkbox></checkbox>
+  <view class="cu-form-group">
+    <checkbox-group>
+      <label class="checkbox padding-sm fl"wx:for="{{listsCheckbox}}"wx:key="keys" wx:for-item="y" id="{{index}}" bindtap="{{!y.canCheck?'checksChange':''}}">
+        <checkbox checked="{{y.checked}}" disabled="{{y.canCheck}}" />{{y.value}}
+      </label>
+    </checkbox-group>
 	</view>
   
   <!-- <view class="cu-form-group align-start">
@@ -214,52 +163,80 @@
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写户型面积说名" ></textarea>
 	</view> -->
   <view class="cu-form-group margin-top">
-		<view class="title">基本信息（必填）</view>
+		<view class="title">基本信息<text class="must">（必填）</text></view>
 	</view>
   <view class="cu-form-group">
     <view class="title">占地面积</view>
-    <input placeholder="请填写占地面积" type="digit" confirm-type="done" bindinput="avapriceInput"></input>m^2
+    <input placeholder="请填写占地面积/必填" type="digit" confirm-type="done" name="area"></input>m^2
   </view>
    <view class="cu-form-group">
   <view class="title">户型面积</view>
-    <input placeholder="请填写户型面积" type="digit" confirm-type="done" bindinput="avapriceInput"></input>m^2
+    <input placeholder="请填写户型面积/必填" type="digit" confirm-type="done" name="homearea"></input>m^2
   </view>
    <view class="cu-form-group">
   <view class="title">总体量</view>
-    <input placeholder="请填写总体量" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写总体量/必填" type="digit" confirm-type="done" name="allarea"></input>
   </view>
    <view class="cu-form-group">
    <view class="title">绿化率</view>
-    <input placeholder="请填写绿化率" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写绿化率/必填" type="digit" confirm-type="done" name="green"></input>
   </view>
    <view class="cu-form-group">
    <view class="title">规划产数</view>
-    <input placeholder="请填写规划产数" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写规划产数/必填" type="digit" confirm-type="done" name="production"></input>
   </view>
    <view class="cu-form-group">
     <view class="title">车位</view>
-    <input placeholder="请填写车位情况" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写车位情况/必填" type="digit" confirm-type="done" name="car"></input>
   </view>
    <view class="cu-form-group">
   <view class="title">所属物业公司</view>
-    <input placeholder="请填写物业公司名称" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写物业公司名称/必填" type="digit" confirm-type="done" name="factory"></input>
   </view>
    <view class="cu-form-group">
   <view class="title">物业费</view>
-    <input placeholder="请填写应缴物业费用" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写应缴物业费用/必填" type="digit" confirm-type="done" name="property"></input>
   </view>
 <view class="cu-form-group align-start">
 		<view class="title">楼层概况</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写楼层概况说明" ></textarea>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写楼层概况说明"name="storey" ></textarea>
 	</view>
   <view class="cu-form-group align-start">
-		<view class="title">项目特色（必填）</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请填写项目特色/必填"></textarea>
+		<view class="title">项目特色<text class="must">（必填）</text></view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请填写项目特色/必填" name="character"></textarea>
 	</view>
-  <view class="cu-form-group align-start margin-top">
+   <view class="cu-form-group margin-top">
 		<view class="title">周边设施（选填）</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入周边的设施"></textarea>
 	</view>
+   <view class="cu-form-group">
+  <view class="title">交通</view>
+    <input placeholder="请填写周围交通情况" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+  <view class="title">学校</view>
+    <input placeholder="请填写附近学校" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+  <view class="title">超市</view>
+    <input placeholder="请填写附近超市" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+  <view class="title">银行</view>
+    <input placeholder="请填写附近银行" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+  <view class="title">邮局</view>
+    <input placeholder="请填写附近邮局" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+  <view class="title">内部设施</view>
+    <input placeholder="请填写内部设施" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+   <view class="cu-form-group">
+    <view class="title">其他</view>
+    <input placeholder="更多设施请填写" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+  </view>
+  
 <view class="cu-form-group align-start margin-top">
 		<view class="title">其他（选填）</view>
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="选择填写"></textarea>
@@ -280,8 +257,8 @@
 
   <view>
   <button type="primary" form-type="submit" class='btn'>
-  <image class='btnImg' src='../../image/00.gif'></image>
-  <view>发布</view>
+    <image class='btnImg' src='../../image/00.gif'></image>
+    <view>发布</view>
   </button>
   </view>
   

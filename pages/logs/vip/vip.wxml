@@ -47,7 +47,7 @@
 </view>
 <!-- 充值 -->
  <view class="oblong-float" bindtap='payFor'>
-    <view class="oblong-float-in">
-        <text class="invite">充值</text>
-    </view>
+    <button class="oblong-float-in">
+        充值
+    </button>
   </view>

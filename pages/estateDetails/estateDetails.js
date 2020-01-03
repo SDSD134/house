@@ -3,6 +3,7 @@ Page({
   data: {
     // 海报
     maskHidden: false,
+    maskHiddens: false,
     // 地图
     latitude: 23.099994,
     longitude: 113.324520,
@@ -259,24 +260,34 @@ Page({
   },
 //  分享
  share:function(){
-   var that=this
-   wx.showActionSheet({
-     itemList: ['分享给微信好友', '生成海报'],
-     success: function (res) {
-       console.log(res.tapIndex)
-       if (res.tapIndex === 0){
-         that.onShareAppMessage()
-       } 
-       if (res.tapIndex === 1)
-       {
-         that.formSubmit()
-       }   
-     }
-   })
- },
+  //  var that = this;
+   this.setData({
+     maskHiddens: true
+   }); 
+   },
+   cancel: function () {
+    this.setData({
+      maskHiddens: false
+    });
+   },
+  //  var that=this
+  //  wx.showActionSheet({
+  //    itemList: ['分享给微信好友', '生成海报'],
+  //    success: function (res) {
+  //      console.log(res.tapIndex)
+  //      if (res.tapIndex === 0){
+  //        that.onShareAppMessage()
+  //      } 
+  //      if (res.tapIndex === 1)
+  //      {
+  //        that.formSubmit()
+  //      }   
+  //    }
+  //  })
+
   //点击生成
   formSubmit: function() {
-    console.log("shibai");
+    // console.log("shibai");
     var that = this;
     this.setData({
       maskHidden: false
@@ -384,12 +395,13 @@ Page({
               })
             }
           }, fail: function (res) {
-            console.log(11111)
+            // console.log(11111)
           }
         })
       }
     })
   },
+
   onShareAppMessage: function () {
     console.log("dd")
     var userid = ''
