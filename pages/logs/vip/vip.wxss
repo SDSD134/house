@@ -123,16 +123,19 @@
   border-radius:10px;
 }
 .oblong-float-in{
-  color: #ffffff;
+  display: block;
+  width: 80%;
+  height: 80rpx;
+  padding: 0;
+  line-height: 80rpx;
+  text-align: center;
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width:90%;
-  height: 90rpx;
-  font-size: 28rpx;
-  background-color: #DD4F43;
-   border-radius:10px;
+  bottom: 10rpx;
+  left: 10%;
+  background: #6899FF;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  border-radius: 44rpx;
 }
 .invite{
   font-size:20px;

@@ -403,3 +403,78 @@ height:30px;
 button[class="baocun"]::after{
   border: 0;
 }
+/* 分享 */
+.share-box{
+  display: block;
+  width: 100%;
+  height: 300rpx;
+  padding: 0;
+  position: fixed;
+  bottom: 0rpx;
+  background: #FFFFFF;
+}
+.cancel{
+  display: block;
+  width: 100%;
+  height: 100rpx;
+  padding: 0;
+  line-height: 100rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 0rpx;
+  background: #FFFFFF;
+  color: black;
+  font-size: 32rpx;
+  /* border-radius: 44rpx; */
+}
+button[class="cancel"]{
+    border-radius: 0;
+}
+button[class="cancel"]::after{
+  border: 0;
+  border-radius: 0;
+}
+
+.poster{
+  display: block;
+  width: 100%;
+  height: 100rpx;
+  padding: 0;
+  line-height: 100rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 100rpx;
+  background: #FFFFFF;
+  color: black;
+  font-size: 32rpx;
+  /* border-radius: 44rpx; */
+}
+button[class="poster"]{
+    border-radius: 0;
+    
+}
+button[class="poster"]::after{
+  border: 0;
+  border-radius: 0;
+}
+.wxshare{
+  display: block;
+  width: 100%;
+  height: 100rpx;
+  padding: 0;
+  line-height: 100rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 200rpx;
+  background: #FFFFFF;
+  color: black;
+  font-size: 32rpx;
+  /* border-radius: 44rpx; */
+}
+button[class="wxshare"]{
+    border-radius: 0;
+}
+button[class="wxshare"]::after{
+  border: 0;
+  border-radius: 0;
+}

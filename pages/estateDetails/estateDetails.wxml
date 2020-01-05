@@ -387,11 +387,19 @@
         <text class="invite">快速备案</text>
     </view>
   </view>
+  <!-- 分享 -->
+   <view class='imagePathBox' hidden="{{maskHiddens == false}}">
+       <view class="share-box">
+          <button class="wxshare" open-type='share'>分享给微信好友</button>
+          <button class="poster" bindtap='formSubmit'>生成海报</button>
+          <button class="cancel" bindtap='cancel'>取消</button>
+      </view>
+  </view>
 <!-- 海报 -->
   <view>
     <view class='imagePathBox' hidden="{{maskHidden == false}}">
           <image src="{{imagePath}}" class='shengcheng'></image>
-          <button class='baocun' bindtap='baocun'>保存相册，分享到朋友圈</button>
+          <button class='baocun' bindtap='cancel'>保存相册，分享到朋友圈</button>
         </view>
       <view hidden="{{maskHidden == false}}" class="mask"></view> 
       <view class="canvas-box">
