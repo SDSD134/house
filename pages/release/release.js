@@ -7,10 +7,10 @@ Page({
     indexOne: null,
     indexTwo: null,
     indexThree: null,
-    picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
+    picker: ['第一类型', '第二类型', '第三类型'],
     pickerOne: ['1', '2', '3'],
     pickerTwo: ['4', '5', '6'],
-    pickerThree: ['7', '8', '9'],
+    pickerThree: ['已售完', '下架'],
     date: '2018-12-25',
     dateOne:'2019-11-11',
     dateTwo: '2019-11-01',
@@ -26,7 +26,85 @@ Page({
     year:"",      //产权年限
     area:"",      //户型面积说明
     character:"", //项目特色
+
+    groundArea:"",  //占地面积
+    houseArea:"",  //户型面积
+    houseCount:"",//总体量
+    green:"",//绿化率
+    chanshu:"",//产数
+    car:"" ,//车位
+    company:"", //物业公司
+    fee:"",//物业费
+    louceng:"",//楼层概况
+    isSale:"" ,//项目特色
+    isShow:"", //是否展示
+    status:"", //项目状态
   },
+
+  btnclick:function() {
+    let that = this
+    if (that.data.title == "" || that.data.imgList.size < 0 || that.data.address == "" || that.data.avaprice || that.data.totalprice
+      == "" || that.data.totalprice == "" || that.data.year || that.data.groundArea == "" || that.data.houseArea == "" || that.data.houseCount == "" || that.data.green == "" || that.data.car == "" || that.data.company == "" || that.data.fee == "" || that.data.louceng == "") {
+        wx.showModal({
+          title: '错误',
+          content: '存在内容为空',
+        })
+      } else {
+        wx.request({
+          url: '',
+          // data {
+          //   ‘
+          // }
+        })
+      }
+  },
+
+  loucengInput(e) {
+    console.log(1)
+    this.setData({
+      louceng: e.detail.value
+    })
+    this.commit;
+  },
+
+  companyInput(e) {
+    this.setData({
+      company: e.detail.value
+    })
+  },
+  feeInput(e) {
+    this.setData({
+      fee: e.detail.value
+    })
+  },
+
+  groundAreaInput(e) {
+    this.setData({
+      groundArea: e.detail.value
+    })
+  },
+  houseAreaInput(e) {
+    this.setData({
+      houseArea: e.detail.value
+    })
+  },
+  houseCountInput(e) {
+    this.setData({
+      houseCount: e.detail.value
+    })
+  },
+  greenInput(e) {
+    this.setData({
+      green: e.detail.value
+    })
+  },
+  chanshuInput(e) {
+    this.setData({
+      chanshu: e.detail.value
+    })
+  },
+
+  
   PickerChange(e) {
     console.log(e);
     this.setData({
@@ -46,10 +124,10 @@ Page({
     })
   },
   PickerChangeThree(e) {
-    console.log(e);
     this.setData({
-      indexThree: e.detail.value
+      indexThree: e.detail.value,
     })
+    //console.log(this.data.pickerThree[this.data.indexThree]);
   },
 
   DateChange(e) {
@@ -151,20 +229,11 @@ Page({
     }) 
   },
 
-  // textareaAInput(e) {
-  //   this.setData({
-  //     textareaAValue: e.detail.value
-  //   })
-  // },
-  // textareaBInput(e) {
-  //   this.setData({
-  //     textareaBValue: e.detail.value
-  //   })
-  // },
   titleInput(e) {
     this.setData({
       title: e.detail.value
     })
+    console.log(this.data.baseinfoLis)
   },
   addressInput(e) {
     this.setData({

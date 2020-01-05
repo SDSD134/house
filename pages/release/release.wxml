@@ -209,53 +209,55 @@
 		<checkbox></checkbox>
 	</view>
   
-	</view> -->
+	<!-- </view> --> 
   <view class="cu-form-group margin-top">
 		<view class="title">基本信息（必填）</view>
 	</view>
   <view class="cu-form-group">
     <view class="title">占地面积</view>
-    <input placeholder="请填写占地面积" type="digit" confirm-type="done" bindinput="avapriceInput"></input>m^2
+    <input placeholder="请填写占地面积"  confirm-type="done" bindinput="groundAreaInput"></input>m^2
   </view>
    <view class="cu-form-group">
   <view class="title">户型面积</view>
-    <input placeholder="请填写户型面积" type="digit" confirm-type="done" bindinput="avapriceInput"></input>m^2
+    <input placeholder="请填写户型面积"  confirm-type="done" bindinput="houseAreaInput"></input>m^2
   </view>
    <view class="cu-form-group">
   <view class="title">总体量</view>
-    <input placeholder="请填写总体量" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写总体量" confirm-type="done" bindinput="houseCountInput"></input>
   </view>
    <view class="cu-form-group">
    <view class="title">绿化率</view>
-    <input placeholder="请填写绿化率" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写绿化率" confirm-type="done" bindinput="greenInput"></input>
   </view>
    <view class="cu-form-group">
    <view class="title">规划产数</view>
-    <input placeholder="请填写规划产数" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写规划产数"  confirm-type="done" bindinput="chanshuInput"></input>
   </view>
    <view class="cu-form-group">
     <view class="title">车位</view>
-    <input placeholder="请填写车位情况" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写车位情况" confirm-type="done" bindinput="addressInput"></input>
   </view>
    <view class="cu-form-group">
   <view class="title">所属物业公司</view>
-    <input placeholder="请填写物业公司名称" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写物业公司名称"  confirm-type="done" bindinput="companyInput"></input>
   </view>
    <view class="cu-form-group">
   <view class="title">物业费</view>
-    <input placeholder="请填写应缴物业费用" type="digit" confirm-type="done" bindinput="avapriceInput"></input>
+    <input placeholder="请填写应缴物业费用"  confirm-type="done" bindinput="feeInput"></input>
   </view>
 <view class="cu-form-group align-start">
 		<view class="title">楼层概况</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写楼层概况说明" ></textarea>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="loucengInput" placeholder="请填写楼层概况说明" ></textarea>
 	</view>
   <view class="cu-form-group align-start">
 		<view class="title">项目特色（必填）</view>
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请填写项目特色/必填"></textarea>
 	</view>
+
   <view class="cu-form-group align-start margin-top">
 		<view class="title">周边设施（选填）</view>
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入周边的设施"></textarea>
+
 	</view>
 <view class="cu-form-group align-start margin-top">
 		<view class="title">其他（选填）</view>
@@ -276,7 +278,8 @@
 	</view>
 
   <view>
-  <button type="primary" form-type="submit" class='btn'>
+  <!-- <button type="primary" form-type="submit" class='btn' bintap="commit"> -->
+  <button type="primary" class='btn' bindtap="btnclick">
   <image class='btnImg' src='../../image/00.gif'></image>
   <view>发布</view>
   </button>
