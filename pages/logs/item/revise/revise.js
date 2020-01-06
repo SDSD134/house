@@ -1,6 +1,42 @@
 const app = getApp();
 Page({
   data: {
+    // 复选框
+    listCheckbox: [
+      { name: 'A', value: '别墅' },
+      { name: 'B', value: '办公楼' },
+      { name: 'C', value: '住宅' },
+      { name: 'D', value: '商场' },
+      { name: 'E', value: '商业别墅' },
+      { name: 'F', value: '酒店式公寓' },
+    ],
+    checkNum: 0,
+    max: false,
+    maxCheckedNum: 2,
+    listsCheckbox: [
+      { name: 'a', value: '公寓' },
+      { name: 'b', value: '别墅' },
+      { name: 'c', value: '联排' },
+      { name: 'd', value: '叠拼' },
+      { name: 'e', value: '期房' },
+      { name: 'f', value: '电梯房' },
+      { name: 'a', value: '低密度' },
+      { name: 'b', value: '高密度' },
+      { name: 'c', value: '小户型' },
+      { name: 'd', value: '大户型' },
+      { name: 'e', value: '普通住宅' },
+      { name: 'f', value: '花园洋房' },
+      { name: 'a', value: '品牌地产' },
+      { name: 'b', value: '刚需婚房' },
+      { name: 'c', value: '南北通透' },
+      { name: 'd', value: '改善置换' },
+      { name: 'e', value: '内环以内' },
+      { name: 'f', value: '中内环间' },
+      { name: 'f', value: '外中环间' },
+    ],
+    checkNums: 0,
+    maxs: false,
+    maxCheckedNums: 3,
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     index: null,
@@ -73,7 +109,7 @@ Page({
 
   ChooseImage() {
     wx.chooseImage({
-      count: 1, //默认9
+      count: 3, //默认9
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {

@@ -20,7 +20,7 @@
 
   <view class="cu-bar bg-white margin-top">
 		<view class="action">
-			新房展示图（1张）
+			新房展示图（3张）
 		</view>
 		<!-- <view class="action">
 			{{imgList.length}}/4
@@ -34,7 +34,7 @@
 					<text class="cuIcon-close"></text>
 				</view>
 			</view>
-			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<3}}">
 				<text class="cuIcon-cameraadd"></text>
 			</view>
 		</view>
@@ -137,77 +137,31 @@
 		<input placeholder="请填写产权年限"></input>
 	</view>
 
-  <view class="cu-form-group margin-top">
-		<view class="title">物业类型</view>
+   <view class="cu-form-group margin-top">
+		<view class="title">户型</view>
 	</view>
-  <view class="cu-form-group ">
-		<view class="title">别墅</view>
-		<checkbox></checkbox>
-    <view class="title">商业别墅</view>
-		<checkbox checked="true"></checkbox>
-    <view class="title">住宅</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">酒店式公寓</view>
-		<checkbox></checkbox>
-    <view class="title">办公楼</view>
-		<checkbox></checkbox>
-    <view class="title">商场</view>
-		<checkbox></checkbox>
-	</view>
-
+  <checkbox-group>
+      <view class="ff_anniu">
+        <label class="ff_item"wx:for="{{listCheckbox}}"wx:key="key" wx:for-item="x" id="{{index}}" bindtap="{{!x.canCheck?'checkChange':''}}">
+          <view class='ff_itemname sel {{activeIndex == index ? "sel" : ""}}'>
+            <checkbox class="check-box" checked="{{x.checked}}"disabled="{{x.canCheck}}" />
+            <text class="check-text">{{x.value}}</text>
+            </view>
+        </label>
+      </view>
+    </checkbox-group>
   <view class="cu-form-group margin-top">
 		<view class="title">楼盘标签</view>
 	</view>
-  <view class="cu-form-group ">
-		<view class="title">普通住宅</view>
-		<checkbox></checkbox>
-    <view class="title">公寓</view>
-		<checkbox checked="true"></checkbox>
-    <view class="title">别墅</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">花园洋房</view>
-		<checkbox checked="true"></checkbox>
-    <view class="title">品牌地产</view>
-		<checkbox></checkbox>
-    <view class="title">联排</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">叠拼</view>
-		<checkbox></checkbox>
-    <view class="title">期房</view>
-		<checkbox></checkbox>
-    <view class="title">电梯房</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">刚需婚房</view>
-		<checkbox></checkbox>
-    <view class="title">南北通透</view>
-		<checkbox></checkbox>
-    <view class="title">改善置换</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">低密度</view>
-		<checkbox></checkbox>
-    <view class="title">小户型</view>
-		<checkbox></checkbox>
-    <view class="title">大户型</view>
-		<checkbox></checkbox>
-	</view>
-  <view class="cu-form-group ">
-		<view class="title">内环以内</view>
-		<checkbox></checkbox>
-    <view class="title">中内环间</view>
-		<checkbox></checkbox>
-    <view class="title">外中环间</view>
-		<checkbox></checkbox>
-	</view>
+    <checkbox-group>
+    <view class="ff_anniu">
+      <label class="ff_item"wx:for="{{listsCheckbox}}"wx:key="keys" wx:for-item="y" id="{{index}}" bindtap="{{!y.canCheck?'checksChange':''}}">
+        <view class='ff_itemname sel {{activeIndex == index ? "sel" : ""}}'>
+          <checkbox checked="{{y.checked}}" disabled="{{y.canCheck}}" />{{y.value}}
+        </view>
+      </label>
+    	</view>
+    </checkbox-group>
   
   <view class="cu-form-group margin-top">
 		<view class="title">基本信息（必填）</view>

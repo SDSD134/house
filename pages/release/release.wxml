@@ -140,28 +140,28 @@
   <view class="cu-form-group margin-top">
 		<view class="title">户型</view>
 	</view>
-   <view class="cu-form-group">
-    <checkbox-group>
-      <label class="checkbox padding-sm fl"wx:for="{{listCheckbox}}"wx:key="key" wx:for-item="x" id="{{index}}" bindtap="{{!x.canCheck?'checkChange':''}}">
-        <checkbox checked="{{x.checked}}" disabled="{{x.canCheck}}" />{{x.value}}
-      </label>
+  <checkbox-group>
+      <view class="ff_anniu">
+        <label class="ff_item"wx:for="{{listCheckbox}}"wx:key="key" wx:for-item="x" id="{{index}}" bindtap="{{!x.canCheck?'checkChange':''}}">
+          <view class='ff_itemname sel {{activeIndex == index ? "sel" : ""}}'>
+            <checkbox class="check-box" checked="{{x.checked}}"disabled="{{x.canCheck}}" />
+            <text class="check-text">{{x.value}}</text>
+            </view>
+        </label>
+      </view>
     </checkbox-group>
-	</view>
   <view class="cu-form-group margin-top">
 		<view class="title">楼盘标签</view>
 	</view>
-  <view class="cu-form-group">
     <checkbox-group>
-      <label class="checkbox padding-sm fl"wx:for="{{listsCheckbox}}"wx:key="keys" wx:for-item="y" id="{{index}}" bindtap="{{!y.canCheck?'checksChange':''}}">
-        <checkbox checked="{{y.checked}}" disabled="{{y.canCheck}}" />{{y.value}}
+    <view class="ff_anniu">
+      <label class="ff_item"wx:for="{{listsCheckbox}}"wx:key="keys" wx:for-item="y" id="{{index}}" bindtap="{{!y.canCheck?'checksChange':''}}">
+        <view class='ff_itemname sel {{activeIndex == index ? "sel" : ""}}'>
+          <checkbox checked="{{y.checked}}" disabled="{{y.canCheck}}" />{{y.value}}
+        </view>
       </label>
+    	</view>
     </checkbox-group>
-	</view>
-  
-  <!-- <view class="cu-form-group align-start">
-		<view class="title">户型面积说明</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请填写户型面积说名" ></textarea>
-	</view> -->
   <view class="cu-form-group margin-top">
 		<view class="title">基本信息<text class="must">（必填）</text></view>
 	</view>
