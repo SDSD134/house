@@ -1,7 +1,14 @@
 const app = getApp();
+var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
+var qqmapsdk;
 Page({
   data: {
-    // 海报
+    distance:"",
+    latitude:"",
+    longitude:"",
+    buildingVo:"",
+    id:"",
+    // 海报,
     maskHidden: false,
     maskHiddens: false,
     // 地图
@@ -200,7 +207,7 @@ Page({
   // 跳转
   parameter: function (e) {
     wx.navigateTo({
-      url: '../estateDetails/parameter/parameter'
+      url: '../estateDetails/parameter/parameter?id=' + this.data.id
     })
   },
   error:function(e) {
@@ -230,7 +237,7 @@ Page({
   },
   plan: function (e) {
     wx.navigateTo({
-      url: '../estateDetails/plan/plan'
+      url: '../estateDetails/plan/plan?plan=' + this.data.buildingVo.buildingBaseInfo.buildingEmploy
     })
   },
   ask: function (e) {
@@ -406,9 +413,9 @@ Page({
     console.log("dd")
     var userid = ''
     wx.getStorage({
-      key: 'userId',
+      key: 'user',
       success: function (res) {
-        userid = res.data
+        userid = res.data.userId
       },
     })
     return {
@@ -422,7 +429,35 @@ Page({
 
 // map
   onReady: function (e) {
+    let that =this
     this.mapCtx = wx.createMapContext('myMap')
+    wx.request({
+      url: 'https://www.dikashi.top/house/user/getUser',
+      data: {
+        userId: that.data.buildingVo.building.userId
+      },
+      success(res) {
+        that.setData({
+          market:res.data.data
+        })
+        console.log(that.data.market)
+      }
+    })
+
+      // wx.request({
+      //   url: 'http://localhost:8080/comment/getComment',
+      //   data: {
+      //     userId: that.data.buildingVo.building.userId,
+      //     building:
+      //   },
+      //   success(res) {
+      //     that.setData({
+      //       market: res.data.data
+      //     })
+      //     console.log(that.data.market)
+      //   }
+      // })
+
   },
   getCenterLocation: function () {
     this.mapCtx.getCenterLocation({
@@ -461,6 +496,62 @@ Page({
       }]
     })
   },
+  seeMap(buildingVo) {
+    let that = this;
+    qqmapsdk.geocoder({
+      //address: that.data.buildingVo.buildingBaseInfo.buildingProvince + that.data.buildingVo.buildingBaseInfo.buildingAddress,
+      address: buildingVo.buildingBaseInfo.buildingProvince + buildingVo.buildingBaseInfo.buildingAddress,
+      //address: '嘉兴南湖邮轮东侧',
+      success:function(res) {
+        console.log(res);
+        that.setData({
+          latitude: res.result.location.lat,
+          longitude: res.result.location.lng
+        })
+        wx.getLocation({
+          type: 'wgs84',
+          success: (res) => {
+            let latitude = res.latitude
+            let longitude = res.longitude
+            qqmapsdk.calculateDistance({
+              mode: 'straight',
+              from: {
+                latitude: latitude,
+                longitude: longitude,
+              },
+              to: [{
+                latitude: that.data.latitude,
+                longitude: that.data.longitude
+              }],
+              success:function(res) {
+                var distance = res.result.elements[0].distance
+                var distance = distance/1000
+                console.log(distance)
+                that.setData({
+                  distance:distance
+                })
+              }
+            })
+          },
+        })
+      },
+      fail:function(res) {
+        console.log(res);
+      }
+    
+    })
+  },
+
+  tomap:function() {
+    wx.openLocation({
+      latitude: this.data.latitude,
+      longitude: this.data.longitude,
+      scale: 28
+    })
+  },
+
+
+
   // 备案
   record: function () {
       wx.showModal({
@@ -480,7 +571,63 @@ Page({
       })
    },
   onShow() {
+    let that = this
     this._getUserLocation();
+    
+    
+  },
+  onLoad(options) {
+    console.log(options.id)
+    var id = options.id
+    qqmapsdk = new QQMapWX({
+      key: 'JXSBZ-BNCCG-M44Q6-IOJAS-UODZF-B5BFJ'
+    });
+    let that = this;
+    this.setData({
+      id:id
+    })
+    wx.request({
+      url: 'https://www.dikashi.top/house/upload/imageByDes',
+      data: {
+        buildingId:id,
+        description: '1',
+      },
+      success(res) {
+        that.setData({
+          swiperList: res.data.data
+        })
+        console.log(that.data.swiperList)
+      },
+      fail(res) {
+        console.log(res)
+      },
+
+    })
+    var userId = ''
+    wx.getStorage({
+      key: 'user',
+      success: function(res) {
+        console.log(res.data.userId)
+        userId = res.data.userId
+      },
+    })
+    wx.request({
+      url: 'https://www.dikashi.top/house/building/buildingInfo?',
+      data:{
+        buildingId:this.data.id,
+        userId:userId,
+        isViewUser:true,
+      },
+      success(res) {
+        console.log(res.data.data)
+        that.setData({
+          buildingVo: res.data.data
+        })
+        that.seeMap(res.data.data)
+      }
+    })
+      
+   
   },
   _getUserLocation(){
     var a=4;

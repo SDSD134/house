@@ -12,7 +12,8 @@
 <!-- 1 -->
   <view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
-      <text class="cuIcon-title text-orange "></text>临水家园
+    <!-- 临水家园 -->
+      <text class="cuIcon-title text-orange "></text>{{buildingVo.buildingBaseInfo.buildingName}}
     </view>
     <view class="action">
       <image src="../../image/shou.png" class="action-image" catchtap='handleCollection' wx:if="{{!isCollected}}"  data-target="menuModal"/>
@@ -35,22 +36,23 @@
     <view class="cu-item {{menuArrow?'arrow':''}}">
       <view class="content">
         <text class="cuIcon-tagfill text-red"></text>
-        <text class="text-grey">在售</text>
+        <text class="text-grey">{{buildingVo.buildingBaseInfo.isSale}}</text>
       </view>
-      <view class="action">
+      <view class="action" wx:for="{{buildingCharacter}}">
         <view class="cu-tag round bg-orange light">开发商渠道</view>
         <view class="cu-tag round bg-olive light">住宅</view>
         <view class="cu-tag round bg-blue light">毛坯</view>
       </view>
     </view>
     <!-- 2.3 -->
-    <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='map'>
+    <!-- <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='map'> -->
+    <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='tomap'>
       <view class="content">
          <text class="cuIcon-btn text-olive"></text>
-        <text class="text-grey">嘉兴南湖邮轮东侧</text>
+        <text class="text-grey">{{buildingVo.buildingBaseInfo.buildingAddress}}</text>
       </view>
       <view class="action">
-        <text class="text-grey text-sm">100.11km</text>
+        <text class="text-grey text-sm">{{distance}}km</text>
       </view>
     </view>
     <view class="cu-item {{menuArrow?'':'arrow'}}">
@@ -79,7 +81,7 @@
 <view class="solid-bottom margin-top cu-item {{menuArrow?'':'arrow'}}"  bindtap='plan'>
       <view class="content">
         <text class="cuIcon-emojiflashfill text-pink"></text>
-        <text class="text-grey">6万/套-6.5万套</text>
+        <text class="text-grey">{{buildingVo.buildingBaseInfo.buildingEmploy}}</text>
       </view>
       <view class="action">
         <text class="text-grey text-sm">共1个方案</text>
@@ -172,7 +174,7 @@
       </view>
       <view class="content">
         <view class="text-grey">
-          <text class="text-cut">{{item.name}}</text>
+          <text class="text-cut">{{item.nickname}}</text>
           <view class="cu-tag round bg-orange sm">会员</view>
         </view>
         <view class="text-gray text-sm flex">
@@ -232,9 +234,9 @@
   </view>
   <view class="information-fifth">
   <view class="item">
-    <view class="item-title"> 项目介绍</view>
+    <!-- <view class="item-title"> 项目介绍</view>
     <view>千套小面积住宅即将闪亮登场，诚邀合作伙伴</view>
-    <view>项目地址：暂无消息</view>
+    <view>项目地址：{{}}</view>
     <view>占地面积：暂无消息</view>
     <view>建筑面积：暂无消息</view>
     <view>体量：暂无消息</view>
@@ -246,7 +248,19 @@
     <view>【交通】 高速：啵啵啵啵啵啵</view>
     <view>地铁：啵啵啵啵啵啵</view>
     <view>铁路：啵啵啵啵啵啵</view>
-    <view>方便死</view>
+    <view>方便死</view> -->
+    <view class="item-title"> 项目介绍</view>
+    <!-- <view>千套小面积住宅即将闪亮登场，诚邀合作伙伴</view> -->
+    <view>{{buildingVo.buildingBaseInfo.buildingName}}</view>
+    <view>{{buildingVo.buildingBaseInfo.buildingGreen}}</view>
+    <view>{{buildingVo.buildingBaseInfo.propertyType}}</view>
+    <view>{{buildingVo.building.planningHousehold}}</view>
+    <view>{{buildingVo.building.buildingGroundArea}}</view>
+    <view>{{buildingVo.building.propertyCompany}}</view>
+    <view>{{buildingVo.building.propertyMoney}}</view>
+    <view>交房时间：{{buildingVo.building.commiteTime}}</view>
+    <view>详细地址：{{buildingVo.buildingBaseInfo.buildingAddress}}</view>
+    <!-- <view>方便死</view> -->
   </view>
 </view>
   <!-- 3.5 -->

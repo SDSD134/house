@@ -83,6 +83,7 @@ Component({
         type: '住宅'
       }
     ],
+
     list1: [
       {
         imgArr: '../../image/28.jpg',
@@ -157,14 +158,16 @@ Component({
     ],
    
   },
+
 methods: {
   // 获取手机号
   getPhoneNumber: function (e) {
     common.getPhoneNumber(e);
   },
   estateDetails: function (e) {
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../estateDetails/estateDetails'
+      url: '../estateDetails/estateDetails?id=' + e.currentTarget.dataset.id
     })
   },
   RegionChange: function (e) {
@@ -209,17 +212,66 @@ methods: {
     })
   },
   // 收藏
-  handleCollection() {
-    let isCollected = !this.data.isCollected
+  handleCollection(e) {
+    // let isCollected = !this.data.isCollected
+    let that = this;
+    var list = that.data.list
+    let collect = !list[e.currentTarget.dataset.index].collect
+    list[e.currentTarget.dataset.index].collect = collect
+    console.log()
+    console.log(list[e.currentTarget.dataset.index].collect)
+    
+    
     this.setData({
       // 下面本来是这样子的:isCollected=isCollected,可以简写
-      isCollected
+      list:list
     })
+
+
+    if (collect) {
+      wx.request({
+        url: 'https://www.dikashi.top/house/collect/addCollect',
+        data: {
+          userId: 'f',
+          buildingId: list[e.currentTarget.dataset.index].buildingId
+        },
+        success(res) {
+          wx.showToast({
+            title: 收藏成功,
+            icon: 'success'
+          })
+        },
+        fail(res) {
+          wx.showToast({
+            title: '操作失败',
+            icon: 'success'
+          })
+        }
+      })
+    } else{
+      wx.request({
+        url: 'https://www.dikashi.top/house/collect/deleteCollect',
+        data: {
+          userId: 'f',
+          buildingId: list[e.currentTarget.dataset.index].buildingId
+        },
+        success(res) {
+          wx.showToast({
+            title:'取消收藏成功',
+            icon: 'success'
+          })
+        },
+        fail(res) {
+          wx.showToast({
+            title: '操作失败',
+            icon: 'success'
+          })
+        }
+      })
+    }
+    
     //提示用户
-    wx.showToast({
-      title: isCollected ? '收藏成功' : '取消收藏',
-      icon: 'success'
-    })
+    
   },
   // 弹框
   close: function () {
@@ -238,5 +290,34 @@ methods: {
     this.triggerEvent('Cancel', myEventDetail, myEventOption)
     this.close();
   },
-}
+},
+
+  pageLifetimes: {
+    show() {
+      let that = this
+      // 在组件实例刚刚被创建时执行
+      //console.log(1)
+      wx.request({
+        url: 'https://www.dikashi.top/house/building/listBuilding',
+        data:{
+          userId: 'f'
+        },
+        success(res) {
+          console.log(1)
+          console.log(res)
+          if (res.data.status == 200) {
+            that.setData({
+              list: res.data.data
+            })
+          }
+          //console.log(that.list)
+        }
+      })
+    },
+  }
+ 
+
+
+
+
 })

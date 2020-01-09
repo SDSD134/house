@@ -34,59 +34,61 @@
 </view>
     
 <!-- 下拉需要显示的列表 -->
-<view class="select">
+<!-- <view class="select">
     <view class="select_box" wx:if="{{select}}">
       <view>ceshi</view>
     </view>
-</view>
+</view> -->
 <!-- 选择 -->
 <view id='tabs'>
   <view class='tabs-box'>
-    <block wx:for="{{['全部','诚信联盟','恒房通','凤凰通','万科家','融创通','福利好房']}}" wx:key="index">
+    <!-- <block wx:for="{{['全部','诚信联盟','恒房通','凤凰通','万科家','融创通','福利好房']}}" wx:key="index">
       <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
         {{item}}      
       </view>
-    </block>
+    </block> -->
   </view>
 <!-- 选择对应页面 -->
   <view class='ordert-detail'>
     <view hidden='{{currentTabIndex != 0}}'>
-    <view wx:for="{{list}}" wx:key="{{index}}">
-        <view class="list-all" bindtap='estateDetails'>
+    <view wx:for="{{list}}" wx:key="{{index}}" wx:for-index="id" >
+        <view class="list-all" bindtap='estateDetails' data-id='{{item.buildingId}}'>
           <view class="list-second">
-            <image src="{{item.imgArr}}"/>
+            <image src="{{item.images[0].url}}"/>
             <view class="list-right">
-                <view class="title-all">
-                  
-                  <view class="title"><text class="title-logn">在售</text> {{item.title}}</view>
+                <view class="title-all"> 
+                  <view class="title"><text class="title-logn">在售</text> {{item.buildingName}}</view>
                   <view class="collect">
-                      <image  catchtap='handleCollection' wx:if="{{!isCollected}}" src="../../image/shou.png"></image>
-                      <image catchtap='handleCollection' wx:if="{{isCollected}}" src="../../image/shou1.png"></image>
+                      <image  catchtap='handleCollection' wx:if="{{item.collect}}" data-index="{{id}}" src="../../image/shou1.png"></image>
+                      <image catchtap='handleCollection' wx:if="{{!item.collect}}" src="../../image/shou.png"  data-index="{{id}}"></image>
                   </view>
                 </view>
-                <text class="list-right-text">{{item.show}} | {{item.city}}</text>
+                <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
-                  <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.averagePrice}}万/套</view>
+                  <view>{{item.countPrice}}万元/m^2</view>
                 </view>
-                <view class="list-right-last cu-tag round bg-olive light">住宅</view>
+                <view class="list-right-last cu-tag round bg-olive light">{{item.buildingSign}}</view>
             </view>
           </view>
         </view>
         <!-- 代理 -->
-        <view class="agent-all">
+        <!-- <view class="agent-all">
           <view class="agent">
           <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
           <text>代理公司 | {{item.factory}}</text>
           </view>
-        </view>
+        </view> -->
       </view>
     </view>
+
+
+
     <view hidden='{{currentTabIndex != 1}}'>
     <view wx:for="{{list1}}" wx:key="{{index}}">
-        <view class="list-all" bindtap='estateDetails'>
+        <view class="list-all" bindtap='estateDetails' >
           <view class="list-second">
-            <image src="{{item.imgArr}}"/>
+            <image src="{{item.images[0].url}}"/>
             <view class="list-right">
                 <view class="title-all">
                   
@@ -118,10 +120,9 @@
     <view wx:for="{{list2}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
-            <image src="{{item.imgArr}}"/>
+            <image src="{{item.images[0].url}}"/>
             <view class="list-right">
                 <view class="title-all">
-                  
                   <view class="title"><text class="title-logn">在售</text> {{item.title}}</view>
                   <view class="collect">
                       <image  catchtap='handleCollection' wx:if="{{!isCollected}}" src="../../image/shou.png"></image>
@@ -150,7 +151,7 @@
     <view wx:for="{{list3}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
-            <image src="{{item.imgArr}}"/>
+            <image src="{{item.images[0].url}}"/>
             <view class="list-right">
                 <view class="title-all">
                   
@@ -182,7 +183,7 @@
     <view wx:for="{{list4}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
-            <image src="{{item.imgArr}}"/>
+            <image src="{{item.images[0].url}}"/>
             <view class="list-right">
                 <view class="title-all">
                   
@@ -278,4 +279,4 @@
 </view>
 
 <!-- 弹框 -->
-<include src="../../wxPop/wxPop.wxml" />
+<!-- <include src="../../wxPop/wxPop.wxml" /> -->

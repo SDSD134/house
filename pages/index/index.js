@@ -59,15 +59,15 @@ Component({
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+      url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg'
     }, {
       id: 1,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+        url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg',
     }, {
       id: 2,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+        url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg'
     }],
     brand: [
       {
@@ -98,7 +98,7 @@ Component({
     brandTwo: [
       {
         imgArr:
-          'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
+          'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg',
           title:'哈尔滨市',
           number:'12'
       },
@@ -397,6 +397,38 @@ Component({
  
   onShow() {
    this._getUserLocation();
+    let that = this
+    // 在组件实例刚刚被创建时执行
+    //console.log(1)
+    var userId = ""
+    wx.getStorage({
+      key: 'user',
+      success: function(res) {
+        userId=res.data.userId
+         wx.request({
+      url: 'https://www.dikashi.top/house/building/listBuilding',
+      data: {
+        userId:userId
+      },
+      success(res) {
+        console.log(1)
+        console.log(res)
+        if (res.data.status == 200) {
+          console.log(res.data.data),
+          that.setData({
+            
+            list: res.data.data,
+            list1: res.data.data,
+             list2: res.data.data,
+             list3: res.data.data,
+          })
+        }
+        //console.log(that.list)
+      }
+    })
+      },
+    })
+   
   },
 
     // _getUserLocation() {

@@ -9,7 +9,7 @@
     </view>
     <view class="plan-bottom">
       <text class="plan-all">综合佣金:</text>
-      <text class="plan-money">6万/套-6.5万/套</text>
+      <text class="plan-money">{{plan}}</text>
     </view>
   </view>
 </view>

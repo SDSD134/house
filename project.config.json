@@ -92,6 +92,42 @@
 					"id": -1,
 					"name": "pages/logs/collect/collect",
 					"pathName": "pages/logs/collect/collect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "pages/estateDetails/estateDetails",
+					"pathName": "pages/estateDetails/estateDetails",
+					"query": "id= 1578318835683815114",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "pages/estateDetails/estateDetails",
+					"pathName": "pages/estateDetails/estateDetails",
+					"query": "id=1578410560211412931",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/estateDetails/plan/plan",
+					"pathName": "pages/estateDetails/plan/plan",
+					"query": "id= 1578318835683815114",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/estateDetails/parameter/parameter",
+					"pathName": "pages/estateDetails/parameter/parameter",
+					"query": "id=1578410560211412931",
 					"scene": null
 				}
 			]

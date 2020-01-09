@@ -61,61 +61,99 @@ Page({
       })
       return;
     }
-    if (image.length > 0){
-      for (let i = 0; i < image.length; i++) {
-        wx.uploadFile({
-          url: 'http://localhost:8080/comment/askQuestion',
-          filePath: image[i],
-          name: 'file',
-          formData: {
-            'commentContext': that.data.commentContext,
-            'comment_id': that.data.comment_id,
-            'commentType': 1,
-            'userId': 'f',
-            'commentBuildingId': 1
-          },
-          success(res) {
-           // const data = res.data
-            console.log(res)
-            if (this.dat.status == 200) {
-              this.setData({
-                comment_id: data.data.data
+    wx.request({
+      url: 'http://localhost:8080/comment/askQuestion',
+      data:{
+        'commentContext': that.data.commentContext,
+        'comment_id': that.data.comment_id,
+        'commentType': 1,
+        'userId': 'f',
+        'commentBuildingId': 1
+      },
+      success(res) {
+        if(res.data.status == 200) {
+          if (image.length > 0) {
+            for (let i = 0; i < image.length; i++) {
+              wx.uploadFile({
+                url: 'http://localhost:8080/upload/commentUploadPicture',
+                filePath: image[i],
+                name: 'file',
+                formData: {
+                  'comment_id': that.data.comment_id,
+                },
+                success(res) {
+                  // const data = res.data
+                  console.log(res)
+                  if (this.data.status == 200) {
+                    this.setData({
+                      comment_id: data.data.data
+                    })
+                  }
+                },
+                fail(res) {
+                  console.log("失败");
+                }
               })
             }
-          },
-          fail(res) {
-            console.log("失败");
-          }
-        })
-      }
-    } else {
-      console.log("进入");
-      wx.request({
-        url: 'http://localhost:8080/comment/askQuestion',
-        filePath: null,
-        name: 'file',
-        data: {
-          'commentContext': that.data.commentContext,
-          'comment_id': that.data.comment_id,
-          'commentType': 1,
-          'userId': 'f',
-          'commentBuildingId': 1
-        },
-        success(res) {
-          // const data = res.data
-          console.log(res)
-          // if (this.data.data.status = 200) {
-          //   this.setData({
-          //     comment_id: data.data.comment_id
-          //   })
-          // }
-        },
-        fail(res) {
-          console.log("失败");
+          } 
         }
+      }
+    })
+    // if (image.length > 0){
+    //   for (let i = 0; i < image.length; i++) {
+    //     wx.uploadFile({
+    //       url: 'http://localhost:8080/comment/askQuestion',
+    //       filePath: image[i],
+    //       name: 'file',
+    //       formData: {
+    //         'commentContext': that.data.commentContext,
+    //         'comment_id': that.data.comment_id,
+    //         'commentType': 1,
+    //         'userId': 'f',
+    //         'commentBuildingId': 1
+    //       },
+    //       success(res) {
+    //        // const data = res.data
+    //         console.log(res)
+    //         if (this.dat.status == 200) {
+    //           this.setData({
+    //             comment_id: data.data.data
+    //           })
+    //         }
+    //       },
+    //       fail(res) {
+    //         console.log("失败");
+    //       }
+    //     })
+    //   }
+    // } else {
+    //   console.log("进入");
+    //   wx.request({
+    //     url: 'http://localhost:8080/comment/askQuestion',
+    //     filePath: null,
+    //     name: 'file',
+    //     data: {
+    //       'commentContext': that.data.commentContext,
+    //       'comment_id': that.data.comment_id,
+    //       'commentType': 1,
+    //       'userId': 'f',
+    //       'commentBuildingId': 1
+    //     },
+    //     success(res) {
+    //       // const data = res.data
+    //       console.log(res)
+    //       // if (this.data.data.status = 200) {
+    //       //   this.setData({
+    //       //     comment_id: data.data.comment_id
+    //       //   })
+    //       // }
+    //     },
+    //     fail(res) {
+    //       console.log("失败");
+    //     }
 
-      })
-    }
+    //   })
+    // }
     
     this.setData({
       imgListMore: '',

@@ -119,7 +119,7 @@ Page({
       currentTabIndex: index
     })
     wx.request({
-      url: 'http://localhost:8080/charge/listCharge',
+      url: 'https://www.dikashi.top/house/charge/listCharge',
       data: {
         chargeType:this.data.currentTabIndex,
       },
@@ -150,7 +150,7 @@ Page({
     var list = [];
     let that = this;
     wx.request({
-      url: 'http://localhost:8080/charge/listCharge',
+      url: 'https://www.dikashi.top/house/charge/listCharge',
       data: {
         chargeType: 0,
       },

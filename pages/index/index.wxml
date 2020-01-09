@@ -131,16 +131,16 @@
   <view class='ordert-detail'>
     <view hidden='{{currentTabIndex != 0}}'>
      <view wx:for="{{list}}" wx:key="{{index}}">
-     <navigator url="../estateDetails/estateDetails">
+     <navigator url="../estateDetails/estateDetails?id={{item.buildingId}}">
         <view class="list-all">
           <view class="list">
-            <image src="{{item.imgArr}}" mode="aspectFill"/>
+            <image src="{{item.images[0].url}}" mode="aspectFill"/>
             <view class="list-right">
-                <view class="title">{{item.title}}</view>
-                <text class="list-right-text">{{item.show}} | {{item.city}}</text>
+                <view class="title"> {{item.buildingName}}</view>
+                <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
-                  <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.averagePrice}}万/套</view>
+                  <view>{{item.countPrice}}万元/m^2</view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
                 <!-- <view class="list-right-last">{{item.type}}</view> -->
@@ -152,15 +152,15 @@
     </view>
     <view hidden='{{currentTabIndex != 1}}'>
      <view wx:for="{{list1}}" wx:key="{{index}}">
-     <navigator url="../estateDetails/estateDetails">
+     <navigator url="../estateDetails/estateDetails?id={{item.buildingId}}" >
         <view class="list-all">
           <view class="list">
-            <image src="{{item.imgArr}}" mode="aspectFill"/>
+            <image src="{{item.images[0].url}}" mode="aspectFill"/>
             <view class="list-right">
-                <view class="title">{{item.title}}</view>
-                <text class="list-right-text">{{item.show}} | {{item.city}}</text>
+                <view class="title"> {{item.buildingName}}</view>
+                <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
-                  <view>{{item.money1}}万/套</view>
+                  <view>{{item.averagePrice}}万/套</view>
                   <view>{{item.money2}}万元/m^2</view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
@@ -173,16 +173,16 @@
       </view>
     <view hidden='{{currentTabIndex != 2}}'> 
     <view wx:for="{{list2}}" wx:key="{{index}}">
-     <navigator url="../estateDetails/estateDetails">
+     <navigator url="../estateDetails/estateDetails?id={{item.buildingId}}">
         <view class="list-all">
           <view class="list">
-            <image src="{{item.imgArr}}" mode="aspectFill"/>
+            <image src="{{item.images[0].url}}" mode="aspectFill"/>
             <view class="list-right">
-                <view class="title">{{item.title}}</view>
-                <text class="list-right-text">{{item.show}} | {{item.city}}</text>
+                <view class="title">{{item.buildingName}}</view>
+                <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
-                  <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.averagePrice}}万/套</view>
+                  <view>{{item.countPrice}}万元/m^2</view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
                 <!-- <view class="list-right-last">{{item.type}}</view> -->
@@ -193,17 +193,17 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 3}}'> 
-    <view wx:for="{{list3}}" wx:key="{{index}}">
-     <navigator url="../estateDetails/estateDetails">
+    <view wx:for="{{lists}}" wx:key="{{index}}">
+     <navigator url="../estateDetails/estateDetails?id={{item.buildingId}}">
         <view class="list-all">
           <view class="list">
-            <image src="{{item.imgArr}}" mode="aspectFill"/>
+            <image src="{{item.images[0].url}}" mode="aspectFill"/>
             <view class="list-right">
-                <view class="title">{{item.title}}</view>
-                <text class="list-right-text">{{item.show}} | {{item.city}}</text>
+                <view class="title">{{item.buildingName}}</view>
+                <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
-                  <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.averagePrice}}万/套</view>
+                  <view>{{item.countPrice}}万元/m^2</view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
@@ -215,4 +215,4 @@
   </view>
 </view>
 <!-- 弹框 -->
-<include src="../../wxPop/wxPop.wxml" />
+<!-- <include src="../../wxPop/wxPop.wxml" /> -->

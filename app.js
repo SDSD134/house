@@ -29,7 +29,7 @@ App({
                   console.log(res.encryptedData)
                   // 发送 res.code 到后台换取 openId, sessionKey, unionId
                   wx.request({
-                    url: 'http://localhost:8080/user/login',  //用户登录接口
+                    url: 'https://www.dikashi.top/house/user/login',  //用户登录接口
                     method: "post",
                     header:{
                       'content-type': 'application/x-www-form-urlencoded'
@@ -43,6 +43,7 @@ App({
                     },
                     success:function(res) {
                       console.log(res.data)
+                      wx.setStorageSync("user", res.data.data)
                     },
                     fail:function(res){
                       console.log(res.data)
