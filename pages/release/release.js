@@ -70,7 +70,6 @@ Page({
     imgListMore: [],
     textareaAValue: '',
     textareaBValue: '',
-//<<<<<<< HEAD
     title:"",   //题目
     address:"", //地址
     avaprice:"",//平均价格

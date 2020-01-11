@@ -27,3 +27,23 @@
 .must{
   color:red;
 }
+
+.ff_anniu
+{
+width:100%;
+display: flex;
+flex-flow: row wrap;
+align-content: space-around;
+background-color: white;
+}
+
+.ff_item{
+box-sizing: border-box;
+flex: 0 0 33.3333333333%;
+font-size: 30rpx;
+color: #535353;
+background-color: white;
+padding: 20rpx;
+text-align: left;
+display: block;
+}
