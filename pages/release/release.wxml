@@ -74,7 +74,7 @@
 
   <view class="cu-form-group">
 		<view class="title">新房地址<text class="must">（必填）</text></view>
-		<input placeholder="请填写新房地址/必填" bindinput="addressInput" name="address"></input>
+		<input placeholder="请填写新房地址/必填" bindinput="buildingAddressInput" name="address"></input>
 	</view>
   
   <view class="cu-form-group margin-top">

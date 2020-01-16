@@ -215,4 +215,4 @@
   </view>
 </view>
 <!-- 弹框 -->
-<!-- <include src="../../wxPop/wxPop.wxml" /> -->
+<include src="../../wxPop/wxPop.wxml" />

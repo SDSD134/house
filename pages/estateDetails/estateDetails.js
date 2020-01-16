@@ -426,39 +426,6 @@ Page({
 
   },
  
-
-// map
-  onReady: function (e) {
-    let that =this
-    this.mapCtx = wx.createMapContext('myMap')
-    wx.request({
-      url: 'https://www.dikashi.top/house/user/getUser',
-      data: {
-        userId: that.data.buildingVo.building.userId
-      },
-      success(res) {
-        that.setData({
-          market:res.data.data
-        })
-        console.log(that.data.market)
-      }
-    })
-
-      // wx.request({
-      //   url: 'http://localhost:8080/comment/getComment',
-      //   data: {
-      //     userId: that.data.buildingVo.building.userId,
-      //     building:
-      //   },
-      //   success(res) {
-      //     that.setData({
-      //       market: res.data.data
-      //     })
-      //     console.log(that.data.market)
-      //   }
-      // })
-
-  },
   getCenterLocation: function () {
     this.mapCtx.getCenterLocation({
       success: function (res) {
@@ -573,12 +540,11 @@ Page({
   onShow() {
     let that = this
     this._getUserLocation();
-    
-    
   },
   onLoad(options) {
     console.log(options.id)
     var id = options.id
+    var buildingVo = ""
     qqmapsdk = new QQMapWX({
       key: 'JXSBZ-BNCCG-M44Q6-IOJAS-UODZF-B5BFJ'
     });
@@ -597,6 +563,18 @@ Page({
           swiperList: res.data.data
         })
         console.log(that.data.swiperList)
+        wx.request({
+          url: 'https://www.dikashi.top/house/upload/imageByDes',
+          data: {
+            buildingId: id,
+            description: '2',
+          },
+          success(res) {
+            that.setData({
+              swiperList: res.data.data
+            })
+          }
+        })
       },
       fail(res) {
         console.log(res)
@@ -619,15 +597,41 @@ Page({
         isViewUser:true,
       },
       success(res) {
-        console.log(res.data.data)
+        console.log(res.data)
         that.setData({
           buildingVo: res.data.data
         })
+
+        if(res.data.status == 200 ){
+          console.log("res")
+          wx.request({
+            url: 'https://www.dikashi.top/house/user/getUser',
+            data: {
+              userId: res.data.data.building.userId
+            },
+            success(res) {
+              that.setData({
+                market: res.data.data
+              })
+              console.log(that.data.market)
+            }
+          })
+        }
+       
+        
         that.seeMap(res.data.data)
       }
     })
+   
       
    
+  },
+
+  // map
+  onReady: function (e) {
+    let that = this
+    this.mapCtx = wx.createMapContext('myMap')
+
   },
   _getUserLocation(){
     var a=4;
