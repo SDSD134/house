@@ -222,7 +222,7 @@
     </button>
 </view>
 <!-- 3.4 -->
-<view class="cu-item {{menuArrow?'arrow':''}}">
+<view class="cu-item {{menuArrow?'arrow':''}} margin-top">
       <view class="content">
         <text class="cuIcon-btn text-green"></text>
         <text class="text-grey">楼房买点</text>
@@ -249,9 +249,34 @@
     <view>地铁：啵啵啵啵啵啵</view>
     <view>铁路：啵啵啵啵啵啵</view>
     <view>方便死</view> -->
-    <view class="item-title"> 项目介绍</view>
+    <view class="item-title">春天阳光城</view>
+    <view class="item-in">千套小面积住宅即将闪亮登场，诚邀合作伙伴</view>
+    <view class="item-in">【户型面积】：86方</view>
+    <view class="item-in">【体量】：80套</view>
+    <view class="item-in">【具体层高】：约3.2米</view>
+    <view class="item-in">【户型面积】：暂无消息</view>
+    </view>
+</view>
+<view class="information-fifth-last" >
+  <view  class="item-last">
+    <view hidden="{{!selectedFlag}}">
+      <block wx:for="{{list01}}" wx:for-item="item" wx:for-index="index">
+        <view class="item-in">
+          <view >【{{item.title}}】：{{item.word}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="padding">
+    <button class="cu-btn block bg-blue margin-tb-sm lg"  bindtap='changeToggle'>
+    展开更多
+    </button>
+</view>
+
+  
     <!-- <view>千套小面积住宅即将闪亮登场，诚邀合作伙伴</view> -->
-    <view>{{buildingVo.buildingBaseInfo.buildingName}}</view>
+    <!-- <view>{{buildingVo.buildingBaseInfo.buildingName}}</view>
     <view>{{buildingVo.buildingBaseInfo.buildingGreen}}</view>
     <view>{{buildingVo.buildingBaseInfo.propertyType}}</view>
     <view>{{buildingVo.building.planningHousehold}}</view>
@@ -259,16 +284,26 @@
     <view>{{buildingVo.building.propertyCompany}}</view>
     <view>{{buildingVo.building.propertyMoney}}</view>
     <view>交房时间：{{buildingVo.building.commiteTime}}</view>
-    <view>详细地址：{{buildingVo.buildingBaseInfo.buildingAddress}}</view>
+    <view>详细地址：{{buildingVo.buildingBaseInfo.buildingAddress}}</view> -->
     <!-- <view>方便死</view> -->
-  </view>
-</view>
+ 
   <!-- 3.5 -->
  <view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
       <text class="cuIcon-title text-orange "></text>主力户型
     </view>
   </view>
+  <scroll-view scroll-x class="scroll-header">
+      <view class="scroll-header-in" wx:for="{{brand}}"  wx:key="{{index}}">
+        <view class="scroll-header-all">
+            <view class="scroll-header-image">
+              <image src="{{item.img}}"data-index='{{index}}'bindtap='previewImg'></image>
+            </view>
+            <view class="scroll-header-title">{{item.title}}</view>
+            <view class="scroll-header-price">{{item.price}}</view>
+        </view>
+      </view>
+  </scroll-view>
   <!-- 3.6 -->
   <view class="margin-top cu-item {{menuArrow?'':'arrow'}}" bindtap='comments'>
       <view class="content">
@@ -404,20 +439,18 @@
   <!-- 分享 -->
    <view class='imagePathBox' hidden="{{maskHiddens == false}}">
        <view class="share-box">
-          <button class="wxshare" open-type='share'>分享给微信好友</button>
+        <button class="wxshare-one" open-type='share'>分享给经纪人</button>
+          <button class="wxshare" open-type='share'>分享给客户</button>
           <button class="poster" bindtap='formSubmit'>生成海报</button>
           <button class="cancel" bindtap='cancel'>取消</button>
       </view>
   </view>
-<!-- 海报 -->
-  <view>
-    <view class='imagePathBox' hidden="{{maskHidden == false}}">
-          <image src="{{imagePath}}" class='shengcheng'></image>
-          <button class='baocun' bindtap='cancel'>保存相册，分享到朋友圈</button>
-        </view>
-      <view hidden="{{maskHidden == false}}" class="mask"></view> 
-      <view class="canvas-box">
-          <canvas  style="width: 375px;height: 667px;position:fixed;top:9999px" canvas-id="mycanvas"/>
-      </view>  
-</view>
-
+   <!-- 海报 -->
+  <view class='imagePathBox' hidden="{{maskHidden == false}}">
+      <image src="{{imagePath}}" class='shengcheng'></image>
+      <button class='baocun' bindtap='baocun'>保存相册，分享到朋友圈</button>
+  </view>
+  <view hidden="{{maskHidden == false}}" class="mask"></view> 
+  <view class="canvas-box">
+      <canvas  style="width: 375px;height: 667px;position:fixed;top:9999px" canvas-id="mycanvas"/>
+  </view>  

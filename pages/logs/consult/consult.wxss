@@ -1,3 +1,7 @@
+page{
+ background-color:white;
+}
+
 /* 搜索 */
 .search{
   width: 100%;
@@ -7,6 +11,7 @@
    align-items: center;
    position:relative;    
    top:10px;  
+  
 }
 .search-in{
   width:90%;
@@ -44,4 +49,70 @@
 .container text{
   font-size:15px;
   color:#979797;
+}
+
+/* 列表 */
+
+.list-all{
+  position:relative;
+  top:15rpx;
+  display:flex;
+  align-items: center; 
+  justify-content:center;
+  height:120px;
+  width:100%;
+  background-color:white;
+}
+.list{
+  height:120px;
+  width:90%;
+  
+}
+.list-first{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items: center; 
+  justify-content:space-between;
+}
+.list-first-left{
+  font-size:35rpx;
+  font-weight: 700;
+}
+.list-first-right{
+  font-size:25rpx;
+  color:red;
+}
+.list-second{
+  height:20px;
+  width:100%;
+  display:flex;
+  align-items: center; 
+  color:#979797;
+}
+.list-second image{
+  width:15px;
+  height:15px;
+}
+.list-third{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items: center; 
+}
+.list-fourth{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items: center; 
+  justify-content:space-between;
+  color:#979797;
+}
+.list-phone{
+  color:#1671B6;
+
+}
+.list-record{
+  color:#89D889;
+   font-weight: 700;
 }

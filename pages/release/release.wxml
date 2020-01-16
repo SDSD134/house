@@ -11,9 +11,9 @@
 
   <view class="cu-form-group margin-top">
 		<view class="title">分销类型</view>
-		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+		<picker bindchange="PickerChange" value="{{picker[index]}}" range="{{picker}}">
 			<view class="picker">
-				{{index?picker[index]:'分销项目'}}
+				{{index?picker[index]:picker[0]}}
 			</view>
 		</picker>
 	</view>
@@ -64,7 +64,7 @@
 
 
   <view class="cu-form-group">
-		<view class="title">所在区域</view>
+		<view class="title">所在区域<text class="must">（必填）</text></view>
 		<picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
 			<view class="picker">
 				{{region[0]}}，{{region[1]}}，{{region[2]}}
@@ -79,20 +79,24 @@
   
   <view class="cu-form-group margin-top">
 		<view class="title">开发商</view>
-		<picker bindchange="PickerChangeOne" value="{{indexOne}}" range="{{pickerOne}}">
+		<picker bindchange="PickerChangeOne" value="{{pickerOne[indexOne]}}" range="{{pickerOne}}">
 			<view class="picker">
-				{{indexOne?pickerOne[indexOne]:'分销项目'}}
+				{{indexOne?pickerOne[indexOne]:pickerOne[0]}}
 			</view>
 		</picker>
 	</view>
    
-  <view class="cu-form-group margin-top">
+  <!-- <view class="cu-form-group margin-top">
 		<view class="title">总代公司</view>
 		<picker bindchange="PickerChangeTwo" value="{{indexTwo}}" range="{{pickerTwo}}">
 			<view class="picker">
 				{{indexTwo?pickerTwo[indexTwo]:'分销项目'}}
 			</view>
 		</picker>
+	</view> -->
+   <view class="cu-form-group">
+		<view class="title">总代公司<text class="must">（必填）</text></view>
+		<input placeholder="请填写总代公司/必填" bindinput="allfactory" name="allfactory"></input>
 	</view>
 
 	<view class="cu-form-group">
@@ -114,13 +118,13 @@
 	</view>
  
  <view class="cu-form-group">
-		<view class="title">均价<text class="must">（必填）</text></view>
-		<input placeholder="请填写均价/必填" type="digit" confirm-type="done" bindinput="avapriceInput"name="avaprice"></input>元/m^2
+		<view class="title">均价（选填）</view>
+		<input placeholder="请填写均价" type="digit" confirm-type="done" bindinput="avapriceInput"name="avaprice"></input>元/m^2
 	</view>
 
   <view class="cu-form-group">
-		<view class="title">总价<text class="must">（必填）</text></view>
-		<input placeholder="请填写总价/必填" type="digit" confirm-type="done" bindinput="totalpriceInput" name="totalprice"></input>万元
+		<view class="title">总价（选填）</view>
+		<input placeholder="请填写总价" type="digit" confirm-type="done" bindinput="totalpriceInput" name="totalprice"></input>万元
 	</view>
   
   <view class="cu-form-group">
@@ -133,8 +137,8 @@
 	</view>
 
   <view class="cu-form-group">
-		<view class="title">产权年限<text class="must">（必填）</text></view>
-		<input placeholder="请填写产权年限/必填" bindinput="yearInput"name="year"></input>
+		<view class="title">产权年限（选填）></view>
+		<input placeholder="请填写产权年限" bindinput="yearInput"name="year"></input>
 	</view>
 
   <view class="cu-form-group margin-top">
@@ -163,90 +167,55 @@
     	</view>
     </checkbox-group>
   <view class="cu-form-group margin-top">
-		<view class="title">基本信息<text class="must">（必填）</text></view>
+		<view class="title">基本信息（选填）</view>
 	</view>
   <view class="cu-form-group">
     <view class="title">占地面积</view>
-<!-- <<<<<<< HEAD
-    <input placeholder="请填写占地面积"  confirm-type="done" ></input>m^2
+    <input placeholder="请填写占地面积" type="digit" confirm-type="done" name="area" bindinput="groundAreaInput"></input>m^2
   </view>
    <view class="cu-form-group">
   <view class="title">户型面积</view>
-    <input placeholder="请填写户型面积"  confirm-type="done" ></input>m^2
-  </view>
-   <view class="cu-form-group">
-  <view class="title">总体量</view>
-    <input placeholder="请填写总体量" confirm-type="done" ></input>
-  </view>
-   <view class="cu-form-group">
-   <view class="title">绿化率</view>
-    <input placeholder="请填写绿化率" confirm-type="done" ></input>
-  </view>
-   <view class="cu-form-group">
-   <view class="title">规划产数</view>
-    <input placeholder="请填写规划产数"  confirm-type="done" ></input>
-  </view>
-   <view class="cu-form-group">
-    <view class="title">车位</view>
-    <input placeholder="请填写车位情况" confirm-type="done"></input>
-  </view>
-   <view class="cu-form-group">
-  <view class="title">所属物业公司</view>
-    <input placeholder="请填写物业公司名称"  confirm-type="done" ></input>
-  </view>
-   <view class="cu-form-group">
-  <view class="title">物业费</view>
-    <input placeholder="请填写应缴物业费用"  confirm-type="done" ></input>
-  </view>
-<view class="cu-form-group align-start">
-		<view class="title">楼层概况</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" placeholder="请填写楼层概况说明" ></textarea>
-======= -->
-    <input placeholder="请填写占地面积/必填" type="digit" confirm-type="done" name="area" bindinput="groundAreaInput"></input>m^2
-  </view>
-   <view class="cu-form-group">
-  <view class="title">户型面积</view>
-    <input placeholder="请填写户型面积/必填" type="digit" confirm-type="done" name="homearea" bindinput="houseAreaInput"></input>m^2
+    <input placeholder="请填写户型面积" type="digit" confirm-type="done" name="homearea" bindinput="houseAreaInput"></input>m^2
   </view>
 
 <view class="cu-form-group">
   <view class="title">户型</view>
-    <input placeholder="请填写户型/必填"  confirm-type="done" name="houseType" bindinput="houseTypeInput"></input>
+    <input placeholder="请填写户型"  confirm-type="done" name="houseType" bindinput="houseTypeInput"></input>
   </view>
 
    <view class="cu-form-group">
     <view class="title">总体量</view>
-      <input placeholder="请填写总体量/必填" type="digit" confirm-type="done" name="allarea" bindinput="houseCountInput"></input>
+      <input placeholder="请填写总体量" type="digit" confirm-type="done" name="allarea" bindinput="houseCountInput"></input>
   </view>
 
    <view class="cu-form-group">
    <view class="title">绿化率</view>
-    <input placeholder="请填写绿化率/必填"  confirm-type="done" name="green" bindinput="greenInput"></input>
+    <input placeholder="请填写绿化率"  confirm-type="done" name="green" bindinput="greenInput"></input>
   </view>
    <view class="cu-form-group">
    <view class="title">规划产数</view>
-    <input placeholder="请填写规划产数/必填"  confirm-type="done" name="production" bindinput="chanshuInput"></input>
+    <input placeholder="请填写规划产数"  confirm-type="done" name="production" bindinput="chanshuInput"></input>
   </view>
    <view class="cu-form-group">
     <view class="title">车位</view>
-    <input placeholder="请填写车位情况/必填"  confirm-type="done" name="car"  bindinput="carInput"></input>
+    <input placeholder="请填写车位情况"  confirm-type="done" name="car"  bindinput="carInput"></input>
   </view>
    <view class="cu-form-group">
   <view class="title">所属物业公司</view>
-    <input placeholder="请填写物业公司名称/必填" confirm-type="done" name="factory" bindinput="companyInput"></input>
+    <input placeholder="请填写物业公司名称" confirm-type="done" name="factory" bindinput="companyInput"></input>
   </view>
    <view class="cu-form-group">
   <view class="title">物业费</view>
-    <input placeholder="请填写应缴物业费用/必填" type="digit" confirm-type="done" name="property" bindinput="feeInput"></input>
+    <input placeholder="请填写应缴物业费用" type="digit" confirm-type="done" name="property" bindinput="feeInput"></input>
   </view>
    <view class="cu-form-group">
   <view class="title">物业类型</view>
-    <input placeholder="请填写物业类型/必填"  confirm-type="done" name="propertyType" bindinput="propertyTypeInput"></input>
+    <input placeholder="请填写物业类型"  confirm-type="done" name="propertyType" bindinput="propertyTypeInput"></input>
   </view>
 
  <view class="cu-form-group">
    <view class="title">佣金方案</view>
-    <input placeholder="佣金方案/必填" confirm-type="done" name="buildingEmploy" bindinput="buildingEmployInput"></input>
+    <input placeholder="佣金方案" confirm-type="done" name="buildingEmploy" bindinput="buildingEmployInput"></input>
   </view>
 
 <view class="cu-form-group align-start">
@@ -255,16 +224,10 @@
 
 	</view>
   <view class="cu-form-group align-start">
-		<view class="title">项目特色<text class="must">（必填）</text></view>
+		<view class="title">项目特色（选填）</view>
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="characterInput" placeholder="请填写项目特色/必填" name="character"></textarea>
 	</view>
-<!-- <<<<<<< HEAD
 
-  <view class="cu-form-group align-start margin-top">
-		<view class="title">周边设施（选填）</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入周边的设施"></textarea>
-
-======= -->
    <view class="cu-form-group margin-top">
 		<view class="title">周边设施（选填）</view>
 

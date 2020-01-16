@@ -65,10 +65,31 @@
                 </view>
                 <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
-                  <view>{{item.averagePrice}}万/套</view>
-                  <view>{{item.countPrice}}万元/m^2</view>
+                  <view wx:if="{{item.averagePrice==null }}">
+                   <view>总价：待定</view>
+                  </view>
+                  <view wx:elif="{{item.averagePrice!= null }}">
+                    <view>{{item.averagePrice}}万/套</view>
+                  </view>
+                  <view wx:if="{{item.countPrice==null }}">
+                   <view>均价：待定</view>
+                  </view>
+                  <view wx:elif="{{item.countPrice!=null}}">
+                    <view>{{item.countPrice}}万元/m^2</view>
+                  </view>
                 </view>
-                <view class="list-right-last cu-tag round bg-olive light">{{item.buildingSign}}</view>
+                <view wx:if="{{item.buildingSign== '' }}">
+                  <view class="list-right-last">
+                    <view class="cu-tag round bg-olive light">暂无</view>
+                  </view>
+                </view>
+                <view wx:elif="{{item.buildingSign!=''}}">
+                  <view class="list-right-last">
+                    <view class="cu-tag round bg-olive light">{{item.buildingSign}}</view>
+                    <!-- <view class="list-right-last cu-tag round bg-olive light">{{item.buildingSign}}</view> -->
+                  </view>
+                </view>
+               
             </view>
           </view>
         </view>
@@ -218,7 +239,6 @@
             <image src="{{item.imgArr}}"/>
             <view class="list-right">
                 <view class="title-all">
-                  
                   <view class="title"><text class="title-logn">在售</text> {{item.title}}</view>
                   <view class="collect">
                       <image  catchtap='handleCollection' wx:if="{{!isCollected}}" src="../../image/shou.png"></image>

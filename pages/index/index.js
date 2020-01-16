@@ -39,14 +39,31 @@ Component({
     },
   },
   data: {
+    //轮播图配置
+    autoplay: true,
+    interval: 3000,
+    duration: 1000,
+    isCollected: false,
+    
     noticeList: [{
-      content0: "国庆假期暂停发货温馨提醒：尊敬的用户，",
+      content0: "国庆假期暂停发货温馨提醒：尊敬的用户",
       content1: "国庆节假期将至，我们将在10.1-10.7节日期间暂"
     },
     {
       content0: "停发货，并停止客服服务，将于10月8日恢复正常",
       content1: "发货及客服服务，在此祝您假期愉快！"
     },
+    ],
+    enjoyList:[
+      {
+        content: "停发货，并停止客服服务，将于10月8日恢复正常"
+      },
+      {
+        content: "停发货，并停止客服服务，将于10月8日恢复正常"
+      },
+      {
+        content: "停发货，并停止客服服务，将于10月8日恢复正常"
+      },
     ],
     starCount: 0,
     forksCount: 0,
@@ -56,19 +73,19 @@ Component({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     cardCur: 0,
     currentTabIndex: 0,
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg'
-    }, {
-      id: 1,
-      type: 'image',
-        url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-        url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg'
-    }],
+    // swiperList: [{
+    //   id: 0,
+    //   type: 'image',
+    //   url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg'
+    // }, {
+    //   id: 1,
+    //   type: 'image',
+    //     url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg',
+    // }, {
+    //   id: 2,
+    //   type: 'image',
+    //     url: 'http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg'
+    // }],
     brand: [
       {
         img: '../../image/26.jpg',
@@ -262,6 +279,29 @@ Component({
 
   },
   methods: {
+    // 轮播图
+    onLoad: function () {
+      var that = this;
+      var data = {
+        "datas": [
+          {
+            "id": 1,
+            "imgurl": "http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg"
+          },
+          {
+            "id": 2,
+            "imgurl": "http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg"
+          },
+          {
+            "id": 3,
+            "imgurl": "http://file06.16sucai.com/2018/0218/b91612d875e4a8c003a62744cc82bae1.jpg"
+          }
+        ]
+      };
+      that.setData({
+        lunboData: data.datas
+      })
+    },
     getPhoneNumber: function (e) {
       common.getPhoneNumber(e);
     },
@@ -295,6 +335,11 @@ Component({
         url: '../home/home'
       })
     },
+    haiwai: function (e) {
+      wx.switchTab({
+        url: '../home/home？region[2]="海外"'
+      })
+    },
     close: function () {
       this.setData({
         hide: true
@@ -312,80 +357,80 @@ Component({
       this.close();
     },
  
-  //轮播图
-  onLoad(options) {
-    console.log(options);
-    this.towerSwiper('swiperList');
-    // 初始化towerSwiper 传已有的数组名即可
-    qqmapsdk = new QQMapWX({
-      key: 'JXSBZ-BNCCG-M44Q6-IOJAS-UODZF-B5BFJ'
-    });
-  },
-  DotStyle(e) {
-    this.setData({
-      DotStyle: e.detail.value
-    })
-  },
-  // cardSwiper
-  cardSwiper(e) {
-    this.setData({
-      cardCur: e.detail.current
-    })
-  },
-  // towerSwiper
-  // 初始化towerSwiper
-  towerSwiper(name) {
-    let list = this.data[name];
-    for (let i = 0; i < list.length; i++) {
-      list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
-      list[i].mLeft = i - parseInt(list.length / 2)
-    }
-    this.setData({
-      swiperList: list
-    })
-  },
-  // towerSwiper触摸开始
-  towerStart(e) {
-    this.setData({
-      towerStart: e.touches[0].pageX
-    })
-  },
-  // towerSwiper计算方向
-  towerMove(e) {
-    this.setData({
-      direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
-    })
-  },
-  // towerSwiper计算滚动
-  towerEnd(e) {
-    let direction = this.data.direction;
-    let list = this.data.swiperList;
-    if (direction == 'right') {
-      let mLeft = list[0].mLeft;
-      let zIndex = list[0].zIndex;
-      for (let i = 1; i < list.length; i++) {
-        list[i - 1].mLeft = list[i].mLeft
-        list[i - 1].zIndex = list[i].zIndex
-      }
-      list[list.length - 1].mLeft = mLeft;
-      list[list.length - 1].zIndex = zIndex;
-      this.setData({
-        swiperList: list
-      })
-    } else {
-      let mLeft = list[list.length - 1].mLeft;
-      let zIndex = list[list.length - 1].zIndex;
-      for (let i = list.length - 1; i > 0; i--) {
-        list[i].mLeft = list[i - 1].mLeft
-        list[i].zIndex = list[i - 1].zIndex
-      }
-      list[0].mLeft = mLeft;
-      list[0].zIndex = zIndex;
-      this.setData({
-        swiperList: list
-      })
-    }
-  },
+  // //轮播图
+  // onLoad(options) {
+  //   console.log(options);
+  //   this.towerSwiper('swiperList');
+  //   // 初始化towerSwiper 传已有的数组名即可
+  //   qqmapsdk = new QQMapWX({
+  //     key: 'JXSBZ-BNCCG-M44Q6-IOJAS-UODZF-B5BFJ'
+  //   });
+  // },
+  // DotStyle(e) {
+  //   this.setData({
+  //     DotStyle: e.detail.value
+  //   })
+  // },
+  // // cardSwiper
+  // cardSwiper(e) {
+  //   this.setData({
+  //     cardCur: e.detail.current
+  //   })
+  // },
+  // // towerSwiper
+  // // 初始化towerSwiper
+  // towerSwiper(name) {
+  //   let list = this.data[name];
+  //   for (let i = 0; i < list.length; i++) {
+  //     list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
+  //     list[i].mLeft = i - parseInt(list.length / 2)
+  //   }
+  //   this.setData({
+  //     swiperList: list
+  //   })
+  // },
+  // // towerSwiper触摸开始
+  // towerStart(e) {
+  //   this.setData({
+  //     towerStart: e.touches[0].pageX
+  //   })
+  // },
+  // // towerSwiper计算方向
+  // towerMove(e) {
+  //   this.setData({
+  //     direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
+  //   })
+  // },
+  // // towerSwiper计算滚动
+  // towerEnd(e) {
+  //   let direction = this.data.direction;
+  //   let list = this.data.swiperList;
+  //   if (direction == 'right') {
+  //     let mLeft = list[0].mLeft;
+  //     let zIndex = list[0].zIndex;
+  //     for (let i = 1; i < list.length; i++) {
+  //       list[i - 1].mLeft = list[i].mLeft
+  //       list[i - 1].zIndex = list[i].zIndex
+  //     }
+  //     list[list.length - 1].mLeft = mLeft;
+  //     list[list.length - 1].zIndex = zIndex;
+  //     this.setData({
+  //       swiperList: list
+  //     })
+  //   } else {
+  //     let mLeft = list[list.length - 1].mLeft;
+  //     let zIndex = list[list.length - 1].zIndex;
+  //     for (let i = list.length - 1; i > 0; i--) {
+  //       list[i].mLeft = list[i - 1].mLeft
+  //       list[i].zIndex = list[i - 1].zIndex
+  //     }
+  //     list[0].mLeft = mLeft;
+  //     list[0].zIndex = zIndex;
+  //     this.setData({
+  //       swiperList: list
+  //     })
+  //   }
+  // },
   // 选择
   onTabsItemTap: function (event) {
     let index = event.currentTarget.dataset.index;

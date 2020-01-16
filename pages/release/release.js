@@ -36,7 +36,7 @@ Page({
     ],
     checkNums: 0,
     maxs: false,
-    maxCheckedNums: 3,
+    maxCheckedNums: 5,
     // 验证为空
     name: "",//新房名称
     address: "",//新房地址
@@ -52,6 +52,7 @@ Page({
     property: "",//物业公司
     storey: "",//物业费
     character: "",//楼层概况
+    allfactory:"",//总代公司
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     index: null,
@@ -145,8 +146,11 @@ Page({
       innerInstrument: e.detail.value
     })
   },
-
-
+  allfactory(e) {
+    this.setData({
+      allfactory: e.detail.value
+    })
+  },
 
   checkChange(e) {
     let id = e.currentTarget.id;
@@ -201,22 +205,9 @@ Page({
     let that  = this;
     var name = e.detail.value.name;
     var address = e.detail.value.address;
-    var avaprice = e.detail.value.avaprice;
-    var totalprice = e.detail.value.totalprice;
-    var year = e.detail.value.year;
-    var area = e.detail.value.area;
-    var homearea = e.detail.value.homearea;
-    var allarea = e.detail.value.allarea;
-    var green = e.detail.value.green;
-    var production = e.detail.value.production;
-    var car = e.detail.value.car;
-    var property = e.detail.value.property;
-    var storey = e.detail.value.storey;
-    var character = e.detail.value.character;
-    var propertyType = e.detail.value.propertyType;
-    var houseType = e.detail.value.houseType;
+    var allfactory = e.detail.value.allfactory;
 
-    if (name == "" || address == "" || avaprice == "" || totalprice == "" || year == "" || area == "" || homearea == "" || allarea == "" || green == "" || production == "" || car == "" || property == "" || storey == "" || character == "" || propertyType == "" || houseType == "") {
+    if (name == "" || address == "" || allfactory == "" ) {
       wx.showModal({
         title: '提示',
         content: '请将必填信息输入完整！',

@@ -202,22 +202,39 @@ height:30px;
 /* 楼房买点 */
 .information-fifth{
   background-color: white;
-  height:380px;
+  height:130px;
   width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 .item{
-  height:380px;
+  height:130px;
   width:90%;
 }
 .item-title{
   font-size:30rpx;
   display:flex;
   align-items:center;
-  height:60px;
-  color:black;
+  height:30px;
+  color:#8799A3;
+}
+.item-in{
+  font-size:30rpx;
+  display:flex;
+  align-items:center;
+  height:20px;
+  color:#8799A3;
+}
+.information-fifth-last{
+  background-color: white;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.item-last{
+  width:90%;
 }
 /* 点评 */
 .trends-all{
@@ -339,7 +356,7 @@ height:30px;
   width:40rpx;
 }
 .share-text{
-  font-size:20rpx;
+  font-size:30rpx;
   height:40rpx;
   width:100%;
   display: flex;
@@ -407,7 +424,7 @@ button[class="baocun"]::after{
 .share-box{
   display: block;
   width: 100%;
-  height: 300rpx;
+  height: 400rpx;
   padding: 0;
   position: fixed;
   bottom: 0rpx;
@@ -477,4 +494,78 @@ button[class="wxshare"]{
 button[class="wxshare"]::after{
   border: 0;
   border-radius: 0;
+}
+.wxshare-one{
+  display: block;
+  width: 100%;
+  height: 100rpx;
+  padding: 0;
+  line-height: 100rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 300rpx;
+  background: #FFFFFF;
+  color: black;
+  font-size: 32rpx;
+  /* border-radius: 44rpx; */
+}
+button[class="wxshare-one"]{
+    border-radius: 0;
+}
+button[class="wxshare-one"]::after{
+  border: 0;
+  border-radius: 0;
+}
+/* 滚动 */
+
+.scroll-header{
+display: flex;
+white-space: nowrap;
+background:white;
+}
+.scroll-header-in{
+height:180px;
+width:150px;
+display: inline-block;
+justify-content: center;
+align-items: center;
+}
+.scroll-header-all{
+  height:180px;
+  width:150px;
+  position:relative;
+  left:15px; 
+}
+.scroll-header-image{
+  height:140px;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-header-image image{
+  height:120px;
+  width:130px;
+  /* border-radius: 10px; */
+}
+.scroll-header-title{
+  height:20px;
+  width:100%;
+  font-size:35rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+.scroll-header-price{
+  height:20px;
+  width:100%;
+  font-size:25rpx;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  color:orange;
+}
+.padding{
+  background:white;
 }

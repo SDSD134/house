@@ -18,4 +18,28 @@
 </view>
 <!-- 判断--有数据 -->
 <view wx:else>
+<view wx:for="{{list}}" wx:key="{{index}}" class="list-all">
+  <view class="list">
+    <view class="list-first">
+        <view class="list-first-left">{{item.name}}  <text class="list-phone">{{item.phone}}</text></view>
+        <!-- <view class="list-first-right"></view> -->
+    </view>
+    <view class="list-second">
+     <text>所属公司：</text>
+      <!-- <image src="../../../image/watch.png"/> -->
+      <text>{{item.plate}}</text>
+    </view>
+    <view class="list-third">
+       <text>咨询项目：</text>
+      <text>{{item.content}}</text>
+      </view>
+    <view class="list-fourth">
+        <view class="list-fourth-left">
+        <text class="list-record">无举报记录  </text>
+        <text>{{item.time}}</text>
+        </view>
+        <view class="list-fourth-right">我要举报</view>
+    </view>
+  </view>
+</view>
 </view>

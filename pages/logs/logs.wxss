@@ -1,17 +1,18 @@
 .UCenter-bg {
   background-image: url(https://image.weilanwl.com/color2.0/index.jpg);
   background-size: cover;
-  height: 550rpx;
-  display: flex;
+  height: 450rpx;
+  display:flex;
+  align-items: center;
   justify-content: center;
-  padding-top: 40rpx;
+  /* padding-top: 40rpx;
   overflow: hidden;
   position: relative;
   flex-direction: column;
   align-items: center;
   color: #fff;
   font-weight: 300;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3); */
 }
 
 .UCenter-bg text {
@@ -46,12 +47,12 @@ map,.mapBox{
 }
 
 /* 头像 */
-.userinfo {
+/* .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
   
-}
+} */
 
 .userinfo-avatar {
   width: 128rpx;
@@ -87,4 +88,31 @@ button::after {
 }
 .cuIcon-creativefill{
   z-index:999;
+}
+.userinfo{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:300rpx;
+  width:85%;
+}
+.userinfo-left{
+  height:100rpx;
+  width:30%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.userinfo-medile{
+  height:100rpx;
+  width:50%;
+}
+.userinfo-right{
+  height:100rpx;
+  width:20%;
+}
+.userinfo-name{
+  color:#fff;
+  font-size:35rpx;
+  font-weight:700;
 }
