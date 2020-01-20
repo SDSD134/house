@@ -4,7 +4,7 @@
 </cu-custom>
 <!-- 点评 -->
   <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
-  <view class="trends">
+   <view class="trends">
     <view class="trends-left">
       <image src="../../../image/26.jpg"/>
     </view>
@@ -16,11 +16,36 @@
       <view class="trends-right-content">
         {{item.content}}    
       </view>
-      <view class="trends-right-image">
-      <view wx:for="{{imageList}}" wx:key="{{key}}"class="img" >
+      <view class="ff_anniu">
+      <view wx:for="{{imageList}}" wx:key="{{key}}"class="ff_item" >
         <image src="{{item.img}}" class="img"/>
       </view>
       </view>
+      <view class="trends-right-time">
+        {{item.time}}
+        <view class="cu-tag round bg-olive light" bindtap='reply'>回复</view>
+      </view>
+    </view>
+  </view>
+</view>
+ <view class="divLine-all">
+    <view class="divLine"></view>
+  </view>
+
+ <view class="trends-all-too"wx:for="{{comment}}" wx:key="{{key}}">
+   <view class="trends-too">
+    <view class="trends-left-too">
+      <image src="../../../image/26.jpg"/>
+    </view>
+    <view class="trends-right">
+      <view class="trends-right-name">
+         <text>{{item.name}}</text>
+         <image src="../../../image/shou.png" class="action-image"/>
+      </view>
+      <view class="trends-right-content">
+        {{item.content}}    
+      </view>
+     
       <view class="trends-right-time">
         {{item.time}}
         <view class="cu-tag round bg-olive light" bindtap='reply'>回复</view>

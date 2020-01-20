@@ -88,5 +88,5 @@
   </view>
  </navigator>
 
-
+<!-- 手机号覆盖 -->
 <wxs src="../../../utils/subutil.wxs" module="tools"></wxs>

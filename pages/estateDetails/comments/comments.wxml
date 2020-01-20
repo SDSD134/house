@@ -16,14 +16,14 @@
       <view class="trends-right-content">
         {{item.content}}    
       </view>
-      <view class="trends-right-image">
-      <view wx:for="{{imageList}}" wx:key="{{key}}"class="img" >
+      <view class="ff_anniu">
+      <view wx:for="{{imageList}}" wx:key="{{key}}"class="ff_item" >
         <image src="{{item.img}}" class="img"/>
       </view>
       </view>
       <view class="trends-right-time">
         {{item.time}}
-        <view class="cu-tag round bg-olive light">回复</view>
+        <view class="cu-tag round bg-olive light" bindtap='reply'>回复</view>
       </view>
     </view>
   </view>

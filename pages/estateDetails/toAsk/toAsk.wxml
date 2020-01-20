@@ -1,0 +1,58 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <!-- <view slot="content">{{title}}</view> -->
+  </cu-custom>
+  <view class="ask-all">
+    <view class="ask-top-to">
+      <text  class="ask-to" ><text class="ask">问</text> </text>
+      <text class="ask-text">现在怎么样啊？过的好吗？</text>
+    </view>
+  </view>
+  <view class="answer-all">
+    <view class="answer">
+      <view class="answer-left">提问人：孙宁</view>
+      <view class="answer-right">2019-11-11 17：24：38</view>
+    </view>
+  </view>
+  <view class="divLine-all">
+    <view class="divLine"></view>
+  </view>
+  <view class="build-all">
+    <view class="build">
+      <view class="build-left">楼盘：临水佳韵</view>
+      <view class="build-right">></view>
+    </view>
+  </view>
+  <view class="cu-form-group margin-top">
+		<view class="title">全部回答（共2条）</view>
+	</view>
+  <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
+  <view class="trends" >
+    <view class="trends-left">
+      <image src="../../../image/26.jpg"/>
+    </view>
+    <view class="trends-right">
+      <view class="trends-right-name">
+         <text>{{item.name}}</text>   
+      </view>
+      <view class="trends-right-content">
+        {{item.content}}    
+      </view>
+      <view class="trends-right-time">
+        <text>{{item.time}}</text>
+         <image src="../../../image/shou.png" class="action-image"/>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="kong"></view>
+<view class="oblong-float">
+    <view class="oblong-float-in-left" bindtap='goAsk'>
+      <image src="../../../image/write.png"/>
+      <text class="invite" >我要提问</text>
+    </view>
+    <view class="oblong-float-in-right" bindtap='goAnswer'>
+       <image src="../../../image/write.png"/>
+       <text class="invite">我要回答</text>
+    </view>
+  </view>

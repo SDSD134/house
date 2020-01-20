@@ -197,7 +197,7 @@
 <!-- 3.2 -->
 <view class="cu-timeline" wx:for="{{trends}}" wx:key="{{key}}" >
   <view class="cu-item text-blue" bindtap='trendsDetail'>
-    <view class="bg-blue shadow-blur content">
+    <view >
       <view class="cu-list menu-avatar radius">
         <view class="cu-item">
           <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
@@ -208,7 +208,7 @@
           </view>
           <view class="action">
             <view class="text-grey text-xs">{{item.time}}</view>
-            <view class="cu-tag round bg-red sm"> </view>
+            <!-- <view class="cu-tag round bg-red sm"> </view> -->
           </view>
         </view> 
       </view>
@@ -315,6 +315,11 @@
       </view>
   </view>
   <!-- 点评 -->
+  <view wx:if="{{x==0}}">
+    <view class="ask-all">同行好友,专家将为您答疑解惑</view>
+    <view class="ask-go" bindtap='goAsk'>发布提问</view>
+  </view>
+  <view wx:else>
   <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
   <view class="trends" >
     <view class="trends-left">
@@ -335,11 +340,13 @@
     </view>
   </view>
 </view>
+</view>
     <!-- 3.7 -->
-  <view class="padding-xl" bindtap='goComments'>
-      <button class="cu-btn block line-orange lg">
-      <text class="cuIcon-upload"></text>我要点评</button>
-  </view>
+  <view class="padding">
+    <button class="cu-btn block bg-blue margin-tb-sm lg"  bindtap='goComments'>
+    我要点评
+    </button>
+</view>
 <!-- 3.8 -->
   <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='ask'>
       <view class="content">
@@ -351,8 +358,32 @@
       </view>
   </view>
   <!-- 3.9 -->
-  <view class="ask-all">同行好友,专家将为您答疑解惑</view>
-  <view class="ask-go" bindtap='goAsk'>发布提问</view>
+  <view wx:if="{{y==0}}">
+    <view class="ask-all">同行好友,专家将为您答疑解惑</view>
+    <view class="ask-go" bindtap='goAsk'>发布提问</view>
+  </view>
+  <view wx:else>
+   <view wx:for="{{askList}}" wx:key="{{key}}">
+    <view class="ask-all-else" bindtap='toAsk'>
+      <view class="ask-in">
+        <view class="ask-top"> 
+          <view class="ask-top-to">
+              <text  class="ask-to" ><text class="ask">问</text> </text>
+              <text>{{item.ask}}</text>
+          </view>
+          <text class="anwser-to">1个回答</text>
+        </view>
+        <view class="ask-bottom"> 
+          <text  class="ask-to" ><text  class="anwser">答</text> </text>{{item.answer}}
+        </view>
+      </view>
+   </view>
+  </view>
+    <view class="padding">
+       <button class="cu-btn block bg-blue margin-tb-sm lg"  bindtap='goAsk'>我要提问</button>
+    </view>
+  </view>
+
   <!-- 4.0 -->
 <view class="cu-item {{menuArrow?'':'arrow'}}">
       <view class="content">
@@ -389,13 +420,16 @@
       </view>
   </view>
   <view wx:for="{{list}}" wx:key="{{index}}">
+  <view class="cu-item"> 
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.imgArr}}"/>
             <view class="list-right">
                 <view class="title-all">
-                  
-                  <view class="title"><text class="title-logn">在售</text> {{item.title}}</view>
+                  <view class="title">
+                    <text class="title-logn">在售</text> 
+                    <text class="title-title">{{item.title}}</text>
+                  </view>
                   <view class="collect">
                       <image  catchtap='handleCollection' wx:if="{{!isCollected}}" src="../../image/shou.png"></image>
                       <image catchtap='handleCollection' wx:if="{{isCollected}}" src="../../image/shou1.png"></image>
@@ -413,11 +447,14 @@
         <!-- 代理 -->
         <view class="agent-all">
           <view class="agent">
-          <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
-          <text>代理公司 | {{item.factory}}</text>
+            <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
+            <text>代理公司 | {{item.factory}}</text>
           </view>
         </view>
+         <view class="deline"></view>
       </view>
+     </view>
+    
     </view>
     <view class="kong"></view>
 </scroll-view>

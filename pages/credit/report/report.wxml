@@ -1,0 +1,18 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <!-- <view slot="content">信用中心</view> -->
+</cu-custom>
+<view class="report-all">
+<view class="report-in">
+<view class="report-left" bindtap='allowance'><image src="../../../image/r1.jpg"></image></view>
+<view class="report-right" bindtap='commission'><image src="../../../image/r2.jpg"></image></view>
+</view>
+<view class="report-in">
+<view class="report-left" bindtap='customer'><image src="../../../image/r3.jpg"></image></view>
+<view class="report-right" bindtap='salary'><image src="../../../image/r4.jpg"></image></view>
+</view>
+<view class="report-in">
+<view class="report-left" bindtap='select'><image src="../../../image/r5.jpg"></image></view>
+<view class="report-right" bindtap='sheet'><image src="../../../image/r6.jpg"></image></view>
+</view>
+</view>

@@ -14,19 +14,19 @@
 <view class="list">
     <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
         <text>{{region[2]}}</text>
-        <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
+        <image class="img-down" src='../../image/down1.png'></image>
     </picker>
     <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
         <text>{{index?picker[index]:'均价'}}</text>
-        <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
+        <image class="img-down" src='../../image/down1.png'></image>
     </picker>
     	<picker bindchange="PickerChangeOne" value="{{indexOne}}" range="{{pickerOne}}">
         <text>{{indexOne?pickerOne[indexOne]:'首付'}}</text>
-        <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
+        <image class="img-down" src='../../image/down1.png'></image>
     </picker>
     <picker bindchange="PickerChangeTwo" value="{{indexTwo}}" range="{{pickerTwo}}">
         <text>{{indexTwo?pickerTwo[indexTwo]:'筛选'}}</text>
-        <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
+        <image class="img-down" src='../../image/down1.png'></image>
     </picker>
     <picker bindchange="PickerChangeThree" value="{{indexThree}}" range="{{pickerThree}}">
       <image style='height:25rpx;width:25rpx;' src='../../image/paixu.png'></image>
@@ -57,7 +57,10 @@
             <image src="{{item.images[0].url}}"/>
             <view class="list-right">
                 <view class="title-all"> 
-                  <view class="title"><text class="title-logn">在售</text> {{item.buildingName}}</view>
+                  <view class="title">
+                    <text class="title-logn">在售</text> 
+                    <text class="title-title">{{item.buildingName}}</text>
+                   </view>
                   <view class="collect">
                       <image  catchtap='handleCollection' wx:if="{{item.collect}}" data-index="{{id}}" src="../../image/shou1.png"></image>
                       <image catchtap='handleCollection' wx:if="{{!item.collect}}" src="../../image/shou.png"  data-index="{{id}}"></image>

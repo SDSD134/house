@@ -1,0 +1,49 @@
+  <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">{{title}}</view>
+  </cu-custom>
+ <view class="cu-list menu {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='detail'>
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">凤凰公司</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">详情</text>
+      </view>
+    </view> 
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-tagfill text-red"></text>
+        <text class="text-grey">审核结果</text>
+      </view>
+      <view class="action">
+        <block wx:if="{{x==0}}">
+          <view class="cu-tag round bg-blue light">等待</view>
+      </block>
+      <block wx:elif="{{x==1}}">
+          <view class="cu-tag round bg-olive light">成功</view>
+      </block>
+      <block wx:else>
+          <view class="cu-tag round bg-orange light">失败</view>
+      </block>
+      </view>
+    </view>
+     <view class="cu-form-group margin-top">
+      <view class="title">员工加入需要审核</view>
+      <switch></switch>
+	</view>
+   <view class="cu-item {{menuArrow?'arrow':''}}margin-top" >
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">管理员</text>
+      </view>
+    </view> 
+    <view class="cu-item {{menuArrow?'arrow':''}}margin-top" >
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">门店信息</text>
+      </view>
+    </view> 
+</view> 
+    

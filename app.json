@@ -42,7 +42,19 @@
     "pages/logs/join/joinAttestation/joinAttestation",
     "pages/estateDetails/record/record",
     "pages/logs/choose/choose",
-    "pages/logs/register/register"
+    "pages/logs/register/register",
+    "pages/credit/report/report",
+    "pages/credit/report/allowance/allowance",
+    "pages/credit/report/customer/customer",
+    "pages/credit/report/select/select",
+    "pages/credit/report/sheet/sheet",
+    "pages/credit/report/commission/commission",
+    "pages/credit/report/salary/salary",
+    "pages/estateDetails/toAsk/toAsk",
+    "pages/logs/item/makeover/makeover",
+    "pages/logs/alreadyJoin/alreadyJoin",
+    "pages/estateDetails/goAnswer/goAnswer",
+    "pages/logs/joinSuccess/joinSuccess"
   ],
   "permission": {
     "scope.userLocation": {

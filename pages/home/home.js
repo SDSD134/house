@@ -36,7 +36,9 @@ Component({
     select: false,
     currentTabIndex: 0,
     isCollected: false,
-    region: ['不限', '不限', '不限'],
+    region: [
+      '不限', '不限', '不限'
+    ],
     index: null,
     indexOne: null,
     indexTwo: null,

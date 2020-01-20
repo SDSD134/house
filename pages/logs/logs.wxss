@@ -65,8 +65,8 @@ map,.mapBox{
   color: #aaa;
 }
 .img{
-  height:10px;
-  width:10px;
+  height:3px;
+  width:3px;
 }
 .getCodeView {
 width: 100px;
@@ -94,25 +94,35 @@ button::after {
   align-items: center;
   justify-content: center;
   height:300rpx;
-  width:85%;
+  width:90%;
 }
 .userinfo-left{
-  height:100rpx;
+  height:150rpx;
   width:30%;
-  display:flex;
-  align-items: center;
-  justify-content: center;
 }
 .userinfo-medile{
   height:100rpx;
-  width:50%;
+  width:55%;
 }
 .userinfo-right{
   height:100rpx;
-  width:20%;
+  width:15%;
 }
 .userinfo-name{
   color:#fff;
   font-size:35rpx;
   font-weight:700;
+}
+.userinfo-left-in{
+  height:15px;
+  width:60px;
+  border-radius:15px;
+  background:#CCE9BB;
+  font-size:20rpx;
+  color:#84C440;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position:relative;
+  top:-17px;
 }

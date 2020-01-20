@@ -8,8 +8,8 @@ Page({
     num1:0,
     num2:0,
     name1:'哈哈哈',
-    name2:'好**',
-    phone:'123*****',
+    name2:'好人啊',
+    phone:'12312345678',
     list: [
       {
         name:'黄**',
@@ -35,6 +35,11 @@ Page({
         place: '浙江嘉兴市'
       }
     ]
+  },
+  report: function (e) {
+    wx.navigateTo({
+      url: '../credit/report/report'
+    })
   },
 
   /**

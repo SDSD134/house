@@ -3,13 +3,11 @@
   <view slot="content">信用中心</view>
 </cu-custom>
 <!-- 我要举报 -->
-<navigator url="../invite/share/share">
-  <view class="oblong-float">
+  <view class="oblong-float" bindtap='report'>
     <view class="oblong-float-in">
         <text class="invite">我要举报</text>
     </view>
   </view>
- </navigator>
   <!-- 开头背景  -->
   <view class="container">
     <image src="../../image/credit.jpg" />
@@ -34,7 +32,7 @@
     <view class="near-right ">
         <text>{{name1}}</text>
         <text class="look"> 查询了 </text>
-        <text>{{name2}} （{{phone}} ）</text>
+        <text>{{name2}}（{{tools.sub(phone, 3, 4)}}）</text>
     </view>
    </view>
    <!-- 最新要举报 -->
@@ -67,3 +65,5 @@
   </view>
 </view>
 <view class="kong"></view>
+<!-- 手机号覆盖 -->
+<wxs src="../../utils/subutil.wxs" module="tools"></wxs>

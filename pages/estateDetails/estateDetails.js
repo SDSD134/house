@@ -3,6 +3,8 @@ var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
 var qqmapsdk;
 Page({
   data: {
+    x:1,
+    y:1,
     // 展开
      list01: [
       { 
@@ -131,7 +133,7 @@ Page({
         money1: '6.5',
         money2: '1.12',
         type: '住宅',
-        factory: 'hhhhhhhhhhhhh'
+        factory: '米兰达'
       },
       {
         imgArr: '../../image/28.jpg',
@@ -140,7 +142,8 @@ Page({
         city: '嘉兴市',
         money1: '6.5',
         money2: '1.12',
-        type: '住宅'
+        type: '住宅',
+        factory: '米兰达'
       },
       {
         imgArr: '../../image/28.jpg',
@@ -149,7 +152,8 @@ Page({
         city: '嘉兴市',
         money1: '6.5',
         money2: '1.12',
-        type: '住宅'
+        type: '住宅',
+        factory: '米兰达'
       },
       {
         imgArr: '../../image/28.jpg',
@@ -158,7 +162,8 @@ Page({
         city: '嘉兴市',
         money1: '6.5',
         money2: '1.12',
-        type: '住宅'
+        type: '住宅',
+        factory: '米兰达'
       }
     ],
     market:[
@@ -173,7 +178,7 @@ Page({
         name: '李俊',
         build:'新房区',
         day:'20191111',
-        time:'22.00'
+        time:'2019-11-11 22.00'
 
       },
       {
@@ -199,6 +204,16 @@ Page({
         name: '孙楠',
         content: '体量：8141套，面积段：68-88-110平，均价：18888元/平。',
         time: '201-11-11 15：33：33 '
+      }
+    ],
+    askList:[
+      {
+        ask:'好吗？？？？？？？',
+        answer:'好好好'
+      },
+      {
+        ask: '好吗？？？？？？？',
+        answer: '好好好'
       }
     ],
     gridCol: 5,
@@ -300,6 +315,11 @@ Page({
   goAsk: function (e) {
     wx.navigateTo({
       url: '../estateDetails/goAsk/goAsk'
+    })
+  },
+  toAsk: function (e) {
+    wx.navigateTo({
+      url: '../estateDetails/toAsk/toAsk'
     })
   },
   estateDetails: function (e) {

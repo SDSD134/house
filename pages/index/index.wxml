@@ -30,6 +30,7 @@
 
 
 <!--图标-->
+<view class="icon-all">
 <view class="icon">
     <view  bindtap='home'>
         <image class="icon-image"src="../../image/1.jpg" background-size="cover">
@@ -46,7 +47,7 @@
         </view>
     </view>
     <navigator url="../credit/credit">
-        <image class="icon-image"src="../../image/2.jpg" background-size="cover">
+        <image class="icon-image"src="../../image/5.jpg" background-size="cover">
         </image>
         <view class="icon">
            <text class="icon-text">爆料</text>
@@ -59,7 +60,8 @@
            <text class="icon-text">发布</text>
         </view>
     </navigator>
-  </view> 
+  </view>
+  </view>
   <!--新房区头条-->
   <view class="leader">
   <view class="lead">
@@ -126,7 +128,7 @@
         <swiper-item >
         <view class="swiper_item-other">
           <text class="title-swap">宁波市</text>
-            <text >{{item.content}}</text>
+            <text >  {{item.content}}</text>
           <!-- <view class="swiper_item">{{item.content1}}</view> -->
         </view>
         </swiper-item>
