@@ -3,6 +3,45 @@ var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
 var qqmapsdk;
 Page({
   data: {
+    // 展开
+     list01: [
+      { 
+        title:'成交总价',
+        word:'180万'
+      }, 
+       {
+         title: '成交总价',
+         word: '180万'
+       }, 
+       {
+         title: '成交总价',
+         word: '180万'
+       } 
+    ],
+    // 展开折叠
+    selectedFlag:false,
+    brand: [
+      {
+        img: 'http://bpic.588ku.com/element_origin_min_pic/16/10/30/528aa13209e86d5d9839890967a6b9c1.jpg',
+        title: 'a',
+        price: '2室1厅 100m^2',
+      },
+      {
+        img: '../../image/29.jpg',
+        title: 'a',
+        price: '2室1厅 100m^2',
+      },
+      {
+        img: '../../image/29.jpg',
+        title: 'a',
+        price: '2室1厅 100m^2',
+      },
+      {
+        img: '../../image/29.jpg',
+        title: 'a',
+        price: '2室1厅 100m^2',
+      }
+    ],
     distance:"",
     latitude:"",
     longitude:"",
@@ -164,6 +203,19 @@ Page({
     ],
     gridCol: 5,
     skin: true
+  },
+  // 展开折叠选择 
+  changeToggle: function (e) {
+    var index = e.currentTarget.dataset.index;
+    if (this.data.selectedFlag) {
+      this.data.selectedFlag = false;
+    } else {
+      this.data.selectedFlag = true;
+    }
+
+    this.setData({
+      selectedFlag: this.data.selectedFlag
+    })
   },
   // 打电话
   tel: function () {
@@ -402,12 +454,13 @@ Page({
               })
             }
           }, fail: function (res) {
-            // console.log(11111)
+            console.log(11111)
           }
         })
       }
     })
   },
+  
 
   onShareAppMessage: function () {
     console.log("dd")
@@ -423,7 +476,6 @@ Page({
       desc: '分享页面的内容',
       path: 'pages/index/index?parentid=' + userid // 路径，传递参数到指定页面。
     }
-
   },
  
   getCenterLocation: function () {
@@ -516,7 +568,27 @@ Page({
       scale: 28
     })
   },
+  // 图片放大
+  previewImg: function (e) {
+    console.log(e.currentTarget.dataset.index);
+    var index = e.currentTarget.dataset.index;
+    console.log(this.data.brand.img);
 
+    
+    var imgArr = this.data.brand;
+    wx.previewImage({
+      current: imgArr[index].img,     //当前图片地址
+      urls: imgArr,               //所有要预览的图片的地址集合 数组形式
+      success: function (res) { 
+        
+      },
+      fail: function (res) {
+        console.log(imgArr[index].img);
+        console.log(imgArr.img);
+      },
+      complete: function (res) { },
+    })
+  },
 
 
   // 备案

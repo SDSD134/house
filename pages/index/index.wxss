@@ -3,14 +3,69 @@ page{
 }
 
 /* 轮播图 */
-.tower-swiper .tower-item {
+/* .tower-swiper .tower-item {
 		transform: scale(calc(0.5 + var(--index) / 10));
 		margin-left: calc(var(--left) * 100rpx - 150rpx);
 		z-index: var(--index);
-	}
+	} */
+   .home-swiper {
+   height: 160px;
+   width:100%;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+/* 搜索跳转 */
+.fixed-search {
+  position: absolute;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  top: 160rpx;
+  height:40px;
+  width:100%;
+}
+/* 搜索 */
+/* .search{
+  width: 100%;
+  height:40px;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   position:relative;    
+   top:4px;  
+} */
+.search-in{
+  width:300px;
+  height:40px;
+  display: flex;
+  align-items: center;   
+  border-radius: 10px;
+  background: rgba(248, 236, 236, 0.5);
+  
+}
+  .search-in image {
+    height:30px;
+    width:30px;
+    position:relative;    
+    left:4px;
+     z-index:99;
+  }
+  .search-text {
+    position:relative;    
+    left:4px;
+    color:white;
+     z-index:99;
+
+  }
+
 
 /* 图标 */
 .icon{
+  position: relative;
+  top:10rpx;
   height: 100%;
   width:100%;
   display:flex;
@@ -145,7 +200,7 @@ background-size:150% 100%;
   color:white;
   font-size:35rpx;
   font-weight: 700;
-   z-index:9999;
+   z-index:99;
 }
 .scroll-second-number{
   position:relative;    
@@ -154,7 +209,7 @@ background-size:150% 100%;
   color:white;
   font-size:25rpx;
   font-weight: 700;
-  z-index:9999;
+  z-index:99;
 }
 .scroll-third{
 display: flex;
@@ -266,25 +321,94 @@ display: flex;
 white-space: nowrap;
 }
 .scroll-header-in{
-height:230px;
+height:100px;
 width:250px;
 display: inline-block;
 justify-content: center;
 align-items: center;
 }
 .scroll-header-all{
-  height:230px;
+  height:100px;
   width:240px;
   position:relative;
   left:15px; 
+  background:#F6F9FF;
+  display:flex;
+   align-items:center;
+  justify-content:center;
+
+}
+.scroll-header-left{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100px;
+  width:100px;
+
+}
+.scroll-header-right{
+  height:70px;
+  width:140px;
+ 
+
 }
 .scroll-header-image{
-  height:140px;
-  width:100%;
+  height:70px;
+  width:85px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.scroll-header-image image{
+  height:70px;
+  width:85px;
+}
+
+.scroll-header-right-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:30px;
+  width:140px;
+}
+/* 在售 */
+.title-logn{
+  position:relative;
+  top:2px;    
+  font-size:25rpx;
+  height:17px;
+  width:25px;
+  color:white;
+  background-color: #00C777;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+.weight{
+   font-weight: 700;
+}
+.scroll-header-right-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:20px;
+  width:140px;
+}
+.scroll-header-bottom-city{
+  font-size:20rpx;
+  color:#9FA5B0;
+}
+.scroll-header-bottom-money{
+  font-size:30rpx;
+  color:#FE773E;
+}
+.scroll-header-bottom-prompt{
+  font-size:20rpx;
+  color:#5D93FC;
+}
+/*
+ 
 .scroll-header-image image{
   height:140px;
   width:220px;
@@ -315,7 +439,8 @@ align-items: center;
   justify-content: center;
   align-items: center;
 
-}
+} */
+
 /* 代理 */
 .browse-agent-all{
   height:20px;
@@ -346,16 +471,51 @@ align-items: center;
 @import "../../wxPop/wxPop.wxss";
 /* 滚动轮播 */
 .swiper_container {
-height: 120rpx;
+height: 70px;
 width: 100%;
+
 }
 
 .swiper_item {
 font-size: 26rpx;
-color: #666;
+/* color:#9FA5B0; */
 overflow: hidden;
-text-overflow: ellipsis;
+/* text-overflow: ellipsis; */
 white-space: nowrap;
 letter-spacing: 2px;
 padding-top: 20rpx;
+}
+
+.swiper-other{
+   height: 60rpx;
+   width: 100%;
+   display:flex;
+   align-items:center;
+   justify-content: center;
+   position:relative;
+   top:20rpx;
+
+}
+.swiper_container-other{
+  height: 60rpx;
+   width: 85%;
+}
+.swiper_item-other {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#9FA5B0;
+}
+.title-swap{
+  position:relative;
+  top:2px;    
+  font-size:25rpx;
+  height:15px;
+  width:30px;
+  color:white;
+  background-color: #3F87FC;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
 }

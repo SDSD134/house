@@ -85,3 +85,11 @@
    position:relative;
    left:1px;
 }
+.money{
+  color:#FD8E02;
+  font-size:40rpx;
+}
+.time{
+ color:#FD8E02;
+ font-size:40rpx;
+}

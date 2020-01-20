@@ -162,8 +162,7 @@ page{
   left:10px;
   height:20px;
   width:32px;
-  border:1px;
-  border-style: solid;
+  
 }
 
 /* 代理 */

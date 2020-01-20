@@ -80,8 +80,9 @@
     height:100px;
   }
   .meal-left-top{
-    font-size:30rpx;
+    font-size:35rpx;
     color:#12213E;
+    font-weight: 700;
     height:60px;
     display: flex;
     align-items: center;
@@ -99,6 +100,7 @@
     justify-content: center;
     color:#FF601C;
     font-size:40rpx;
+      font-weight: 700;
   }
   /* 分割线 */
   .divLine{
@@ -132,7 +134,7 @@
   position: fixed;
   bottom: 10rpx;
   left: 10%;
-  background: #6899FF;
+  background: #FE6420;
   color: #FFFFFF;
   font-size: 32rpx;
   border-radius: 44rpx;

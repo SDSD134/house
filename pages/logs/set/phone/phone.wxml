@@ -2,11 +2,6 @@
     <view slot="backText">返回</view>
 </cu-custom>
 <form>
-<view class="cu-form-group">
-		<view class="title">验证码</view>
-		<input placeholder="输入框带个按钮"></input>
-		<button class="cu-btn bg-green shadow">验证码</button>
-	</view>
 	<view class="cu-form-group">
 		<view class="title">手机号码</view>
 		<input placeholder="输入框带标签"></input>
@@ -20,8 +15,13 @@
 		</view>
 	</view>
   <view>
+<view class="cu-form-group">
+		<view class="title">验证码</view>
+		<input placeholder="输入框带个按钮"></input>
+		<button class="cu-btn bg-green shadow">验证码</button>
+	</view>
   <button type="primary" form-type="submit" class='btn'>
-      <image class='btnImg' src='../../../image/00.gif'></image>
+      <image class='btnImg' src='../../../../image/00.gif'></image>
       <view>确认修改</view>
     </button>
   </view>

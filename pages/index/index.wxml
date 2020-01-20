@@ -2,13 +2,33 @@
   <view slot="content">经济圈新房通</view>
 </cu-custom>
 <!--轮播图-->
-<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+<!-- <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}" >
     <view class="swiper-item">
       <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
     </view>
   </swiper-item>
-</swiper>
+</swiper> -->
+ <view>
+     <swiper class="home-swiper" indicator-dots="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for-items="{{lunboData}}">
+          <swiper-item>
+            <image src="{{item.imgurl}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper>
+   </view>
+    <!-- 搜索跳转-->
+        <view class='fixed-search'>
+          <navigator url="../search/search">
+            <view class="search-in">
+              <image src="../../image/search.png"></image>
+              <text class="search-text" >请输入项目名称或公司名</text>
+            </view>
+        </navigator>
+      </view>
+
+
 <!--图标-->
 <view class="icon">
     <view  bindtap='home'>
@@ -18,13 +38,13 @@
            <text class="icon-text">新房</text>
         </view>
     </view>
-    <!-- <navigator url="../skill/skill">
-        <image class="icon-image"src="../../image/26.jpg" background-size="cover">
+   <view bindtap='haiwai'>
+        <image class="icon-image"src="../../image/2.jpg" background-size="cover">
         </image>
         <view class="icon">
            <text class="icon-text">海外</text>
         </view>
-    </navigator> -->
+    </view>
     <navigator url="../credit/credit">
         <image class="icon-image"src="../../image/2.jpg" background-size="cover">
         </image>
@@ -70,16 +90,49 @@
   <!-- 滚动 -->
    <scroll-view scroll-x class="scroll-header">
       <view class="scroll-header-in" wx:for="{{brand}}" wx:key="{{index}}">
-        <view class="scroll-header-all" bindtap='estateDetails'>
+        <!-- <view class="scroll-header-all" bindtap='estateDetails'>
             <view class="scroll-header-image">
               <image src="{{item.img}}"></image>
             </view>
             <view class="scroll-header-title">{{item.title}}</view>
             <view class="scroll-header-price">{{item.price}}</view>
             <view class="scroll-header-place">{{item.place}}</view>
+        </view> -->
+         <view class="scroll-header-all" bindtap='estateDetails'>
+            <view class="scroll-header-left" >
+              <view class="scroll-header-image">
+                <image src="{{item.img}}"></image>
+              </view>
+            </view>
+            <view class="scroll-header-right" >
+              <view class="scroll-header-right-top">
+                 <view class="weight">碧海蓝天哈哈哈</view>
+                 <view class="title-logn"><text>在售</text></view>
+              </view>
+              <view class="scroll-header-right-bottom">
+                 <view class="scroll-header-bottom-city">嘉兴市</view>
+                 <view class="scroll-header-bottom-money">10000元/m^2</view>
+              </view >
+              <view class="scroll-header-right-bottom">
+                 <view class="scroll-header-bottom-prompt">最近三天，浏览过该楼盘</view>
+              </view>
+            </view>
         </view>
       </view>
   </scroll-view>
+  <view class="swiper-other">
+   <swiper class="swiper_container-other" vertical="true" autoplay="true" circular="true" interval="5000">
+      <block wx:for="{{enjoyList}}">
+        <swiper-item >
+        <view class="swiper_item-other">
+          <text class="title-swap">宁波市</text>
+            <text >{{item.content}}</text>
+          <!-- <view class="swiper_item">{{item.content1}}</view> -->
+        </view>
+        </swiper-item>
+      </block>
+      </swiper>
+  </view>
   <!--新房数据 -->
   <!-- <view class="browse">
     <navigator url="">
@@ -159,12 +212,31 @@
             <view class="list-right">
                 <view class="title"> {{item.buildingName}}</view>
                 <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
-                <view class="list-right-in">
-                  <view>{{item.averagePrice}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                 <view class="list-right-in">
+                  <view wx:if="{{item.averagePrice==null }}">
+                   <view>总价：待定</view>
+                  </view>
+                  <view wx:elif="{{item.averagePrice!= null }}">
+                    <view>{{item.averagePrice}}万/套</view>
+                  </view>
+                  <view wx:if="{{item.countPrice==null }}">
+                   <view>均价：待定</view>
+                  </view>
+                  <view wx:elif="{{item.countPrice!=null}}">
+                    <view>{{item.countPrice}}万元/m^2</view>
+                  </view>
                 </view>
-                <view class="list-right-last cu-tag round bg-olive light">住宅</view>
-                <!-- <view class="list-right-last">{{item.type}}</view> -->
+                <view wx:if="{{item.buildingSign== '' }}">
+                  <view class="list-right-last">
+                    <view class="cu-tag round bg-olive light">暂无</view>
+                  </view>
+                </view>
+                <view wx:elif="{{item.buildingSign!=''}}">
+                  <view class="list-right-last">
+                    <view class="cu-tag round bg-olive light">{{item.buildingSign}}</view>
+                    <!-- <view class="list-right-last cu-tag round bg-olive light">{{item.buildingSign}}</view> -->
+                  </view>
+                </view>
             </view>
           </view>
         </view>

@@ -1,15 +1,26 @@
 <scroll-view scroll-y class="scrollPage">
-  <view class="UCenter-bg">
+  <view class="UCenter-bg ">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
+    <view class="userinfo">
+    <view class="userinfo-left">
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-       <text class="text-xl">{{userInfo.nickName}}</text>
-       <image src="../../image/set.png" class="img" bindtap='set'></image>
-    </block>
-    <view class="margin-top-sm" bindtap='choose'>未进行身份验证</view>
-    <view class="margin-top-sm" bindtap='join'>
-      <text>未加入公司</text>
     </view>
+    <view class="userinfo-medile">
+      <text class="userinfo-name">{{userInfo.nickName}}  1111111111</text>
+      <view class="margin-top-sm" bindtap='join'>
+        <view class="cu-tag round bg-olive light">还未加入公司 ></view>
+      </view>
+    </view>
+    <view class="userinfo-right">
+       <image src="../../image/set.png" class="img" bindtap='set'></image>
+    </view>
+    </view>
+    </block>
+    <!-- <view class="margin-top-sm" bindtap='choose'>未进行身份验证</view>
+     -->
+   
+
   </view>
   <view class="padding flex text-center text-grey bg-white shadow-warp">
     <view class="flex flex-sub flex-direction solid-right">
@@ -72,12 +83,12 @@
         </button>
       </navigator>
     </view>
-    <view class="cu-item arrow">
+    <!-- <view class="cu-item arrow">
       <navigator class="content" url="../credit/credit" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">信用中心</text>
       </navigator>
-    </view>
+    </view> -->
     <!-- <view class="cu-item arrow">
       <navigator class="content" url="../release/release" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>

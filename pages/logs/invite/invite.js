@@ -10,45 +10,53 @@ Page({
     diarylengths: 1,
     list: [
       {
-        title: '一个月浏览会员',
-        time: '2019-11-11'
+        title: '充值成功',
+        time: '2019-11-11',
+        money:'89'
 
       },
       {
-        title: '一个月浏览会员',
-        time: '2019-11-11'
+        title: '充值成功',
+        time: '2019-11-11',
+        money: '89'
 
       },
       {
-        title: '一个月浏览会员',
-        time: '2019-11-11'
+        title: '充值成功',
+        time: '2019-11-11',
+        money: '89'
       },
       {
-        title: '一个月浏览会员',
-        time: '2019-11-11'
+        title: '充值成功',
+        time: '2019-11-11',
+        money: '89'
 
       }
     ],
     inviteList:[
       {
         img: '../../../image/00.jpg',
-        name: '孙娜',
-        phone: '1500000000'
+        name: '2019-11-11',
+        phone: '1500000000',
+        time:'1'
       },
       {
         img: '../../../image/00.jpg',
-        name: '孙娜',
-        phone: '1500000000'
+        name: '2019-11-11',
+        phone: '1500000000',
+        time: '1'
       } ,
       {
         img: '../../../image/00.jpg',
-        name: '孙娜',
-        phone: '1500000000'
+        name: '2019-11-11',
+        phone: '1500000000',
+        time: '1'
       },
       {
         img:'../../../image/00.jpg',
-        name: '孙娜',
-        phone: '1500000000'
+        name: '2019-11-11',
+        phone: '1500000000',
+        time: '1'
       }
     ]
 

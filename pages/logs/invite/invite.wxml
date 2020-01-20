@@ -27,12 +27,12 @@
           <view class="content">
             <view class="text-grey">{{item.title}}</view>
             <view class="text-gray text-sm">
-              <text class="cuIcon-infofill text-red"></text>有效期： {{item.time}}
+              <text class="cuIcon-infofill text-red"></text>{{item.time}}
             </view>
           </view>
-          <!-- <view class="action">
-            <view class="cu-tag round bg-olive light">住宅</view>
-          </view> -->
+          <view class="action">
+            <text class="money">{{item.money}}</text>元
+          </view>
           <view class="move">
             <view class="bg-blue" bindtap = "revise">修改</view>
             <view class="bg-red" bindtap = "delItem">删除</view>
@@ -56,14 +56,15 @@
               <image src="{{item.img}}"class="img"></image>
           </view>
           <view class="content "id="">
-            <view class="text-grey">{{item.name}}</view>
+            <view class="text-grey">{{tools.sub(item.phone, 3, 4)}}</view>
             <view class="text-gray text-sm">
-              <text class="cuIcon-infofill text-blue"></text>联系方式： {{item.phone}}
+              <text class="cuIcon-infofill text-blue"></text>充值成功
+              <text class="text-grey text-sm">{{item.name}}</text>
             </view>
           </view>
-          <!-- <view class="action">
-            <view class="cu-tag round bg-olive">{{item.time}}</view>
-          </view> -->
+          <view class="action">
+            <view >送<text  class="time">{{item.time}}</text>月</view>
+          </view>
           <view class="move">
             <view class="bg-blue" bindtap = "revise">修改</view>
             <view class="bg-red" bindtap = "delItem">删除</view>
@@ -88,3 +89,4 @@
  </navigator>
 
 
+<wxs src="../../../utils/subutil.wxs" module="tools"></wxs>
