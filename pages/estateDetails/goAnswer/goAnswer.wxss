@@ -1,0 +1,59 @@
+/* pages/estateDetails/goAnswer/goAnswer.wxss */
+.ask-all{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:48px;
+  width:100%;
+  background-color:white;
+}
+.ask-top-to{
+  display:flex;
+  align-items:center;
+  height:28px;
+  width:90%;
+}
+
+.ask-to{
+  height:18px;
+  width:24px;
+  display:flex;
+  align-items:center;
+}
+.ask{
+  color:white;
+  height:18px;
+  width:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#F88744;
+
+}
+.ask-text{
+   font-size:35rpx;
+   color:#6E6E6E
+}
+/* 按钮 */
+.btn {
+  width: 80%;
+  margin-top: 20rpx;
+  background: yellow;
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnImg {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.btn::after {
+  border-radius: 98rpx;
+  border: 0; 
+}

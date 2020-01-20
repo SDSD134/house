@@ -4,12 +4,26 @@
     <block wx:else>
     <view class="userinfo">
     <view class="userinfo-left">
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <view class="userinfo-left-in">独立经纪人</view>
     </view>
     <view class="userinfo-medile">
       <text class="userinfo-name">{{userInfo.nickName}}  1111111111</text>
       <view class="margin-top-sm" bindtap='join'>
-        <view class="cu-tag round bg-olive light">还未加入公司 ></view>
+        <view>
+          <block wx:if="{{factoryLength==0}}">
+           <text class="cu-tag round bg-olive light" bindtap='join'>未加入公司 ></text>
+          </block>
+          <block wx:else>
+           <text class="cu-tag round bg-olive light" bindtap='joinSuccess'>已加入公司 ></text>
+          </block>
+           <block wx:if="{{statusLength==0}}">
+            <text class="cu-tag round bg-olive light" bindtap='choose'>未身份验证 ></text>
+          </block>
+           <block wx:else>
+          <!-- <text class="cu-tag round bg-olive light" bindtap='choose'>未身份验证 ></text> -->
+          </block>
+        </view>
       </view>
     </view>
     <view class="userinfo-right">

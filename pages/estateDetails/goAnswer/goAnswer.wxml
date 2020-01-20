@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">我要提问</view>
+</cu-custom>
+<form>
+<view class="ask-all">
+    <view class="ask-top-to">
+      <text  class="ask-to" ><text class="ask">问</text> </text>
+      <text class="ask-text">现在怎么样啊？过的好吗？</text>
+    </view>
+</view>
+<view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入您的回答"></textarea>
+</view>
+<!-- 提交按钮 -->
+   <view>
+    <button type="primary" form-type="submit" class='btn'>
+      <image class='btnImg' src='../../../image/00.gif'></image>
+      <view>提交</view>
+    </button>
+    </view>
+  </form>

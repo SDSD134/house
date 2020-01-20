@@ -5,6 +5,9 @@ Component({
 
   },
   data: {
+    factoryLength:1,
+    statusLength:0,
+    x:0,
     starCount: 0,
     forksCount: 0,
     visitTotal: 0,
@@ -17,6 +20,11 @@ Component({
     join: function (e) {
       wx.navigateTo({
         url: '../logs/join/join'
+      })
+    },
+    joinSuccess: function (e) {
+      wx.navigateTo({
+        url: '../logs/joinSuccess/joinSuccess'
       })
     },
     choose: function (e) {

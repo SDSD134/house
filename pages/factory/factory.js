@@ -65,7 +65,58 @@ Component({
         number: '8',
         person: '1111',
       }
-    ]
+    ],
+    list1: [
+      {
+        imgArr: '../../image/27.jpg',
+        title: '嘉兴有限科技公司',
+        score: '9.7',
+        number: '8',
+        person: '1111',
+
+      }
+    ],
+    list2: [
+      {
+        imgArr: '../../image/27.jpg',
+        title: '嘉兴有限科技公司',
+        score: '9.7',
+        number: '8',
+        person: '1111',
+
+      },
+      {
+        imgArr: '../../image/27.jpg',
+        title: '嘉兴有限科技公司',
+        score: '9.7',
+        number: '8',
+        person: '1111',
+      }
+    ],
+    list3: [
+      {
+        imgArr: '../../image/27.jpg',
+        title: '嘉兴有限科技公司',
+        score: '9.7',
+        number: '8',
+        person: '1111',
+
+      },
+      {
+        imgArr: '../../image/27.jpg',
+        title: '嘉兴有限科技公司',
+        score: '9.7',
+        number: '8',
+        person: '1111',
+      },
+      {
+        imgArr: '../../image/27.jpg',
+        title: '嘉兴有限科技公司',
+        score: '9.7',
+        number: '8',
+        person: '1111',
+      }
+    ],
 
   },
   methods: {

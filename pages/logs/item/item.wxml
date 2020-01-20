@@ -28,6 +28,7 @@
         <view class="cu-tag round bg-olive light">住宅</view>
       </view>
       <view class="move">
+      <view class="bg-green" bindtap = "makeover">转让</view>
         <view class="bg-blue" bindtap = "revise">修改</view>
         <view class="bg-red" bindtap = "delItem">删除</view>
       </view>

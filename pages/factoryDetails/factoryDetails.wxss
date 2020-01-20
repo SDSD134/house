@@ -6,7 +6,7 @@
   justify-content:center;
   height:140px;
   width:100%;
-  background-color:#9494A4;
+  background-color:#C0C0C0;
 
 }
 .list{
@@ -80,28 +80,28 @@
 
 /* 点评 */
 .mark-all{
-  height:180px;
+  height:130px;
   width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
-  background-color:#9494A4;
+  background-color:#C0C0C0;
 }
 .mark-in{
-  height:140px;
+  height:90px;
   width:90%;
   display:flex;
   align-items:center;
   justify-content:center;
-  background-color:#5A5A65;
+  background-color:#9494A4;
    
 }
 .mark-left{
-  height:140px;
+  height:90px;
   width:40%;
 }
 .mark-right{
-  height:140px;
+  height:90px;
   width:60%;
   display:flex;
   align-items:center;
@@ -112,7 +112,7 @@
   width:30px;
 }
 .mark-title{
-  height:40px;
+  height:30px;
   width:100%;
   color:white;
   font-size:30rpx;
@@ -126,7 +126,7 @@
   color:white;
   font-size:100rpx;
   position: relative;
-  top:20rpx;
+  top:10rpx;
   left:40rpx;
 
 }
@@ -137,7 +137,7 @@
   display:flex;
   align-items:center;
   justify-content:center;
-   background-color:#9494A4;
+   background-color:#C0C0C0;
 }
 .impress-in{
   height:50px;
@@ -148,6 +148,7 @@
 .scroll-header{
 display: flex;
 white-space: nowrap;
+background:#FFFFFF;
 }
 .scroll-header-in{
 height:250px;

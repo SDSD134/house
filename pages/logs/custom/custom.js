@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    diarylength:0,
+    diarylength01:0,
     currentTabIndex: 0,
     typelist:[
       {

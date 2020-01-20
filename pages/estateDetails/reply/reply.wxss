@@ -2,9 +2,35 @@ page{
  background-color:white;
 }
 /* 点评 */
+.trends-all-too{
+  background-color: white;
+  width:100%;
+  height:125px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.trends-too{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ width:90%;
+ height:125px;
+}
+.trends-left-too{
+  width:20%;
+  height:125px;
+  position:relative;    
+  top:20px;
+}
+.trends-left-too image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
 .trends-all{
   background-color: white;
-  height:215px;
   width:100%;
   display:flex;
   align-items:center;
@@ -14,25 +40,23 @@ page{
  display:flex;
  align-items:center;
  justify-content:center;
- height:215px;
  width:90%;
 }
 .trends-left{
   width:20%;
   height:215px;
   position:relative;    
-  top:10px;
+  top:20px;
 }
 
 .trends-left image{
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
 }
 
 .trends-right{
   width:80%;
-  height:215px;
 }
 .trends-right-name{
   height:40px;
@@ -65,16 +89,16 @@ page{
   align-items:center;
 }
 .img{
-  height:85px;
-  width:85px;
+  height:60px;
+  width:65px;
   display:flex;
   align-items:center;
   justify-content:center;
 
 }
 .img image{
-  height:80px;
-  width:80px;
+  height:60px;
+  width:70px;
 }
 /* 收藏图片 */
 .action-image{
@@ -95,9 +119,55 @@ page{
   background-color: white;
   z-index: 9999;
 }
-
+.oblong-float-in{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:90%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background-color: #068FEC;
+}
+.invite{
+  font-size:20px;
+}
 .kong{
   height:100px;
   width:100%;
   background-color:#ffffff;
+}
+.ff_anniu
+{
+width:100%;
+display: flex;
+flex-flow: row wrap;
+align-content: space-around;
+background-color: white;
+}
+
+.ff_item{
+box-sizing: border-box;
+flex: 0 0 33.3333333333%;
+font-size: 30rpx;
+color: #535353;
+background-color: white;
+padding: 10rpx;
+text-align: left;
+display: block;
+}
+/* 分割线 */
+.divLine-all{
+    width: 100%;
+    height: 10rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:white;
+}
+  .divLine{    
+    background:#F0F0F0;
+    width: 100%;
+    height: 20rpx;
 }

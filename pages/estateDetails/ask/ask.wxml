@@ -10,13 +10,35 @@
       </view>
   </view>
 </view>
-
-<view class="container">
-  <view class="detail">
-      <image  class="detail-avatar" src="../../../image/01.jpg" mode="cover"></image>
-      <text>暂时没有提问~,点击立即提问</text>
+<view wx:if="{{x==0}}">
+  <view class="container">
+    <view class="detail">
+        <image  class="detail-avatar" src="../../../image/01.jpg" mode="cover"></image>
+        <text>暂时没有提问~,点击立即提问</text>
+    </view>
   </view>
 </view>
+<view wx:else>
+   <view wx:for="{{askList}}" wx:key="{{key}}" class="ask-list">
+    <view class="ask-all-else" bindtap='toAsk'>
+      <view class="ask-in">
+        <view class="ask-top"> 
+          <view class="ask-top-to">
+              <text  class="ask-to" ><text class="ask">问</text> </text>
+              <text>{{item.ask}}</text>
+          </view>
+          <text class="anwser-to">1个回答</text>
+        </view>
+        <view class="ask-bottom"> 
+          <text  class="ask-to" ><text  class="anwser">答</text> </text>{{item.answer}}
+        </view>
+      </view>
+   </view>
+    <view class="divLine-all">
+        <view class="divLine"></view>
+    </view>
+  </view>
+  </view>
 <!-- 我要提问 -->
 <navigator url="../goAsk/goAsk">
   <view class="oblong-float">

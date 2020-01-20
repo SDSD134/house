@@ -8,7 +8,7 @@
 	</view>
   <view class="cu-form-group">
 		<view class="title">报备给谁</view>
-		<text class="dist">孙娜 137****111</text>
+		<text class="dist">孙娜 {{tools.sub(phone, 3, 4)}}</text>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">我的公司</view>
@@ -76,3 +76,5 @@
     </button>
   </view>
 </form>
+
+<wxs src="../../../utils/subutil.wxs" module="tools"></wxs>

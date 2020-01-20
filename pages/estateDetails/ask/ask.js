@@ -5,9 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
+    x:1,
+    askList: [
+      {
+        ask: '好吗？？？？？？？',
+        answer: '好好好'
+      },
+      {
+        ask: '好吗？？？？？？？',
+        answer: '好好好'
+      }
+    ],
 
   },
-
+  toAsk: function (e) {
+    wx.navigateTo({
+      url: '../../estateDetails/toAsk/toAsk'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

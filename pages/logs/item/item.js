@@ -123,4 +123,9 @@ Page({
       url: '../item/revise/revise'
     })
   }, 
+ makeover: function (e) {
+    wx.navigateTo({
+      url: '../item/makeover/makeover'
+    })
+  }, 
 })

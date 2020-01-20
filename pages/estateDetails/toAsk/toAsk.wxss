@@ -1,0 +1,195 @@
+/* pages/estateDetails/toAsk/toAsk.wxss */
+/* page{
+ background-color:white;
+} */
+.ask-all{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:48px;
+  width:100%;
+  background-color:white;
+}
+.ask-top-to{
+  display:flex;
+  align-items:center;
+  height:28px;
+  width:90%;
+}
+
+.ask-to{
+  height:18px;
+  width:24px;
+  display:flex;
+  align-items:center;
+}
+.ask{
+  color:white;
+  height:18px;
+  width:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#F88744;
+
+}
+.ask-text{
+   font-size:35rpx;
+   color:#6E6E6E
+}
+.answer-all{
+  display:flex;
+  /* align-items:center; */
+  justify-content:center;
+  height:28px;
+  width:100%;
+  background-color:white;
+}
+.answer{
+  display:flex;
+  /* align-items:center; */
+  justify-content:space-between;
+  height:28px;
+  width:80%;
+  color:#9CA3AD;
+}
+/* 分割线 */
+.divLine-all{
+    width: 100%;
+    height: 2rpx;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:white;
+}
+  .divLine{    
+    background:#F0F0F0;
+    width: 85%;
+    height: 2rpx;
+}
+
+.build-all{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:38px;
+  width:100%;
+  background-color:white;
+}
+.build{
+  display:flex;
+  align-items:center; 
+  justify-content:space-between;
+  height:38px;
+  width:80%;
+  color:#7889BC;
+}
+/* 点评 */
+.trends-all{
+  background-color: white;
+  height:125px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.trends{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ height:125px;
+ width:90%;
+}
+.trends-left{
+  width:20%;
+  height:125px;
+  position:relative;    
+  top:10px;
+}
+
+.trends-left image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.trends-right{
+  width:80%;
+  height:125px;
+}
+.trends-right-name{
+  height:40px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  font-size:30rpx;
+  color:#979797;
+  
+}
+.trends-right-content{
+  height:50px;
+  width:100%;
+  display:flex;
+  font-size:25rpx;
+  color:#6E6E6E;
+}
+.trends-right-time{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  font-size:20rpx;
+  color:#979797;
+  justify-content:space-between;
+}
+.action-image{
+  height:20px;
+  width:20px;
+}
+.kong{
+  height:100px;
+  width:100%;
+  background:white;
+}
+/* 分享按钮 */
+.oblong-float{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+}
+.oblong-float-in-left{
+  width:50%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background:#F67121;
+}
+.oblong-float-in-left image{
+  height:20px;
+  width:20px;
+}
+.oblong-float-in-right{
+  width:50%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:#6FBA1C;
+}
+.oblong-float-in-right image{
+  height:20px;
+  width:20px;
+}
+.invite{
+  position: relative;
+  left:5px;
+  color:white;
+
+}
