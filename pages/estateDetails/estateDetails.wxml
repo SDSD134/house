@@ -39,9 +39,9 @@
         <text class="text-grey">{{buildingVo.buildingBaseInfo.isSale}}</text>
       </view>
       <view class="action" wx:for="{{buildingCharacter}}">
-        <view class="cu-tag round bg-orange light">开发商渠道</view>
-        <view class="cu-tag round bg-olive light">住宅</view>
-        <view class="cu-tag round bg-blue light">毛坯</view>
+        <view class="cu-tag round bg-orange light">{{item}}</view>
+        <!-- <view class="cu-tag round bg-olive light">住宅</view>
+        <view class="cu-tag round bg-blue light">毛坯</view> -->
       </view>
     </view>
     <!-- 2.3 -->
@@ -49,7 +49,7 @@
     <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='tomap'>
       <view class="content">
          <text class="cuIcon-btn text-olive"></text>
-        <text class="text-grey">{{buildingVo.buildingBaseInfo.buildingAddress}}</text>
+        <text class="text-grey">{{buildingVo.buildingBaseInfo.buildingProvince}}</text>
       </view>
       <view class="action">
         <text class="text-grey text-sm">{{distance}}km</text>
@@ -58,7 +58,7 @@
     <view class="cu-item {{menuArrow?'':'arrow'}}">
       <view class="content">
          <text class="cuIcon-discoverfill text-orange"></text>
-        <text class="text-grey">浙江可达实验有限公司</text>
+        <text class="text-grey">{{buildingVo.buildingBaseInfo.buildingAddress}}</text>
       </view>
     </view>
     <!-- 2.4 -->
@@ -323,18 +323,18 @@
   <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
   <view class="trends" >
     <view class="trends-left">
-      <image src="../../image/26.jpg"/>
+      <image src="{{item.user.avatarUrl}}"/>
     </view>
     <view class="trends-right">
       <view class="trends-right-name">
-         <text>{{item.name}}</text>
+         <text>{{item.user.nickname}}</text>
          <image src="../../image/shou.png" class="action-image"/>
       </view>
       <view class="trends-right-content">
-        {{item.content}}    
+        {{item.commentContext}}    
       </view>
       <view class="trends-right-time">
-        {{item.time}}
+        {{item.createTime}}
         <view class="cu-tag round bg-olive light" bindtap='reply'>回复</view>
       </view>
     </view>

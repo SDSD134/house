@@ -74,7 +74,7 @@
 
   <view class="cu-form-group">
 		<view class="title">新房地址<text class="must">（必填）</text></view>
-		<input placeholder="请填写新房地址/必填" bindinput="addressInput" name="address"></input>
+		<input placeholder="请填写新房地址/必填" bindinput="buildingAddressInput" name="address"></input>
 	</view>
   
   <view class="cu-form-group margin-top">
@@ -137,7 +137,7 @@
 	</view>
 
   <view class="cu-form-group">
-		<view class="title">产权年限（选填）></view>
+		<view class="title">产权年限（选填）</view>
 		<input placeholder="请填写产权年限" bindinput="yearInput"name="year"></input>
 	</view>
 
@@ -178,10 +178,10 @@
     <input placeholder="请填写户型面积" type="digit" confirm-type="done" name="homearea" bindinput="houseAreaInput"></input>m^2
   </view>
 
-<view class="cu-form-group">
+<!-- <view class="cu-form-group">
   <view class="title">户型</view>
     <input placeholder="请填写户型"  confirm-type="done" name="houseType" bindinput="houseTypeInput"></input>
-  </view>
+  </view> -->
 
    <view class="cu-form-group">
     <view class="title">总体量</view>

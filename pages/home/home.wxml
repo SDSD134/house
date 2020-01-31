@@ -34,19 +34,24 @@
 </view>
     
 <!-- 下拉需要显示的列表 -->
-<!-- <view class="select">
+<view class="select">
     <view class="select_box" wx:if="{{select}}">
       <view>ceshi</view>
     </view>
-</view> -->
+</view>
 <!-- 选择 -->
 <view id='tabs'>
+<<<<<<< HEAD
   <!-- <view class='tabs-box'>
+=======
+  <view class='tabs-box'>
+>>>>>>> 11386637902b4c37f6aae795d19debb2ca95c4ff
     <block wx:for="{{['全部','诚信联盟','恒房通','凤凰通','万科家','融创通','福利好房']}}" wx:key="index">
       <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
         {{item}}      
       </view>
     </block>
+<<<<<<< HEAD
   </view> -->
     <view class='tabs-box'>
     <!-- <scroll-view scroll-x class="scroll-header"> -->
@@ -55,6 +60,9 @@
    </view>
     <!-- </scroll-view> -->
  </view>
+=======
+  </view>
+>>>>>>> 11386637902b4c37f6aae795d19debb2ca95c4ff
 <!-- 选择对应页面 -->
   <view class='ordert-detail'>
     <view hidden='{{currentTabIndex != 0}}'>
@@ -87,6 +95,7 @@
                   <view wx:elif="{{item.countPrice!=null}}">
                     <view>{{item.countPrice}}万元/m^2</view>
                   </view>
+
                 </view>
                 <view wx:if="{{item.buildingSign== '' }}">
                   <view class="list-right-last">
@@ -99,17 +108,18 @@
                     <!-- <view class="list-right-last cu-tag round bg-olive light">{{item.buildingSign}}</view> -->
                   </view>
                 </view>
+
                
             </view>
           </view>
         </view>
         <!-- 代理 -->
-        <!-- <view class="agent-all">
+        <view class="agent-all">
           <view class="agent">
           <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
           <text>代理公司 | {{item.factory}}</text>
           </view>
-        </view> -->
+        </view>
       </view>
     </view>
 
@@ -148,7 +158,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 2}}'>
-    <view wx:for="{{list2}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.images[0].url}}"/>
@@ -179,7 +189,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 3}}'>
-    <view wx:for="{{list3}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.images[0].url}}"/>
@@ -211,7 +221,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 4}}'>
-    <view wx:for="{{list4}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.images[0].url}}"/>
@@ -243,7 +253,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 5}}'>
-    <view wx:for="{{list5}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.imgArr}}"/>
@@ -274,7 +284,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 6}}'>
-    <view wx:for="{{list6}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.imgArr}}"/>

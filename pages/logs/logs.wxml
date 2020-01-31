@@ -97,12 +97,12 @@
         </button>
       </navigator>
     </view>
-    <view class="cu-item arrow">
+    <!-- <view class="cu-item arrow">
       <navigator class="content" url="../credit/credit" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">信用中心</text>
       </navigator>
-    </view>
+    </view> -->
     <!-- <view class="cu-item arrow">
       <navigator class="content" url="../release/release" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>

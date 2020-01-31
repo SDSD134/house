@@ -79,6 +79,7 @@ Page({
     area:"",      //户型面积说明
     character:"", //项目特色
     otherIntro:"",//其他
+    houseType:"",//户型
 
     groundArea:"",  //占地面积
     houseArea:"",  //户型面积
@@ -109,6 +110,11 @@ Page({
   otherAroundInput(e) {
     this.setData({
       otherAround: e.detail.value
+    })
+  },
+  buildingAddressInput(e) {
+    this.setData({
+      buildingAddress: e.detail.value
     })
   },
   trafficInput(e) {
@@ -157,6 +163,20 @@ Page({
     this.data.listCheckbox[id].checked = !this.data.listCheckbox[id].checked;
     this.data.checkNum = this.data.listCheckbox[id].checked ? this.data.checkNum + 1 : this.data.checkNum - 1;
     this.checkMax(this.data.checkNum);
+    var houseType = "";
+    for (var i = 0; i < this.data.listCheckbox.length; i++) {
+      if (this.data.listCheckbox[i].checked) {
+        if (houseType == "") {
+          houseType = this.data.listCheckbox[i].value
+        } else {
+          houseType = houseType + "/" + this.data.listCheckbox[i].value
+        }
+      }
+    }
+    this.setData({
+      houseType: houseType
+    }),
+      console.log(this.data.houseType)
   },
   checkMax(num) {
     const maxNum = this.data.maxCheckedNum;
@@ -182,6 +202,20 @@ Page({
     this.data.listsCheckbox[id].checked = !this.data.listsCheckbox[id].checked;
     this.data.checkNums = this.data.listsCheckbox[id].checked ? this.data.checkNums + 1 : this.data.checkNums - 1;
     this.checksMax(this.data.checkNums);
+    var character = "";
+    for (var i = 0; i < this.data.listsCheckbox.length; i++) {
+      if (this.data.listsCheckbox[i].checked) {
+        if(character == "") {
+          character = this.data.listsCheckbox[i].value
+        } else{
+          character = character + "/" + this.data.listsCheckbox[i].value
+        } 
+      }
+    }
+    this.setData({
+      character:character
+    }),
+    console.log(this.data.character)
   },
   checksMax(num) {
     const maxNums = this.data.maxCheckedNums;
@@ -203,6 +237,7 @@ Page({
   },
   submit: function (e) {
     let that  = this;
+
     var name = e.detail.value.name;
     var address = e.detail.value.address;
     var allfactory = e.detail.value.allfactory;
@@ -220,141 +255,137 @@ Page({
            return;
     } else {
     }
+
     var buildingSign = " "
     for (var i = 0; i < that.data.listCheckbox; i++) {
       buildingSign = buildingSign + "/" + listCheckbox[i]
     }
-    // console.log(buildingSign);
-    wx.request({
-      url: 'https://www.dikashi.top/house/building/addBuilding',
-      method:'GET',
-      data: {
-        buildingName: that.data.title,
-        // buildingArea:that.
-        planningHousehold: that.data.chanshu,
-        propertyMoney: that.data.fee,
-        floorCondition: that.data.louceng,
-        //buildingName: that.data.title,
-        commiteTime: that.data.dateTwo,
-        propertyRight: that.data.year,
-        otherIntro: that.data.otherIntro,
-        buildingGreen: that.data.green,
-        buildingCar: that.data.car,
-        countPrice: that.data.totalprice,
-        averagePrice: that.data.avaprice,
-        propertyType: that.data.propertyType,
-        buildingAddress: that.data.buildingAddress,
-        buildingProvince: that.data.buildingProvince,
-        buildingSign: buildingSign,
-        buildingEmploy: that.data.buildingEmploy,
-        houseType: that.data.houseType,
-        houseCount: that.data.houseCount,
-        houseArea: that.data.houseArea,
-        //isShow:that.data.
-        isSale: that.data.pickerThree[that.data.indexThree],
-        traffic: that.data.traffic,
-        market: that.data.market,
-        hospital: that.data.hospital,
-        bank: that.data.bank,
-        post: that.data.post,
-        innerInstrument: that.data.innerInstrument,
-        otherAround: that.data.otherAround,
-        buildingGroundArea:that.data.groundArea,
-        startTime: that.data.date,
-        endTime: that.data.dateOne,
-        buildingCharacter:that.data.character,
-        school:that.data.school,
-      },
-      success(res) {
-        console.log(res)
-        if (res.data.status != 200) {
-          wx.showModal({
-            title: '失败 ',
-            content: '对不起上传失败',
-          })
-        } else {
-          for (let i = 0; i < that.data.imgList.length; i++) {
-            wx.uploadFile({
-              url: 'https://www.dikashi.top/house/upload/buildingUploadPicture',
-              filePath: that.data.imgList[i],
-              name: 'file',
-              formData: {
-                'relationId': res.data.data,
-                'description': 2
-              },
-              success(res) {
-                // const data = res.data
-                console.log(res)
-                if (res.data.statusCode == 200) {
-                  
-                }
-              },
-              fail(res) {
-                console.log("失败");
-              }
-            })
-          }
+    wx.getStorage({
+      key: 'user',
+      success: function(res1) {
+        console.log(res1.data.userId);
+        wx.request({
+          // url: 'https://www.dikashi.top/house/building/addBuilding',
+          url: 'http://localhost:8080/building/addBuilding',
+          method: 'GET',
+          data: {
+            userId:res1.data.userId,
+            buildingName: that.data.title,
+            // buildingArea:that.
+            planningHousehold: that.data.chanshu,
+            propertyMoney: that.data.fee,
+            floorCondition: that.data.louceng,
+            //buildingName: that.data.title,
+            commiteTime: that.data.dateTwo,
+            propertyRight: that.data.year,
+            otherIntro: that.data.otherIntro,
+            buildingGreen: that.data.green,
+            buildingCar: that.data.car,
+            countPrice: that.data.totalprice,
+            averagePrice: that.data.avaprice,
+            propertyType: that.data.propertyType,
+            buildingAddress: that.data.buildingAddress,
+            buildingProvince: that.data.buildingProvince,
+            buildingSign: buildingSign,
+            buildingEmploy: that.data.buildingEmploy,
+            houseType: that.data.houseType,
+            houseCount: that.data.houseCount,
+            houseArea: that.data.houseArea,
+            //isShow:that.data.
+            isSale: that.data.pickerThree[that.data.indexThree],
+            traffic: that.data.traffic,
+            market: that.data.market,
+            hospital: that.data.hospital,
+            bank: that.data.bank,
+            post: that.data.post,
+            innerInstrument: that.data.innerInstrument,
+            otherAround: that.data.otherAround,
+            buildingGroundArea: that.data.groundArea,
+            startTime: that.data.date,
+            endTime: that.data.dateOne,
+            buildingCharacter: that.data.character,
+            school: that.data.school,
+          },
+          success(res2) {
+            console.log(res2)
+            if (res2.data.status != 200) {
+              wx.showModal({
+                title: '失败 ',
+                content: '对不起上传失败',
+              })
+            } else {
+              for (let i = 0; i < that.data.imgList.length; i++) {
+                wx.uploadFile({
+                  // url: 'https://www.dikashi.top/house/upload/buildingUploadPicture',
+                  url: 'http://localhost:8080/building/addBuilding',
+                  filePath: that.data.imgList[i],
+                  name: 'file',
+                  formData: {
+                    'relationId': res2.data.data,
+                    'description': 2
+                  },
+                  success(res) {
+                    // const data = res.data
+                    console.log(res)
+                    if (res.data.statusCode == 200) {
 
-          for (let i = 0; i < that.data.imgList.length; i++) {
-            wx.uploadFile({
-              url: 'https://www.dikashi.top/house/upload/buildingUploadPicture',
-              filePath: that.data.imgListMore[i],
-              name: 'file',
-              formData: {
-                'relationId': res.data.data,
-                'description':1
-              },
-              success(res) {
-                // const data = res.data
-                console.log(res)
-                wx.showToast({
-                  title: '上传成功',
+                    }
+                  },
+                  fail(res) {
+                    console.log("失败");
+                  }
                 })
-                wx.switchTab({
-                  url: '../index/index'
-                })
-                // if (res.data.status == 200) {
-                //     wx.navigateTo({
-                //       url: '../index/index',
-                //     })
-                // }
-              },
-              fail(res) {
-                console.log("失败");
               }
+
+              for (let i = 0; i < that.data.imgList.length; i++) {
+                wx.uploadFile({
+                  // url: 'https://www.dikashi.top/house/upload/buildingUploadPicture',
+                  url: 'http://localhost:8080/upload/buildingUploadPicture',
+                  filePath: that.data.imgListMore[i],
+                  name: 'file',
+                  formData: {
+                    'relationId': res2.data.data,
+                    'description': 1
+                  },
+                  success(res) {
+                    // const data = res.data
+                    console.log(res)
+                    wx.showToast({
+                      title: '上传成功',
+                    })
+                   
+                    // if (res.data.status == 200) {
+                    //     wx.navigateTo({
+                    //       url: '../index/index',
+                    //     })
+                    // }
+                  },
+                  fail(res) {
+                    console.log("失败");
+                  }
+                })
+              }
+
+            }
+            wx.switchTab({
+              url: '../index/index'
             })
+          },
+          fail(res) {
+            console.log("失败");
+            console.log(res)
           }
-          
-        }
+        })
+
       },
-      fail(res) {
-        console.log("失败");
-        console.log(res)
-      }
     })
+   
 
 
-//>>>>>>> master
+
   },
 
-  // btnclick:function() {
-  //   let that = this
-  //   if (that.data.title == "" || that.data.imgList.size < 0 || that.data.address == "" || that.data.avaprice || that.data.totalprice
-  //     == "" || that.data.totalprice == "" || that.data.year || that.data.groundArea == "" || that.data.houseArea == "" || that.data.houseCount == "" || that.data.green == "" || that.data.car == "" || that.data.company == "" || that.data.fee == "" || that.data.louceng == "") {
-  //       wx.showModal({
-  //         title: '错误',
-  //         content: '存在内容为空',
-  //       })
-  //     } else {
-  //       wx.request({
-  //         url: '',
-  //         // data {
-  //         //   ‘
-  //         // }
-  //       })
-  //     }
-  // },
-
+  
   houseTypeInput(e) {
     this.setData({
       houseType: e.detail.value
@@ -572,12 +603,7 @@ Page({
       otherIntro: e.detail.value
     })
   },
-
-  addressInput(e) {
-    this.setData({
-      address: e.detail.value
-    })
-  },
+  
   avapriceInput(e) {
     this.setData({
       avaprice: e.detail.value
@@ -617,8 +643,7 @@ Page({
     // })
     this.setData({
       region: e.detail.value,
-      building_address: e.detail.value[2],
-      buildingProvince: e.detail.value[0] + e.detail.value[1]
+      buildingProvince: e.detail.value[0] + e.detail.value[1] + e.detail.value[2]
     })
     console.log(1)
     console.log(this.data.region)

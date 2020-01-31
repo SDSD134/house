@@ -7,7 +7,9 @@ Page({
   data: {
     imgListMore: [],
     commentContext:'',
-    comment_id:''
+    comment_id:'',
+    buildingId:'',
+    isLead:''
   },
   ChooseImageMore() {
     wx.chooseImage({
@@ -35,10 +37,10 @@ Page({
   },
   DelImgMore(e) {
     wx.showModal({
-      title: '亲爱的',
+      title: '删除',
       content: '确定要删除吗？',
-      cancelText: '再看看',
-      confirmText: '再见',
+      cancelText: '取消',
+      confirmText: '确定',
       success: res => {
         if (res.confirm) {
           this.data.imgListMore.splice(e.currentTarget.dataset.index, 1);
@@ -53,7 +55,7 @@ Page({
   publish:function(e) {
     let that = this;
     var image = that.data.imgListMore;
-    if (that.data.commentContext == null || that.data.commentContext == '') {
+    if (that.data.commentContext == null || that.data.commentContext == '' ) {
       wx.showModal({
         title: '错误',
         content: '内容不可以为空',
@@ -61,17 +63,32 @@ Page({
       })
       return;
     }
+    if (that.data.isLead == null || that.data.isLead == '') {
+      wx.showModal({
+        title: '错误',
+        content: '请选择是否看房',
+        confirmText: '确定',
+      })
+      return;
+    }
+    wx.showToast({
+      title: '评论中',
+      icon:'loading',
+      duration:3000,
+      mask:true
+    })
     wx.request({
-      url: 'http://localhost:8080/comment/askQuestion',
+      url: 'http://localhost:8080/comment/commentBuilding',
       data:{
         'commentContext': that.data.commentContext,
-        'comment_id': that.data.comment_id,
-        'commentType': 1,
-        'userId': 'f',
-        'commentBuildingId': 1
+        'commentType':0,
+        'userId': wx.getStorageSync('user').userId,
+        'commentBuildingId': that.data.buildingId,
+        'isLead':that.data.isLead
       },
       success(res) {
         if(res.data.status == 200) {
+          var commentId = res.data.data
           if (image.length > 0) {
             for (let i = 0; i < image.length; i++) {
               wx.uploadFile({
@@ -79,24 +96,52 @@ Page({
                 filePath: image[i],
                 name: 'file',
                 formData: {
-                  'comment_id': that.data.comment_id,
+                  'relationId': commentId
                 },
                 success(res) {
                   // const data = res.data
+                  that.setData({
+                    imgListMore: [],
+                    comment_id: ''
+                  })
                   console.log(res)
                   if (this.data.status == 200) {
-                    this.setData({
-                      comment_id: data.data.data
+                    wx.navigateTo({
+                      url: "../estateDetails/estateDetails?buildingId=" + this.data.buildingId
+                    })
+                  } else {
+                    wx.hideToast();
+                    wx.showToast({
+                      title: '评论失败',
                     })
                   }
-                },
+                } ,
                 fail(res) {
-                  console.log("失败");
+                  wx.hideToast();
+                  wx.showToast({
+                    title: '评论失败',
+                    icon: 'none',
+                    duration: 2000
+                  })
                 }
               })
             }
           } 
+        } else {
+          wx.hideToast();
+          wx.showToast({
+            title: '评论失败',
+            icon: 'none',
+            duration: 2000
+          })
         }
+      },
+      fail(res) {
+        wx.showToast({
+          title: '评论失败',
+          icon: 'none',
+          duration: 2000
+        })
       }
     })
     // if (image.length > 0){
@@ -155,12 +200,9 @@ Page({
     //   })
     // }
     
-    this.setData({
-      imgListMore: '',
-      comment_id:''
-    })
+    
   },
-
+ 
   textareaAInput:function(e) {
     this.setData({
       commentContext: e.detail.value
@@ -171,6 +213,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("评论楼盘id" + options.buildingId)
+    this.setData({
+      buildingId:options.buildingId
+    })
 
   },
 
@@ -221,5 +267,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  isLead:function(e) {
+    console.log(e.target.dataset.islead)
+    this.setData({
+      isLead: e.target.dataset.islead
+    })
   }
 })

@@ -2,6 +2,14 @@ var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
 //var getPhoneNumber = require('../../wxPopView/wxPopView.js');
 var qqmapsdk;
 var common = require('../../wxPop/wxPop.js');
+// var userId  ;
+// wx.getStorage({
+//   key: 'user',
+//   success: function(res) {
+//     console.log("缓存为" + res)
+//     userId = res.data.userId
+//   },
+// })
 Component({
   /**
    * 组件的属性列表
@@ -276,13 +284,16 @@ Component({
         money2: '1.12',
         type: '住宅'
       }
-    ]
+    ],
+    list4:[]
 
   },
   methods: {
     // 轮播图
     onLoad: function () {
       var that = this;
+      var userId = ""
+      userId = wx.getStorageSync('user').userId
       var data = {
         "datas": [
           {
@@ -299,6 +310,29 @@ Component({
           }
         ]
       };
+      qqmapsdk = new QQMapWX({
+        key: 'JXSBZ-BNCCG-M44Q6-IOJAS-UODZF-B5BFJ'
+      });
+      if(userId != "") {
+        wx.request({
+          url: 'http://localhost:8080/building/select/hot',
+          data: {
+            userId:userId ,
+          },
+          success(res) {
+            console.log(res)
+            if (res.data.status == 200) {
+              console.log(res.data.data),
+                that.setData({
+                  list: res.data.data,
+                })
+            }
+            //console.log(that.list)
+          }
+        })
+      }
+     
+      
       that.setData({
         lunboData: data.datas
       })
@@ -328,7 +362,7 @@ Component({
     },
     estateDetails: function (e) {
       wx.navigateTo({
-        url: '../estateDetails/estateDetails'
+        url: '../estateDetails/estateDetails?id=' + e.currentTarget.dataset.buildingid
       })
     },
     home: function (e) {
@@ -357,7 +391,9 @@ Component({
       this.triggerEvent('Cancel', myEventDetail, myEventOption)
       this.close();
     },
+    
  
+  
   // //轮播图
   // onLoad(options) {
   //   console.log(options);
@@ -434,48 +470,174 @@ Component({
   // },
   // 选择
   onTabsItemTap: function (event) {
+    let that = this
+    var userId = ""
+    // wx.getStorage({
+    //   key: 'userId',
+    //   success: function(res) {
+    //     userId = res.data.userId
+    //   },
+    // })
+    userId = wx.getStorageSync('user').userId
+    
     let index = event.currentTarget.dataset.index;
+    
     this.setData({
       currentTabIndex: index
     })
-  },
-
- 
-  onShow() {
-   this._getUserLocation();
-    let that = this
-    // 在组件实例刚刚被创建时执行
-    //console.log(1)
-    var userId = ""
-    wx.getStorage({
-      key: 'user',
-      success: function(res) {
-        userId=res.data.userId
-         wx.request({
-      url: 'https://www.dikashi.top/house/building/listBuilding',
-      data: {
-        userId:userId
-      },
-      success(res) {
-        console.log(1)
-        console.log(res)
-        if (res.data.status == 200) {
-          console.log(res.data.data),
-          that.setData({
-            
-            list: res.data.data,
-            list1: res.data.data,
-             list2: res.data.data,
-             list3: res.data.data,
-          })
+    if(index == 0) {
+      wx.request({
+        url: 'localhost:8080/building/select/hot',
+        data: {
+          userId: userId,
+        },
+        success(res) {
+          if (res.data.status == 200) {
+            console.log(res.data.data),
+              that.setData({
+                list: res.data.data,
+              })
+          }
         }
-        //console.log(that.list)
-      }
-    })
-      },
-    })
+      })
+    } else if (index == 1) {
+      wx.request({
+        url: 'http://localhost:8080/building/select/hot',
+        data: {
+          userId: userId,
+        },
+        success(res) {
+          console.log(res)
+          if (res.data.status == 200) {
+            console.log(res.data.data),
+              that.setData({
+                list1: res.data.data,
+              })
+          }
+          //console.log(that.list)
+        }
+      })
+    } else if(index == 2) {
+      wx.request({
+        url: 'http://localhost:8080/building/select/viewTime',
+        data: {
+          userId: userId,
+        },
+        success(res) {
+          console.log(res)
+          if (res.data.status == 200) {
+            console.log(res.data.data),
+              that.setData({
+                list2: res.data.data,
+              })
+          }
+          //console.log(that.list)
+        }
+      })
+    } else if(index == 3) {
+      wx.request({
+        url: 'http://localhost:8080/building/select/lowPrice',
+        data: {
+          userId: userId,
+        },
+        success(res) {
+          console.log(res)
+          if (res.data.status == 200) {
+            console.log(res.data.data),
+              that.setData({
+                list3: res.data.data,
+              })
+          }
+          //console.log(that.list)
+        }
+      })
+    } 
+    
    
   },
+
+  
+  onShow() {
+    var userId = ""
+   this._getUserLocation();
+    let that = this
+    userId = wx.getStorageSync('user').userId
+    console.log(userId)
+    if(userId != ""){
+      // wx.request({
+      //   url: 'https://www.dikashi.top/house/building/listBuilding',
+      //   data: {
+      //     userId: userId
+      //   },
+      //   success(res) {
+      //     console.log(1)
+      //     console.log(res)
+      //     if (res.data.status == 200) {
+      //       console.log(res.data.data),
+      //         that.setData({
+      //           list: res.data.data,
+      //           list1: res.data.data,
+      //           list2: res.data.data,
+      //           list3: res.data.data,
+      //         })
+      //     }
+      //     //console.log(that.list)
+      //   }
+      // }),
+      wx.request({
+        url: 'http://localhost:8080/building/recentBuilding',
+        data: {
+          userId: userId
+        },
+        success(resq) {
+          console.log(resq)
+          if (resq.data.status == "200") {
+            console.log(resq.data.data)
+            that.setData({
+              brand: resq.data.data
+            })
+          } else {
+            that.setData({
+              brand: []
+            })
+          }
+        }
+      }),
+      wx.request({
+        url: 'http://localhost:8080/country/hotCountry',
+        data: {
+          count:3
+        },
+        header: {
+          userId:userId
+        },
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          console.log(res.data)
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      }),
+      wx.request({
+        url: 'http://localhost:8080/building/select/hot',
+        data: {
+          userId: userId
+        },
+        success(res) {
+          console.log(res.data)
+          that.setData({
+            list: res.data.data
+          })
+        }
+      })
+
+    }
+   
+     
+  },
+
 
     // _getUserLocation() {
     //   wx.getSetting({
