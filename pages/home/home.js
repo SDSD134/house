@@ -33,6 +33,10 @@ Component({
     },
   },
   data: {
+    selectAverage:"",
+    selectRegion:"",
+    selectCountPrice:"",
+    selectCharacter:"",
     select: false,
     currentTabIndex: 0,
     isCollected: false,
@@ -178,21 +182,80 @@ methods: {
     })
   },
   PickerChange(e) {
+   let that = this 
     console.log(e);
     this.setData({
       index: e.detail.value
-    })
+    }),
+      wx.getStorage({
+        key: 'user',
+        success: function (res) {
+          wx.request({
+            url: 'http://localhost:8080/building/select/averagePrice',
+            data: {
+              userId: res.userId,
+              pageNum: that.data.pageNum,
+              pageSize: that.data.pageSize,
+              priceType: that.data.index,
+            },
+          })
+        },
+      })
   },
   PickerChangeOne(e) {
+    let that = this;
     console.log(e);
     this.setData({
       indexOne: e.detail.value
+    }),
+    wx.getStorage({
+      key: 'user',
+      success: function(res) {
+        wx.request({
+          url: 'http://localhost:8080/building/select/averagePrice',
+          data: {
+            userId: res.userId,
+            pageNum: that.data.pageNum,
+            pageSize: that.data.pageSize,
+            priceType: that.data.index,
+          },
+        })
+      },
     })
+   
   },
   PickerChangeTwo(e) {
-    console.log(e);
+    let that = this;
+   // console.log(e.detail.value);
+    var index = e.detail.value
     this.setData({
-      indexTwo: e.detail.value
+      indexTwo: index
+    })
+    wx.getStorage({
+      key: 'user',
+      success: function (res) {
+       // console.log(res)
+        wx.request({
+          url: 'http://localhost:8080/building/select/character',
+          data: {
+            userId: res.data.userId,
+            //pageNum: that.data.pageNum,
+            //pageSize: that.data.pageSize,
+            characterType: that.data.indexTwo,
+          },
+          success(res) {
+            // wx.showToast({
+            //   title: '取消收藏成功',
+            //   icon: 'success'
+            // })
+            that.setData({
+             list:res.data.data
+            })
+           // console.log(res.data.data)
+            
+          },
+        })
+      },
     })
   },
   PickerChangeThree(e) {

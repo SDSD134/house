@@ -4,11 +4,11 @@
 </cu-custom>
 <form>
 <radio-group class="block">
-   <view class="cu-form-group">
+   <view class="cu-form-group" bindtap="isLead">
 			<view class="title">是否已经带客户看过房:</view>
-			<radio class="radio"></radio>
+			<radio class="radio" data-isLead='0'></radio>
       <view class="title">是</view>
-			<radio class=" red radio"></radio>
+			<radio class=" red radio" data-isLead='1'></radio>
       <view class="title">否</view>
 	 </view>
 </radio-group>

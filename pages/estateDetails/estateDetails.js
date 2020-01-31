@@ -190,21 +190,21 @@ Page({
       }
     ],
    comment: [
-      {
-        name: '孙楠',
-        content: '体量：8141套，面积段：68-88-110平，均价：18888元/平。',
-        time: '201-11-11 15：33：33 '
-      },
-      {
-        name: '孙楠',
-        content: '体量：8141套，面积段：68-88-110平，均价：18888元/平。',
-        time: '201-11-11 15：33：33 '
-      },
-      {
-        name: '孙楠',
-        content: '体量：8141套，面积段：68-88-110平，均价：18888元/平。',
-        time: '201-11-11 15：33：33 '
-      }
+      // {
+      //   name: '孙楠',
+      //   content: '体量：8141套，面积段：68-88-110平，均价：18888元/平。',
+      //   time: '201-11-11 15：33：33 '
+      // },
+      // {
+      //   name: '孙楠',
+      //   content: '体量：8141套，面积段：68-88-110平，均价：18888元/平。',
+      //   time: '201-11-11 15：33：33 '
+      // },
+      // {
+      //   name: '孙楠',
+      //   content: '体量：8141套，面积段：68-88-110平，均价：18888元/平。',
+      //   time: '201-11-11 15：33：33 '
+      // }
     ],
     askList:[
       {
@@ -294,7 +294,7 @@ Page({
   },
   goComments:function (e) {
       wx.navigateTo({
-        url: '../estateDetails/goComments/goComments'
+        url: "../estateDetails/goComments/goComments?buildingId="+ this.data.id
       })
   },
   calculator: function (e) {
@@ -625,7 +625,6 @@ Page({
           } else {
             console.log('取消')
           }
-
         }
       })
    },
@@ -634,7 +633,8 @@ Page({
     this._getUserLocation();
   },
   onLoad(options) {
-    console.log(options.id)
+    var userId = wx.getStorageSync('user').userId
+    console.log(options)
     var id = options.id
     var buildingVo = ""
     qqmapsdk = new QQMapWX({
@@ -673,14 +673,9 @@ Page({
       },
 
     })
-    var userId = ''
-    wx.getStorage({
-      key: 'user',
-      success: function(res) {
-        console.log(res.data.userId)
-        userId = res.data.userId
-      },
-    })
+    var userId = ""
+    userId = wx.getStorageSync('user').userId
+    
     wx.request({
       url: 'https://www.dikashi.top/house/building/buildingInfo?',
       data:{
@@ -707,7 +702,23 @@ Page({
               })
               console.log(that.data.market)
             }
-          })
+          }),
+            wx.request({
+            url: 'http://localhost:8080/comment/getComment',
+              data: {
+                buildingId:'1',
+                commentType:1,
+              },
+              success(resComment) {
+                console.log("测试")
+                console.log(resComment)
+                that.setData({
+                  comment:resComment.data.data
+                })
+              }
+            })
+
+          
         }
        
         

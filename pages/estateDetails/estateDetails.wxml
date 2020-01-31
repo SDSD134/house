@@ -323,18 +323,18 @@
   <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
   <view class="trends" >
     <view class="trends-left">
-      <image src="../../image/26.jpg"/>
+      <image src="{{item.user.avatarUrl}}"/>
     </view>
     <view class="trends-right">
       <view class="trends-right-name">
-         <text>{{item.name}}</text>
+         <text>{{item.user.nickname}}</text>
          <image src="../../image/shou.png" class="action-image"/>
       </view>
       <view class="trends-right-content">
-        {{item.content}}    
+        {{item.commentContext}}    
       </view>
       <view class="trends-right-time">
-        {{item.time}}
+        {{item.createTime}}
         <view class="cu-tag round bg-olive light" bindtap='reply'>回复</view>
       </view>
     </view>

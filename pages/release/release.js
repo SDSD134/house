@@ -79,6 +79,7 @@ Page({
     area:"",      //户型面积说明
     character:"", //项目特色
     otherIntro:"",//其他
+    houseType:"",//户型
 
     groundArea:"",  //占地面积
     houseArea:"",  //户型面积
@@ -162,6 +163,20 @@ Page({
     this.data.listCheckbox[id].checked = !this.data.listCheckbox[id].checked;
     this.data.checkNum = this.data.listCheckbox[id].checked ? this.data.checkNum + 1 : this.data.checkNum - 1;
     this.checkMax(this.data.checkNum);
+    var houseType = "";
+    for (var i = 0; i < this.data.listCheckbox.length; i++) {
+      if (this.data.listCheckbox[i].checked) {
+        if (houseType == "") {
+          houseType = this.data.listCheckbox[i].value
+        } else {
+          houseType = houseType + "/" + this.data.listCheckbox[i].value
+        }
+      }
+    }
+    this.setData({
+      houseType: houseType
+    }),
+      console.log(this.data.houseType)
   },
   checkMax(num) {
     const maxNum = this.data.maxCheckedNum;
@@ -187,6 +202,20 @@ Page({
     this.data.listsCheckbox[id].checked = !this.data.listsCheckbox[id].checked;
     this.data.checkNums = this.data.listsCheckbox[id].checked ? this.data.checkNums + 1 : this.data.checkNums - 1;
     this.checksMax(this.data.checkNums);
+    var character = "";
+    for (var i = 0; i < this.data.listsCheckbox.length; i++) {
+      if (this.data.listsCheckbox[i].checked) {
+        if(character == "") {
+          character = this.data.listsCheckbox[i].value
+        } else{
+          character = character + "/" + this.data.listsCheckbox[i].value
+        } 
+      }
+    }
+    this.setData({
+      character:character
+    }),
+    console.log(this.data.character)
   },
   checksMax(num) {
     const maxNums = this.data.maxCheckedNums;
@@ -353,27 +382,10 @@ Page({
    
 
 
-//>>>>>>> master
+
   },
 
-  // btnclick:function() {
-  //   let that = this
-  //   if (that.data.title == "" || that.data.imgList.size < 0 || that.data.address == "" || that.data.avaprice || that.data.totalprice
-  //     == "" || that.data.totalprice == "" || that.data.year || that.data.groundArea == "" || that.data.houseArea == "" || that.data.houseCount == "" || that.data.green == "" || that.data.car == "" || that.data.company == "" || that.data.fee == "" || that.data.louceng == "") {
-  //       wx.showModal({
-  //         title: '错误',
-  //         content: '存在内容为空',
-  //       })
-  //     } else {
-  //       wx.request({
-  //         url: '',
-  //         // data {
-  //         //   ‘
-  //         // }
-  //       })
-  //     }
-  // },
-
+  
   houseTypeInput(e) {
     this.setData({
       houseType: e.detail.value

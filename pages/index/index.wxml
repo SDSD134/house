@@ -100,24 +100,25 @@
             <view class="scroll-header-price">{{item.price}}</view>
             <view class="scroll-header-place">{{item.place}}</view>
         </view> -->
-         <view class="scroll-header-all" bindtap='estateDetails'>
+         <view class="scroll-header-all" bindtap='estateDetails' data-buildingId="{{item.buildingId}}">
             <view class="scroll-header-left" >
               <view class="scroll-header-image">
-                <image src="{{item.img}}"></image>
+                <image src="{{item.imageList[0].url}}"></image>
               </view>
             </view>
             <view class="scroll-header-right" >
               <view class="scroll-header-right-top">
-                 <view class="weight">碧海蓝天哈哈哈</view>
-                 <view class="title-logn"><text>在售</text></view>
+                 <view class="weight">{{item.buildingName}}</view>
+                 <view class="title-logn" wx:if="{{item.isSale == 1}}"><text>在售</text></view>
+                 <view class="title-logn" wx:else><text>撤档</text></view>
               </view>
               <view class="scroll-header-right-bottom">
-                 <view class="scroll-header-bottom-city">嘉兴市</view>
-                 <view class="scroll-header-bottom-money">10000元/m^2</view>
+                 <view class="scroll-header-bottom-city">{{item.buildingProvince}}</view>
+                 <view class="scroll-header-bottom-money">{{item.countPrice}}元/m^2</view>
               </view >
-              <view class="scroll-header-right-bottom">
+              <!-- <view class="scroll-header-right-bottom">
                  <view class="scroll-header-bottom-prompt">最近三天，浏览过该楼盘</view>
-              </view>
+              </view> -->
             </view>
         </view>
       </view>
@@ -156,7 +157,7 @@
   </view>
   <scroll-view scroll-x class="scroll-second">
              <view  bindtap='home' class="scroll-header-second" wx:for="{{brandTwo}}" wx:key="{{index}}"style="background-image:url({{item.imgArr}});">
-             <view class="scroll-second-title">{{item.title}}</view>
+             <view class="scroll-second-title">{{item.countryName}}</view>
              <view class="scroll-second-number">{{item.number}}个楼盘</view>
       </view>
   </scroll-view>
@@ -267,7 +268,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 3}}'> 
-    <view wx:for="{{lists}}" wx:key="{{index}}">
+    <view wx:for="{{list3}}" wx:key="{{index}}">
      <navigator url="../estateDetails/estateDetails?id={{item.buildingId}}">
         <view class="list-all">
           <view class="list">
@@ -284,9 +285,29 @@
           </view>
         </view>
       </navigator>
-      </view>
     </view>
   </view>
+    <view hidden='{{currentTabIndex != 4}}'> 
+    <view wx:for="{{list4}}" wx:key="{{index}}">
+     <navigator url="../estateDetails/estateDetails?id={{item.buildingId}}">
+        <view class="list-all">
+          <view class="list">
+            <image src="{{item.images[0].url}}" mode="aspectFill"/>
+            <view class="list-right">
+                <view class="title">{{item.buildingName}}</view>
+                <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
+                <view class="list-right-in">
+                  <view>{{item.averagePrice}}万/套</view>
+                  <view>{{item.countPrice}}万元/m^2</view>
+                </view>
+                <view class="list-right-last cu-tag round bg-olive light">住宅</view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
 </view>
 <!-- 弹框 -->
 <include src="../../wxPop/wxPop.wxml" />

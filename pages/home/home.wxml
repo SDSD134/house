@@ -143,7 +143,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 2}}'>
-    <view wx:for="{{list2}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.images[0].url}}"/>
@@ -174,7 +174,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 3}}'>
-    <view wx:for="{{list3}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.images[0].url}}"/>
@@ -206,7 +206,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 4}}'>
-    <view wx:for="{{list4}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.images[0].url}}"/>
@@ -238,7 +238,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 5}}'>
-    <view wx:for="{{list5}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.imgArr}}"/>
@@ -269,7 +269,7 @@
       </view>
       </view>
     <view hidden='{{currentTabIndex != 6}}'>
-    <view wx:for="{{list6}}" wx:key="{{index}}">
+    <view wx:for="{{list}}" wx:key="{{index}}">
         <view class="list-all" bindtap='estateDetails'>
           <view class="list-second">
             <image src="{{item.imgArr}}"/>
