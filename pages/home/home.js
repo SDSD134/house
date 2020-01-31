@@ -33,6 +33,23 @@ Component({
     },
   },
   data: {
+    btns: [
+      {
+        title: '全部'
+      },
+      {
+        title: '诚信联盟'
+      },
+      {
+        title: '诚信联盟'
+      },
+      {
+        title: '诚信联盟'
+      },
+      {
+        title: '诚信联盟'
+      }
+    ],
     select: false,
     currentTabIndex: 0,
     isCollected: false,

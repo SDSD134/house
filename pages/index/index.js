@@ -39,6 +39,7 @@ Component({
     },
   },
   data: {
+    x:1,
     //轮播图配置
     autoplay: true,
     interval: 3000,
@@ -56,13 +57,13 @@ Component({
     ],
     enjoyList:[
       {
-        content: "停发货，并停止客服服务，将于10月8日恢复正常"
+        content: "停发货，并停止客服服务，将于10月8日恢复"
       },
       {
-        content: "停发货，并停止客服服务，将于10月8日恢复正常"
+        content: "停发货，并停止客服服务，将于10月8日恢复"
       },
       {
-        content: "停发货，并停止客服服务，将于10月8日恢复正常"
+        content: "停发货，并停止客服服务，将于10月8日恢复"
       },
     ],
     starCount: 0,

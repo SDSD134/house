@@ -54,7 +54,8 @@
     "pages/logs/item/makeover/makeover",
     "pages/logs/alreadyJoin/alreadyJoin",
     "pages/estateDetails/goAnswer/goAnswer",
-    "pages/logs/joinSuccess/joinSuccess"
+    "pages/logs/joinSuccess/joinSuccess",
+    "pages/logs/wallet/withdrawals/withdrawals"
   ],
   "permission": {
     "scope.userLocation": {

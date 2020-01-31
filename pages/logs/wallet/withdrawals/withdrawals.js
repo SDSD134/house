@@ -1,17 +1,11 @@
-// pages/logs/wallet/wallet.js
+// pages/logs/wallet/withdrawals/withdrawals.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    money:'0.00',
 
-  },
-  withdrawals: function (e) {
-    wx.navigateTo({
-      url: '../wallet/withdrawals/withdrawals'
-    })
   },
 
   /**

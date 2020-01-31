@@ -82,14 +82,13 @@
   </view>
    <!-- 最近浏览-->
   <view class="browse">
-    <navigator url="">
       <view class="browse-item">
             <text>最近浏览</text>
             <image src="../../image/8.png"mode="widthFix" />
       </view>
-    </navigator>
   </view>
   <!-- 滚动 -->
+   <block wx:if="{{x==0}}">
    <scroll-view scroll-x class="scroll-header">
       <view class="scroll-header-in" wx:for="{{brand}}" wx:key="{{index}}">
         <!-- <view class="scroll-header-all" bindtap='estateDetails'>
@@ -122,6 +121,16 @@
         </view>
       </view>
   </scroll-view>
+  </block>
+  <block wx:else>
+   <view class="no-browse-all">
+    <view class="no-browse">
+        <image class="btnImg" src='../../image/00.gif'></image>
+        <text>暂无浏览记录</text>
+        <image class="btnImg" src='../../image/00.gif'></image>
+    </view>
+   </view>
+  </block>
   <view class="swiper-other">
    <swiper class="swiper_container-other" vertical="true" autoplay="true" circular="true" interval="5000">
       <block wx:for="{{enjoyList}}">
