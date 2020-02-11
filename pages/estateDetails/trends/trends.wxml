@@ -6,22 +6,22 @@
   <view class="cu-item {{menuArrow?'':'arrow'}}">
       <view class="content">
          <text class="cuIcon-btn text-olive"></text>
-        <text class="text-grey">项目：临水家园</text>
+        <text class="text-grey">项目：{{buildingName}}</text>
       </view>
   </view>
 </view>
 <view class="trends-all margin-top"wx:for="{{trends}}" wx:key="{{key}}">
   <view class="trends">
     <view class="trends-left">
-    <image src="../../../image/26.jpg"/>
+    <image src="{{item.user.avatarUrl}}"/>
     </view>
     <view class="trends-right">
-      <view class="trends-right-name">{{item.name}}</view>
+      <view class="trends-right-name">{{item.user.nickname}}</view>
       <view class="trends-right-content">
-        {{item.content}}    
+        {{item.commentContext}}    
       </view>
       <view class="trends-right-time">
-        {{item.time}}
+        {{item.createTime}}
       </view>
     </view>
   </view>

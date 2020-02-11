@@ -5,14 +5,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    commentId:"",
+    commentContext:"",
+    replyContext:"",
+    buildingName:","
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.commentId != "" && options.commentContext != ""&& options.buildingName!="") {
+      this.setData({
+        commentId:options.commentId,
+        commentContext:options.commentContext,
+        buildingName:options.buildingName
+      })
+    }
 
+  },
+  replyQuestion(e){
+    let that = this
+    wx.request({
+      url: 'http://localhost:8080/comment/reply',
+      data:{
+        commentId:that.data.commentId,
+        userId:wx.getStorageSync('user').userId,
+        replyContext:that.data.replyContext
+      },
+      success(res) {
+        console.log(res)
+        wx.navigateTo({
+          url: "../../estateDetails/toAsk/toAsk?commentId"+that.data.commentId+"&buildingName="+that.data.buildingName
+        })
+      },
+      fail(res) {
+        wx.showToast({
+          title: '回复失败',
+        })
+      }
+    })
+  },
+
+  textareaAInput(e) {
+    console.log(e.detail.value)
+    this.setData({
+      replyContext:e.detail.value
+    })
   },
 
   /**

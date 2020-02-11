@@ -33,6 +33,7 @@ Page({
         time: '201-11-11 15：33：33 '
       }
     ],
+    buildingId:""
 
   },
   reply: function (e) {
@@ -45,7 +46,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    if (options.id!=""){
+      this.setData({
+        buildingId:options.buildingId
+      })
+      wx.request({
+        url: 'http://localhost:8080/comment/getComment',
+        data: {
+          buildingId: that.data.buildingId,
+          commentType: 0,
+        },
+        success(resComment) {
+          console.log("测试")
+          console.log(resComment)
+          that.setData({
+            comment: resComment.data.data
+          })
+        }
+      })
+    }
+   
   },
 
   /**

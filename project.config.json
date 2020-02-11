@@ -106,7 +106,7 @@
 					"id": 7,
 					"name": "pages/estateDetails/estateDetails",
 					"pathName": "pages/estateDetails/estateDetails",
-					"query": "id= 1578318835683815114",
+					"query": "id=1578318835683815114",
 					"scene": null
 				},
 				{
@@ -135,6 +135,20 @@
 					"name": "pages/estateDetails/goComments/goComments",
 					"pathName": "pages/estateDetails/goComments/goComments",
 					"query": "id= 1578318835683815114",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/estateDetails/goAsk/goAsk",
+					"pathName": "pages/estateDetails/goAsk/goAsk",
+					"query": "buildingId=1578318835683815114&buildingName=11",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "pages/estateDetails/parameter/parameter",
+					"pathName": "pages/estateDetails/parameter/parameter",
+					"query": "id=1578318835683815114",
 					"scene": null
 				}
 			]

@@ -4,23 +4,23 @@
 </cu-custom>
 <view class="information-first">
   <view class="basic">
-    <view class="basic-title"> 江南府基本信息</view>
-    <view>物业类型：住宅</view>
+    <view class="basic-title"> {{buildingVo.building.buildingName}}</view>
+    <view wx:if="{{buildingVo.buildingBaseInfo.buildingCharacter != null}}">物业类型：{{buildingVo.buildingBaseInfo.buildingCharacter}}</view>
     <view>项目特色：暂无消息</view>
-    <view>装修状况：毛坯</view>
-    <view>产权年限：暂无消息</view>
-    <view>开发商：暂无消息</view>
-    <view>品牌商：暂无消息</view>
-    <view>楼盘地址：新北路399号</view>
+    <view>装修状况：{{buildingVo.buildingBaseInfo.companyId}}</view>
+    <view>产权年限：{{buildingVo.building.propertyRight}}</view>
+    <view>开发商：{{buildingVo.buildingBaseInfo.companyId}}</view>
+    <view>品牌商：{{buildingVo.buildingBaseInfo.developerId}}</view>
+    <view>楼盘地址：{{buildingVo.buildingBaseInfo.buildingAddress}}</view>
   </view>
 </view>
 <view class="information-second margin-top">
   <view class="show">
     <view class="show-title"> 销售信息</view>
-    <view>销售状态：在售</view>
+    <view>销售状态：{{buildingVo.buildingBaseInfo.isSale}}</view>
     <view>开盘时间：暂无消息</view>
     <view>交房时间：毛坯</view>
-    <view>售楼地址：暂无消息</view>
+    <view>售楼地址：{{buildingVo.buildingBaseInfo.buildingAddress}}</view>
     <view>咨询电话：暂无消息</view>
   </view>
 </view>
@@ -28,23 +28,29 @@
 <view class="information-third margin-top">
   <view class="plan">
     <view class="plan-title"> 小区规划</view>
-    <view>占地面积：暂无消息</view>
-    <view>户型面积段：68-110m^3</view>
-    <view>建筑面积：暂无消息</view>
+    <view>占地面积：{{buildingVo.building.buildingGroundArea}}</view>
+    <view>户型面积段：{{buildingVo.buildingHouse.houseArea}}^3</view>
+    <view>建筑面积：{{buildingVo.building.buildingArea}}</view>
     <view>容积率：暂无消息</view>
-    <view>绿化率：暂无消息</view>
-    <view>车位：暂无消息</view>
+    <view>绿化率：{{buildingVo.buildingBaseInfo.buildingGreen}}</view>
+    <view>车位：{{buildingVo.buildingBaseInfo.buildingCar}}</view>
     <view>楼栋总数：暂无消息</view>
-    <view>规划户数：暂无消息</view>
-    <view>物业公司：暂无消息</view>
-    <view>物业费：暂无消息</view>
-    <view>楼层状况：暂无消息</view>
+    <view>规划户数：{{buildingVo.buildingHouse.houseCount}}</view>
+    <view>物业公司：{{buildingVo.building.propertyCompany}}</view>
+    <view>物业费：{{buildingVo.building.propertyMoney}}</view>
+    <view>楼层状况：{{buildingVo.building.floor_condition}}</view>
   </view>
 </view>
 <view class="information-fourth margin-top">
   <view class="around">
     <view class="around-title"> 周边设施</view>
-    <view>暂无消息</view>
+    <view>交通:{{buildingVo.buildingAround.traffic}}</view>
+    <view>超市：{{buildingVo.buildingAround.market}}</view>
+    <view>医院：{{buildingVo.buildingAround.hospital}}</view>
+    <view>银行：{{buildingVo.buildingAround.bank}}</view>
+    <view>邮局：{{buildingVo.buildingAround.post}}</view>
+    <view>内部设施：{{buildingVo.buildingAround.innerInstrument}}</view>
+    <view>其他设施：{{buildingVo.buildingAround.otherAround}}</view>
   </view>
 </view>
 
@@ -52,18 +58,19 @@
   <view class="item">
     <view class="item-title"> 项目介绍</view>
     <view>千套小面积住宅即将闪亮登场，诚邀合作伙伴</view>
-    <view>项目地址：暂无消息</view>
-    <view>占地面积：暂无消息</view>
+    <view>项目地址：{{buildingVo.buildingBaseInfo.buildingAddress}}</view>
+    <view>占地面积：{{buildingVo.buildingBaseInfo.buildingAddress}}</view>
     <view>建筑面积：暂无消息</view>
     <view>体量：暂无消息</view>
     <view>面积段：暂无消息</view>
-    <view>均价：暂无消息</view>
-    <view>周边配套</view>
+    <view>均价：{{buildingVo.buildingBaseInfo.averagePrice}}</view>
+    <view>总价：{{buildingVo.buildingBaseInfo.averagePrice}}</view>
+    <!-- <view>周边配套</view>
     <view>【教育】 尽享周边的优质教育资源</view>
     <view>【商业】 项目自建配套农贸市场（隔离对望）</view>
     <view>【交通】 高速：啵啵啵啵啵啵</view>
     <view>地铁：啵啵啵啵啵啵</view>
     <view>铁路：啵啵啵啵啵啵</view>
-    <view>方便死</view>
+    <view>方便死</view> -->
   </view>
 </view>

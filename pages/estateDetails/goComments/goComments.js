@@ -107,7 +107,7 @@ Page({
                   console.log(res)
                   if (this.data.status == 200) {
                     wx.navigateTo({
-                      url: "../estateDetails/estateDetails?buildingId=" + this.data.buildingId
+                      url: "../../estateDetails/estateDetails?buildingId="+this.data.buildingId
                     })
                   } else {
                     wx.hideToast();

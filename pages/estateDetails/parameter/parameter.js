@@ -49,15 +49,16 @@ Page({
             },
             success(res) {
               that.setData({
-                swiperList: res.data.data
+                buildingVo: res.data.data
               })
-              console.log(that.data.swiperList)
+              console.log(that.data.buildingVo)
             },
             fail(res) {
               console.log(res)
             },
 
           })
+         
       },
     })
   

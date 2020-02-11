@@ -5,14 +5,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    buildingName:'',
+    buildingId:'',
+    text:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   this.setData({
+     buildingId:options.buildingId,
+     buildingName:options.buildingName
+   })
+  },
+  textareaAInput(e) {
+    this.setData({
+      text:e.detail.value
+    })
+  },
+  ask(){
+    let that = this
+    wx.request({
+      url: 'http://localhost:8080/comment/askQuestion',
+      data:{
+        commentBuildingId: this.data.buildingId,
+        userId: wx.getStorageSync('user').userId,
+        commentContext: this.data.text,
+        commentType: 1
+      },
+      success(res) {
+        console.log(res)
+        if (res.data.status == 200) {
+          console.log("进入")
+          wx.navigateTo({
+            url: "../../estateDetails/estateDetails?id="+that.data.buildingId,
+          })
+        } else {
+          wx.showToast({
+            title: '提问失败',
+          })
+        }
+      },
+      fail() {
+        wx.showToast({
+          title: '提问失败',
+        })
+      }
+      
+    })
   },
 
   /**
