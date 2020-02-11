@@ -10,20 +10,20 @@
     </view>
     <view class="trends-right">
       <view class="trends-right-name">
-         <text>{{item.name}}</text>
-         <image src="../../../image/shou.png" class="action-image"/>
+         <text>{{item.user.nickName}}</text>
+         <image src="{{item.user.avataUrl}}" class="action-image"/>
       </view>
       <view class="trends-right-content">
-        {{item.content}}    
+        {{item.commentContext}}    
       </view>
       <view class="ff_anniu">
-      <view wx:for="{{imageList}}" wx:key="{{key}}"class="ff_item" >
-        <image src="{{item.img}}" class="img"/>
+      <view wx:for="{{item.imageList}}" wx:key="{{key}}"class="ff_item" >
+        <image src="{{item2.url}}" class="img"/>
       </view>
       </view>
       <view class="trends-right-time">
         {{item.time}}
-        <view class="cu-tag round bg-olive light" bindtap='reply'>回复</view>
+        <view class="cu-tag round bg-olive light" bindtap='reply' data-index="{{index}}">回复</view>
       </view>
     </view>
   </view>

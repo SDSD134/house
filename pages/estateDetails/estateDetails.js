@@ -5,6 +5,7 @@ Page({
   data: {
     x:1,
     y:1,
+    copyData:"",
     // 展开
      list01: [
       { 
@@ -233,9 +234,10 @@ Page({
     })
   },
   // 打电话
-  tel: function () {
+  tel: function (e) {
+    console.log(e.currentTarget.dataset.phone)
     wx.makePhoneCall({
-      phoneNumber: '15094597034',
+      phoneNumber: e.currentTarget.dataset.phone,
     })
   },
   // 选择
@@ -257,6 +259,19 @@ Page({
       title: isCollected ? '收藏成功' : '取消收藏',
       icon: 'success'
     })
+  },
+  //复制
+  copyBtn: function (e) {
+    var that = this;
+    wx.setClipboardData({
+      //去找上面的数据
+      data: that.data.copyData,
+      success: function (res) {
+        wx.showToast({
+          title: '复制成功',
+        });
+      }
+    });
   },
   // 订阅
   subscribeTo() {
@@ -283,13 +298,15 @@ Page({
     })
   },
   trendsDetail: function (e) {
+    let that = this
     wx.navigateTo({
-      url: '../estateDetails/trends/trends'
+      url: "../estateDetails/trends/trends?buildingId="+that.data.id+"&buildingName="+ that.data.buildingVo.buildingBaseInfo.buildingName
     })
   },
   comments: function (e) {
+    let that = this;
     wx.navigateTo({
-      url: '../estateDetails/comments/comments'
+      url: "../estateDetails/comments/comments?buildingId="+that.data.id
     })
   },
   goComments:function (e) {
@@ -313,14 +330,24 @@ Page({
     })
   },
   goAsk: function (e) {
+    let that = this
     wx.navigateTo({
-      url: '../estateDetails/goAsk/goAsk'
-    })
+      url: "../estateDetails/goAsk/goAsk?buildingId="+that.data.id+"&buildingName="+that.data.buildingVo.buildingBaseInfo.buildingName
+      })
   },
   toAsk: function (e) {
-    wx.navigateTo({
-      url: '../estateDetails/toAsk/toAsk'
+    let that = this
+    console.log(e.currentTarget.dataset.index)
+    wx.setStorage({
+      key: 'question',
+      data: this.data.askList[e.currentTarget.dataset.index],
+      success(res) {
+        wx.navigateTo({
+          url: "../estateDetails/toAsk/toAsk?commentId=" + that.data.askList[e.currentTarget.dataset.index].commentId+"&buildingName="+that.data.buildingVo.buildingBaseInfo.buildingName
+        })
+      }
     })
+    
   },
   estateDetails: function (e) {
     wx.navigateTo({
@@ -333,8 +360,16 @@ Page({
     })
   }, 
   reply: function (e) {
+    var comment= ""
+    for (let i = 0 ;i < this.data.comment.length;i++) {
+      if (this.data.comment[i].commentId == e.target.dataset.id ) {
+        comment = this.data.comment[i]
+        console.log(comment)
+        wx.setStorageSync('comment', comment)
+      }
+    }
     wx.navigateTo({
-      url: '../estateDetails/reply/reply'
+      url: '../estateDetails/reply/reply' 
     })
   },
 //  分享
@@ -645,7 +680,7 @@ Page({
       id:id
     })
     wx.request({
-      url: 'https://www.dikashi.top/house/upload/imageByDes',
+      url: 'http://localhost:8080/upload/imageByDes',
       data: {
         buildingId:id,
         description: '1',
@@ -656,14 +691,15 @@ Page({
         })
         console.log(that.data.swiperList)
         wx.request({
-          url: 'https://www.dikashi.top/house/upload/imageByDes',
+          url: 'http://localhost:8080/house/upload/imageByDes',
           data: {
             buildingId: id,
             description: '2',
           },
           success(res) {
+            console.log("户型图")
             that.setData({
-              swiperList: res.data.data
+              brand: res.data.data
             })
           }
         })
@@ -677,7 +713,7 @@ Page({
     userId = wx.getStorageSync('user').userId
     
     wx.request({
-      url: 'https://www.dikashi.top/house/building/buildingInfo?',
+      url: 'http://localhost:8080/building/buildingInfo?',
       data:{
         buildingId:this.data.id,
         userId:userId,
@@ -692,11 +728,13 @@ Page({
         if(res.data.status == 200 ){
           console.log("res")
           wx.request({
-            url: 'https://www.dikashi.top/house/user/getUser',
+            url: 'http://localhost:8080/assistantUser/list',
             data: {
-              userId: res.data.data.building.userId
+              buildingId: id
             },
             success(res) {
+              console.log("市场专员")
+              console.log(res.data)
               that.setData({
                 market: res.data.data
               })
@@ -704,16 +742,61 @@ Page({
             }
           }),
             wx.request({
+              url: 'http://localhost:8080/comment/getComment',
+              data: {
+                buildingId: that.data.id,
+                commentType: 2,
+                pageNum:1,
+                pageSize:2
+              },
+              success(resComment) {
+                console.log("公司动态")
+                console.log(resComment)
+                that.setData({
+                  trends: resComment.data.data
+                })
+              }
+            }),
+            wx.request({
             url: 'http://localhost:8080/comment/getComment',
               data: {
-                buildingId:'1',
-                commentType:1,
+                buildingId:that.data.id,
+                commentType:0,
               },
               success(resComment) {
                 console.log("测试")
                 console.log(resComment)
                 that.setData({
                   comment:resComment.data.data
+                })
+              }
+            }),
+            wx.request({
+              url: 'http://localhost:8080/comment/getComment',
+              data: {
+                buildingId: that.data.id,
+                commentType: 1,
+              },
+              success(question) {
+                console.log("测试")
+                console.log(question)
+                that.setData({
+                  askList: question.data.data
+                })
+              }
+            }),
+            wx.request({
+            url: 'http://localhost:8080/building/recentBuilding',
+              data: {
+                userId:wx.getStorageSync('user').userId,
+              //  country: that.data.buildingVo.buildingBaseInfo.buildingAddress,
+                country: "西安",
+              },
+              success(question) {
+                console.log("最近楼盘")
+                console.log(question)
+                that.setData({
+                  list: question.data.data
                 })
               }
             })

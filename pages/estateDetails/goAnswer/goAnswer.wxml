@@ -6,7 +6,7 @@
 <view class="ask-all">
     <view class="ask-top-to">
       <text  class="ask-to" ><text class="ask">问</text> </text>
-      <text class="ask-text">现在怎么样啊？过的好吗？</text>
+      <text class="ask-text">{{commentContext}}？</text>
     </view>
 </view>
 <view class="cu-form-group margin-top">
@@ -14,7 +14,7 @@
 </view>
 <!-- 提交按钮 -->
    <view>
-    <button type="primary" form-type="submit" class='btn'>
+    <button type="primary" form-type="submit" class='btn' bindtap="replyQuestion">
       <image class='btnImg' src='../../../image/00.gif'></image>
       <view>提交</view>
     </button>

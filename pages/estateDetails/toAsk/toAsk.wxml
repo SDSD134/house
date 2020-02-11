@@ -5,13 +5,13 @@
   <view class="ask-all">
     <view class="ask-top-to">
       <text  class="ask-to" ><text class="ask">问</text> </text>
-      <text class="ask-text">现在怎么样啊？过的好吗？</text>
+      <text class="ask-text">{{question.commentContext}}</text>
     </view>
   </view>
   <view class="answer-all">
     <view class="answer">
-      <view class="answer-left">提问人：孙宁</view>
-      <view class="answer-right">2019-11-11 17：24：38</view>
+      <view class="answer-left">{{question.user.nickName}}</view>
+      <view class="answer-right">{{question.createTime}}</view>
     </view>
   </view>
   <view class="divLine-all">
@@ -19,28 +19,28 @@
   </view>
   <view class="build-all">
     <view class="build">
-      <view class="build-left">楼盘：临水佳韵</view>
+      <view class="build-left">楼盘：{{buildingName}}</view>
       <view class="build-right">></view>
     </view>
   </view>
   <view class="cu-form-group margin-top">
-		<view class="title">全部回答（共2条）</view>
+		<view class="title">全部回答（共{{size}}条）</view>
 	</view>
   <view class="trends-all"wx:for="{{comment}}" wx:key="{{key}}">
   <view class="trends" >
     <view class="trends-left">
-      <image src="../../../image/26.jpg"/>
+      <image src="{{item.user.avatarUrl}}"/>
     </view>
     <view class="trends-right">
       <view class="trends-right-name">
-         <text>{{item.name}}</text>   
+         <text>{{item.user.nickName}}</text>   
       </view>
       <view class="trends-right-content">
-        {{item.content}}    
+        {{item.replyContext}}    
       </view>
       <view class="trends-right-time">
-        <text>{{item.time}}</text>
-         <image src="../../../image/shou.png" class="action-image"/>
+        <text>{{item.createTime}}</text>
+         <!-- <image src="../../../image/shou.png" class="action-image"/> -->
       </view>
     </view>
   </view>

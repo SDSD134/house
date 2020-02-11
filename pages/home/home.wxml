@@ -41,6 +41,7 @@
 </view> -->
 <!-- 选择 -->
 <view id='tabs'>
+<<<<<<< HEAD
   <!-- <view class='tabs-box'>
     <block wx:for="{{['全部','诚信联盟','恒房通','凤凰通','万科家','融创通','福利好房']}}" wx:key="index">
       <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
@@ -48,6 +49,9 @@
       </view>
     </block>
   </view> -->
+=======
+
+>>>>>>> 360ed4994f3c0fdd7daea97328baab23feac60e4
     <view class='tabs-box'>
     <!-- <scroll-view scroll-x class="scroll-header"> -->
    <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'wx:for="{{btns}}" wx:key="index">
@@ -55,6 +59,10 @@
    </view>
     <!-- </scroll-view> -->
  </view>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 360ed4994f3c0fdd7daea97328baab23feac60e4
 <!-- 选择对应页面 -->
   <view class='ordert-detail'>
     <view hidden='{{currentTabIndex != 0}}'>

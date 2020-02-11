@@ -10,20 +10,20 @@
     </view>
     <view class="trends-right">
       <view class="trends-right-name">
-         <text>{{item.name}}</text>
+         <text>{{item.user.nickname}}</text>
          <image src="../../../image/shou.png" class="action-image"/>
       </view>
       <view class="trends-right-content">
-        {{item.content}}    
+        {{item.commentContext}}    
       </view>
       <view class="ff_anniu">
-      <view wx:for="{{imageList}}" wx:key="{{key}}"class="ff_item" >
-        <image src="{{item.img}}" class="img"/>
+      <view wx:for="{{imageList}}" wx:key="{{key}}" class="ff_item" >
+        <image src="{{item.url}}" class="img"/>
       </view>
       </view>
       <view class="trends-right-time">
-        {{item.time}}
-        <view class="cu-tag round bg-olive light" bindtap='reply'>回复</view>
+        {{item.createTime}}
+        <!-- <view class="cu-tag round bg-olive light" bindtap='reply'>回复</view> -->
       </view>
     </view>
   </view>
@@ -32,7 +32,7 @@
     <view class="divLine"></view>
   </view>
 
- <view class="trends-all-too"wx:for="{{comment}}" wx:key="{{key}}">
+ <view class="trends-all-too"wx:for="{{reply}}" wx:key="{{key}}">
    <view class="trends-too">
     <view class="trends-left-too">
       <image src="../../../image/26.jpg"/>
@@ -60,10 +60,10 @@
   <view class="oblong-float">
     <view class="cu-bar search bg-white">
       <view class="search-form round">
-        <input type="text" placeholder="请输入内容" confirm-type="search"></input>
+        <input type="text" placeholder="请输入内容" confirm-type="search" bindinput="replyInput"></input>
       </view>
       <view class="action">
-        <button class="cu-btn bg-blue shadow-blur round">回复</button>
+        <button class="cu-btn bg-blue shadow-blur round" bindtap='replyComment'>回复</button>
       </view>
     </view>
   </view>

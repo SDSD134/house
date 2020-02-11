@@ -7,7 +7,7 @@
   <view class="cu-item {{menuArrow?'arrow':''}}">
       <view class="content">
          <text class="cuIcon-btn text-olive"></text>
-        <text class="text-grey">项目：临水家园</text>
+        <text class="text-grey">项目：{{buildingName}}</text>
       </view>
   </view>
 </view>
@@ -16,7 +16,7 @@
 </view>
 <!-- 提交按钮 -->
    <view>
-    <button type="primary" form-type="submit" class='btn'>
+    <button type="primary" form-type="submit" class='btn' bindtap="ask">
       <image class='btnImg' src='../../../image/00.gif'></image>
       <view>我要提问</view>
     </button>

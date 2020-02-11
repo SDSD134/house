@@ -51,6 +51,10 @@ Component({
         title: '诚信联盟'
       }
     ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> 360ed4994f3c0fdd7daea97328baab23feac60e4
     selectAverage:"",
     selectRegion:"",
     selectCountPrice:"",

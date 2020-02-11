@@ -24,20 +24,83 @@ Page({
         time: '201-11-11 15：33：33 '
       },
     ],
-    replyContext: ''
+    replyContext: '',
+    reply:[],
+    superReply:[],
 
   },
+  //回复评论内容
   reply: function (e) {
     let that = this
     wx.request({
-      url: '',
+      url: 'http://localhost:8080/comment/reply',
       method:'GET',
       data:{
-        replyContext: that.data.replyContext
+        commentId:that.data.commentId,
+        userId:wx.getStorageSync('user').userId,
+        superReplyId:that.data.superReply.superReplyId,
+        superReplyUserId: that.data.superReply.superReplyId,
+        replyContext: that.data.replyContext,
+
+      },
+      success(res) {
+        wx.setStorage({
+          key: 'comment',
+          data: that.data.comment,
+          success: function (res2) {
+            wx.navigateTo({
+              url: '../reply/reply'
+            })
+           },
+        }) 
+      },
+      fail(res) {
+        wx.showToast({
+          title: '评论失败',
+        })
+      }
+    })
+    
+  
+  },
+  //回复
+  replyComment:function(e) {
+    let that = this
+    wx.request({
+      url: 'http://localhost:8080/comment/reply',
+      method: 'GET',
+      data: {
+        commentId: that.data.commentId,
+        userId: wx.getStorageSync('user').userId,
+        replyContext: that.data.replyContext,
+
+      },
+      success(res) {
+        wx.setStorage({
+          key: 'comment',
+          data: that.data.comment,
+          success: function (res2) {
+            wx.navigateTo({
+              url: '../reply/reply'
+            })
+          },
+        })
+      },
+      fail(res) {
+        wx.showToast({
+          title: '评论失败',
+        })
       }
     })
     wx.navigateTo({
       url: '../reply/reply'
+    })
+
+  },
+  replyInput:function(e) {
+   
+    this.setData({
+      replyContext: e.detail.value
     })
   },
 
@@ -45,7 +108,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    wx.getStorage({
+      key: 'comment',
+      success: function(res) {
+        var comment = []
+        comment.push(res.data)
+        console.log(res.data)
+        that.setData({
+          comment:comment
+        })
+        console.log(that.data.comment)
+        wx.removeStorage({
+          key: 'comment',
+          success: function(res) {},
+        })
+      },
+    })
+   
+    
   },
 
   /**
