@@ -30,8 +30,37 @@ page{
 }
 
 .prompt {
-  margin-top: 250px;
+  margin-top: 200px;
 }
 .detail{
   color:blue;
+}
+/* 提现 */
+.oblong-float{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+  z-index: 9999;
+  border-radius:10px;
+}
+.oblong-float-in{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:90%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background-color: #DD0791;
+   border-radius:10px;
+}
+.invite{
+  font-size:20px;
 }

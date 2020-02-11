@@ -33,10 +33,30 @@ Component({
     },
   },
   data: {
+<<<<<<< HEAD
+    btns: [
+      {
+        title: '全部'
+      },
+      {
+        title: '诚信联盟'
+      },
+      {
+        title: '诚信联盟'
+      },
+      {
+        title: '诚信联盟'
+      },
+      {
+        title: '诚信联盟'
+      }
+    ],
+=======
     selectAverage:"",
     selectRegion:"",
     selectCountPrice:"",
     selectCharacter:"",
+>>>>>>> 11386637902b4c37f6aae795d19debb2ca95c4ff
     select: false,
     currentTabIndex: 0,
     isCollected: false,

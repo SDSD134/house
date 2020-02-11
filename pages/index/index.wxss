@@ -126,11 +126,6 @@ page{
   display:flex;
   position:relative;    
   top:35px;
-  -webkit-flex-direction:column;
-  -moz-flex-direction:column;
-  -ms-flex-direction:column;
-  -o--flex-direction:column; 
-  flex-direction: column;
 
 }
 .browse-item{
@@ -516,13 +511,35 @@ padding-top: 20rpx;
   color:#9FA5B0;
 }
 .title-swap{  
-  font-size:23rpx;
+  font-size:21rpx;
   height:15px;
-  width:30px;
+  width:34px;
   color:white;
   background-color: #3F87FC;
   display:flex;
   align-items:center;
   justify-content:center;
 
+}
+.no-browse-all{
+  height:100rpx;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+   position:relative;    
+  top:35px;
+}
+.no-browse{
+  height:100rpx;
+  width:80%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#9FA5B0;
+}
+.btnImg {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
 }

@@ -447,9 +447,11 @@
         <!-- 代理 -->
         <view class="agent-all">
           <view class="agent">
-            <image style='height:20rpx;width:20rpx;' src='../../image/down.png'></image>
-            <text>代理公司 | {{item.factory}}</text>
-          </view>
+            <view class="agent-in">
+              <image style='height:20rpx;width:20rpx;' src='../../image/detail.png'></image>
+              <text>代理公司 | {{item.factory}}</text>
+            </view>
+           </view>
         </view>
          <view class="deline"></view>
       </view>

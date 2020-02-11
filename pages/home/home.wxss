@@ -211,5 +211,12 @@ page{
   height:5px;
  background:#EEEEEE;
 }
+/* 滑动 */
+.scroll-header{
+display: flex;
+white-space: nowrap;
+position:relative;    
+top:45px;
+}
 /* 弹框 */
 @import "../../wxPop/wxPop.wxss";

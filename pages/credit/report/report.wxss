@@ -1,6 +1,10 @@
 /* pages/credit/report/report.wxss */
+page{
+ background-color:white;
+}
+
 .report-all{
-  background:pink;
+  background:white;
   height:500px;
   width:100%;
 }

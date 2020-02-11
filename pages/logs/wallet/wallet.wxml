@@ -14,4 +14,9 @@
     <view>2.提现申请提交后，工作人员将在24小时内与您联系</view>
   </view>
 </view>
-
+<!-- 提现 -->
+<view class="oblong-float" bindtap='withdrawals'>
+    <view class="oblong-float-in">
+        <text class="invite">提现</text>
+    </view>
+  </view>
