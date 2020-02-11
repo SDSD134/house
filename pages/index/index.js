@@ -47,7 +47,7 @@ Component({
     },
   },
   data: {
-    x:1,
+    x:0,
     //轮播图配置
     autoplay: true,
     interval: 3000,
