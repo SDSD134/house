@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    diarylength: 0,
+    diarylength: 1,
     isCollected: true,
     list: [
       {

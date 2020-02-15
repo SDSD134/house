@@ -8,16 +8,15 @@
 }
 .trends{
  display:flex;
- align-items:center;
- justify-content:center;
- 
+ /* align-items:center; */
+ /* justify-content:center; */
  width:90%;
 }
 .trends-left{
   width:20%;
-  height:215px;
+  /* height:215px; */
   position:relative;    
-  top:20px;
+  top:10px;
 }
 
 .trends-left image{

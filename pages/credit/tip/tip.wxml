@@ -1,0 +1,111 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+</cu-custom>
+ <!-- 搜索  -->
+    <view class="search">
+      <view class="search-in">
+         <image src="../../../image/search.png"></image>
+         <input class="input" placeholder="请输入项目名称或公司名"/>
+      </view>
+   </view>
+<!-- 选择 -->
+<view id='tabs'>
+  <view class='tabs-box'>
+    <block wx:for="{{['审核中','审核通过','审核失败']}}" wx:key="index">
+      <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+        {{item}}      
+      </view>
+    </block>
+  </view>
+
+<!-- 选择对应页面 -->
+  <view class='ordert-detail'>
+    <view hidden='{{currentTabIndex != 0}}'>
+       <view wx:if="{{diarylength==0}}">
+        <view class="container">
+          <image src="../../../image/00.jpg"> </image>
+          <text>还没有记录哦！</text>
+        </view>
+      </view>
+      <!-- 判断--有权限 -->
+    <view wx:else>
+       <view class="cu-list menu-avatar">
+        <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{list}}" wx:key  data-target="move-box-{{index}}">
+          <view class="cu-avatar radius lg" >
+              <image src="../../../image/wait.png"class="img"></image>
+          </view>
+          <view class="content">
+            <view class="text-grey">{{item.title}}</view>
+            <view class="text-gray text-sm">
+              亲，耐心等待哟~
+            </view>
+          </view>
+          <view class="action">
+            <view class="cu-tag round bg-blue light" bindtap = "delItem">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    </view>
+    <view hidden='{{currentTabIndex != 1}}'>
+     <view wx:if="{{diarylength01==0}}">
+        <view class="container">
+          <image src="../../../image/00.jpg"> </image>
+          <text>还没有记录哦！</text>
+        </view>
+      </view>
+      <!-- 判断--有权限 -->
+    <view wx:else>
+      <view class="cu-list menu-avatar">
+        <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{listOne}}" wx:key  data-target="move-box-{{index}}">
+          <view class="cu-avatar radius lg" >
+              <image src="../../../image/true.png"class="img"></image>
+          </view>
+          <view class="content">
+            <view class="text-grey">{{item.title}}</view>
+            <view class="text-gray text-sm">
+              恭喜您的举报通过了！
+            </view>
+          </view>
+          <view class="action">
+            <view class="cu-tag round bg-olive light" bindtap = "delItem">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    </view>
+    <view hidden='{{currentTabIndex != 2}}'>
+     <view wx:if="{{diarylength02==0}}">
+        <view class="container">
+          <image src="../../../image/00.jpg"> </image>
+          <text>还没有记录哦！</text>
+        </view>
+      </view>
+      <!-- 判断--有权限 -->
+    <view wx:else>
+        <view class="cu-list menu-avatar">
+        <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{listTwo}}" wx:key  data-target="move-box-{{index}}">
+          <view class="cu-avatar radius lg" >
+              <image src="../../../image/false.png"class="img"></image>
+          </view>
+          <view class="content">
+            <view class="text-grey">{{item.title}}</view>
+            <view class="text-gray text-sm">
+              {{item.reason}}
+            </view>
+          </view>
+          <view class="action">
+            <view class="cu-tag round bg-orange light" bindtap = "delItem">删除</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    </view>
+  </view>
+</view>
+<!-- 我要举报 -->
+  <view class="oblong-float" bindtap='report'>
+    <view class="oblong-float-in">
+        <text class="invite">我要举报</text>
+    </view>
+  </view>

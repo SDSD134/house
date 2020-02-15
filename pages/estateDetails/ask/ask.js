@@ -18,6 +18,11 @@ Page({
     ],
 
   },
+  estateDetails: function (e) {
+    wx.navigateTo({
+      url: '../../estateDetails/estateDetails'
+    })
+  },
   toAsk: function (e) {
     wx.navigateTo({
       url: '../../estateDetails/toAsk/toAsk'

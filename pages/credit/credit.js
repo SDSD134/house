@@ -41,6 +41,11 @@ Page({
       url: '../credit/report/report'
     })
   },
+  tip: function (e) {
+    wx.navigateTo({
+      url: '../credit/tip/tip'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

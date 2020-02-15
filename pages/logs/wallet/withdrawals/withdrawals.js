@@ -5,9 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    picker: ['微信', '支付宝'],
 
   },
-
+  PickerChange(e) {
+    console.log(e);
+    this.setData({
+      index: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

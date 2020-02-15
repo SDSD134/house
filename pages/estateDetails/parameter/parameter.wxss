@@ -61,14 +61,14 @@
 
 .information-fourth{
   background-color: white;
-  height:100px;
+  height:200px;
   width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 .around{
-  height:100px;
+  height:200px;
   width:90%;
 }
 .around-title{

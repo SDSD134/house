@@ -39,9 +39,31 @@
       </view>
       <!-- 判断--有权限 -->
     <view wx:else>
+    <view class="list-all"  wx:for="{{list}}" wx:key>
+       <view class="list margin-top">
+          <view class="list-left">
+            <view class="list-left-in">
+              <view class="list-left-one">当前状态：<text>{{item.result}}</text></view>
+              <view class="list-left-two">客户姓名：{{item.name}}</view>
+              <view class="list-left-three">联系电话：（{{tools.sub(item.phone, 3, 4)}}）</view>
+              <view class="list-left-four">楼盘名称：{{item.buildname}}</view>
+              <view class="list-left-five">报备时间：{{item.time}}</view>
+            </view>
+          </view>
+          <view class="list-right">
+             <view class="list-right-one"><image src="{{item.imgArr}}"> </image></view>
+            <view class="list-right-two">{{item.detail}}（对接人）</view>
+            <view class="list-right-three"><image src="../../../image/phone.png"> </image></view>
+          </view>
+       </view>
+       <view class="detail">代理公司：{{item.address}}</view>
+       <view class="detail">
+          <view class="deline"></view>
+       </view>
     </view>
     </view>
-    <view hidden='{{currentTabIndex != 1}}'></view>
+    </view>
+    <view hidden='{{currentTabIndex != 1}}'>
      <view wx:if="{{diarylength01==0}}">
         <view class="container">
           <image src="../../../image/00.jpg"> </image>
@@ -50,12 +72,37 @@
       </view>
       <!-- 判断--有权限 -->
     <view wx:else>
+       <view class="list-all"  wx:for="{{list01}}" wx:key>
+       <view class="list margin-top">
+          <view class="list-left">
+            <view class="list-left-in">
+              <view class="list-left-one">当前状态：<text>{{item.result}}</text></view>
+              <view class="list-left-two">客户姓名：{{item.name}}</view>
+              <view class="list-left-three">联系电话：（{{tools.sub(item.phone, 3, 4)}}）</view>
+              <view class="list-left-four">楼盘名称：{{item.buildname}}</view>
+              <view class="list-left-five">报备时间：{{item.time}}</view>
+            </view>
+          </view>
+          <view class="list-right">
+             <view class="list-right-one"><image src="{{item.imgArr}}"> </image></view>
+            <view class="list-right-two">{{item.detail}}（对接人）</view>
+            <view class="list-right-three"><image src="../../../image/phone.png"> </image></view>
+          </view>
+       </view>
+       <view class="detail">代理公司：{{item.address}}</view>
+       <view class="detail">
+          <view class="deline"></view>
+       </view>
     </view>
+    </view>
+  </view>
   </view>
 </view>
 <!-- 返回首页 -->
-<navigator url="../../index/index">
+<!-- <navigator url="../../index/index">
     <view class="circle-float">
       <image src="../../../image/write.png"/>
     </view>
-</navigator>
+</navigator> -->
+<!-- 手机号覆盖 -->
+<wxs src="../../../utils/subutil.wxs" module="tools"></wxs>

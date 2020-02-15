@@ -3,7 +3,7 @@
     <view slot="content">提问</view>
 </cu-custom>
 <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
-  <view class="cu-item {{menuArrow?'':'arrow'}}">
+  <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='estateDetails'>
       <view class="content">
          <text class="cuIcon-btn text-olive"></text>
         <text class="text-grey">楼盘:临水家园</text>

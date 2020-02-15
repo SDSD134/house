@@ -18,7 +18,7 @@
     <view class="divLine"></view>
   </view>
   <view class="build-all">
-    <view class="build">
+    <view class="build" bindtap='estateDetails'>
       <view class="build-left">楼盘：{{buildingName}}</view>
       <view class="build-right">></view>
     </view>

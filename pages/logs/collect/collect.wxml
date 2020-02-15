@@ -22,34 +22,40 @@
 <!-- 判断--有数据 -->
 <view wx:else>
   <view wx:for="{{list}}" wx:key="{{index}}">
-          <view class="list-all">
-            <view class="list-second">
-              <image src="{{item.imgArr}}"/>
-              <view class="list-right">
-                  <view class="title-all">
-                    <view class="title"><text class="title-logn">在售</text> {{item.title}}</view>
-                    <view class="collect">
-                        <image  catchtap='handleCollection' wx:if="{{!isCollected}}" src="../../../image/shou.png"></image>
-                        <image catchtap='handleCollection' wx:if="{{isCollected}}" src="../../../image/shou1.png"></image>
-                    </view>
+  <view class="cu-item"> 
+        <view class="list-all" bindtap='estateDetails'>
+          <view class="list-second">
+            <image src="{{item.imgArr}}"/>
+            <view class="list-right">
+                <view class="title-all">
+                  <view class="title">
+                    <text class="title-logn">在售</text> 
+                    <text class="title-title">{{item.buildingName}}</text>
                   </view>
-                  <text class="list-right-text">{{item.show}} | {{item.city}}</text>
-                  <view class="list-right-in">
-                    <view>{{item.money1}}万/套</view>
-                    <view>{{item.money2}}万元/m^2</view>
+                  <view class="collect">
+                      <image  catchtap='handleCollection' wx:if="{{!isCollected}}" src="../../../image/shou.png"></image>
+                      <image catchtap='handleCollection' wx:if="{{isCollected}}" src="../../../image/shou1.png"></image>
                   </view>
-                  <view class="list-right-last">{{item.type}}</view>
-              </view>
+                </view>
+                <text class="list-right-text">{{item.show}} | {{item.city}}</text>
+                <view class="list-right-in">
+                  <view>{{item.countPrice}}万/套</view>
+                  <view>{{item.averagePrice}}万元/m<sup>2</sup></view>
+                </view>
+                <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
           </view>
-          <!-- 代理 -->
-          <view class="agent-all">
-            <view class="agent">
-              <image style='height:20rpx;width:20rpx;' src='../../../image/down.png'></image>
+        </view>
+        <!-- 代理 -->
+        <view class="agent-all">
+          <view class="agent">
+            <view class="agent-in">
+              <image style='height:20rpx;width:20rpx;' src='../../../image/detail.png'></image>
               <text>代理公司 | {{item.factory}}</text>
             </view>
-          </view>
-          <!-- 分割线 -->
-          <!-- <view class="divLine"></view> -->
-    </view>
+           </view>
+        </view>
+         <view class="deline"></view>
+      </view>
+     </view>
   </view>

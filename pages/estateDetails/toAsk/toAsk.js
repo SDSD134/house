@@ -28,6 +28,11 @@ Page({
     size:''
 
   },
+  estateDetails: function (e) {
+    wx.navigateTo({
+      url: '../../estateDetails/estateDetails'
+    })
+  },
   goAsk: function (e) {
     console.log(this.data.question)
     let that = this 

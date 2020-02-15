@@ -113,7 +113,7 @@
               </view>
               <view class="scroll-header-right-bottom">
                  <view class="scroll-header-bottom-city">{{item.buildingProvince}}</view>
-                 <view class="scroll-header-bottom-money">{{item.countPrice}}元/m^2</view>
+                 <view class="scroll-header-bottom-money">{{item.countPrice}}元/m<sup>2</sup></view>
               </view >
               <!-- <view class="scroll-header-right-bottom">
                  <view class="scroll-header-bottom-prompt">最近三天，浏览过该楼盘</view>
@@ -205,7 +205,7 @@
                 <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
                   <view>{{item.averagePrice}}万/套</view>
-                  <view>{{item.countPrice}}万元/m^2</view>
+                  <view >{{item.countPrice}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
                 <!-- <view class="list-right-last">{{item.type}}</view> -->
@@ -235,7 +235,7 @@
                    <view>均价：待定</view>
                   </view>
                   <view wx:elif="{{item.countPrice!=null}}">
-                    <view>{{item.countPrice}}万元/m^2</view>
+                    <view>{{item.countPrice}}万元/m<sup>2</sup></view>
                   </view>
                 </view>
                 <view wx:if="{{item.buildingSign== '' }}">
@@ -266,7 +266,7 @@
                 <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
                   <view>{{item.averagePrice}}万/套</view>
-                  <view>{{item.countPrice}}万元/m^2</view>
+                  <view>{{item.countPrice}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
                 <!-- <view class="list-right-last">{{item.type}}</view> -->
@@ -287,7 +287,7 @@
                 <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
                   <view>{{item.averagePrice}}万/套</view>
-                  <view>{{item.countPrice}}万元/m^2</view>
+                  <view>{{item.countPrice}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
@@ -307,7 +307,7 @@
                 <text class="list-right-text">{{item.isShow}} | {{item.buildingAddress}}</text>
                 <view class="list-right-in">
                   <view>{{item.averagePrice}}万/套</view>
-                  <view>{{item.countPrice}}万元/m^2</view>
+                  <view>{{item.countPrice}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>

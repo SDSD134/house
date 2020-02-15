@@ -11,10 +11,12 @@
     <view class="trends-right">
       <view class="trends-right-name">
          <text>{{item.user.nickName}}</text>
+         <!-- <text>{{item.name}}</text> -->
          <image src="{{item.user.avataUrl}}" class="action-image"/>
       </view>
       <view class="trends-right-content">
         {{item.commentContext}}    
+        <!-- {{item.content}} -->
       </view>
       <view class="ff_anniu">
       <view wx:for="{{item.imageList}}" wx:key="{{key}}"class="ff_item" >

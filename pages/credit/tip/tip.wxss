@@ -55,6 +55,10 @@
 
 }
  /* 选择对应页面 */
+  .ordert-detail{
+  
+
+  }
 
 .scroll-header{
 display: flex;
@@ -72,26 +76,7 @@ align-items: center;
   align-items: center;
   justify-content: center;
 }
-/* 返回首页 */
-.circle-float{
-  color: #ffffff;
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 200rpx;
-  right: 20rpx;
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;
-  font-size: 28rpx;
-  
-}
-.circle-float image{
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-}
+
 
 /* 没有记录 */
 .container {
@@ -110,106 +95,40 @@ align-items: center;
 .container text{
   font-size:15px;
   color:#979797;
-  
 }
-/* 列表 */
-.list-all{
-  height:130px;
-  width:100%;
-}
-.list{
-  height:100px;
-  width:100%;
+/* 我要举报 */
+.oblong-float{
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-   color:#545454;
+  bottom: 0rpx;
+  width:100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  background-color: white;
+  z-index: 9999;
+  border-radius:10px;
 }
-.list-left{
-  height:90px;
-  width:65%;
+.oblong-float-in{
+  color: #ffffff;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  width:90%;
+  height: 90rpx;
+  font-size: 28rpx;
+  background-color: #DD4F43;
+   border-radius:10px;
 }
-.left-left-in{
-   height:90px;
-   width:90%;
+.invite{
+  font-size:20px;
 }
-.list-left-one{
-  height:18px;
+.img{
   width:100%;
+  height:100%;
 }
-.list-left-one text{
-  height:18px;
-  /* width:30px; */
-  background:#8BC53F;
-  color:antiquewhite;
-
-}
-.list-left-two{
-  height:18px;
-  width:100%;
-}
-.list-left-three{
-  height:18px;
-  width:100%;
-}
-.list-left-four{
-  height:18px;
-  width:100%;
-}
-.list-left-five{
-  height:18px;
-  width:100%;
-}
-.list-right{
-  height:90px;
-  width:35%;
-}
-.list-right-one{
-  height:50px;
-  width:100%;
-   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.list-right-one image{
-   border-radius: 50%;
-   height:30px;
-   width:30px;
-
-}
-.list-right-two{
-  height:10px;
-  width:100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.list-right-three{
-  height:30px;
-  width:100%;
-   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.list-right-three image{
-  height:20px;
-  width:20px;
-}
-
-.detail{
-   color:#979797;
-  height:15px;
-  width:100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.deline{
-  height:3px;
-  width:100%;
-  background:#E9E9E9;
+.lg{
+  background:white;
 }

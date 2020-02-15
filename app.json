@@ -55,7 +55,9 @@
     "pages/logs/alreadyJoin/alreadyJoin",
     "pages/estateDetails/goAnswer/goAnswer",
     "pages/logs/joinSuccess/joinSuccess",
-    "pages/logs/wallet/withdrawals/withdrawals"
+    "pages/logs/wallet/withdrawals/withdrawals",
+    "pages/credit/tip/tip",
+    "pages/estateDetails/map/map"
   ],
   "permission": {
     "scope.userLocation": {

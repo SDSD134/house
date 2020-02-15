@@ -5,76 +5,70 @@ Page({
    * 页面的初始数据
    */
   data: {
-    diarylength:0,
-    diarylength01:0,
+    diarylength:1,
+    diarylength01:1,
     currentTabIndex: 0,
-    typelist:[
-      {
-        type:'报备',
-        number:'0'
-      },
-      {
-        type: '到访',
-        number: '0'
-      },
-      {
-        type: '认筹',
-        number: '0'
-      },
-      {
-        type: '成交',
-        number: '0'
-      },
-      {
-        type: '签约',
-        number: '0'
-      },
-      {
-        type: '结佣',
-        number: '0'
-      },
-      {
-        type: '退筹',
-        number: '0'
-      },
-      {
-        type: '退房',
-        number: '0'
-      },
-      {
-        type: '跟进',
-        number: '0'
-      }
-    ],
+    
     list: [
       {
+        result:'未处理',
+        name:'小孙',
+        phone:'15090907023',
+        buildname:'临水家园',
+        time:'2019-11-11',
         imgArr: '../../../image/27.jpg',
-        title: '嘉兴有限科技公司',
-        score: '9.7',
-        number: '8',
-        person: '1111',
+        detail:'小孙',
+        address:'哈尔滨责任有限公司'
+  
 
       },
       {
+        result: '未处理',
+        name: '小孙',
+        phone: '15090907023',
+        buildname: '临水家园',
+        time: '2019-11-11',
         imgArr: '../../../image/27.jpg',
-        title: '嘉兴有限科技公司',
-        score: '9.7',
-        number: '8',
-        person: '1111',
+        detail: '小孙',
+        address: '哈尔滨责任有限公司'
+
+
       },
       {
+        result: '未处理',
+        name: '小孙',
+        phone: '15090907023',
+        buildname: '临水家园',
+        time: '2019-11-11',
         imgArr: '../../../image/27.jpg',
-        title: '嘉兴有限科技公司',
-        score: '9.7',
-        number: '8',
-        person: '1111',
+        detail: '小孙',
+        address: '哈尔滨责任有限公司'
+
+
       },
       {
+        result: '未处理',
+        name: '小孙',
+        phone: '15090907023',
+        buildname: '临水家园',
+        time: '2019-11-11',
         imgArr: '../../../image/27.jpg',
-        title: '嘉兴有限科技公司',
-        score: '9.7',
-        number: '8',
-        person: '1111',
+        detail: '小孙',
+        address: '哈尔滨责任有限公司'
+
+
+      }
+    ],
+    list01: [
+      {
+        result: '未处理',
+        name: '小孙',
+        phone: '15090907023',
+        buildname: '临水家园',
+        time: '2019-11-11',
+        imgArr: '../../../image/27.jpg',
+        detail: '小孙',
+        address: '哈尔滨责任有限公司'
       }
     ]
 

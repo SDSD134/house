@@ -38,7 +38,7 @@
         <text class="list-record">无举报记录  </text>
         <text>{{item.time}}</text>
         </view>
-        <view class="list-fourth-right">我要举报</view>
+        <view class="list-fourth-right" bindtap="report">我要举报</view>
     </view>
   </view>
 </view>

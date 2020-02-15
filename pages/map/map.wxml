@@ -2,16 +2,26 @@
   <view slot="backText">返回</view>
   <view slot="content">地图定位</view>
 </cu-custom>
-<view class="page-body">
-<view class="page-section page-section-gap">
-    <map
-      id="myMap"
-      style="width: 100%; height: 450px;"
-      latitude="{{latitude}}"
-      longitude="{{longitude}}"
-      markers="{{markers}}"
-      covers="{{covers}}"
-      show-location
-    ></map>
+
+       <view class="page-body">
+        <view class="page-section page-section-gap">
+            <map
+              id="myMap"
+              style="width: 100%; height: 420px;"
+              latitude="{{latitude}}"
+              longitude="{{longitude}}"
+              markers="{{markers}}"
+              covers="{{covers}}"
+              show-location
+            ></map>
+          </view>
+        </view>
+<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
+      <view  bindtap='onTabsItemTap' data-index='{{index}}'>
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+      </view>
+    </view>
   </view>
-</view>

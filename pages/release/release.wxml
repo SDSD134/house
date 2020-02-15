@@ -119,7 +119,7 @@
  
  <view class="cu-form-group">
 		<view class="title">均价（选填）</view>
-		<input placeholder="请填写均价" type="digit" confirm-type="done" bindinput="avapriceInput"name="avaprice"></input>元/m^2
+		<input placeholder="请填写均价" type="digit" confirm-type="done" bindinput="avapriceInput"name="avaprice"></input>元/m<sup>2</sup>
 	</view>
 
   <view class="cu-form-group">
@@ -171,11 +171,11 @@
 	</view>
   <view class="cu-form-group">
     <view class="title">占地面积</view>
-    <input placeholder="请填写占地面积" type="digit" confirm-type="done" name="area" bindinput="groundAreaInput"></input>m^2
+    <input placeholder="请填写占地面积" type="digit" confirm-type="done" name="area" bindinput="groundAreaInput"></input>m<sup>2</sup>
   </view>
    <view class="cu-form-group">
   <view class="title">户型面积</view>
-    <input placeholder="请填写户型面积" type="digit" confirm-type="done" name="homearea" bindinput="houseAreaInput"></input>m^2
+    <input placeholder="请填写户型面积" type="digit" confirm-type="done" name="homearea" bindinput="houseAreaInput"></input>m<sup>2</sup>
   </view>
 
 <!-- <view class="cu-form-group">

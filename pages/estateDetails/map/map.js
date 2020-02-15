@@ -1,43 +1,11 @@
-// pages/logs/consult/consult.js
+// pages/estateDetails/map/map.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    diarylength:1,
-    list: [
-      {
-        name: '黄小虎',
-        phone: '15765555432',
-        plate: '独立经纪人',
-        content: '临水家园',
-        time: '2019.11.12',
-        place: '浙江嘉兴市'
-      },
-      {
-        name: '黄小虎',
-        phone: '15765555432',
-        plate: '独立经纪人',
-        content: '临水家园',
-        time: '2019.11.12',
-        place: '浙江嘉兴市'
-      }, 
-      {
-        name: '黄小虎',
-        phone: '15765555432',
-        plate: '独立经纪人',
-        content: '临水家园',
-        time: '2019.11.12',
-        place: '浙江嘉兴市'
-      }
-    ]
 
-  },
-  report: function (e) {
-    wx.navigateTo({
-      url: '../../credit/report/report'
-    })
   },
 
   /**

@@ -401,7 +401,7 @@ height:30px;
   background-color:white;
 }
 .kong{
-  height:100px;
+  height:40px;
   width:100%;
   background-color:white;
   }
@@ -647,4 +647,9 @@ align-items: center;
 }
 .padding{
   background:white;
+}
+/* 平方 */
+sup{
+     font-size: 7px;
+     vertical-align:text-top;
 }

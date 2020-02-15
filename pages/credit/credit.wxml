@@ -36,7 +36,7 @@
     </view>
    </view>
    <!-- 最新要举报 -->
-   <view class="report margin-top">
+   <view class="report margin-top" bindtap="tip">
      <view class="report-left">
         <text>最新举报</text>
      </view>

@@ -125,6 +125,8 @@ Page({
       color: 'cyan',
       name: '医院'
     }],
+    gridCol: 5,
+    skin: true,
     list: [
       {
         imgArr: '../../image/28.jpg',
@@ -217,8 +219,7 @@ Page({
         answer: '好好好'
       }
     ],
-    gridCol: 5,
-    skin: true
+   
   },
   // 展开折叠选择 
   changeToggle: function (e) {

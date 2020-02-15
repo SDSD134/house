@@ -126,6 +126,6 @@ z-index:9999;
   font-size:20px;
 }
 .kong{
-  height:100px;
+  height:40px;
   width:100%;
 }

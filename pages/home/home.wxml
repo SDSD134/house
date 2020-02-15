@@ -41,7 +41,6 @@
 </view> -->
 <!-- 选择 -->
 <view id='tabs'>
-<<<<<<< HEAD
   <!-- <view class='tabs-box'>
     <block wx:for="{{['全部','诚信联盟','恒房通','凤凰通','万科家','融创通','福利好房']}}" wx:key="index">
       <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
@@ -49,9 +48,6 @@
       </view>
     </block>
   </view> -->
-=======
-
->>>>>>> 360ed4994f3c0fdd7daea97328baab23feac60e4
     <view class='tabs-box'>
     <!-- <scroll-view scroll-x class="scroll-header"> -->
    <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'wx:for="{{btns}}" wx:key="index">
@@ -59,10 +55,7 @@
    </view>
     <!-- </scroll-view> -->
  </view>
-<<<<<<< HEAD
-=======
 
->>>>>>> 360ed4994f3c0fdd7daea97328baab23feac60e4
 <!-- 选择对应页面 -->
   <view class='ordert-detail'>
     <view hidden='{{currentTabIndex != 0}}'>
@@ -93,7 +86,7 @@
                    <view>均价：待定</view>
                   </view>
                   <view wx:elif="{{item.countPrice!=null}}">
-                    <view>{{item.countPrice}}万元/m^2</view>
+                    <view>{{item.countPrice}}万元/m<sup>2</sup></view>
                   </view>
                 </view>
                 <view wx:if="{{item.buildingSign== '' }}">
@@ -140,7 +133,7 @@
                 <text class="list-right-text">{{item.show}} | {{item.city}}</text>
                 <view class="list-right-in">
                   <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.money2}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
@@ -171,7 +164,7 @@
                 <text class="list-right-text">{{item.show}} | {{item.city}}</text>
                 <view class="list-right-in">
                   <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.money2}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
@@ -203,7 +196,7 @@
                 <text class="list-right-text">{{item.show}} | {{item.city}}</text>
                 <view class="list-right-in">
                   <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.money2}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
@@ -235,7 +228,7 @@
                 <text class="list-right-text">{{item.show}} | {{item.city}}</text>
                 <view class="list-right-in">
                   <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.money2}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
@@ -266,7 +259,7 @@
                 <text class="list-right-text">{{item.show}} | {{item.city}}</text>
                 <view class="list-right-in">
                   <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.money2}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
@@ -298,7 +291,7 @@
                 <text class="list-right-text">{{item.show}} | {{item.city}}</text>
                 <view class="list-right-in">
                   <view>{{item.money1}}万/套</view>
-                  <view>{{item.money2}}万元/m^2</view>
+                  <view>{{item.money2}}万元/m<sup>2</sup></view>
                 </view>
                 <view class="list-right-last cu-tag round bg-olive light">住宅</view>
             </view>
