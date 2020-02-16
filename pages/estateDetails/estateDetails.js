@@ -3,6 +3,22 @@ var QQMapWX = require('../../lib/qqmap-wx-jssdk.js');
 var qqmapsdk;
 Page({
   data: {
+    // 海报要用值
+    path:'../../image/3.png',
+    path1:'../../image/27.jpg',
+    path2:'../../image/111.jpg',
+    path3:'临水家园',
+    path4:'12000元/m^2',
+    path5:'上海莆田区濮阳路2468好号',
+    path6: '50平方米',
+    path7:'5%',
+    path8:'上海加航区浦元路2468号',
+    path9:'都是地铁啥都有哈哈哈哈',
+    path10:'第四人民医院',
+    path11:'华晨超市',
+    path12:'第一小学，第一中学',
+    path13:'健身会馆',
+
     x:1,
     y:1,
     copyData:"",
@@ -53,6 +69,8 @@ Page({
     // 海报,
     maskHidden: false,
     maskHiddens: false,
+    mask:false,
+    masks:false,
     // 地图
     latitude: 23.099994,
     longitude: 113.324520,
@@ -330,6 +348,11 @@ Page({
       url: '../estateDetails/ask/ask'
     })
   },
+  agent: function (e) {
+    wx.navigateTo({
+      url: '../estateDetails/agent/agent'
+    })
+  },
   goAsk: function (e) {
     let that = this
     wx.navigateTo({
@@ -373,6 +396,19 @@ Page({
       url: '../estateDetails/reply/reply' 
     })
   },
+// 海报
+  post: function () {
+    //  var that = this;
+    this.setData({
+      mask: true,
+      maskHiddens:false
+    });
+  },
+  cancels: function () {
+    this.setData({
+      mask: false
+    });
+  },
 //  分享
  share:function(){
   //  var that = this;
@@ -399,8 +435,88 @@ Page({
   //      }   
   //    }
   //  })
+  // 点击生成二维码
+  maSubmit: function () {
+    // console.log("shibai");
+    var that = this;
+    this.setData({
+      masks: false
+    });
+    wx.showToast({
+      title: '生成中',
+      icon: 'loading',
+      duration: 1000
+    });
+    setTimeout(function () {
+      wx.hideToast()
+      that.createImg();
+      that.setData({
+        masks: true
+      });
+    }, 1000)
+  },
+  createImg: function () {
+    var that = this;
+    var context = wx.createCanvasContext('canvas');
+    context.setFillStyle("#6899FF")
+    context.fillRect(0, 0, 375, 385)
+     
+    context.setFillStyle("#FFFFFF")
+    context.fillRect(10, 10, 355, 365)
 
-  //点击生成
+    context.setFillStyle("#6899FF")
+    context.fillRect(20, 20, 335, 345)
+    var path2 = that.data.path2;
+    context.drawImage(path2, 35, 35, 305, 315);
+
+    
+    context.draw();
+
+    //将生成好的图片保存到本地，需要延迟一会，绘制期间耗时
+    setTimeout(function () {
+      wx.canvasToTempFilePath({
+        canvasId: 'canvas',
+        success: function (res) {
+          var tempFilePath = res.tempFilePath;
+          that.setData({
+            imagePath: tempFilePath,
+            canvasHidden: true
+          });
+        },
+        fail: function (res) {
+          console.log(res);
+        }
+      });
+    }, 200);
+  },
+  //点击保存到相册
+  baocun01: function () {
+    var that = this
+    wx.saveImageToPhotosAlbum({
+      filePath: that.data.imagePath,
+      success(res) {
+        wx.showModal({
+          content: '图片已保存到相册，赶紧晒一下吧~',
+          showCancel: false,
+          confirmText: '好的',
+          confirmColor: '#333',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定');
+              /* 该隐藏的隐藏 */
+              that.setData({
+                masks: false
+              })
+            }
+          }, fail: function (res) {
+            console.log(11111)
+          }
+        })
+      }
+    })
+  },
+
+  //点击生成海报
   formSubmit: function() {
     // console.log("shibai");
     var that = this;
@@ -425,9 +541,9 @@ Page({
     var that = this;
     var context = wx.createCanvasContext('mycanvas');
     context.setFillStyle("#6899FF")
-    context.fillRect(0, 0, 375, 667)
-    var path = "/image/3.png";
-    context.drawImage(path, 10, 10, 355, 647);
+    context.fillRect(0, 0, 375, 867)
+    var path = that.data.path;
+    context.drawImage(path, 10, 10, 355, 847);
     context.setFontSize(24);
     context.setFillStyle('#E0A859');
     context.setTextAlign('center');
@@ -438,39 +554,148 @@ Page({
     context.setTextAlign('center');
     context.fillText("—— 向您推荐一个好楼盘 ——", 180, 80);
     context.stroke();
-    var path1 = "/image/27.jpg";
-    context.drawImage(path1, 20, 100, 335, 217);
-    var path2 = "/image/111.jpg";
-    context.drawImage(path2, 146, 520, 80, 80);
+    var path1 = that.data.path1;
+    context.drawImage(path1, 35, 100, 305, 217);
+    var path2 = that.data.path2;
+    context.drawImage(path2, 150, 750, 60, 70);
+
+    var path3 = that.data.path3;
     context.setFontSize(20);
     context.setFillStyle('#5A5472');
     context.setTextAlign('left');
-    context.fillText("风清云都", 30, 347);
+    context.fillText(path3, 30, 347);
     context.stroke();
 
+    var path4 = that.data.path4;
     context.setFontSize(20);
     context.setFillStyle('#FD7B48');
     context.setTextAlign('right');
-    context.fillText("1200m^2", 335, 347);
+    context.fillText(path4, 335, 347);
     context.stroke();
 
     context.setFontSize(16);
     context.setFillStyle('#AAACBA');
     context.setTextAlign('left');
-    context.fillText("地址：嘉兴市南湖区越秀北路洪兴交界处", 30, 377);
+    context.fillText("面积：", 30, 377);
+    context.stroke();
+
+    var path5 = that.data.path5;
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText(path5, 60, 377);
     context.stroke();
 
     context.setFontSize(16);
     context.setFillStyle('#AAACBA');
     context.setTextAlign('left');
-    context.fillText("面积：29-50m^2", 30, 407);
+    context.fillText("地址：", 30, 407);
+    context.stroke();
+
+    var path6 = that.data.path6;
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText(path6, 60, 407);
     context.stroke();
 
     context.setFontSize(20);
-    context.setFillStyle('#FD7B48');
+    context.setFillStyle('#5A5472');
     context.setTextAlign('left');
-    context.fillText("地理位置好，环境优美，物超所值！", 30, 457);
+    context.fillText("佣金方案", 30, 437);
     context.stroke();
+   
+    var path7 = that.data.path7;
+    context.setFontSize(20);
+    context.setFillStyle('#FD7B48');
+    context.setTextAlign('right');
+    context.fillText(path7, 335, 437);
+    context.stroke();
+    
+    context.setFontSize(20);
+    context.setFillStyle('#5A5472');
+    context.setTextAlign('left');
+    context.fillText("楼房卖点", 30, 467);
+    context.stroke();
+
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("1.位置:", 30, 497);
+    context.stroke();
+    var path8 = that.data.path8;
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText(path8, 80, 497);
+    context.stroke();
+    
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("2.地理优势：", 30, 527);
+    context.stroke();
+    var path9 = that.data.path9;
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText(path9, 120, 527);
+    context.stroke();
+
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("3.小区配套：", 30, 557);
+    context.stroke();
+
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("医院：", 50, 587);
+    context.stroke();
+    var path10 = that.data.path10;
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText(path10, 90, 587);
+    context.stroke();
+
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("超市：", 50, 617);
+    context.stroke();
+    var path11 = that.data.path11;
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText(path11, 90, 617);
+    context.stroke();
+
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("学校：", 50, 647);
+    context.stroke();
+    var path12 = that.data.path12;
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText(path12, 90, 647);
+    context.stroke();
+
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText("娱乐设施：", 50, 677);
+    context.stroke();
+    var path13 = that.data.path13;
+    context.setFontSize(16);
+    context.setFillStyle('#AAACBA');
+    context.setTextAlign('left');
+    context.fillText(path13, 130, 677);
+    context.stroke();
+
     context.draw();
 
     //将生成好的图片保存到本地，需要延迟一会，绘制期间耗时
@@ -519,7 +744,6 @@ Page({
   
 
   onShareAppMessage: function () {
-    console.log("dd")
     var userid = ''
     wx.getStorage({
       key: 'user',
@@ -530,7 +754,7 @@ Page({
     return {
       title: '弹出分享时显示的分享标题',
       desc: '分享页面的内容',
-      path: 'pages/index/index?parentid=' + userid // 路径，传递参数到指定页面。
+      path: 'pages/estateDetails/agent/agent?parentid=' + userid // 路径，传递参数到指定页面。
     }
   },
  

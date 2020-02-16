@@ -5,7 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    x:1
+    x:1,
+    adminList:[{
+      name:'小孙'
+    }],
+    staffList: [{
+      name: '小孙'
+    }, {
+        name: '小张'
+      }],
+    shopList: [{
+      name: '临水家园',
+       address: '上海远方区2468号'
+    }, {
+        name: '临水家园',
+      address: '上海远方区2468号'
+    }],
 
   },
 

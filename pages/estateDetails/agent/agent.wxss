@@ -1,0 +1,144 @@
+/* pages/estateDetails/agent/agent.wxss */
+ sup{
+     font-size: 6px;
+     vertical-align:text-top;
+      color:#0081FF;
+}
+.action-text{
+  color:#0081FF;
+}
+.action-money{
+  font-size:40rpx;
+}
+/* 滚动 */
+
+.scroll-header{
+display: flex;
+white-space: nowrap;
+background:white;
+}
+.scroll-header-in{
+height:180px;
+width:150px;
+display: inline-block;
+justify-content: center;
+align-items: center;
+}
+.scroll-header-all{
+  height:180px;
+  width:150px;
+  position:relative;
+  left:15px; 
+}
+.scroll-header-image{
+  height:140px;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-header-image image{
+  height:120px;
+  width:130px;
+  /* border-radius: 10px; */
+}
+.scroll-header-title{
+  height:20px;
+  width:100%;
+  font-size:35rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+.scroll-header-price{
+  height:20px;
+  width:100%;
+  font-size:25rpx;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  color:orange;
+}
+.padding{
+  background:white;
+}
+/* 楼房买点 */
+.information-fifth{
+  background-color: white;
+  height:130px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.item{
+  height:130px;
+  width:90%;
+}
+.item-title{
+  font-size:30rpx;
+  display:flex;
+  align-items:center;
+  height:30px;
+  color:#8799A3;
+}
+.item-in{
+  font-size:30rpx;
+  display:flex;
+  align-items:center;
+  height:20px;
+  color:#8799A3;
+}
+.information-fifth-last{
+  background-color: white;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.item-last{
+  width:90%;
+}
+/* 电话 */
+.call-image{
+height:30px;
+  width:30px;
+}
+/* 地图 */
+.page-section-gap{
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.page-body {
+  padding: 20rpx 0;
+  background-color:white;
+}
+.welcome{
+  height:30px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#AAAAAA;
+}
+/* 返回首页 */
+.circle-float{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 200rpx;
+  right: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+  
+}
+.circle-float image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}

@@ -1,0 +1,164 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">{{title}}</view>
+  </cu-custom>
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}"></image>
+  </swiper-item>
+</swiper>
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+        <text class="action-money">{{money}}</text>
+        <text class="action-text">元/m</text><sup>2</sup> <text class="action-text">【出售】</text>
+    </view>
+</view>
+<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+ <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class="content">
+       <text class="cu-tag round bg-blue light">毛坯</text>
+       <text class="cu-tag round bg-blue light">毛坯</text>
+    </view>
+  </view>
+  <view class="cu-item {{menuArrow?'':'arrow'}}" bindtap='tomap'>
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">宁波市海湾区</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm"></text>
+      </view>
+  </view>
+  <view class="cu-item {{menuArrow?'arrow':''}}" >
+      <view class="content">
+        <text class="text-grey">最新开盘：未定</text>
+      </view>
+  </view>
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="text-grey">交易时间：未定</text>
+      </view>
+  </view>
+  <view wx:if="{{customerLength==0}}">
+    <view class="cu-item {{menuArrow?'arrow':''}}" >
+        <view class="content">
+          <text class="text-grey">佣金：暂无</text>
+        </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}" >
+        <view class="content">
+          <text class="text-grey">代理公司：暂无</text>
+        </view>
+    </view>
+  </view>
+ <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>全部户型（{{number}}）
+    </view>
+  </view>
+
+  <scroll-view scroll-x class="scroll-header">
+      <view class="scroll-header-in" wx:for="{{brand}}"  wx:key="{{index}}">
+        <view class="scroll-header-all">
+            <view class="scroll-header-image">
+              <image src="{{item.img}}" data-index='{{index}}'bindtap='previewImg'></image>
+            </view>
+            <view class="scroll-header-title">{{item.title}}</view>
+            <view class="scroll-header-price">{{item.price}}</view>
+        </view>
+      </view>
+  </scroll-view>
+<view class="cu-item {{menuArrow?'arrow':''}} margin-top">
+      <view class="content">
+        <text class="cuIcon-btn text-green"></text>
+        <text class="text-grey">楼房买点</text>
+      </view>
+  </view>
+  <view class="information-fifth">
+  <view class="item">
+    <view class="item-title">春天阳光城</view>
+    <view class="item-in">千套小面积住宅即将闪亮登场，诚邀合作伙伴</view>
+    <view class="item-in">【户型面积】：86方</view>
+    <view class="item-in">【体量】：80套</view>
+    <view class="item-in">【具体层高】：约3.2米</view>
+    <view class="item-in">【户型面积】：暂无消息</view>
+    </view>
+</view>
+<view class="information-fifth-last" >
+  <view  class="item-last">
+    <view hidden="{{!selectedFlag}}">
+      <block wx:for="{{list01}}" wx:for-item="item" wx:for-index="index">
+        <view class="item-in">
+          <view >【{{item.title}}】：{{item.word}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="padding">
+    <button class="cu-btn block bg-blue margin-tb-sm lg"  bindtap='changeToggle'>
+    展开更多
+    </button>
+</view>
+<view wx:if="{{customerLength==0}}">
+  <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text>市场专员
+      </view>
+    </view>
+  <view class="cu-item "wx:for="{{market}}" wx:key="{{key}}">
+        <view class="cu-avatar round lg" style="background-image:url({{item.user.avatarUrl}});">
+        </view>
+        <view class="content">
+          <view class="text-grey">
+            <text class="text-cut">{{item.name}}</text>
+            <view class="cu-tag round bg-orange sm">会员</view>
+          </view>
+          <view class="text-gray text-sm flex">
+            <text class="text-cut">{{tools.sub(item.phone, 3, 4)}}</text>
+          </view>
+        </view>
+        <view class="action">
+          <view class="action-in" bindtap='tel' data-phone='{{item.assistantPhone}}'> 
+            <image src="../../../image/call.png" class="call-image"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'':'arrow'}}">
+      <view class="content" bindtap='map'>
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">周边配套</text>
+      </view>
+  </view>
+    <!-- 地图 -->
+  <view class="page-body">
+  <view class="page-section page-section-gap">
+      <map  bindtap='map'
+        id="myMap"
+        style="width: 100%; height: 170px;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        markers="{{markers}}"
+        covers="{{covers}}"
+        show-location
+      ></map>
+    </view>
+    </view>
+  <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}" bindtap='map'>
+      <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
+        <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+        </view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+</view>
+<view class="welcome">
+    <text>欢迎来到新房通！^ - ^</text>
+</view>
+<!-- 返回首页 -->
+<view class="circle-float" bindtap="index">
+      <image src="../../../image/write.png"/>
+  </view>
+<!-- 手机号覆盖 -->
+<wxs src="../../../utils/subutil.wxs" module="tools"></wxs>

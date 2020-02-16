@@ -39,11 +39,35 @@
         <text class="text-grey">管理员</text>
       </view>
     </view> 
+    <view class="admin" wx:for="{{adminList}}">
+      <view class="admin-in">
+        <view class="admin-left">{{item.name}}</view>
+        <view class="admin-right"><image src="../../../image/phone.png"> </image></view>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}margin-top" >
+      <view class="content">
+         <text class="cuIcon-btn text-olive"></text>
+        <text class="text-grey">员工信息</text>
+      </view>
+    </view> 
+    <view class="admin" wx:for="{{staffList}}">
+      <view class="admin-in">
+        <view class="admin-left">{{item.name}}</view>
+        <view class="admin-right"><image src="../../../image/phone.png"> </image></view>
+      </view>
+    </view>
     <view class="cu-item {{menuArrow?'arrow':''}}margin-top" >
       <view class="content">
          <text class="cuIcon-btn text-olive"></text>
         <text class="text-grey">门店信息</text>
       </view>
     </view> 
+    <view class="admin" wx:for="{{shopList}}">
+      <view class="admin-in">
+        <view class="admin-left">{{item.name}}</view>
+        <view class="admin-right">{{item.address}}</view>
+      </view>
+    </view>
 </view> 
     

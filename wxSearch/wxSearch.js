@@ -1,3 +1,19 @@
+/***
+ * // 定义数据格式
+ * "wxSearchData":{
+ *  configconfig:{
+ *    style: "wxSearchNormal"
+ *  },
+ *  view:{
+ *    hidden: true,
+ *    searchbarHeght: 20
+ *  }
+ *  hotKeys:[],//自定义热门搜索
+ *  his:[]//历史搜索关键字
+ *  value
+ * }
+ */
+
 // 提示集合
 var __tipKeys = [];
 // 搜索回调函数 

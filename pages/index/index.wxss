@@ -125,7 +125,7 @@ page{
 .browse{
   display:flex;
   position:relative;    
-  top:35px;
+  top:45px;
 
 }
 .browse-item{
@@ -150,7 +150,7 @@ page{
 display: flex;
 white-space: nowrap;
 position:relative;    
-top:15px;
+top:30px;
 }
 
 .scroll-header navigator{

@@ -57,7 +57,8 @@
     "pages/logs/joinSuccess/joinSuccess",
     "pages/logs/wallet/withdrawals/withdrawals",
     "pages/credit/tip/tip",
-    "pages/estateDetails/map/map"
+    "pages/estateDetails/map/map",
+    "pages/estateDetails/agent/agent"
   ],
   "permission": {
     "scope.userLocation": {

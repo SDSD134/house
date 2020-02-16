@@ -474,9 +474,18 @@ height:30px;
 }
 .shengcheng{
   width: 80%;
-  height: 70%;
+  height: 80%;
   position: fixed;
-  top: 180rpx;
+  top: 100rpx;
+  left: 50%;
+  margin-left: -40%;
+  z-index: 10;
+}
+.shengchengs{
+  width: 80%;
+  height: 50%;
+  position: fixed;
+  top: 210rpx;
   left: 50%;
   margin-left: -40%;
   z-index: 10;
@@ -504,6 +513,16 @@ button[class="baocun"]::after{
   display: block;
   width: 100%;
   height: 400rpx;
+  padding: 0;
+  position: fixed;
+  bottom: 0rpx;
+  background: #FFFFFF;
+}
+/*海报*/
+.share-boxs{
+  display: block;
+  width: 100%;
+  height: 300rpx;
   padding: 0;
   position: fixed;
   bottom: 0rpx;

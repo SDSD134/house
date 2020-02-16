@@ -8,6 +8,8 @@ Page({
     var that = this;
     WxSearch.init(
       that,  // 本页面一个引用
+      ['小孙', '小白', '小李', '小张', '小心'], // 热点搜索推荐，[]表示不使用
+      ['小孙', '小白', '小李', '小张', '小心'],// 搜索匹配，[]表示不使用
       that.mySearchFunction, // 提供一个搜索回调函数
       that.myGobackFunction //提供一个返回回调函数
     );
@@ -25,7 +27,7 @@ Page({
     // do your job here
     // 跳转
     wx.redirectTo({
-      url: '../item/item?searchValue=' + value
+      url: '../index/index?searchValue=' + value
     })
   },
 

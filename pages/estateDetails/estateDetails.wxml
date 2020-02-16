@@ -178,7 +178,7 @@
           <view class="cu-tag round bg-orange sm">会员</view>
         </view>
         <view class="text-gray text-sm flex">
-          <text class="text-cut">{{item.assistantPhone}}</text>
+          <text class="text-cut">{{tools.sub(item.assistantPhone, 3, 4)}}</text>
         </view>
       </view>
       <view class="action">
@@ -477,19 +477,38 @@
   </view>
   <!-- 分享 -->
    <view class='imagePathBox' hidden="{{maskHiddens == false}}">
-       <view class="share-box">
-        <button class="wxshare-one" open-type='share'>分享给经纪人</button>
-          <button class="wxshare" open-type='share'>分享给客户</button>
-          <button class="poster" bindtap='formSubmit'>生成海报</button>
+       <view class="share-box"> 
+          <button class="wxshare-one"open-type="share">分享给经纪人</button>
+          <button class="wxshare" open-type='share' >分享给客户</button>
+          <button class="poster" bindtap="post" >分享到朋友圈</button>
           <button class="cancel" bindtap='cancel'>取消</button>
       </view>
   </view>
+  <!-- 海报 -->
+  <view class='imagePathBox' hidden="{{mask == false}}">
+       <view class="share-boxs"> 
+          <button class="wxshare" bindtap='maSubmit' >生成二维码</button>
+          <button class="poster" bindtap='formSubmit' >生成海报</button>
+          <button class="cancel" bindtap='cancels'>取消</button>
+      </view>
+  </view>
+  <!-- 二维码 -->
+  <view class='imagePathBox' hidden="{{masks == false}}">
+      <image src="{{imagePath}}" class='shengchengs'></image>
+      <button class='baocun' bindtap='baocun01'>保存海报</button>
+  </view>
+  <view hidden="{{masks == false}}" class="mask"></view> 
+  <view class="canvas-box">
+      <canvas  style="width: 375px;height: 385px;position:fixed;top:9999px" canvas-id="canvas"/>
+  </view>  
    <!-- 海报 -->
   <view class='imagePathBox' hidden="{{maskHidden == false}}">
       <image src="{{imagePath}}" class='shengcheng'></image>
-      <button class='baocun' bindtap='baocun'>保存相册，分享到朋友圈</button>
+      <button class='baocun' bindtap='baocun'>保存海报</button>
   </view>
   <view hidden="{{maskHidden == false}}" class="mask"></view> 
   <view class="canvas-box">
-      <canvas  style="width: 375px;height: 667px;position:fixed;top:9999px" canvas-id="mycanvas"/>
+      <canvas  style="width: 375px;height: 867px;position:fixed;top:9999px" canvas-id="mycanvas"/>
   </view>  
+<!-- 手机号覆盖 -->
+<wxs src="../../utils/subutil.wxs" module="tools"></wxs>
