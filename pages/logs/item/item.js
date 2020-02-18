@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currentTabIndex: 0,
     diarylength:1,
+    auditingLenth:1,
     list: [
       {
         imgArr: '../../../image/28.jpg',
@@ -32,8 +34,45 @@ Page({
         city: '嘉兴市'
      
       }
+    ],
+    lists: [
+      {
+        imgArr: '../../../image/28.jpg',
+        title: '米丽达花园',
+        show: '在售',
+        city: '嘉兴市',
+        auditing:'信息虚假'
+
+      },
+      {
+        imgArr: '../../../image/28.jpg',
+        title: '米丽达花园',
+        auditing: '信息虚假'
+
+      },
+      {
+        imgArr: '../../../image/28.jpg',
+        title: '米丽达花园',
+        show: '在售',
+        city: '嘉兴市',
+        auditing: '信息虚假'
+      },
+      {
+        imgArr: '../../../image/28.jpg',
+        title: '米丽达花园',
+        show: '在售',
+        city: '嘉兴市',
+        auditing: '信息虚假'
+
+      }
     ]
 
+  },
+  onTabsItemTap: function (event) {
+    let index = event.currentTarget.dataset.index;
+    this.setData({
+      currentTabIndex: index
+    })
   },
   join: function (e) {
     wx.navigateTo({

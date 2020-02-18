@@ -22,13 +22,30 @@
 
 /** 提示样式 */
 .wxSearchMindKeyItem{
-  padding: 10px 5px 10px 15px;
+  padding: 10px 15px 10px 15px;
   margin-left: 10px;
   border-bottom: 1px solid #eee;
   display: flex;
   font-size: 13px;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.img-text{
+  display: flex;
+  align-items: center;
+   height:40px;
+  width:60%;
+}
+.img-text image {
+  height:40px;
+  width:40px;
+  border-radius: 50%;
+}
+.txt{
+  position:relative;    
+  left:10px;
+  color:#38374E;
+}
 /** 标签样式 */
 .wxSearchKeyList{
   display: flex;

@@ -12,8 +12,9 @@
 </navigator>
 <!-- 筛选 -->
 <view class="list">
-    <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
-        <text>{{region[2]}}</text>
+   <picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}"
+		 range="{{multiArray}}">
+        <text>{{multiArray[2][multiIndex[2]]}}</text>
         <image class="img-down" src='../../image/down1.png'></image>
     </picker>
     <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">

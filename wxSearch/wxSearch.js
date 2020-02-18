@@ -14,7 +14,7 @@
  * }
  */
 
-// 提示集合
+// 列表集合
 var __tipKeys = [];
 // 搜索回调函数 
 var __searchFunction = null;

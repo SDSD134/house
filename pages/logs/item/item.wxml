@@ -2,40 +2,86 @@
     <view slot="backText">返回</view>
     <view slot="content">我的项目</view>
 </cu-custom>
-<!-- 判断--无权限 -->
-<view wx:if="{{diarylength==0}}">
-  <view class="container">
-      <image src="../../../image/00.jpg"> </image>
-      <text class="container-no">无发布权限</text>
-      <text class="container-prompt">您当前身份为独立经纪人，没有发布权限，请加入公司</text>
-      <text class="join" bindtap='join'>加入公司</text>
-   </view>
-</view>
-<!-- 判断--有权限 -->
-<view wx:else>
-<view class="cu-list menu-avatar">
-    <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{list}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
-      <view class="cu-avatar radius lg" >
-          <image src="{{item.imgArr}}"class="img"></image>
+<view id='tabs'>
+  <view class='tabs-box'>
+    <block wx:for="{{['已发布','审核']}}" wx:key="index">
+      <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+        {{item}}      
       </view>
-      <view class="content">
-        <view class="text-grey">{{item.title}}</view>
-        <view class="text-gray text-sm">
-           <text class="cuIcon-infofill text-red"></text> {{item.show}} | {{item.city}}
-        </view>
-      </view>
-       <view class="action">
-        <view class="cu-tag round bg-olive light">住宅</view>
-      </view>
-      <view class="move">
-      <view class="bg-green" bindtap = "makeover">转让</view>
-        <view class="bg-blue" bindtap = "revise">修改</view>
-        <view class="bg-red" bindtap = "delItem">删除</view>
-      </view>
-    </view>
+    </block>
   </view>
 </view>
-<view class="kong"></view>
+ <view class='ordert-detail'>
+    <view hidden='{{currentTabIndex != 0}}'>
+      <!-- 判断--无权限 -->
+      <view wx:if="{{diarylength==0}}">
+        <view class="container">
+            <image src="../../../image/00.jpg"> </image>
+            <text class="container-no">无发布权限</text>
+            <text class="container-prompt">您当前身份为独立经纪人，没有发布权限，请加入公司</text>
+            <text class="join" bindtap='join'>加入公司</text>
+        </view>
+      </view>
+      <!-- 判断--有权限 -->
+      <view wx:else>
+      <view class="cu-list menu-avatar">
+          <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{list}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+            <view class="cu-avatar radius lg" >
+                <image src="{{item.imgArr}}"class="img"></image>
+            </view>
+            <view class="content">
+              <view class="text-grey">{{item.title}}</view>
+              <view class="text-gray text-sm">
+                <text class="cuIcon-infofill text-red"></text> {{item.show}} | {{item.city}}
+              </view>
+            </view>
+            <view class="action">
+              <view class="cu-tag round bg-olive light">住宅</view>
+            </view>
+            <view class="move">
+            <view class="bg-green" bindtap = "makeover">转让</view>
+              <view class="bg-blue" bindtap = "revise">修改</view>
+              <view class="bg-red" bindtap = "delItem">删除</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="kong"></view>
+     </view>
+     <view hidden='{{currentTabIndex != 1}}'>
+       <view class="cu-list menu-avatar" >
+          <view class="margin-top cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{lists}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+            <view class="cu-avatar radius lg" >
+                <image src="{{item.imgArr}}"class="img"></image>
+            </view>
+            <view class="content">
+              <view class="text-grey">{{item.title}}</view>
+              <view class="text-gray text-sm">
+                <text class="cuIcon-infofill text-red"></text> {{item.show}} | {{item.city}}
+              </view>
+               <view wx:if="{{auditingLenth==0}}" class="auditing-wait text-sm">
+                    审核中.....
+              </view>
+              <view wx:else class="auditing-false text-sm">
+                    审核失败：{{item.auditing}}
+              </view>
+            </view>
+            <view class="action">    
+              <view class="cu-tag round bg-olive light">住宅</view>
+
+            </view>
+            <view class="move">
+              <view class="bg-blue" bindtap = "revise">修改</view>
+              <view class="bg-red" bindtap = "delItem">删除</view>
+            </view>
+          </view>
+          <!-- <view class="auditing">
+           
+          </view> -->
+        </view>
+      </view>
+      <view class="kong"></view>
+      </view>
 <!-- 发布项目 -->
 <navigator url="../../release/release">
   <view class="oblong-float">

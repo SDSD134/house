@@ -10,7 +10,7 @@ Page({
     WxSearch.init(
       that,  // 本页面一个引用
       ['宁郭府', '白鹤郡', "新里城", "大悦府", '西香颂'], // 热点搜索推荐，[]表示不使用
-      ['宁郭府', '白鹤郡', '新里城', "大悦府"],// 搜索匹配，[]表示不使用
+      ['宁郭府', '白鹤郡', '新里城', "大悦府" ,"宁愿"],// 搜索匹配，[]表示不使用
       that.mySearchFunction, // 提供一个搜索回调函数
       that.myGobackFunction //提供一个返回回调函数
     );
@@ -28,7 +28,7 @@ Page({
     // do your job here
     // 跳转
     wx.redirectTo({
-      url: '../index/index?searchValue=' + value
+      url: '../estateDetails/estateDetails?searchValue=' + value
     })
   },
 

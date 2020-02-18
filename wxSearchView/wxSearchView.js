@@ -16,6 +16,7 @@
 
 // 提示集合
 var __tipKeys = [];
+var __detail = [];
 // 搜索回调函数 
 var __searchFunction = null;
 // 返回函数 
@@ -28,6 +29,7 @@ function init(that, hotKeys, tipKeys, searchFunction, goBackFunction) {
 
   __that = that;
   __tipKeys = tipKeys;
+  __detail = tipKeys.detail
   __searchFunction = searchFunction;
   __goBackFunction = goBackFunction;
 

@@ -22,11 +22,35 @@
 
 /** 提示样式 */
 .wxSearchMindKeyItem{
-  padding: 10px 5px 10px 15px;
+  padding: 10px 5px 5px 15px;
+  margin-left: 10px;
+  /* border-bottom: 1px solid #eee; */
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+
+}
+.wxSearchDetail{
+  padding: 0px 0px 5px 15px;
   margin-left: 10px;
   border-bottom: 1px solid #eee;
   display: flex;
-  font-size: 13px;
+  align-items: center;
+  font-size: 28rpx;
+  color:#979797;
+}
+.show{
+  height:16px;
+  width:26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1px;
+  background:#58C64E;
+  color:white;
+  font-size: 25rpx;
+    position:relative;    
+    left:10px;
 }
 
 /** 标签样式 */
@@ -56,6 +80,7 @@
   padding-right: 5px;
   padding-bottom: 5px;
   display: flex;
+
 }
 
 /** 搜索记录标题 */
