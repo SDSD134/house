@@ -1,4 +1,5 @@
 var common = require('../../wxPop/wxPop.js');
+// var c = require('../../utils/wxHaiwai.js');
 Component({
   properties: {
     // 是否显示
@@ -33,6 +34,7 @@ Component({
     },
   },
   data: {
+    
 
     btns: [
       {
@@ -186,15 +188,214 @@ Component({
       ['不限']
     ],
     multiIndex: [0, 0, 0],
+    
   },
+  
 
 methods: {
-  MultiChange(e) {
+  onShow:function(){
+    let haiwai = wx.getStorageSync('haiwai');
     this.setData({
-      multiIndex: e.detail.value
+      haiwai: haiwai
+    })
+    console.log('测试'+haiwai)
+    
+  },
+  // 获取手机号
+  getPhoneNumber: function (e) {
+    common.getPhoneNumber(e);
+  },
+  estateDetails: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../estateDetails/estateDetails?id=' + e.currentTarget.dataset.id
     })
   },
+  RegionChange: function (e) {
+    this.setData({
+      region: e.detail.value
+    })
+  },
+  PickerChange(e) {
+   let that = this 
+    console.log(e);
+    this.setData({
+      index: e.detail.value
+    }),
+      wx.getStorage({
+        key: 'user',
+        success: function (res) {
+          wx.request({
+            url: 'http://localhost:8080/building/select/averagePrice',
+            data: {
+              userId: res.userId,
+              pageNum: that.data.pageNum,
+              pageSize: that.data.pageSize,
+              priceType: that.data.index,
+            },
+          })
+        },
+      })
+  },
+  PickerChangeOne(e) {
+    let that = this;
+    console.log(e);
+    this.setData({
+      indexOne: e.detail.value
+    }),
+    wx.getStorage({
+      key: 'user',
+      success: function(res) {
+        wx.request({
+          url: 'http://localhost:8080/building/select/averagePrice',
+          data: {
+            userId: res.userId,
+            pageNum: that.data.pageNum,
+            pageSize: that.data.pageSize,
+            priceType: that.data.index,
+          },
+        })
+      },
+    })
+   
+  },
+  PickerChangeTwo(e) {
+    let that = this;
+   // console.log(e.detail.value);
+    var index = e.detail.value
+    this.setData({
+      indexTwo: index
+    })
+    wx.getStorage({
+      key: 'user',
+      success: function (res) {
+       // console.log(res)
+        wx.request({
+          url: 'http://localhost:8080/building/select/character',
+          data: {
+            userId: res.data.userId,
+            //pageNum: that.data.pageNum,
+            //pageSize: that.data.pageSize,
+            characterType: that.data.indexTwo,
+          },
+          success(res) {
+            // wx.showToast({
+            //   title: '取消收藏成功',
+            //   icon: 'success'
+            // })
+            that.setData({
+             list:res.data.data
+            })
+           // console.log(res.data.data)
+            
+          },
+        })
+      },
+    })
+  },
+  PickerChangeThree(e) {
+    console.log(e);
+    this.setData({
+      indexThree: e.detail.value
+    })
+  },
+  mySelect(e) {
+    var name = e.currentTarget.dataset.name
+    this.setData({
+      select: false
+    })
+  },
+  onTabsItemTap: function (event) {
+    let index = event.currentTarget.dataset.index;
+    this.setData({
+      currentTabIndex: index
+    })
+  },
+  // 收藏
+  handleCollection(e) {
+    // let isCollected = !this.data.isCollected
+    let that = this;
+    var list = that.data.list
+    let collect = !list[e.currentTarget.dataset.index].collect
+    list[e.currentTarget.dataset.index].collect = collect
+    console.log()
+    console.log(list[e.currentTarget.dataset.index].collect)
+    
+    
+    this.setData({
+      // 下面本来是这样子的:isCollected=isCollected,可以简写
+      list:list
+    })
+
+
+    if (collect) {
+      wx.request({
+        url: 'https://www.dikashi.top/house/collect/addCollect',
+        data: {
+          userId: 'f',
+          buildingId: list[e.currentTarget.dataset.index].buildingId
+        },
+        success(res) {
+          wx.showToast({
+            title: 收藏成功,
+            icon: 'success'
+          })
+        },
+        fail(res) {
+          wx.showToast({
+            title: '操作失败',
+            icon: 'success'
+          })
+        }
+      })
+    } else{
+      wx.request({
+        url: 'https://www.dikashi.top/house/collect/deleteCollect',
+        data: {
+          userId: 'f',
+          buildingId: list[e.currentTarget.dataset.index].buildingId
+        },
+        success(res) {
+          wx.showToast({
+            title:'取消收藏成功',
+            icon: 'success'
+          })
+        },
+        fail(res) {
+          wx.showToast({
+            title: '操作失败',
+            icon: 'success'
+          })
+        }
+      })
+    }
+    
+    //提示用户
+    
+  },
+  // 弹框
+  close: function () {
+    this.setData({
+      hide: true
+    });
+  },
+  Success: function (e) {
+    wx.navigateTo({
+      url: '../phoneLogin/phoneLogin'
+    })
+  },
+  Cancel: function (e) {
+    var myEventDetail = e // detail对象，提供给事件监听函数
+    var myEventOption = {} // 触发事件的选项
+    this.triggerEvent('Cancel', myEventDetail, myEventOption)
+    this.close();
+  },
+  // 海外
   MultiColumnChange(e) {
+    wx.clearStorage('haiwai');
+    let haiwai = 1;
+    this.setData(haiwai);
+    console.log(haiwai);
     let data = {
       multiArray: this.data.multiArray,
       multiIndex: this.data.multiIndex
@@ -1452,195 +1653,17 @@ methods: {
         break;
     }
     this.setData(data);
-  },
-  // 获取手机号
-  getPhoneNumber: function (e) {
-    common.getPhoneNumber(e);
-  },
-  estateDetails: function (e) {
-    console.log(e.currentTarget.dataset.id)
-    wx.navigateTo({
-      url: '../estateDetails/estateDetails?id=' + e.currentTarget.dataset.id
-    })
-  },
-  RegionChange: function (e) {
-    this.setData({
-      region: e.detail.value
-    })
-  },
-  PickerChange(e) {
-   let that = this 
-    console.log(e);
-    this.setData({
-      index: e.detail.value
-    }),
-      wx.getStorage({
-        key: 'user',
-        success: function (res) {
-          wx.request({
-            url: 'http://localhost:8080/building/select/averagePrice',
-            data: {
-              userId: res.userId,
-              pageNum: that.data.pageNum,
-              pageSize: that.data.pageSize,
-              priceType: that.data.index,
-            },
-          })
-        },
-      })
-  },
-  PickerChangeOne(e) {
-    let that = this;
-    console.log(e);
-    this.setData({
-      indexOne: e.detail.value
-    }),
-    wx.getStorage({
-      key: 'user',
-      success: function(res) {
-        wx.request({
-          url: 'http://localhost:8080/building/select/averagePrice',
-          data: {
-            userId: res.userId,
-            pageNum: that.data.pageNum,
-            pageSize: that.data.pageSize,
-            priceType: that.data.index,
-          },
-        })
-      },
-    })
-   
-  },
-  PickerChangeTwo(e) {
-    let that = this;
-   // console.log(e.detail.value);
-    var index = e.detail.value
-    this.setData({
-      indexTwo: index
-    })
-    wx.getStorage({
-      key: 'user',
-      success: function (res) {
-       // console.log(res)
-        wx.request({
-          url: 'http://localhost:8080/building/select/character',
-          data: {
-            userId: res.data.userId,
-            //pageNum: that.data.pageNum,
-            //pageSize: that.data.pageSize,
-            characterType: that.data.indexTwo,
-          },
-          success(res) {
-            // wx.showToast({
-            //   title: '取消收藏成功',
-            //   icon: 'success'
-            // })
-            that.setData({
-             list:res.data.data
-            })
-           // console.log(res.data.data)
-            
-          },
-        })
-      },
-    })
-  },
-  PickerChangeThree(e) {
-    console.log(e);
-    this.setData({
-      indexThree: e.detail.value
-    })
-  },
-  mySelect(e) {
-    var name = e.currentTarget.dataset.name
-    this.setData({
-      select: false
-    })
-  },
-  onTabsItemTap: function (event) {
-    let index = event.currentTarget.dataset.index;
-    this.setData({
-      currentTabIndex: index
-    })
-  },
-  // 收藏
-  handleCollection(e) {
-    // let isCollected = !this.data.isCollected
-    let that = this;
-    var list = that.data.list
-    let collect = !list[e.currentTarget.dataset.index].collect
-    list[e.currentTarget.dataset.index].collect = collect
-    console.log()
-    console.log(list[e.currentTarget.dataset.index].collect)
-    
-    
-    this.setData({
-      // 下面本来是这样子的:isCollected=isCollected,可以简写
-      list:list
-    })
 
-
-    if (collect) {
-      wx.request({
-        url: 'https://www.dikashi.top/house/collect/addCollect',
-        data: {
-          userId: 'f',
-          buildingId: list[e.currentTarget.dataset.index].buildingId
-        },
-        success(res) {
-          wx.showToast({
-            title: 收藏成功,
-            icon: 'success'
-          })
-        },
-        fail(res) {
-          wx.showToast({
-            title: '操作失败',
-            icon: 'success'
-          })
-        }
-      })
-    } else{
-      wx.request({
-        url: 'https://www.dikashi.top/house/collect/deleteCollect',
-        data: {
-          userId: 'f',
-          buildingId: list[e.currentTarget.dataset.index].buildingId
-        },
-        success(res) {
-          wx.showToast({
-            title:'取消收藏成功',
-            icon: 'success'
-          })
-        },
-        fail(res) {
-          wx.showToast({
-            title: '操作失败',
-            icon: 'success'
-          })
-        }
-      })
-    }
-    
-    //提示用户
-    
   },
-  // 弹框
-  close: function () {
+  MultiChange(e) {
+    wx.clearStorage('haiwai');
+    let haiwai = 1;
+    // this.setData(haiwai);
     this.setData({
-      hide: true
-    });
-  },
-  Success: function (e) {
-    wx.navigateTo({
-      url: '../phoneLogin/phoneLogin'
+      haiwai: haiwai,
+      multiIndex: e.detail.value,
+
     })
-  },
-  Cancel: function (e) {
-    var myEventDetail = e // detail对象，提供给事件监听函数
-    var myEventOption = {} // 触发事件的选项
-    this.triggerEvent('Cancel', myEventDetail, myEventOption)
-    this.close();
   },
 },
 

@@ -29,5 +29,6 @@
       <view>登录</view>
     </button>
   </view>
-
+<view>{{id}}</view>
   </form>
+  

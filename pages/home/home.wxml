@@ -6,7 +6,7 @@
   <view class="search">
     <view class="search-in">
       <image src="../../image/search.png"></image>
-      <text>请输入项目名称或公司名</text>
+      <text>请输入项目名称或公司名{{id}}</text>
     </view>
   </view>
 </navigator>
@@ -14,7 +14,8 @@
 <view class="list">
    <picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}"
 		 range="{{multiArray}}">
-        <text>{{multiArray[2][multiIndex[2]]}}</text>
+        <text wx:if="{{ haiwai==3 }}">海外</text>
+        <text wx:else>{{multiArray[2][multiIndex[2]]}}</text>
         <image class="img-down" src='../../image/down1.png'></image>
     </picker>
     <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
@@ -309,6 +310,7 @@
       </view>
   </view>
 </view>
+
 
 <!-- 弹框 -->
 <!-- <include src="../../wxPop/wxPop.wxml" /> -->

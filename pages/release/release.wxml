@@ -65,9 +65,10 @@
 
   <view class="cu-form-group">
 		<view class="title">所在区域<text class="must">（必填）</text></view>
-		<picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+			<picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}"
+		 range="{{multiArray}}">
 			<view class="picker">
-				{{region[0]}}，{{region[1]}}，{{region[2]}}
+				{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
 			</view>
 		</picker>
 	</view>

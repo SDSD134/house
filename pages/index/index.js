@@ -370,10 +370,11 @@ Component({
         url: '../home/home'
       })
     },
-    haiwai: function (e) {
+    haiwai: function () {
       wx.switchTab({
-        url: '../home/home？region[2]="海外"'
+        url: '../home/home'
       })
+      wx.setStorageSync('haiwai','3')
     },
     close: function () {
       this.setData({
