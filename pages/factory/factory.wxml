@@ -4,10 +4,11 @@
 <!-- 选择 -->
 <view id='tabs'>
   <view class='tabs-box'>
-    <picker id="tabs-all" mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
-      <text >{{region[2]}}</text>
-      <image style='height:20rpx;width:20rpx;' src='../../image/down1.png'></image>
-    </picker>
+     <picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}"
+		 range="{{multiArray}}">
+			<text>{{multiArray[1][multiIndex[1]]}}</text>
+       <image style='height:20rpx;width:20rpx;' src='../../image/down1.png'></image>
+		</picker>
     <block wx:for="{{['代理公司','分销公司','开发商']}}" wx:key="index">
       <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
         {{item}}      
